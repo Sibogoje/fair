@@ -1,0 +1,143 @@
+<?php
+require_once '../scripts/connection.php';
+set_time_limit(0);
+if(count($_POST)>0){
+$rr = "0";
+$r1 = $_POST['id'];
+$val = 0.00;
+$records = 0;
+$term = 0;
+/////////////retrieve all records that are not terminated ///////////////////////////////////
+$stmt = $conn->prepare("SELECT `MemberNo`, `balance`  FROM `tblmembers1` WHERE `Terminated`=? ");
+$stmt->bind_param("s", $term);
+$stmt->execute();
+$result = $stmt->get_result();
+if ($result->num_rows > 0) {
+while($row = $result->fetch_assoc()) {
+	$update_date = date("Y-m-d");
+    $PaymentDate = $update_date;	
+	$MemberNo = $row['MemberNo'];
+	
+
+	$rr2 = strtotime($r1);
+
+    $momth = date('m', $rr2);
+    $days = 31;
+    if ($momth == '01' || $momth == '03' || $momth == '05' || $momth == '07' || $momth == '08' || $momth == '10' || $momth == '12'){
+        $days = 31;
+    }else {
+        $days = 30;
+    }
+	
+	$ruuning_balance = $row['balance'];
+	$amount = ((0.015 * $ruuning_balance)/365)*$days;
+	$afterminusadmin = $ruuning_balance - $amount;
+
+
+	
+	//$date_balance_updated = $row['date_balance_updated'];
+	$ruuning_balance = $row['balance'];
+		$TransactionTypeID = 7;
+	$TransactionTypeID2 = 6;
+	$Credit = 0;
+	$Details = "Admin Fees";
+	$Details2 = "Fixed Monthly Fee";
+	$Comments = "";
+	$latest = 0;
+	$latest2 = 1;
+	
+	
+////////update latest in accounts
+
+$insertnew = $conn->prepare("insert into `u747325399_fairlife`.`tblMemberAccounts1` (
+
+  `TransactionDate`,
+  `TransactionTypeID`,
+  `memberID`,
+  `Details`,
+  `Credit`,
+  `StartingBalance`,
+  `Amount`,
+  `NewBalance`,
+  `Comments`
+)
+
+VALUES
+  (
+
+    ?,
+    ?,
+    ?,
+    ?,
+	?,
+	?,
+	?,
+	?,
+	?
+  );");
+$insertnew->bind_param("sssssssss", 
+  $PaymentDate, 
+$TransactionTypeID,
+$MemberNo,
+$Details,
+$Credit,
+$ruuning_balance,
+$amount,
+$afterminusadmin,
+$Comments
+
+);
+$insertnew->execute();
+
+	$amount2 = 10;
+	$finalbalance = $afterminusadmin - $amount2;
+$insertnew->bind_param("sssssssss", 
+$PaymentDate, 
+$TransactionTypeID2,
+$MemberNo,
+$Details2,
+$Credit,
+$afterminusadmin,
+$amount2,
+$finalbalance,
+$Comments
+
+);
+$insertnew->execute();
+	
+	
+	
+	
+
+
+	
+}
+$response = array(
+					'statusCode'=>200,
+					'datas'=>"Success: Transactions succesful"
+					);
+				echo json_encode($response);
+
+}else{
+
+
+
+$response = array(
+					'statusCode'=>201,
+					'datas'=>"Error: There was an error in retrieving Data"
+					);
+				echo json_encode($response);
+
+		
+}
+				
+}else{
+	
+	$response = array(
+					'statusCode'=>201,
+					'datas'=>"Error: Contact Administrator"
+					);
+				echo json_encode($response);
+}
+	
+	?>
