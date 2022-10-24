@@ -67,11 +67,7 @@ $stmt = $conn->prepare("SELECT * from tblmembers where MemberNo = '$ii' ");
                     <th scope="col" colspan="6">Account Summary   [<? echo date('d-M-Y')?>]</th>
                    
                     </tr>	
-					
-					
-<?
-
-
+<?php					
 }}    
     
     
