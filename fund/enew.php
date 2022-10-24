@@ -23,7 +23,7 @@ $EmployerTel = $_POST['EmployerTel'];
 $EmployerCell = $_POST['EmployerCell'];
 
 
-$stmt = $conn->prepare("INSERT INTO `u747325399_fairlife`.`tblemployers1` (
+$stmt = $conn->prepare("INSERT INTO ``tblemployers` (
  `FundID`,
   `EmployerName`,
   `EmployerAddress`,
@@ -139,7 +139,7 @@ $conn->close();
 					 <select type="text" class="form-control" id="ff" placeholder="FundID" name="FundID" >
 					<option value="" selected></option>
 						<?php 
-						$stmt12 = $conn->prepare("SELECT * FROM `tblretirementfunds1` ");
+						$stmt12 = $conn->prepare("SELECT * FROM `tblretirementfunds` ");
 						$stmt12->execute();
 						$result12 = $stmt12->get_result();
 						if ($result12->num_rows > 0) {
