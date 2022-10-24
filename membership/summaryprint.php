@@ -119,7 +119,7 @@ td {
 
 <body>
     
-<?
+<?php
 if(count($_POST)>0){
           
 $stmt = $conn->prepare("SELECT * from `tblmembers` where `MemberID` = '$ii' ");
