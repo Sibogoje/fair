@@ -145,13 +145,13 @@ html.loading body {
 						if ($result12->num_rows > 0) {
 						  // output data of each row
 						while($row12 = $result12->fetch_assoc()) {
-						$MemberNo = $row12['MemberID'];
+						//$MemberNo = $row12['MemberID'];
 						//$retirementfund = $row12['RetirementFundID'];
 					    	
 							
 
 						?>
-					<option value="<?php echo $row12['MemberNo']; ?>"><?php echo $row12['MemberNo']." - ".$row12['MemberSurname']."".$row12['MemberFirstname'] ; ?></option>
+					<option value="<?php echo $row12['MemberID']; ?>"><?php echo $row12['MemberNo']." - ".$row12['MemberSurname']."".$row12['MemberFirstname'] ; ?></option>
 						<?php   }
 						} else {
 						  echo "0 results";
