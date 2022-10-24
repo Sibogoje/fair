@@ -145,7 +145,7 @@ html.loading body {
 						if ($result12->num_rows > 0) {
 						  // output data of each row
 						while($row12 = $result12->fetch_assoc()) {
-						$MemberNo = $row12['MemberNo'];
+						$MemberNo = $row12['MemberID'];
 						//$retirementfund = $row12['RetirementFundID'];
 					    	
 							
