@@ -359,7 +359,7 @@ $('#sss').select2({
 </html>
 <?php
 }else{
-    header('Location: ./index.php');
+    header('Location: http://localhost/fairlife/fair/index.php');
 }
 
 ?>

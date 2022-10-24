@@ -27,8 +27,8 @@ require_once '../scripts/connection.php';
         <link href='../select2/dist/css/select2.min.css' rel='stylesheet' type='text/css'>
 
   <!-- Favicons -->
-  <link href="./logo.png" rel="icon">
-  <link href="./logo.png" rel="apple-touch-icon">
+  <link href="http://localhost/fairlife/fair/logo.png" rel="icon">
+  <link href="http://localhost/fairlife/fair/logo.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
@@ -312,7 +312,7 @@ $('#single').select2({
 </html>
 <?php
 }else{
-    header('Location: ./index.php');
+    header('Location: http://localhost/fairlife/fair/index.php');
 }
 
 ?>

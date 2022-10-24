@@ -419,7 +419,7 @@ $(document).on("click",".dnew",function(e){
 </html>
 <?php
 }else{
-    header('Location: ./index.php');
+    header('Location: http://localhost/fairlife/fair/index.php');
 }
 
 ?>
