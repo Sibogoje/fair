@@ -75,11 +75,11 @@ $stmt = $conn->prepare("SELECT * from `tblmembers` where `MemberNo` = '$ii' ");
 }}    
     
     
-$stmt12 = $conn->prepare("SELECT SUM(`Amount`) AS `TT3` from `tblmemberaccounts` where  TransactionTypeID = '8' AND memberID = '$ii' ");
-						$stmt12->execute();
-						$result12 = $stmt12->get_result();
-						if ($result12->num_rows > 0) {
-						    while($row12 = $result12->fetch_assoc()) {
+$stmt13 = $conn->prepare("SELECT SUM(`Amount`) AS `TT3` from `tblmemberaccounts` where  TransactionTypeID = '8' AND memberID = '$ii' ");
+						$stmt13->execute();
+						$result13 = $stmt13->get_result();
+						if ($result13->num_rows > 0) {
+						    while($row13 = $result13->fetch_assoc()) {
 						  // output data of each row
 						 // $sum = $sum + $row12['TT3'] ;
 						 ?>
@@ -87,7 +87,7 @@ $stmt12 = $conn->prepare("SELECT SUM(`Amount`) AS `TT3` from `tblmemberaccounts`
                    
                     <tr>
                     <th scope="col" colspan="3" style="vertical-align: top;">Income Earned</th>
-                    <td scope="col" colspan="3" style="text-align: right;"><?php echo "E ". number_format($row12['TT3'], 2); ?></td>
+                    <td scope="col" colspan="3" style="text-align: right;"><?php echo "E ". number_format($row13['TT3'], 2); ?></td>
                     </tr>
 
  <?php	}
