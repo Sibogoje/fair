@@ -164,7 +164,7 @@ require_once '../scripts/connection.php';
               <h5 class="card-title">Interest Received (last 12 Months)</h5>
               <!-- Table with stripped rows -->
               <div class="table-responsive">
-              <table class="table table-striped datatable" style="width: 100%;" id="jj">
+              <table class="table table-striped datatable nowrap" id="jj" style="width: 100%;" >
                 <thead>
                   <tr>
                     <th scope="col">Start Date</th>
