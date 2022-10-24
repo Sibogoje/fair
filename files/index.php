@@ -26,8 +26,8 @@ include 'db_connect.php' ?>
         <link href='../select2/dist/css/select2.min.css' rel='stylesheet' type='text/css'>
 
   <!-- Favicons -->
-  <link href="http://localhost/fairlife/logo.png" rel="icon">
-  <link href="http://localhost/fairlife/logo.png" rel="apple-touch-icon">
+  <link href="https://fair.liquag.com/" rel="icon">
+  <link href="https://fair.liquag.com/" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">

@@ -19,8 +19,8 @@ require_once '../scripts/connection.php';
   <meta content="" name="keywords">
   <script src=" https://code.jquery.com/jquery-3.5.1.js"></script>
   <!-- Favicons -->
-  <link href="http://localhost/fairlife/logo.png" rel="icon">
-  <link href="http://localhost/fairlife/logo.png" rel="apple-touch-icon">
+  <link href="https://fair.liquag.com/" rel="icon">
+  <link href="https://fair.liquag.com/" rel="apple-touch-icon">
   <script src=" https://code.jquery.com/jquery-3.5.1.js"></script>
   <!-- Favicons -->
   <link href="https://fair.liquag.com/" rel="icon">
@@ -167,6 +167,9 @@ while($row = $result->fetch_assoc()) {
   <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <script src="../assets/vendor/php-email-form/validate.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="../assets/js/main.js"></script>
   <!-- Vendor JS Files -->
   <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
@@ -177,8 +180,7 @@ while($row = $result->fetch_assoc()) {
     <script src="../assets/vendor/simple-datatables/simple-datatables.js"></script>
 
 
-  <!-- Template Main JS File -->
-  <script src="../assets/js/main.js"></script>
+
  
 <script>
 //$(document).ready(function(){

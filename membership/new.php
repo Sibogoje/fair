@@ -260,8 +260,8 @@ $conn->close();
   <meta content="" name="keywords">
 <script src='../jquery-3.2.1.min.js' type='text/javascript'></script>
   <!-- Favicons -->
-  <link href="http://localhost/fairlife/logo.png" rel="icon">
-  <link href="http://localhost/fairlife/logo.png" rel="apple-touch-icon">
+  <link href="https://fair.liquag.com/" rel="icon">
+  <link href="https://fair.liquag.com/" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
