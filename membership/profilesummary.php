@@ -51,7 +51,7 @@ $stmt = $conn->prepare("SELECT * from `tblmembers` where `MemberNo` = '$ii' ");
 					<td scope="col"><?php echo $row['Terminated']; ?></td>
 					 <th scope="col" style="vertical-align: top;">Balance</th>
 <?php
-					 $stmt12 = $conn->prepare("SELECT `NewBalance` from `balances` where  `M_ID` = '$ii' ");
+					 $stmt12 = $conn->prepare("SELECT `NewBalance` from `balances` where  `M_ID` = '1723444' ");
 						$stmt12->execute();
 						$result12 = $stmt12->get_result();
 						if ($result12->num_rows > 0) {
