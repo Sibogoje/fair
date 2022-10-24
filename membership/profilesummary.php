@@ -7,7 +7,7 @@ $ii = $_POST['c_id'];
 if(count($_POST)>0){
     
         
-$stmt = $conn->prepare("SELECT * from profile where MemberNo = '$ii' ");
+$stmt = $conn->prepare("SELECT * from tblmembers where MemberNo = '$ii' ");
 						$stmt->execute();
 						$result = $stmt->get_result();
 						if ($result->num_rows > 0) {
@@ -50,7 +50,18 @@ $stmt = $conn->prepare("SELECT * from profile where MemberNo = '$ii' ");
                     <th scope="col" style="vertical-align: top;">Terminated</th>
 					<td scope="col"><? echo $row['Terminated']; ?></td>
 					 <th scope="col" style="vertical-align: top;">Balance</th>
-					<td scope="col" style="font-weight: bold;"><? echo "E ". number_format($row['balance'], 2); ?></td>
+<?php
+					 $stmt12 = $conn->prepare("SELECT NewBalance from `balances` where  M_ID = '$ii' ");
+						$stmt12->execute();
+						$result12 = $stmt12->get_result();
+						if ($result12->num_rows > 0) {
+						    while($row12 = $result12->fetch_assoc()) {
+?>
+								<td scope="col" style="font-weight: bold;"><? echo "E ". number_format($row['balance'], 2); ?></td>
+<?php
+							}}
+?>				 
+					
 					</tr>
 				<tr style="text-align: center; background: white; color: black;">
                     <th scope="col" colspan="6">Account Summary   [<? echo date('d-M-Y')?>]</th>
@@ -64,7 +75,7 @@ $stmt = $conn->prepare("SELECT * from profile where MemberNo = '$ii' ");
 }}    
     
     
-$stmt12 = $conn->prepare("SELECT SUM(`Amount`) AS `TT3` from `tblMemberAccounts1` where  TransactionTypeID = '8' AND memberID = '$ii' ");
+$stmt12 = $conn->prepare("SELECT SUM(`Amount`) AS `TT3` from `tblmemberaccounts` where  TransactionTypeID = '8' AND memberID = '$ii' ");
 						$stmt12->execute();
 						$result12 = $stmt12->get_result();
 						if ($result12->num_rows > 0) {
@@ -88,7 +99,7 @@ echo "0 results";	}
 
 
     
-$stmt12 = $conn->prepare("SELECT SUM(`Amount`) AS `TT3` from `tblMemberAccounts1` where  TransactionTypeID IN ('2','5', '6','7' ) AND memberID = '$ii' ");
+$stmt12 = $conn->prepare("SELECT SUM(`Amount`) AS `TT3` from `tblmemberaccounts` where  TransactionTypeID IN ('2','5', '6','7' ) AND memberID = '$ii' ");
 						$stmt12->execute();
 						$result12 = $stmt12->get_result();
 						if ($result12->num_rows > 0) {
@@ -112,7 +123,7 @@ echo "0 results";	}
  
  
      
-$stmt12 = $conn->prepare("SELECT SUM(`Amount`) AS `TT3` from `tblMemberAccounts1` where  TransactionTypeID IN ('3', '4') AND memberID = '$ii' ");
+$stmt12 = $conn->prepare("SELECT SUM(`Amount`) AS `TT3` from `tblmemberaccounts` where  TransactionTypeID IN ('3', '4') AND memberID = '$ii' ");
 						$stmt12->execute();
 						$result12 = $stmt12->get_result();
 						if ($result12->num_rows > 0) {
@@ -134,7 +145,7 @@ echo "0 results";	}
  
  
      
-$stmt12 = $conn->prepare("SELECT SUM(`Amount`) AS `TT3` from `tblMemberAccounts1` where  TransactionTypeID = '10' AND memberID = '$ii' ");
+$stmt12 = $conn->prepare("SELECT SUM(`Amount`) AS `TT3` from `tblmemberaccounts` where  TransactionTypeID = '10' AND memberID = '$ii' ");
 						$stmt12->execute();
 						$result12 = $stmt12->get_result();
 						if ($result12->num_rows > 0) {
