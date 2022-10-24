@@ -7,7 +7,7 @@ $ii = $_POST['c_id'];
 if(count($_POST)>0){
     
         
-$stmt = $conn->prepare("SELECT * from `tblmembers` where `MemberNo` = '58' ");
+$stmt = $conn->prepare("SELECT * from `tblmembers` where `MemberNo` = '$ii' ");
 						$stmt->execute();
 						$result = $stmt->get_result();
 						if ($result->num_rows > 0) {
