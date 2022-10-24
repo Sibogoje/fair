@@ -79,7 +79,7 @@ require_once '../scripts/connection.php';
             <div class="card-body">
               <h5 class="card-title">All Employers</h5>
               <!-- Table with stripped rows -->
-              <div class="table-responsive">
+              <div class="table">
               <table class="table table-striped datatable nowrap" style="width: 100%;" id="jj">
                 <thead>
                   <tr>
