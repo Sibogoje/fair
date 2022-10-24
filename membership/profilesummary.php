@@ -7,7 +7,7 @@ $ii = $_POST['c_id'];
 if(count($_POST)>0){
     
         
-$stmt = $conn->prepare("SELECT * from tblmembers where MemberNo = '$ii' ");
+$stmt = $conn->prepare("SELECT * from `tblmembers` where `MemberNo` = '$ii' ");
 						$stmt->execute();
 						$result = $stmt->get_result();
 						if ($result->num_rows > 0) {
@@ -51,13 +51,13 @@ $stmt = $conn->prepare("SELECT * from tblmembers where MemberNo = '$ii' ");
 					<td scope="col"><? echo $row['Terminated']; ?></td>
 					 <th scope="col" style="vertical-align: top;">Balance</th>
 <?php
-					 $stmt12 = $conn->prepare("SELECT NewBalance from `balances` where  M_ID = '$ii' ");
+					 $stmt12 = $conn->prepare("SELECT `NewBalance` from `balances` where  M_ID = '$ii' ");
 						$stmt12->execute();
 						$result12 = $stmt12->get_result();
 						if ($result12->num_rows > 0) {
 						    while($row12 = $result12->fetch_assoc()) {
 ?>
-								<td scope="col" style="font-weight: bold;"><? echo "E ". number_format($row['balance'], 2); ?></td>
+								<td scope="col" style="font-weight: bold;"><? echo "E ". number_format($row['NewBalance'], 2); ?></td>
 <?php
 							}}
 ?>				 
