@@ -309,7 +309,7 @@ $(document).on("click",".knew",function(e){
 </html>
 <?php
 }else{
-    header('Location: http://localhost/fairlife/fair/index.php');
+    header('Location: fair.liquag.com//index.php');
 }
 
 ?>

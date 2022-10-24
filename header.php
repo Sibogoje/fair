@@ -6,8 +6,8 @@
   <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-      <a href="http://localhost/fairlife/fair/dash.php" class="logo d-flex align-items-center">
-        <img src="http://localhost/fairlife/fair/logo.png" alt="">
+      <a href="fair.liquag.com//dash.php" class="logo d-flex align-items-center">
+        <img src="fair.liquag.com//logo.png" alt="">
         <span class="d-none d-lg-block">Fairlife</span>
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
@@ -129,7 +129,7 @@ while($row = $resultz->fetch_assoc()) {
         <li class="nav-item dropdown pe-3">
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-            <img src="http://localhost/fairlife/fair/logo.png" alt="Profile" class="rounded-circle">
+            <img src="fair.liquag.com//logo.png" alt="Profile" class="rounded-circle">
             <span class="d-none d-md-block dropdown-toggle ps-2"><?php echo $gg ?></span>
           </a><!-- End Profile Iamge Icon -->
 
@@ -184,7 +184,7 @@ while($row = $resultz->fetch_assoc()) {
     <ul class="sidebar-nav" id="sidebar-nav">
 <?php if ($role == 'admin'){ ?>
       <li class="nav-item">
-        <a class="nav-link " href="http://localhost/fairlife/fair/dash.php">
+        <a class="nav-link " href="fair.liquag.com//dash.php">
           <i class="bi bi-grid"></i>
           <span>Dashboard</span>
         </a>
@@ -197,7 +197,7 @@ while($row = $resultz->fetch_assoc()) {
         <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
 <?php  if ($role == 'admin' || $role=='Operations' || $role=='clerk'){ ?>           
           <li>
-            <a href="http://localhost/fairlife/fair/membership/new.php">
+            <a href="fair.liquag.com//membership/new.php">
               <i class="bi bi-circle"></i><span>New Beneficiary</span>
             </a>
           </li>
@@ -206,7 +206,7 @@ while($row = $resultz->fetch_assoc()) {
 
 <?php if ($role == 'admin' || $role=='Operations' || $role=='clerk'){ ?>
           <li>
-             <a href="http://localhost/fairlife/fair/membership/">
+             <a href="fair.liquag.com//membership/">
               <i class="bi bi-circle"></i><span>All Beneficiaries</span>
             </a>
           </li>
@@ -214,7 +214,7 @@ while($row = $resultz->fetch_assoc()) {
 
           <?php if ($role == 'admin' || $role=='Operations' || $role=='clerk'){ ?>
           <li>
-             <a href="http://localhost/fairlife/fair/membership/pending.php">
+             <a href="fair.liquag.com//membership/pending.php">
               <i class="bi bi-circle"></i><span>Pending Approval</span>
             </a>
           </li>
@@ -225,14 +225,14 @@ while($row = $resultz->fetch_assoc()) {
           
 <?php if ($role == 'admin' || $role=='Operations' || $role=='clerk'){ ?>          
           <li>
-             <a href="http://localhost/fairlife/fair/membership/dnew.php">
+             <a href="fair.liquag.com//membership/dnew.php">
               <i class="bi bi-circle"></i><span>New Deceased</span>
             </a>
           </li>
           <?php } ?>
 <?php if ($role == 'admin' || $role=='Operations' || $role=='clerk'){ ?>          
 		  <li>
-            <a href="http://localhost/fairlife/fair/membership/deceased.php">
+            <a href="fair.liquag.com//membership/deceased.php">
               <i class="bi bi-circle"></i><span>Deceased Profiles</span>
             </a>
           </li>
@@ -257,28 +257,28 @@ while($row = $resultz->fetch_assoc()) {
         <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
  <?php if ($role == 'admin' || $role=='Operations' || $role=='clerk'){ ?>           
           <li>
-             <a href="http://localhost/fairlife/fair/fund/fnew.php">
+             <a href="fair.liquag.com//fund/fnew.php">
               <i class="bi bi-circle"></i><span>New Fund</span>
             </a>
           </li>
           <?php } ?>
 <?php if ($role == 'admin' || $role=='Operations' || $role=='clerk'){ ?>          
           <li>
-             <a href="http://localhost/fairlife/fair/fund/">
+             <a href="fair.liquag.com//fund/">
               <i class="bi bi-circle"></i><span>All Funds</span>
             </a>
           </li>
           <?php } ?>
 <?php if ($role == 'admin' || $role=='Operations' || $role=='clerk'){ ?>          
           <li>
-             <a href="http://localhost/fairlife/fair/fund/enew.php">
+             <a href="fair.liquag.com//fund/enew.php">
               <i class="bi bi-circle"></i><span>New Employer</span>
             </a>
           </li>
           <?php } ?>
 <?php if ($role == 'admin' || $role=='Operations' || $role=='clerk'){ ?>          
           <li>
-             <a href="http://localhost/fairlife/fair/fund/employers.php">
+             <a href="fair.liquag.com//fund/employers.php">
               <i class="bi bi-circle"></i><span>All Employers</span>
             </a>
           </li>
@@ -293,42 +293,42 @@ while($row = $resultz->fetch_assoc()) {
         <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
  <?php if ($role == 'admin' || $role=='Operations'){ ?>           
           <li>
-            <a href="http://localhost/fairlife/fair/Transactions/adhoc.php">
+            <a href="fair.liquag.com//Transactions/adhoc.php">
               <i class="bi bi-circle"></i><span>Adhoc Payments</span>
             </a>
           </li>
           <?php } ?>
 <?php if ($role == 'admin'){ ?>          
           <li>
-            <a href="http://localhost/fairlife/fair/Transactions/scheduled.php">
+            <a href="fair.liquag.com//Transactions/scheduled.php">
               <i class="bi bi-circle"></i><span>Scheduled</span>
             </a>
           </li>
           <?php } ?>
 <?php if ($role == 'admin' || $role=='Accounts' ){ ?>          
 		   <li>
-            <a href="http://localhost/fairlife/fair/Transactions/monthlyfees.php">
+            <a href="fair.liquag.com//Transactions/monthlyfees.php">
               <i class="bi bi-circle"></i><span>Monthly Fees</span>
             </a>
           </li>
           <?php } ?>
 <?php if ($role == 'admin' || $role=='Accounts'){ ?>          
 		   <li>
-            <a href="http://localhost/fairlife/fair/Transactions/interest.php">
+            <a href="fair.liquag.com//Transactions/interest.php">
               <i class="bi bi-circle"></i><span>Interest</span>
             </a>
           </li>
           <?php } ?>
 <?php if ($role == 'admin' || $role=='Operations'){ ?>          
           <li>
-            <a href="http://localhost/fairlife/fair/Transactions/additionalcapital.php">
+            <a href="fair.liquag.com//Transactions/additionalcapital.php">
               <i class="bi bi-circle"></i><span>Additional Capital</span>
             </a>
           </li>
           <?php } ?>
 <?php if ($role == 'admin'){ ?>          
 		   <li>
-            <a href="http://localhost/fairlife/fair/Transactions/othertransactions.php">
+            <a href="fair.liquag.com//Transactions/othertransactions.php">
               <i class="bi bi-circle"></i><span>Other Transactions</span>
             </a>
           </li>
@@ -337,7 +337,7 @@ while($row = $resultz->fetch_assoc()) {
       </li><!-- End Tables Nav -->
 
 <li class="nav-item">
-        <a class="nav-link " href="http://localhost/fairlife/fair/files/index.php">
+        <a class="nav-link " href="fair.liquag.com//files/index.php">
           <i class="bi bi-file-earmark-medical-fill"></i>
           <span>Files</span>
         </a>
@@ -352,28 +352,28 @@ while($row = $resultz->fetch_assoc()) {
         <ul id="reports-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
  <?php if ($role == 'admin' || $role=='Operations' || $role=='clerk'){ ?>           
              <li>
-            <a href="http://localhost/fairlife/fair/membership/profile.php">
+            <a href="fair.liquag.com//membership/profile.php">
               <i class="bi bi-circle"></i><span>Benefit Statement</span>
             </a>
           </li>
           <?php } ?>
 <?php if ($role == 'admin' || $role=='Operations' || $role=='clerk'){ ?>          
            <li>
-            <a href="http://localhost/fairlife/fair/membership/membersummary.php">
+            <a href="fair.liquag.com//membership/membersummary.php">
               <i class="bi bi-circle"></i><span>Member Summary</span>
             </a>
           </li>
           <?php } ?>
 <?php if ($role == 'admin' || $role=='Operations' || $role=='clerk'){ ?>          
            <li>
-            <a href="http://localhost/fairlife/fair/membership/profileaccount.php">
+            <a href="fair.liquag.com//membership/profileaccount.php">
               <i class="bi bi-circle"></i><span>Statement</span>
             </a>
           </li>
           <?php } ?>
 <?php if ($role == 'admin' || $role=='Operations' || $role=='clerk'){ ?>          
            <li>
-           <a href="http://localhost/fairlife/fair/reports/beneficiaries.php">
+           <a href="fair.liquag.com//reports/beneficiaries.php">
               <i class="bi bi-circle"></i><span>Beneficiary Report</span>
             </a>
           </li>
@@ -381,7 +381,7 @@ while($row = $resultz->fetch_assoc()) {
           
           <?php if ($role == 'admin' || $role=='Operations' || $role=='clerk'){ ?>
           <li>
-             <a href="http://localhost/fairlife/fair/membership/existence.php">
+             <a href="fair.liquag.com//membership/existence.php">
               <i class="bi bi-circle"></i><span>Existence Certificate</span>
             </a>
           </li>
@@ -389,77 +389,77 @@ while($row = $resultz->fetch_assoc()) {
           
  <?php if ($role == 'admin' || $role=='Operations' || $role=='clerk'){ ?>         
             <li>
-            <a href="http://localhost/fairlife/fair/membership/membermove.php">
+            <a href="fair.liquag.com//membership/membermove.php">
               <i class="bi bi-circle"></i><span>New Entrant Statement</span>
             </a>
           </li>
           <?php } ?>
 <?php if ($role == 'admin' || $role=='Operations'){ ?>          
            <li>
-            <a href="http://localhost/fairlife/fair/membership/consolsummary.php">
+            <a href="fair.liquag.com//membership/consolsummary.php">
               <i class="bi bi-circle"></i><span>Beneficiary List</span>
             </a>
           </li>
           <?php } ?>
 <?php if ($role == 'admin'){ ?>          
           <li>
-            <a href="http://localhost/fairlife/fair/fund/fundfeesreport.php">
+            <a href="fair.liquag.com//fund/fundfeesreport.php">
               <i class="bi bi-circle"></i><span>Fees Report</span>
             </a>
           </li>
           <?php } ?>
 <?php if ($role == 'admin' || $role=='Operations'){ ?>
           <li>
-            <a href="http://localhost/fairlife/fair/reports/funds.php">
+            <a href="fair.liquag.com//reports/funds.php">
               <i class="bi bi-circle"></i><span>Funds</span>
             </a>
           </li>
           <?php } ?>
 <?php if ($role == 'admin'){ ?>		  
            <li>
-            <a href="http://localhost/fairlife/fair/reports/adhocreport.php">
+            <a href="fair.liquag.com//reports/adhocreport.php">
               <i class="bi bi-circle"></i><span>Adhoc Report</span>
             </a>
           </li>
           <?php } ?>
 <?php if ($role == 'admin'){ ?>          
            <li>
-            <a href="http://localhost/fairlife/fair/reports/scheduledreport.php">
+            <a href="fair.liquag.com//reports/scheduledreport.php">
               <i class="bi bi-circle"></i><span>Scheduled Report</span>
             </a>
           </li>
           <?php } ?>
 <?php if ($role == 'admin'){ ?>          
            <li>
-            <a href="http://localhost/fairlife/fair/reports/monthlyfeesreport.php">
+            <a href="fair.liquag.com//reports/monthlyfeesreport.php">
               <i class="bi bi-circle"></i><span>Admin & Monthly Fees</span>
             </a>
           </li>
           <?php } ?>
  <?php if ($role == 'admin'){ ?>         
            <li>
-            <a href="http://localhost/fairlife/fair/reports/capitalintroductionreport.php">
+            <a href="fair.liquag.com//reports/capitalintroductionreport.php">
               <i class="bi bi-circle"></i><span>Capital Introduction </span>
             </a>
           </li>
           <?php } ?>
 <?php if ($role == 'admin'){ ?>          
            <li>
-            <a href="http://localhost/fairlife/fair/reports/interestreport.php">
+            <a href="fair.liquag.com//reports/interestreport.php">
               <i class="bi bi-circle"></i><span>Interest Report</span>
             </a>
           </li>
           <?php } ?>
 <?php if ($role == 'admin'){ ?>          
                      <li>
-            <a href="http://localhost/fairlife/fair/reports/otherreport.php">
+            <a href="fair.liquag.com//reports/otherreport.php">
               <i class="bi bi-circle"></i><span>Other Transactions Report</span>
             </a>
           </li>
           <?php } ?>
  <?php if ($role == 'admin'){ ?>         
 		   <li>
-            <a href="http://localhost/fairlife/fair/reports/employers.php">
+            <a href="fair.liquag.com//reports/employers.php">
               <i class="bi bi-circle"></i><span>Employer</span>
             </a>
           </li>
@@ -476,28 +476,28 @@ while($row = $resultz->fetch_assoc()) {
         <ul id="settings-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
 <?php if ($role == 'admin'){ ?>
           <li>
-            <a href="http://localhost/fairlife/fair/settings/banks.php">
+            <a href="fair.liquag.com//settings/banks.php">
               <i class="bi bi-circle"></i><span>Banks</span>
             </a>
           </li>
           <?php } ?>
 <?php if ($role == 'admin'){ ?>          
 		   <li>
-           <a href="http://localhost/fairlife/fair/settings/post.php">
+           <a href="fair.liquag.com//settings/post.php">
               <i class="bi bi-circle"></i><span>Post Offices</span>
             </a>
           </li>
           <?php } ?>
  <?php if ($role == 'admin'){ ?>         
 		   <li>
-            <a href="http://localhost/fairlife/fair/users/transaction.php">
+            <a href="fair.liquag.com//users/transaction.php">
               <i class="bi bi-circle"></i><span>Transaction Types</span>
             </a>
           </li>
           <?php } ?>
 <?php if ($role == 'admin'){ ?>          
 		   <li>
-            <a href="http://localhost/fairlife/fair/users/fees.php">
+            <a href="fair.liquag.com//users/fees.php">
               <i class="bi bi-circle"></i><span>Fees Types</span>
             </a>
           </li>
@@ -514,7 +514,7 @@ while($row = $resultz->fetch_assoc()) {
 
          
 		   <li>
-            <a href="http://localhost/fairlife/fair/users/local.php">
+            <a href="fair.liquag.com//users/local.php">
               <i class="bi bi-circle"></i><span>Local System Users</span>
             </a>
           </li>
@@ -548,7 +548,7 @@ while($row = $resultz->fetch_assoc()) {
         if(secondsSinceLastActivity > maxInactivity){
            // console.log('User has been inactive for more than ' + maxInactivity + ' seconds');
             //Redirect them to your logout.php page.
-            location.href = 'http://localhost/fairlife/fair/logout.php';
+            location.href = 'fair.liquag.com//logout.php';
         }
     }, 1000);
 

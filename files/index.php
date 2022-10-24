@@ -268,7 +268,7 @@ while($row = $result->fetch_assoc()) {
 </html>
 <?php
 }else{
-    header('Location: http://localhost/fairlife/fair/index.php');
+    header('Location: fair.liquag.com//index.php');
 }
 
 ?>

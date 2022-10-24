@@ -704,7 +704,7 @@ $('#banks').select2({
 </html>
 <?php
 }else{
-    header('Location: http://localhost/fairlife/fair/index.php');
+    header('Location: fair.liquag.com//index.php');
 }
 
 ?>
