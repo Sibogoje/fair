@@ -4,25 +4,24 @@ set_time_limit(0);
 if(count($_POST)>0){
 	 $date=$_POST['dates'];
 	 $amount=$_POST['amount'];
+	 $sourceid=$_POST['MemberID'];
+
 $term = 0;
-$stmt = $conn->prepare("SELECT SUM(`balance`) AS `SS` FROM `tblmembers1` WHERE `Terminated`=? ");
-$stmt->bind_param("s", $term, );
-$stmt->execute();
-$result = $stmt->get_result();
-if ($result->num_rows > 0) {
-while($row = $result->fetch_assoc()) {
-	$totalrunning = $row['SS'];
-	
-				$stmt1 = $conn->prepare("SELECT `MemberNO`, `balance` FROM `tblmembers1` WHERE `Terminated`=? ");
-				$stmt1->bind_param("s", $term, );
+$ttfundsresult = mysqli_query($conn, 'SELECT SUM(`NewBalance`) AS `SS` FROM `balances`'); 
+$ttfundsrow = mysqli_fetch_assoc($ttfundsresult); 
+$ttfunds = $ttfundsrow['SS'];
+
+
+          $stmt1 = $conn->prepare("SELECT `memberID`, `NewBalance` FROM `balances` ");
+				
 				$stmt1->execute();
 				$result1 = $stmt1->get_result();
 				if ($result1->num_rows > 0) {
 				while($row1 = $result1->fetch_assoc()) {
-					$MemberNO = $row1['MemberNO'];
-					$ruuning_balance = $row1['balance'];
+					$MemberNO = $row1['memberID'];
+					$ruuning_balance = $row1['NewBalance'];
 					
-					$fraction = ($ruuning_balance / $totalrunning);
+					$fraction = ($ruuning_balance / $ttfunds);
 					$interest = $fraction *  $amount;
 					
 					$Newbalance = $ruuning_balance + $interest;
@@ -41,7 +40,7 @@ while($row = $result->fetch_assoc()) {
 					$Comments = "";
 					$latest = 0;
 					
-					$insertnew = $conn->prepare("insert into `u747325399_fairlife`.`tblMemberAccounts1` (
+					$insertnew = $conn->prepare("insert into `tblmemberaccounts` (
 
   `TransactionDate`,
   `TransactionTypeID`,
@@ -80,27 +79,71 @@ $Newbalance,
 $Comments
 
 );
-$insertnew->execute();
-					
-					
+
+////////////////////insert into Interest Table					
+if ($insertnew->execute()) {
+
+$response = array(
+		'statusCode'=>200,
+		'success'=>"Member No - "
+		);
+
+ }else{
+
+	$response = array(
+		'statusCode'=>201,
+		'error'=>"No Interest Allocated"
+		);
+	echo json_encode($response);
+
+
+
+}					
 					
 				}
+				}else{
+					$response = array(
+						'statusCode'=>201,
+						'error'=>"No Members Found"
+						);
+					echo json_encode($response);
 				}			
-}
-$response = array(
-					'statusCode'=>200,
-					'success'=>"Interest Updated"
-					);
-				echo json_encode($response);
-}else{
-	
-	$response = array(
-					'statusCode'=>201,
-					'error'=>"No Interest Allocated"
-					);
-				echo json_encode($response);
 
-}
+$vers = 1;
+	$updateinterests = $conn->prepare("insert into `tblinterestreceived` (
+
+		`InterestSourceID`,
+		`InterestStartDate`,
+		`InterestDate`,
+		`InterestAmount`,
+		`AllocationDate`,
+		`Allocated`
+	  
+	  )
+	  
+	  VALUES
+		(
+	  
+		  ?,
+		  ?,
+		  ?,
+		  ?,
+		  ?,
+		  ?
+		);");
+	  $updateinterests->bind_param("ssssss", 
+	  $sourceid, 
+	  $dates,
+	  $dates,
+	  $amount,
+	  $dates,
+	  $vers
+	  
+	  );
+
+	$updateinterests->execute();
+
+
 }
 	
 	?>

@@ -20,12 +20,17 @@ require_once '../scripts/connection.php';
   <title>Interests</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 	<!-- Select2 CSS --> 
-<script src='jquery-3.2.1.min.js' type='text/javascript'></script>
-        <script src='select2/dist/js/select2.min.js' type='text/javascript'></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.12.1/b-2.2.3/b-html5-2.2.3/b-print-2.2.3/date-1.1.2/fh-3.2.4/r-2.3.0/rg-1.2.0/sc-2.0.7/sb-1.3.4/sp-2.0.2/sl-1.4.0/datatables.min.css"/>
 
-        <link href='select2/dist/css/select2.min.css' rel='stylesheet' type='text/css'>
+ <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.12.1/b-2.2.3/b-html5-2.2.3/b-print-2.2.3/date-1.1.2/fh-3.2.4/r-2.3.0/rg-1.2.0/sc-2.0.7/sb-1.3.4/sp-2.0.2/sl-1.4.0/datatables.min.js"></script>
+ 
+  <link href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css" rel="stylesheet">
+  <link href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css" rel="stylesheet">
+        
+  <script src='select2/dist/js/select2.min.js' type='text/javascript'></script>
+  <link href='select2/dist/css/select2.min.css' rel='stylesheet' type='text/css'>
 
   <!-- Favicons -->
   <link href="http://localhost/fairlife/logo.png" rel="icon">
@@ -85,7 +90,7 @@ require_once '../scripts/connection.php';
 				
                   <div class="form-floating">
 				  
-					 <select type="text" class="form-control" id="single"   placeholder="MemberID" name="MemberID"  required>
+					 <select type="text" class="form-control" id="single" style="width: 100%;"   placeholder="MemberID" name="MemberID"  required>
 					<option value="" selected></option>
 						<?php 
 						$stmt12 = $conn->prepare("SELECT * FROM `tblinterestsources` ");
@@ -138,7 +143,15 @@ require_once '../scripts/connection.php';
                   <button type="button"  class="btn btn-warning interest" style="width: 100%;" name="submit">Apply Interest<b>[Apply Interest before any Deductions]</b></button>
                   
                 </div>
+          <div class="card col-lg-12" >
+            <div class="card-body">
+              <div class="logs" id="logs">
 
+
+              </div>
+
+            </div>
+          </div>
               </form><!-- End floating Labels Form -->
 
 
@@ -148,21 +161,16 @@ require_once '../scripts/connection.php';
 
           <div class="card col-lg-12" >
             <div class="card-body">
-              <h5 class="card-title">Last Paid Interest</h5>
+              <h5 class="card-title">Interest Received (last 12 Months)</h5>
               <!-- Table with stripped rows -->
               <div class="table-responsive">
-              <table class="table datatable" id="jj">
+              <table class="table table-striped datatable" style="width: 100%;" id="jj">
                 <thead>
                   <tr>
-                    <th scope="col">MEMBERNO</th>
-
-                    
-                    <th scope="col">FUND ID</th>
-					
-					<th scope="col">LAST DATE INTEREST PAID</th>
-					<th scope="col">LAST AMOUNT PAID</th>
-				
-
+                    <th scope="col">Start Date</th>
+                    <th scope="col">Allocation Date</th>
+                    <th scope="col">Amount</th>
+                    <th scope="col">Allocated</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -174,22 +182,27 @@ $year = date("Y");
 
 				
 				
-$stmt = $conn->prepare("SELECT * FROM `interestallocated` WHERE MONTH(TRANSDATE)='$current' AND YEAR(TRANSDATE)='$year' ");
+$stmt = $conn->prepare("SELECT * FROM `tblinterestreceived` ORDER BY InterestDate DESC LIMIT 12 ");
 
 $stmt->execute();
 $result = $stmt->get_result();
 if ($result->num_rows > 0) {
   // output data of each row
 while($row = $result->fetch_assoc()) {
-
+  $ver = "";
+if ($row['Allocated'] == 1){
+  $ver = "Yes";
+}else{
+  $ver = "No";
+}
 //$uid = $row['MEMBERNO'];
 ?>
 
                   <tr>
-				  <td  scope="row"><?php echo $row['MEMBERID']; ?></td>
-				  <td  scope="row"><?php echo $row['FUNDID']; ?></td>
-				  <td><?php echo $row['TRANSDATE']; ?></td>
-				  <td><?php echo $row['AMOUNT']; ?></td>
+				  <td  scope="row"><?php echo $row['InterestStartDate']; ?></td>
+				  <td  scope="row"><?php echo $row['InterestDate']; ?></td>
+				  <td><?php echo $row['InterestAmount']; ?></td>
+				  <td><?php echo $ver; ?></td>
 					
 
 				
@@ -225,16 +238,44 @@ while($row = $result->fetch_assoc()) {
   </footer><!-- End Footer -->
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-  <!-- Vendor JS Files -->
-  <script src="../assets/vendor/apexcharts/apexcharts.min.js"></script>
   <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="../assets/vendor/chart.js/chart.min.js"></script>
-  <script src="../assets/vendor/echarts/echarts.min.js"></script>
-  <script src="../assets/vendor/quill/quill.min.js"></script>
-  <script src="../assets/vendor/simple-datatables/simple-datatables.js"></script>
-  <script src="../assets/vendor/tinymce/tinymce.min.js"></script>
+
   <script src="../assets/vendor/php-email-form/validate.js"></script>
+  <!-- Vendor JS Files -->
+  <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
+    <script src="../assets/vendor/simple-datatables/simple-datatables.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="../assets/js/main.js"></script>
+
+  <script>
+$(document).ready(function() {
+    $('#jj').DataTable( {
+        lengthMenu: [
+            [10, 25, 50, -1],
+            [10, 25, 50, 'All'],
+        ],
+        dom: 'Blfrtip',
+        buttons: [
+            'copyHtml5',
+            'excelHtml5',
+            'csvHtml5',
+            'pdfHtml5'
+        ],
+        responsive: true,
+       
+        
+    } );
+    
+  
+} );
+</script>
+
 
   <!-- Template Main JS File -->
   <script src="../assets/js/main.js"></script>
@@ -246,10 +287,9 @@ $(document).on("click",".dnew",function(e){
 });
 </script>
 <script>
-        $(document).ready(function(){
-    $('#single').select2();        
+$("#single").select2({
 
-        });
+});
         </script>
 		
 <script>	
@@ -262,9 +302,11 @@ $(document).on("click",".dnew",function(e){
 			success: function(dataResult){
 					var dataResult = JSON.parse(dataResult);
 					if(dataResult.statusCode==200){
-						var success = (dataResult.success);
-						alert(success);
-                location.reload();						
+						var success1 = (dataResult.success);
+						//alert(success);
+                //location.reload();	
+                //console.log(success1);	
+                $(".logs").html(success1);    				
 					}
 					else if(dataResult.statusCode==201){
                       var error = (dataResult.error);

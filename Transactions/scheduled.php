@@ -85,7 +85,7 @@ require_once '../scripts/connection.php';
               <h5 class="card-title">Scheduled Payments</h5>
               <!-- Table with stripped rows -->
               <div class="table responsive">
-              <table class="table table-striped datatable w100" id="jj">
+              <table class="table table-striped datatable" style="width: 100%;" id="jj">
                 <thead>
                   <tr>
                     <th scope="col">ID</th>
@@ -117,7 +117,7 @@ $uid = $row['MemberNo'];
 ?>
 
                   <tr>
-				  <td><?php echo $row['MemberID']; ?></td>
+				  <th scope="row"><?php echo $row['MemberNo']; ?></th>
                     <th scope="row"><?php echo $row['MemberSurname']." ".$row['MemberFirstname']; ?></th>
 					<td><?php echo $row['FixedPaymentAmount']; ?></td>
 					<td><?php echo $row['MaxPaymentAmount'];  ?></td>

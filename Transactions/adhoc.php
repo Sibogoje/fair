@@ -12,19 +12,25 @@ require_once '../scripts/connection.php';
 
 if (isset($_POST['submit'])){
 	
-	
-$MemberID = $_POST['MemberID']; 
-$PaymentDate = $_POST['PaymentDate'];
-$Details = $_POST['Details'];
-$AdHocPayment = $_POST['AdHocPayment'];
-$Comments = $_POST['Comments'];
+  $MemberID = $_POST['MemberID']; 
+  $PaymentDate = $_POST['PaymentDate'];
+  $Details = $_POST['Details'];
+  $AdHocPayment = $_POST['AdHocPayment'];
+  $Comments = $_POST['Comments'];
 
-
-
-
+  $stmtb = $conn->prepare("SELECT MemberNo,  MemberSurname, MemberFirstname FROM `tblmembers` WHERE `MemberID`=?");
+  $stmtb->bind_param("s", $MemberID);
+  $stmtb->execute();
+  $resultb = $stmtb->get_result();
+  if ($resultb->num_rows > 0) {
+  while($rowb = $resultb->fetch_assoc()) {
+    
+    $Name = $rowb['MemberNo']."--".$rowb['MemberSurname']." ".$rowb['MemberFirstname'];
+     
 $stmt = $conn->prepare("insert into `tbltempadhocpayments` (
 
   `MemberID`,
+  `Name`,
   `PaymentDate`,
   `Details`,
   `AdHocPayment`,
@@ -38,18 +44,24 @@ VALUES
     ?,
     ?,
     ?,
+    ?,
 	?
     
 
   );");
-$stmt->bind_param("sssss", 
+$stmt->bind_param("ssssss", 
 $MemberID, 
+$Name, 
 $PaymentDate,
 $Details,
 $AdHocPayment,
 $Comments
 );
 $stmt->execute();
+    
+  }} 
+
+
 
 //echo "New records created successfully";
 header("location: adhoc.php");
@@ -139,7 +151,7 @@ $conn->close();
 					 <select type="text" class="form-control" id="single"   placeholder="MemberID" name="MemberID"  required>
 					<option value="" selected></option>
 						<?php 
-						$stmt12 = $conn->prepare("SELECT * FROM `tblmembers` WHERE `Terminated`='0'");
+						$stmt12 = $conn->prepare("SELECT MemberNo, MemberID, MemberSurname, MemberFirstname FROM `tblmembers` WHERE `Terminated`='0'");
 						$stmt12->execute();
 						$result12 = $stmt12->get_result();
 						if ($result12->num_rows > 0) {
@@ -230,10 +242,10 @@ $conn->close();
                 <thead>
                   <tr>
                     <th scope="col">ID</th>
-
-                    <th scope="col">MemberID</th>
+                    <th hidden scope="col">MemberID</th>
+                    <th scope="col">Name</th>
                     <th scope="col">Amount</th>
-					<th scope="col">Comment</th>
+				          	<th scope="col">Comment</th>
 
 
 					<th scope="col">Action</th>
@@ -255,7 +267,8 @@ while($row = $result->fetch_assoc()) {
                   <tr>
                     <th scope="row"><?php echo $row['adhocPaymentID']; ?></th>
 
-                    <td><?php echo $row['MemberID']; ?></td>
+                    <td hidden scope="row"><?php echo $row['MemberID']; ?> </td>
+                    <td scope="row"><?php echo $row['Name']; ?></td>
 					
 					<td><?php echo $row['AdHocPayment']; ?></td>
 					<td><?php echo $row['Comments']; ?></td>

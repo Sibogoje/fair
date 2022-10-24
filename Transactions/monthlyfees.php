@@ -72,10 +72,15 @@ $conn->close();
   <meta content="" name="keywords">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 	<!-- Select2 CSS --> 
-<script src='jquery-3.2.1.min.js' type='text/javascript'></script>
-        <script src='select2/dist/js/select2.min.js' type='text/javascript'></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.12.1/b-2.2.3/b-html5-2.2.3/b-print-2.2.3/date-1.1.2/fh-3.2.4/r-2.3.0/rg-1.2.0/sc-2.0.7/sb-1.3.4/sp-2.0.2/sl-1.4.0/datatables.min.css"/>
 
-        <link href='select2/dist/css/select2.min.css' rel='stylesheet' type='text/css'>
+ <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.12.1/b-2.2.3/b-html5-2.2.3/b-print-2.2.3/date-1.1.2/fh-3.2.4/r-2.3.0/rg-1.2.0/sc-2.0.7/sb-1.3.4/sp-2.0.2/sl-1.4.0/datatables.min.js"></script>
+ 
+  <link href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css" rel="stylesheet">
+  <link href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css" rel="stylesheet">
+        
+  <script src='select2/dist/js/select2.min.js' type='text/javascript'></script>
+  <link href='select2/dist/css/select2.min.css' rel='stylesheet' type='text/css'>
 
   <!-- Favicons -->
   <link href="http://localhost/fairlife/logo.png" rel="icon">
@@ -94,12 +99,7 @@ $conn->close();
   <link href="../assets/vendor/remixicon/remixicon.css" rel="stylesheet">
   <link href="../assets/vendor/simple-datatables/style.css" rel="stylesheet">
 
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.12.1/b-2.2.3/b-html5-2.2.3/b-print-2.2.3/date-1.1.2/fh-3.2.4/r-2.3.0/rg-1.2.0/sc-2.0.7/sb-1.3.4/sp-2.0.2/sl-1.4.0/datatables.min.css"/>
 
- <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.12.1/b-2.2.3/b-html5-2.2.3/b-print-2.2.3/date-1.1.2/fh-3.2.4/r-2.3.0/rg-1.2.0/sc-2.0.7/sb-1.3.4/sp-2.0.2/sl-1.4.0/datatables.min.js"></script>
- 
-  <link href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css" rel="stylesheet">
-  <link href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
   <link href="../assets/css/style.css" rel="stylesheet">
@@ -163,7 +163,7 @@ $conn->close();
                     <th scope="col">AdminPercent</th>
 					<th scope="col">FixedMonthlyFee</th>
 					<th scope="col">Balance</th>
-					<th scope="col">Action</th>
+				
                   </tr>
                 </thead>
                 <tbody>
@@ -186,7 +186,7 @@ $uid = $row['MemberNo'];
 ?>
 
                   <tr>
-				  <td><?php echo $row['MemberID']; ?></td>
+				  <td><?php echo $row['MemberNo']; ?></td>
                     <th scope="row"><?php echo $row['MemberSurname']." ".$row['MemberFirstname']; ?></th>
 					<td><?php echo $row['AdminPercent']; ?></td>
 					<td><?php echo $row['FixedMonthlyFee'];  ?></td>
@@ -194,9 +194,7 @@ $uid = $row['MemberNo'];
 				
 					
 
-			<td class="no-wrap">
-			<button type="button" data-link="schefees.php?id=<?php echo $row['MemberID']; ?>" class="btn btn-outline-warning fees"  title="Process" data-id="<?php echo $row['MemberID']; ?>"><i class="bi bi-receipt"></i></button>
-			</td>
+
                   </tr>
 <?php  
 
