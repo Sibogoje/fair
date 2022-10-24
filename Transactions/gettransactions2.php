@@ -3,7 +3,7 @@
 require_once '../scripts/connection.php';
 $ii = $_POST['c_id'];
 if(count($_POST)>0){
-$stmt12 = $conn->prepare("SELECT * FROM `tblMemberAccounts1` WHERE `memberID` ='$ii' AND credit ='0' ORDER BY `TransactionDate` DESC");
+$stmt12 = $conn->prepare("SELECT * FROM `tblmemberaccounts` WHERE `memberID` ='$ii' AND credit ='0' ORDER BY `TransactionDate` DESC");
 						$stmt12->execute();
 						$result12 = $stmt12->get_result();
 						if ($result12->num_rows > 0) {
@@ -18,7 +18,7 @@ $stmt12 = $conn->prepare("SELECT * FROM `tblMemberAccounts1` WHERE `memberID` ='
 						
 						}
 						} else {
-						  echo "0 results";
+						  //echo "0 results";
 						} 
 } else {
   header('location: ./');

@@ -10,7 +10,7 @@ $TransactionDate = date("Y-m-d");
 $TransactionTypeID = 10;
 $Details = "Reversal";
 
-$stmt = $conn->prepare("SELECT `StartingBalance`, `NewBalance` FROM `qrybalance` where `memberID`='$member' ");
+$stmt = $conn->prepare("SELECT `StartingBalance`, `NewBalance` FROM `balances` where `M_ID`='$member' ");
 //$stmt->bind_param("ssss", $id, $d1, $d2, $active);
 $stmt->execute();
 $result = $stmt->get_result();
@@ -30,7 +30,7 @@ $Credit = 0;
 	}
 	
 	
-	$insertnew = $conn->prepare("insert into `u747325399_fairlife`.`tblMemberAccounts1` (
+	$insertnew = $conn->prepare("insert into `tblmemberaccounts` (
 
   `TransactionDate`,
   `TransactionTypeID`,
