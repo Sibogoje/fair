@@ -17,7 +17,7 @@ $updatesession->execute();
     unset($_SESSION);
     session_destroy();
 
-header('Location: http://localhost/fairlife/fair/index.php');
+header('Location: ./index.php');
 }
 
 ?>
