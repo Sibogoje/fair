@@ -113,7 +113,7 @@ require_once '../scripts/connection.php';
 					 <select type="text" class="form-control" id="sss"    placeholder="fundid" name="MemberID"  required>
 					<option value="" selected></option>
 						<?php 
-						$stmt12 = $conn->prepare("SELECT DISTINCT `MemberNo`, `MemberFirstName`, `MemberSurname` FROM `tblmembers1` ");
+						$stmt12 = $conn->prepare("SELECT DISTINCT `MemberNo`, `MemberFirstName`, `MemberSurname` FROM `tblmembers` ");
 						$stmt12->execute();
 						$result12 = $stmt12->get_result();
 						if ($result12->num_rows > 0) {
@@ -123,7 +123,7 @@ require_once '../scripts/connection.php';
 					<option value="<?php echo $row12['MemberNo']; ?>" ><?php echo $row12['MemberFirstName']." ".$row12['MemberSurname']." - ".$row12['MemberNo'] ; ?></option>
 						<?php   }
 						} else {
-						  echo "0 results";
+						//  echo "0 results";
 						} ?> 
 					</select>
                     
