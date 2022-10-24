@@ -667,7 +667,7 @@ alert("Please select fund to save report");
 </html>
 <?php
 }else{
-    header('Location: fair.liquag.com//index.php');
+    header('Location: https://fair.liquag.com/index.php');
 }
 
 ?>

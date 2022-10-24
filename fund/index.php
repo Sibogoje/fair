@@ -220,7 +220,7 @@ $(document).ready(function() {
 </html>
 <?php
 }else{
-    header('Location: fair.liquag.com//index.php');
+    header('Location: https://fair.liquag.com/index.php');
 }
 
 ?>

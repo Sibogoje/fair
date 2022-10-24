@@ -17,7 +17,7 @@ $updatesession->execute();
     unset($_SESSION);
     session_destroy();
 
-header('Location: fair.liquag.com//index.php');
+header('Location: https://fair.liquag.com/index.php');
 }
 
 ?>
