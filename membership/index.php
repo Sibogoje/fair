@@ -18,8 +18,8 @@ require_once '../scripts/connection.php';
   <meta content="" name="keywords">
 <script src=" https://code.jquery.com/jquery-3.5.1.js"></script>
   <!-- Favicons -->
-  <link href="htttp://localhost/fairlife/fair/logo.png" rel="icon">
-  <link href="htttp://localhost/fairlife/fair/logo.png" rel="apple-touch-icon">
+  <link href="https://fair.liquag.com/" rel="icon">
+  <link href="https://fair.liquag.com/" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
