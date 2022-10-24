@@ -80,7 +80,7 @@ require_once '../scripts/connection.php';
               <h5 class="card-title">All Employers</h5>
               <!-- Table with stripped rows -->
               <div class="table-responsive">
-              <table class="table datatable" id="jj">
+              <table class="table table-striped datatable" style="width: 100%;" id="jj">
                 <thead>
                   <tr>
                     <th scope="col">ID</th>
