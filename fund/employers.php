@@ -17,10 +17,14 @@ require_once '../scripts/connection.php';
   <title>Funds Management</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
-
+  <script src=" https://code.jquery.com/jquery-3.5.1.js"></script>
   <!-- Favicons -->
   <link href="http://localhost/fairlife/logo.png" rel="icon">
   <link href="http://localhost/fairlife/logo.png" rel="apple-touch-icon">
+  <script src=" https://code.jquery.com/jquery-3.5.1.js"></script>
+  <!-- Favicons -->
+  <link href="htttp://localhost/fairlife/fair/logo.png" rel="icon">
+  <link href="htttp://localhost/fairlife/fair/logo.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
@@ -30,12 +34,12 @@ require_once '../scripts/connection.php';
   <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
- 
+  <link href="../assets/vendor/quill/quill.snow.css" rel="stylesheet">
+  <link href="../assets/vendor/quill/quill.bubble.css" rel="stylesheet">
   <link href="../assets/vendor/remixicon/remixicon.css" rel="stylesheet">
   <link href="../assets/vendor/simple-datatables/style.css" rel="stylesheet">
 
 
-  
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.12.1/b-2.2.3/b-html5-2.2.3/b-print-2.2.3/date-1.1.2/fh-3.2.4/r-2.3.0/rg-1.2.0/sc-2.0.7/sb-1.3.4/sp-2.0.2/sl-1.4.0/datatables.min.css"/>
 
  <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.12.1/b-2.2.3/b-html5-2.2.3/b-print-2.2.3/date-1.1.2/fh-3.2.4/r-2.3.0/rg-1.2.0/sc-2.0.7/sb-1.3.4/sp-2.0.2/sl-1.4.0/datatables.min.js"></script>
