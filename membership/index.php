@@ -262,7 +262,7 @@ $(document).ready(function() {
 </html>
 <?php
 }else{
-    header('Location: htttp://localhost/fairlife/fair/index.php');
+    header('Location: https://fair.liquag.com/');
 }
 
 ?>
