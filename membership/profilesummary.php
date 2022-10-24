@@ -57,7 +57,7 @@ $stmt = $conn->prepare("SELECT * from `tblmembers` where `MemberNo` = '$ii' ");
 						if ($result12->num_rows > 0) {
 						    while($row12 = $result12->fetch_assoc()) {
 ?>
-								<td scope="col" style="font-weight: bold;"><?php echo "E ". number_format($row['NewBalance'], 2); ?></td>
+								<td scope="col" style="font-weight: bold;"><?php echo "E ".$row['NewBalance']; ?></td>
 <?php
 							}}else{
 								?>
