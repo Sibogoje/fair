@@ -51,13 +51,13 @@ $stmt = $conn->prepare("SELECT * from `tblmembers` where `MemberNo` = '$ii' ");
 					<td scope="col"><?php echo $row['Terminated']; ?></td>
 					 <th scope="col" style="vertical-align: top;">Balance</th>
 <?php
-					 $stmt12 = $conn->prepare("SELECT `NewBalance` from `balances` where  `M_ID` = '1723444' ");
+					 $stmt12 = $conn->prepare("SELECT `NewBalance` from `balances` where  `M_ID` = '$ii' ");
 						$stmt12->execute();
 						$result12 = $stmt12->get_result();
 						if ($result12->num_rows > 0) {
 						    while($row12 = $result12->fetch_assoc()) {
 ?>
-								<td scope="col" style="font-weight: bold;"><?php echo "E ".$row['NewBalance']; ?></td>
+			<td scope="col" style="font-weight: bold;"><?php echo "E ". number_format($row12['NewBalance'], 2); ?></td>
 <?php
 							}}else{
 								?>
