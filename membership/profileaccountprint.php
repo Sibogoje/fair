@@ -125,7 +125,7 @@ td {
 if(count($_POST)>0){
     
     
-$stmt = $conn->prepare("SELECT * from profile where MemberID = '$ii' ");
+$stmt = $conn->prepare("SELECT * from tblmembers where MemberID = '$ii' ");
 						$stmt->execute();
 						$result = $stmt->get_result();
 						if ($result->num_rows > 0) {
