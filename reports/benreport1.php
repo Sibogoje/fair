@@ -10,7 +10,7 @@ if(count($_POST)>0){
 	 $DDDD=$_POST['date2'];
 
 ////////////////////retrieve deceaced id
-$stmt = $conn->prepare("SELECT `MemberNo` ,  `ApprovedBenefit` , `balance` FROM `tblmembers1` WHERE `MemberNo`=? ");
+$stmt = $conn->prepare("SELECT `MemberNo` ,  `ApprovedBenefit` , `balance` FROM `tblmembers` WHERE `MemberNo`=? ");
 $stmt->bind_param("s", $id);
 $stmt->execute();
 $result = $stmt->get_result();

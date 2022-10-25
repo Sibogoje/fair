@@ -15,7 +15,7 @@ $stmt12 = $conn->prepare("SELECT
   `StartingBalance`,
   `Amount`,
   `NewBalance`,
-  `Comments`  FROM `tblMemberAccounts1` WHERE `memberID` ='$ii' AND DATE(TransactionDate) BETWEEN '$d1'  AND '$d2'  ORDER BY TransactionDate DESC, accountsID DESC");
+  `Comments`  FROM `tblmemberaccounts` WHERE `memberID` ='$ii' AND DATE(TransactionDate) BETWEEN '$d1'  AND '$d2'  ORDER BY TransactionDate DESC, accountsID DESC");
 						$stmt12->execute();
 						$result12 = $stmt12->get_result();
 						if ($result12->num_rows > 0) {
