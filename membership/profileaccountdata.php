@@ -7,7 +7,7 @@ $ii = $_POST['c_id'];
 if(count($_POST)>0){
     
         
-$stmt = $conn->prepare("SELECT * from profile where MemberNo = '$ii' ");
+$stmt = $conn->prepare("SELECT * from tblmembers where MemberNo = '$ii' ");
 						$stmt->execute();
 						$result = $stmt->get_result();
 						if ($result->num_rows > 0) {
@@ -26,31 +26,46 @@ $stmt = $conn->prepare("SELECT * from profile where MemberNo = '$ii' ");
                     </tr>
                     <tr>
                     <th scope="col" style="vertical-align: top;">Full Name</th>
-                    <td scope="col"><? echo $row['MemberFirstname']." ".$row['MemberSurname']; ?></td>
+                    <td scope="col"><?php echo $row['MemberFirstname']." ".$row['MemberSurname']; ?></td>
                     <th scope="col" style="vertical-align: top;">MemberNo</th>
-					<td scope="col"><? echo $row['MemberNo']; ?></td>
+					<td scope="col"><?php echo $row['MemberNo']; ?></td>
 					<th scope="col" style="vertical-align: top;">National ID</th>
-					<td scope="col"><? echo $row['MemberIDnumber']; ?></td>
+					<td scope="col"><?php echo $row['MemberIDnumber']; ?></td>
 					</tr>
 					
 					
 					<tr>
                     <th scope="col" style="vertical-align: top;">Date of Birth</th>
-                    <td scope="col"><? echo $row['DateOfBirth']; ?></td>
+                    <td scope="col"><?php echo $row['DateOfBirth']; ?></td>
                     <th scope="col" style="vertical-align: top;">Account Opened</th>
-					<td scope="col"><? echo $row['DateAccountOpened']; ?></td>
+					<td scope="col"><?php echo $row['DateAccountOpened']; ?></td>
 					 <th scope="col" style="vertical-align: top;">Postal Address</th>
-					<td scope="col"><? echo $row['MemberPostalAddress']; ?></td>
+					<td scope="col"><?php echo $row['MemberPostalAddress']; ?></td>
 					</tr>
 					
 						<tr>
                     <th scope="col" style="vertical-align: top;">Approved Benefit</th>
-                    <td scope="col"><? echo $row['ApprovedBenefit']; ?></td>
+                    <td scope="col"><?php echo $row['ApprovedBenefit']; ?></td>
                     <th scope="col" style="vertical-align: top;">Terminated</th>
-					<td scope="col"><? echo $row['Terminated']; ?></td>
+					<td scope="col"><?php echo $row['Terminated']; ?></td>
 					 <th scope="col" style="vertical-align: top;">Balance</th>
-					<td scope="col"><? echo $row['balance']; ?></td>
-					</tr>
+					 <?php
+					 $stmt12 = $conn->prepare("SELECT `NewBalance` from `balances` where  `memberID` = '$ii' ");
+						$stmt12->execute();
+						$result12 = $stmt12->get_result();
+						if ($result12->num_rows > 0) {
+						    while($row12 = $result12->fetch_assoc()) {
+?>
+			<td scope="col" style="font-weight: bold;"><?php echo "E ". number_format($row12['NewBalance'], 2); ?></td>
+<?php
+							}}else{
+								?>
+								<td scope="col" style="font-weight: bold;"><?php echo "No data";?></td>
+								<?php	
+							}
+?>		
+				
+				</tr>
 				<tr style="text-align: center; background: black; color: white;">
                     <th scope="col" colspan="6">Transaction Statement</th>
                    
@@ -58,7 +73,7 @@ $stmt = $conn->prepare("SELECT * from profile where MemberNo = '$ii' ");
 					</thead>
 					</table>
 					
-<?
+<?php
 
 
 }}    
@@ -78,7 +93,7 @@ $stmt12 = $conn->prepare("SELECT
   `StartingBalance`,
   `Amount`,
   `NewBalance`,
-  `Comments`  FROM `tblMemberAccounts1` WHERE `memberID` ='$ii'  ORDER BY TransactionDate DESC, accountsID DESC");
+  `Comments`  FROM `tblmemberaccounts` WHERE `memberID` ='$ii'  ORDER BY TransactionDate DESC, accountsID DESC");
 						$stmt12->execute();
 						$result12 = $stmt12->get_result();
 						if ($result12->num_rows > 0) {
