@@ -119,7 +119,7 @@ td {
 
 <body>
     
-<?
+<?php
 
 
 if(count($_POST)>0){
@@ -144,28 +144,28 @@ $stmt = $conn->prepare("SELECT * from profile where MemberID = '$ii' ");
                     </tr>
                     <tr>
                     <th scope="col" style="vertical-align: top;">Full Name</th>
-                    <td scope="col"><? echo $row['MemberFirstname']." ".$row['MemberSurname']; ?></td>
+                    <td scope="col"><?php echo $row['MemberFirstname']." ".$row['MemberSurname']; ?></td>
                     <th scope="col" style="vertical-align: top;">MemberNo</th>
-					<td scope="col"><? echo $row['MemberNo']; ?></td>
+					<td scope="col"><?php echo $row['MemberNo']; ?></td>
 					<th scope="col" style="vertical-align: top;">National ID</th>
-					<td scope="col"><? echo $row['MemberIDnumber']; ?></td>
+					<td scope="col"><?php echo $row['MemberIDnumber']; ?></td>
 					</tr>
 					
 					
 					<tr>
                     <th scope="col" style="vertical-align: top;">Date of Birth</th>
-                    <td scope="col"><? echo $row['DateOfBirth']; ?></td>
+                    <td scope="col"><?php echo $row['DateOfBirth']; ?></td>
                     <th scope="col" style="vertical-align: top;">Account Opened</th>
-					<td scope="col"><? echo $row['DateAccountOpened']; ?></td>
+					<td scope="col"><?php echo $row['DateAccountOpened']; ?></td>
 					 <th scope="col" style="vertical-align: top;">Postal Address</th>
-					<td scope="col"><? echo $row['MemberPostalAddress']; ?></td>
+					<td scope="col"><?php echo $row['MemberPostalAddress']; ?></td>
 					</tr>
 					
 						<tr>
                     <th scope="col" style="vertical-align: top;">Approved Benefit</th>
-                    <td scope="col"><? echo $row['ApprovedBenefit']; ?></td>
+                    <td scope="col"><?php echo $row['ApprovedBenefit']; ?></td>
                     <th scope="col" style="vertical-align: top;">Terminated</th>
-					<td scope="col"><? echo $row['Terminated']; ?></td>
+					<td scope="col"><?php echo $row['Terminated']; ?></td>
 					 <th scope="col" style="vertical-align: top;">Balance</th>
 					 <?php
 					 $stmt12 = $conn->prepare("SELECT `NewBalance` from `balances` where  `memberID` = '$ii' ");
@@ -190,7 +190,7 @@ $stmt = $conn->prepare("SELECT * from profile where MemberID = '$ii' ");
 					</thead>
 					</table>
 					
-<?
+<?php
 
 
 }}    
