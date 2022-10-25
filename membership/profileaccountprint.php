@@ -9,7 +9,7 @@ $ii = $_POST['MemberID'];
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title><? echo $ii; ?></title></title>
+    <title><?php echo $ii; ?></title></title>
  
 	 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 
