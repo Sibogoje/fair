@@ -125,7 +125,7 @@ td {
 if(count($_POST)>0){
     
     
-$stmt = $conn->prepare("SELECT * from profile where MemberNo = '$ii' ");
+$stmt = $conn->prepare("SELECT * from profile where MemberID = '$ii' ");
 						$stmt->execute();
 						$result = $stmt->get_result();
 						if ($result->num_rows > 0) {
@@ -167,7 +167,21 @@ $stmt = $conn->prepare("SELECT * from profile where MemberNo = '$ii' ");
                     <th scope="col" style="vertical-align: top;">Terminated</th>
 					<td scope="col"><? echo $row['Terminated']; ?></td>
 					 <th scope="col" style="vertical-align: top;">Balance</th>
-					<td scope="col"><? echo $row['balance']; ?></td>
+					 <?php
+					 $stmt12 = $conn->prepare("SELECT `NewBalance` from `balances` where  `memberID` = '$ii' ");
+						$stmt12->execute();
+						$result12 = $stmt12->get_result();
+						if ($result12->num_rows > 0) {
+						    while($row12 = $result12->fetch_assoc()) {
+?>
+			<td scope="col" style="font-weight: bold;"><?php echo "E ". number_format($row12['NewBalance'], 2); ?></td>
+<?php
+							}}else{
+								?>
+								<td scope="col" style="font-weight: bold;"><?php echo "No data";?></td>
+								<?php	
+							}
+?>		
 					</tr>
 				<tr style="text-align: center; background: black; color: white;">
                     <th scope="col" colspan="6">Transaction Statement</th>
@@ -192,7 +206,7 @@ $stmt12 = $conn->prepare("SELECT
   `StartingBalance`,
   `Amount`,
   `NewBalance`,
-  `Comments`  FROM `tblMemberAccounts1` WHERE `memberID` ='$ii'  ORDER BY TransactionDate DESC, accountsID DESC");
+  `Comments`  FROM `tblmemberaccounts` WHERE `memberID` ='$ii'  ORDER BY TransactionDate DESC, accountsID DESC");
 						$stmt12->execute();
 						$result12 = $stmt12->get_result();
 						if ($result12->num_rows > 0) {
