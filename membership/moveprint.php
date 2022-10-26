@@ -164,7 +164,7 @@ $stmt = $conn->prepare("SELECT * from tblmembers where MemberID = '$ii' ");
                     <th scope="col" style="vertical-align: top;">Terminated</th>
 					<td scope="col"><?php echo $row['Terminated']; ?></td>
 					 <th scope="col" style="vertical-align: top;">Balance</th>
-					< <?php
+					<?php
 					 $stmt12 = $conn->prepare("SELECT `NewBalance` from `balances` where  `memberID` = '$ii' ");
 						$stmt12->execute();
 						$result12 = $stmt12->get_result();
