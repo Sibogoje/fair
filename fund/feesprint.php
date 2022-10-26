@@ -120,7 +120,7 @@ td {
 
 <body>
     
-<?
+<?php
 if(count($_POST)>0){
  
  $sum = 0;   
