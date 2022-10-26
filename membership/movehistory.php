@@ -108,7 +108,7 @@ echo "0 results";	}
 
 
     
-$stmt12 = $conn->prepare("SELECT SUM(`Amount`) AS `TT3` from `tblMemberAccounts1` where  TransactionTypeID IN ('9' ) AND memberID = '$ii' ");
+$stmt12 = $conn->prepare("SELECT SUM(`Amount`) AS `TT3` from `tblmemberaccounts` where  TransactionTypeID IN ('9' ) AND memberID = '$ii' ");
 						$stmt12->execute();
 						$result12 = $stmt12->get_result();
 						if ($result12->num_rows > 0) {
@@ -123,7 +123,7 @@ $stmt12 = $conn->prepare("SELECT SUM(`Amount`) AS `TT3` from `tblMemberAccounts1
                    
                     <tr>
                     <th scope="col" style="vertical-align: top;">Additional Capital</th>
-                    <td scope="col" style="text-align: right;"><? echo "- E ". number_format($row12['TT3'], 2); ?></td>
+                    <td scope="col" style="text-align: right;"><?php echo "- E ". number_format($row12['TT3'], 2); ?></td>
                     </tr>
 </thead>
  <?php	}
