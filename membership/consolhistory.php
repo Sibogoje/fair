@@ -32,7 +32,7 @@ $stmt = $conn->prepare("SELECT * from tblmembers where MemberID = '$ii' ");
                     </tr>
                     <tr>
                     <th scope="col" style="vertical-align: top;">FundID</th>
-                    <td scope="col"><?php echo $row['RetirementFundID']; ?></td>
+                    <td scope="col"><?php echo $rowz['F_ID']; ?></td>
                     <th scope="col" style="vertical-align: top;">MemberNo</th>
 					<td scope="col"><?php echo $row['MemberNo']; ?></td>
 					<th scope="col" style="vertical-align: top;">National ID</th>
