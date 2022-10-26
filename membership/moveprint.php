@@ -187,7 +187,7 @@ $stmt = $conn->prepare("SELECT * from tblmembers where MemberID = '$ii' ");
 					</thead>
 					</table>
 					
-<?
+<?php
 
 
 }}    
