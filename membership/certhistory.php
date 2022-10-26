@@ -3,6 +3,8 @@
 require_once '../scripts/connection.php';
 $ii = $_POST['c_id'];
 
+$deceasedid = "";
+$fundid = "";
 
 if(count($_POST)>0){
 $stmt12 = $conn->prepare("SELECT * from tblmembers where MemberID = '$ii' ");

@@ -128,7 +128,7 @@ html.loading body {
 					 <select type="text" class="form-control" id="single"    placeholder="MemberID" name="MemberID"  required>
 					<option value="" selected></option>
 						<?php 
-						$stmt12 = $conn->prepare("SELECT DISTINCT * FROM `tblmembers1` ");
+						$stmt12 = $conn->prepare("SELECT DISTINCT * FROM `tblmembers` ");
 						$stmt12->execute();
 						$result12 = $stmt12->get_result();
 						if ($result12->num_rows > 0) {
@@ -140,7 +140,7 @@ html.loading body {
 							
 
 						?>
-					<option value="<?php echo $row12['MemberNo']; ?>"><?php echo $row12['MemberNo']." - ".$row12['MemberSurname']."".$row12['MemberFirstname'] ; ?></option>
+					<option value="<?php echo $row12['MemberID']; ?>"><?php echo $row12['MemberNo']." - ".$row12['MemberSurname']."".$row12['MemberFirstname'] ; ?></option>
 						<?php   }
 						} else {
 						  echo "0 results";
