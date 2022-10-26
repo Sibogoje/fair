@@ -23,7 +23,7 @@ $balance = "";
 
 if(count($_POST)>0){
 // Fetch records from database 
-$query = $conn->query("SELECT MemberNo from member_fees where F_ID = '$ff'  AND `Terminated` = '0'  ");
+$query = $conn->query("SELECT MemberID from member_fees where F_ID = '$ff'  AND `Terminated` = '0'  ");
 
  
 if($query->num_rows > 0){ 
