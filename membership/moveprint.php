@@ -210,15 +210,15 @@ $stmt12 = $conn->prepare("SELECT SUM(`Amount`) AS `TT3` from `tblmemberaccounts`
                     <td scope="col" style="text-align: right;"><?php echo "E ". number_format($row12['TT3'], 2); ?></td>
                     </tr>
 </thead>
- <?php	}
+ <?php
+ 	}
 	?>
 </table>
-<?php	} else {
-echo "0 results";	}    
- 
-
-
-    
+<?php
+	} else {
+echo "0 results";	
+}    
+     
 $stmt12 = $conn->prepare("SELECT SUM(`Amount`) AS `TT3` from `tblmemberaccounts` where  TransactionTypeID IN ('9' ) AND memberID = '$ii' ");
 						$stmt12->execute();
 						$result12 = $stmt12->get_result();
