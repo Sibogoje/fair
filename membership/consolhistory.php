@@ -78,7 +78,7 @@ $stmt = $conn->prepare("SELECT * from tblmembers where MemberID = '$ii' ");
                     </tr>	
 				
 					
-<?
+<?php
 
 
 }}    
