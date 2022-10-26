@@ -14,10 +14,10 @@ $mntharray2 =  str_replace( array('[',']') , ''  , $mntharray1 );
 
 if (in_array("all", $mntharray)){
 
-   $choose = "`tblMemberAccounts1` WHERE TransactionTypeID = '3' AND  DATE(TransactionDate) BETWEEN '$d1'  AND '$d2'  ORDER BY TransactionDate DESC, accountsID DESC";  
+   $choose = "`tblmemberaccounts` WHERE TransactionTypeID = '3' AND  DATE(TransactionDate) BETWEEN '$d1'  AND '$d2'  ORDER BY TransactionDate DESC, accountsID DESC";  
 }else{
   
- $choose = "`tblMemberAccounts1` WHERE TransactionTypeID = '3' AND  `memberID` IN ({$mntharray2}) AND DATE(TransactionDate) BETWEEN '$d1'  AND '$d2'  ORDER BY TransactionDate DESC, accountsID DESC";   
+ $choose = "`tblmemberaccounts` WHERE TransactionTypeID = '3' AND  `memberID` IN ({$mntharray2}) AND DATE(TransactionDate) BETWEEN '$d1'  AND '$d2'  ORDER BY TransactionDate DESC, accountsID DESC";   
 }
 
 
