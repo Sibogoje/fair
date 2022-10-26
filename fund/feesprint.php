@@ -125,7 +125,7 @@ if(count($_POST)>0){
  
  $sum = 0;   
     
-$stmt12 = $conn->prepare("SELECT SUM(`Amount`) AS `TT` from `tblMemberAccounts1` where  DATE(TransactionDate) BETWEEN '$from'  AND '$to' AND Details = 'Transfer In Fee'  ");
+$stmt12 = $conn->prepare("SELECT SUM(`Amount`) AS `TT` from `tblmemberaccounts` where  DATE(TransactionDate) BETWEEN '$from'  AND '$to' AND Details = 'Transfer In Fee'  ");
 						$stmt12->execute();
 						$result12 = $stmt12->get_result();
 						if ($result12->num_rows > 0) {
@@ -141,12 +141,12 @@ $stmt12 = $conn->prepare("SELECT SUM(`Amount`) AS `TT` from `tblMemberAccounts1`
                    
                     </tr>
                    	<tr style="text-align: center; background: black; color: white;">
-                    <th scope="col" colspan="2">FEES STATEMENT From <? echo $from."  To  ".$to; ?></th>
+                    <th scope="col" colspan="2">FEES STATEMENT From <?php echo $from."  To  ".$to; ?></th>
                    
                     </tr>
                     <tr>
                     <th scope="col" style="vertical-align: top; text-align: left;">Transfer In Fees</th>
-                    <td scope="col" style="text-align: right;"><? echo "E ". $row12['TT']; ?></td>
+                    <td scope="col" style="text-align: right;"><?php echo "E ". $row12['TT']; ?></td>
                     </tr>
 </thead>
  <?php	}
@@ -157,7 +157,7 @@ echo "0 results";	}
 
 
 
-$stmt12 = $conn->prepare("SELECT SUM(`Amount`) AS `TT2` from `tblMemberAccounts1` where DATE(TransactionDate) BETWEEN '$from'  AND '$to' AND Details LIKE '%Transaction Fee%'  ");
+$stmt12 = $conn->prepare("SELECT SUM(`Amount`) AS `TT2` from `tblmemberaccounts` where DATE(TransactionDate) BETWEEN '$from'  AND '$to' AND Details LIKE '%Transaction Fee%'  ");
 						$stmt12->execute();
 						$result12 = $stmt12->get_result();
 						if ($result12->num_rows > 0) {
@@ -171,7 +171,7 @@ $stmt12 = $conn->prepare("SELECT SUM(`Amount`) AS `TT2` from `tblMemberAccounts1
                    
                     <tr>
                     <th scope="col" style="vertical-align: top; text-align: left;">Transaction Fees</th>
-                    <td scope="col" style="text-align: right;"><? echo "E ". $row12['TT2']; ?></td>
+                    <td scope="col" style="text-align: right;"><?php echo "E ". $row12['TT2']; ?></td>
                     </tr>
 </thead>
  <?php	}
@@ -185,7 +185,7 @@ echo "0 results";	}
 
 
 
-$stmt12 = $conn->prepare("SELECT SUM(`Amount`) AS `TT3` from `tblMemberAccounts1` where  DATE(TransactionDate) BETWEEN '$from'  AND '$to' AND Details LIKE '% Monthly Fee%'  ");
+$stmt12 = $conn->prepare("SELECT SUM(`Amount`) AS `TT3` from `tblmemberaccounts` where  DATE(TransactionDate) BETWEEN '$from'  AND '$to' AND Details LIKE '% Monthly Fee%'  ");
 						$stmt12->execute();
 						$result12 = $stmt12->get_result();
 						if ($result12->num_rows > 0) {
@@ -199,7 +199,7 @@ $stmt12 = $conn->prepare("SELECT SUM(`Amount`) AS `TT3` from `tblMemberAccounts1
                    
                     <tr>
                     <th scope="col" style="vertical-align: top; text-align: left;">Monthly Fees</th>
-                    <td scope="col" style="text-align: right;"><? echo "E ". $row12['TT3']; ?></td>
+                    <td scope="col" style="text-align: right;"><?php echo "E ". $row12['TT3']; ?></td>
                     </tr>
 </thead>
  <?php	}
@@ -209,7 +209,7 @@ $stmt12 = $conn->prepare("SELECT SUM(`Amount`) AS `TT3` from `tblMemberAccounts1
 echo "0 results";	}
 
 
-$stmt12 = $conn->prepare("SELECT SUM(`Amount`) AS `TT4` from `tblMemberAccounts1` where  DATE(TransactionDate) BETWEEN '$from'  AND '$to' AND Details LIKE '%Admin%'  ");
+$stmt12 = $conn->prepare("SELECT SUM(`Amount`) AS `TT4` from `tblmemberaccounts` where  DATE(TransactionDate) BETWEEN '$from'  AND '$to' AND Details LIKE '%Admin%'  ");
 						$stmt12->execute();
 						$result12 = $stmt12->get_result();
 						if ($result12->num_rows > 0) {
@@ -223,7 +223,7 @@ $stmt12 = $conn->prepare("SELECT SUM(`Amount`) AS `TT4` from `tblMemberAccounts1
                    
                     <tr>
                     <th scope="col" style="vertical-align: top; text-align: left;">Admin Fees</th>
-                    <td scope="col" style="text-align: right;"><? echo "E ". $row12['TT4']; ?></td>
+                    <td scope="col" style="text-align: right;"><?php echo "E ". $row12['TT4']; ?></td>
                     </tr>
 </thead>
  <?php	}
@@ -239,7 +239,7 @@ echo "0 results";	}
                    
                     <tr>
                     <th scope="col" style="vertical-align: top; text-align: left;">TOTAL</th>
-                    <td scope="col" style="text-align: right;"><? echo "E ". $sum; ?></td>
+                    <td scope="col" style="text-align: right;"><?php echo "E ". $sum; ?></td>
                     </tr>
 </thead>
 

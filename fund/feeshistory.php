@@ -27,7 +27,7 @@ $stmt12 = $conn->prepare("SELECT SUM(`Amount`) AS `TT` from `tblmemberaccounts` 
                    
                     </tr>
                    	<tr style="text-align: center; background: black; color: white;">
-                    <th scope="col" colspan="2">FEES STATEMENT From <?phpecho $from."  To  ".$to; ?></th>
+                    <th scope="col" colspan="2">FEES STATEMENT From <?php echo $from."  To  ".$to; ?></th>
                    
                     </tr>
                     <tr>
