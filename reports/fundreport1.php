@@ -10,7 +10,14 @@ if(count($_POST)>0){
 	 $DDDD=$_POST['date2'];
 
 ////////////////////retrieve deceaced id
-$stmt = $conn->prepare("SELECT COUNT(`MemberNo`) AS `TT`,  SUM(`ApprovedBenefit`) AS `FF`, SUM(`Newbalance`) AS `SS` FROM `fundsum` WHERE `RetirementFundID`=? AND TransactionDate >=? AND TransactionDate <=? AND `Terminated`=?");
+$stmt = $conn->prepare("SELECT COUNT(`memberID`) AS `TT`, 
+ SUM(`ApprovedBenefit`) AS `APPROVED`,
+ SUM(`Newbalance`) AS `BALANCE`,
+ SUM(`memberID`) AS `MEMBERS`,
+ SUM(`Newbalance`) AS `SS`,
+ SUM(`Newbalance`) AS `SS`,
+ 
+ FROM `fundsum` WHERE `RetirementFundID`=? AND TransactionDate >=? AND TransactionDate <=? AND `Terminated`=?");
 $stmt->bind_param("ssss", $id, $d1, $d2, $active);
 $stmt->execute();
 $result = $stmt->get_result();
@@ -23,101 +30,6 @@ $ruuning_balance = $row['SS'];
 $MemberNo = $row['TT'];
 
 
-$stmtq = $conn->prepare("
-SELECT SUM(AMOUNT), COUNT(MEMBERID) FROM `adhocpayments` WHERE FUNDID='$id' AND DATE(TRANSDATE) BETWEEN '$d1'  AND '$d2'
-");
-$stmtq->execute();
-$resultq = $stmtq->get_result();
-if ($resultq->num_rows > 0) {
-while($rowq = $resultq->fetch_assoc()) {
-$tadhoc = $rowq['COUNT(MEMBERID)'];	
-$sadhoc = $rowq['SUM(AMOUNT)'];
-
-
-
-
-
-$stmtr = $conn->prepare("
-SELECT SUM(AMOUNT), COUNT(MEMBERID) FROM `regularpayments` WHERE FUNDID='$id' AND DATE(TRANSDATE) BETWEEN '$d1'  AND '$d2'
-");
-$stmtr->execute();
-$resultr = $stmtr->get_result();
-if ($resultr->num_rows > 0) {
-while($rowr = $resultr->fetch_assoc()) {
-	$TREGS = $rowr['COUNT(MEMBERID)'];	
-	$SREGS = $rowr['SUM(AMOUNT)'];
-	
-	
-	
-	
-$stmti = $conn->prepare("
-SELECT SUM(AMOUNT) AS FF, COUNT(MEMBERID) AS DD FROM interestallocated WHERE FUNDID='$id' AND DATE(TRANSDATE) BETWEEN '$d1' AND '$d2'
-");
-$stmti->execute();
-$resulti = $stmti->get_result();
-if ($resulti->num_rows > 0) {
-while($rowi = $resulti->fetch_assoc()) {
-	$TINTl = $rowi['DD'];	
-	$SINTl = $rowi['FF'];
-	
-
-
-	
-$stmtf = $conn->prepare("
-SELECT SUM(AMOUNT) AS FF, COUNT(MEMBERID) AS DD FROM fixedmonthlyfees WHERE FUNDID='$id' AND DATE(TRANSDATE) BETWEEN '$d1' AND '$d2'
-");
-$stmtf->execute();
-$resultf = $stmtf->get_result();
-if ($resultf->num_rows > 0) {
-while($rowf = $resultf->fetch_assoc()) {
-	$tmonfee = $rowf['DD'];	
-	$smonfee = $rowf['FF'];
-
-
-$stmtf = $conn->prepare("
-SELECT SUM(AMOUNT) AS FF, COUNT(MEMBERID) AS DD FROM adminfees WHERE FUNDID='$id' AND DATE(TRANSDATE) BETWEEN '$d1' AND '$d2'
-");
-$stmtf->execute();
-$resultf = $stmtf->get_result();
-if ($resultf->num_rows > 0) {
-while($rowf = $resultf->fetch_assoc()) {
-	$tadmin = $rowf['DD'];	
-	$sadmin = $rowf['FF'];
-
-	
-$stmta = $conn->prepare("
-SELECT SUM(AMOUNT) AS FF, COUNT(MEMBERID) AS DD FROM additionalmember WHERE FUNDID='$id' AND DATE(TRANSDATE) BETWEEN '$d1' AND '$d2'
-");
-$stmta->execute();
-$resulta = $stmta->get_result();
-if ($resulta->num_rows > 0) {
-while($rowa = $resulta->fetch_assoc()) {
-	$tadd = $rowa['DD'];	
-	$sadd = $rowa['FF'];	
-	
-	
-	
-$stmttt = $conn->prepare("
-SELECT SUM(AMOUNT) AS FF, COUNT(MEMBERID) AS DD FROM transactionfees WHERE FUNDID='$id' AND DATE(TRANSDATE) BETWEEN '$d1' AND '$d2'
-");
-$stmttt->execute();
-$resulttt = $stmttt->get_result();
-if ($resulttt->num_rows > 0) {
-while($rowtt = $resulttt->fetch_assoc()) {
-	$ttfees = $rowtt['DD'];	
-	$stfees = $rowtt['FF'];
-	
-	
-
-$stmttto = $conn->prepare("
-SELECT SUM(AMOUNT) AS FF, COUNT(MEMBERID) AS DD FROM othertransactions WHERE FUNDID='$id' AND DATE(TRANSDATE) BETWEEN '$d1' AND '$d2'
-");
-$stmttto->execute();
-$resulttto = $stmttto->get_result();
-if ($resulttto->num_rows > 0) {
-while($rowtto = $resulttto->fetch_assoc()) {
-	$tother = $rowtto['DD'];	
-	$sother = $rowtto['FF'];
 	
 	$response2 = array(
 					'statusCode'=>200,
