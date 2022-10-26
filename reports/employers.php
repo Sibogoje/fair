@@ -517,7 +517,7 @@ $('#single').change(function() {
     var jk2 = $('#single option:selected').val();
 
   var data = $("#user_form").serialize();
-   $("html").addClass("loading");
+ //  $("html").addClass("loading");
 		$.ajax({
 			data: data,
 			type: "post",
