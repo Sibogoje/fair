@@ -123,7 +123,7 @@ $stmt12 = $conn->prepare("SELECT SUM(`Amount`) AS `TT3` from `tblmemberaccounts`
                    
                     <tr>
                     <th scope="col" style="vertical-align: top;">Additional Capital</th>
-                    <td scope="col" style="text-align: right;"><?php echo "- E ". number_format($row12['TT3'], 2); ?></td>
+                    <td scope="col" style="text-align: right;"><?php echo " E ". number_format($row12['TT3'], 2); ?></td>
                     </tr>
 </thead>
  <?php	}
