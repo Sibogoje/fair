@@ -142,7 +142,7 @@ html.loading body {
 					 <select type="text" class="form-control" id="single"    placeholder="MemberID" name="MemberID"  required>
 					<option value="" selected></option>
 						<?php 
-						$stmt12 = $conn->prepare("SELECT DISTINCT `RetirementFundID`, `FundName` FROM `tblretirementfunds1` ");
+						$stmt12 = $conn->prepare("SELECT DISTINCT `RetirementFundID`, `FundName` FROM `tblretirementfunds` ");
 						$stmt12->execute();
 						$result12 = $stmt12->get_result();
 						if ($result12->num_rows > 0) {
