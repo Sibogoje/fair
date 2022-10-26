@@ -18,10 +18,10 @@ $name = array($mntharray2);
 if (in_array("all", $mntharray)){
  // echo $mntharray2;
   //console("HHHH");
-   $choose = "`tblMemberAccounts1` WHERE TransactionTypeID IN ('10') AND  DATE(TransactionDate) BETWEEN '$d1'  AND '$d2'  ORDER BY TransactionDate DESC, accountsID DESC";  
+   $choose = "`tblmemberaccounts` WHERE TransactionTypeID IN ('10') AND  DATE(TransactionDate) BETWEEN '$d1'  AND '$d2'  ORDER BY TransactionDate DESC, accountsID DESC";  
 }else{
   
- $choose = "`tblMemberAccounts1` WHERE TransactionTypeID IN ('10') AND  `memberID` IN ({$mntharray2}) AND DATE(TransactionDate) BETWEEN '$d1'  AND '$d2'  ORDER BY TransactionDate DESC, accountsID DESC";   
+ $choose = "`tblmemberaccounts` WHERE TransactionTypeID IN ('10') AND  `memberID` IN ({$mntharray2}) AND DATE(TransactionDate) BETWEEN '$d1'  AND '$d2'  ORDER BY TransactionDate DESC, accountsID DESC";   
 }
 
 
