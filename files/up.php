@@ -1,8 +1,9 @@
 <?php
+$useid = $_GET['owner'];
 session_start();
 require_once '../scripts/connection.php';
 $gg = $_SESSION['user'];
-$useid = $_GET['useridZ'];
+
 
 if (!$_FILES["uploadingfile"]["tmp_name"]) {//No file chosen
     echo "ERROR: Please browse for a file before clicking the upload button.";
