@@ -22,9 +22,9 @@ include 'db_connect.php' ?>
 	<!-- Select2 CSS --> 
 
     <script src=" https://code.jquery.com/jquery-3.5.1.js"></script>
-
-    <link href='select2/dist/css/select2.min.css' rel='stylesheet' type='text/css'>
-    <script src='select2/dist/js/select2.min.js' type='text/javascript'></script>
+    <script src='../jquery-3.2.1.min.js' type='text/javascript'></script>
+    <link href='../select2/dist/css/select2.min.css' rel='stylesheet' type='text/css'>
+    <script src='../select2/dist/js/select2.min.js' type='text/javascript'></script>
 
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.12.1/b-2.2.3/b-html5-2.2.3/b-print-2.2.3/date-1.1.2/fh-3.2.4/r-2.3.0/rg-1.2.0/sc-2.0.7/sb-1.3.4/sp-2.0.2/sl-1.4.0/datatables.min.css"/>
 
