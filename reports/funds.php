@@ -56,41 +56,10 @@ require_once '../scripts/connection.php';
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
 <style>
-html {
-    -webkit-transition: background-color 1s;
-    transition: background-color 1s;
-}
-html, body {
-    /* For the loading indicator to be vertically centered ensure */
-    /* the html and body elements take up the full viewport */
-    min-height: 100%;
-}
-.loading {
-    /* Replace #333 with the background-color of your choice */
-    /* Replace loading.gif with the loading image of your choice */
-    background: rgba(0,0,0,0.8) url('progress.gif') no-repeat 50% 10%;
-	margin: auto;
-	position: fixed;
 
-    /* Ensures that the transition only runs in one direction */
-    -webkit-transition: background-color 0;
-    transition: background-color 0.7;
-}
-body {
-    -webkit-transition: opacity 1s ease-in;
-    transition: opacity 1s ease-in;
-}
-html.loading body {
-    /* Make the contents of the body opaque during loading */
-    opacity: 0.5;
-
-    /* Ensures that the transition only runs in one direction */
-    -webkit-transition: opacity 0.5;
-    transition: opacity 0.5;
-}
 </style>
 
-  <script src="https://cdn.ckeditor.com/4.18.0/standard-all/ckeditor.js"></script>
+ 
 </head>
 
 <body>
@@ -113,7 +82,9 @@ html.loading body {
 <div class="card col-lg-12" style="">
             <div class="card-body">
               <h5 class="card-title">Choose Period First</h5>
-			  
+		
+              
+
 			  <form class="row g-3 needs-validation" id="user_form" method="post" action="fundcsv.php"  enctype="multipart/form-data" novalidate>
 			  
 			   <div class="col-md-6">
@@ -135,9 +106,9 @@ html.loading body {
                   </div>
 				  </div>
 
-  	             <div class="col-md-12">
+  	      <div class="col-md-12">
 				
-                  <div class="form-floating">
+          <div class="form-floating">
 				  
 					 <select type="text" class="form-control" id="single"    placeholder="MemberID" name="MemberID"  required>
 					<option value="" selected></option>
