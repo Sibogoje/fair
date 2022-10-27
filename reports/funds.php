@@ -172,196 +172,6 @@ html.loading body {
 
         <br/>
 
-                <div class="col-md-4">
-                  <div class="form-floating">
-                    <input type="number" class="form-control" id="tapproved" placeholder="PaymentDate" value="0.00" name="tapproved" readonly>
-                    <label for="floatingName"><b>Total Approved:</b></label>
-				  <div class="valid-feedback">
-                    Looks good!
-                  </div>
-                  </div>
-				  </div>
-				  
-				  
-				  <div class="col-md-4">
-                  <div class="form-floating">
-                    <input type="number" step="0.01" class="form-control" id="trunning" placeholder="AdHocPayment" value="0.00" name="trunning" readonly>
-                    <label for="floatingName"><b>Cuurent Balance:</b></label>
-				  <div class="valid-feedback">
-                    Looks good!
-                  </div>
-                  </div>
-				  </div>
-				  <div class="col-md-4">
-                  <div class="form-floating">
-                    <input type="number" step="0.01" class="form-control" id="tmembers" placeholder="AdHocPayment" value="0" name="tmembers" readonly>
-                    <label for="floatingName"><b>Total Members:</b></label>
-				  <div class="valid-feedback">
-                    Looks good!
-                  </div>
-                  </div>
-				  </div>
-				  <br>
-				  
-				   <div class="col-md-3">
-                  <div class="form-floating">
-                    <input type="number" class="form-control" id="tadhco" placeholder="AdHocPayment" value="0" name="tadhco" readonly>
-                    <label for="floatingName"><b>Total Adhoc:</b></label>
-				  <div class="valid-feedback">
-                    Looks good!
-                  </div>
-                  </div>
-				  </div>
-				  
-				   <div class="col-md-3">
-                  <div class="form-floating">
-                    <input type="number" class="form-control" id="sadhoc" placeholder="AdHocPayment" value="0" name="sadhoc" readonly>
-                    <label for="floatingName"><b>Sum Adhoc:</b></label>
-				  <div class="valid-feedback">
-                    Looks good!
-                  </div>
-                  </div>
-				  </div>
-				  
-				  <div class="col-md-3">
-                  <div class="form-floating">
-                    <input type="text" step="0.01" class="form-control" id="treg" placeholder="AdHocPayment" value="0" name="treg" readonly>
-                    <label for="floatingName"><b>Total Regular:</b></label>
-				  <div class="valid-feedback">
-                    Looks good!
-                  </div>
-                  </div>
-				  </div>
-				  
-				  <div class="col-md-3">
-                  <div class="form-floating">
-                    <input type="number" step="0.01" class="form-control" id="sreg" placeholder="AdHocPayment" value="0" name="sreg" readonly>
-                    <label for="floatingName"><b>Sum Regular:</b></label>
-				  <div class="valid-feedback">
-                    Looks good!
-                  </div>
-                  </div>
-				  </div>
-				   <div class="col-md-3">
-                  <div class="form-floating">
-                    <input type="text" step="0.01" class="form-control" id="tint" placeholder="AdHocPayment" value="0" name="tint" readonly>
-                    <label for="floatingName"><b>Total Interest Paid:</b></label>
-				  <div class="valid-feedback">
-                    Looks good!
-                  </div>
-                  </div>
-				  </div>
-				  
-				  <div class="col-md-3">
-                  <div class="form-floating">
-                    <input type="number" step="0.01" class="form-control" id="sint" placeholder="AdHocPayment" value="0" name="sint" readonly>
-                    <label for="floatingName"><b>Sum Interest Paid:</b></label>
-				  <div class="valid-feedback">
-                    Looks good!
-                  </div>
-                  </div>
-				  </div>
-				  
-				     <div class="col-md-3">
-                  <div class="form-floating">
-                    <input type="text" step="0.01" class="form-control" id="tmonfee" placeholder="AdHocPayment" value="0" name="tmonfee" readonly>
-                    <label for="floatingName"><b>Total Monhtly Fees:</b></label>
-				  <div class="valid-feedback">
-                    Looks good!
-                  </div>
-                  </div>
-				  </div>
-				  
-				  <div class="col-md-3">
-                  <div class="form-floating">
-                    <input type="number" step="0.01" class="form-control" id="smonfee" placeholder="AdHocPayment" value="0" name="smonfee" readonly>
-                    <label for="floatingName"><b>Sum Monhtly Fees:</b></label>
-				  <div class="valid-feedback">
-                    Looks good!
-                  </div>
-                  </div>
-				  </div>
-				  
-				   <div class="col-md-3">
-                  <div class="form-floating">
-                    <input type="text" step="0.01" class="form-control" id="tadmin" placeholder="AdHocPayment" value="0" name="tadmin" readonly>
-                    <label for="floatingName"><b>Total Admin Fees:</b></label>
-				  <div class="valid-feedback">
-                    Looks good!
-                  </div>
-                  </div>
-				  </div>
-				  
-				  <div class="col-md-3">
-                  <div class="form-floating">
-                    <input type="number" step="0.01" class="form-control" id="sadmin" placeholder="AdHocPayment" value="0" name="sadmin" readonly>
-                    <label for="floatingName"><b>Sum Admin Fees:</b></label>
-				  <div class="valid-feedback">
-                    Looks good!
-                  </div>
-                  </div>
-				  </div>
-				  
-				     <div class="col-md-3">
-                  <div class="form-floating">
-                    <input type="text" step="0.01" class="form-control" id="tadd" placeholder="AdHocPayment" value="0" name="tadd" readonly>
-                    <label for="floatingName"><b>Total Add-Member:</b></label>
-				  <div class="valid-feedback">
-                    Looks good!
-                  </div>
-                  </div>
-				  </div>
-				  
-				  <div class="col-md-3">
-                  <div class="form-floating">
-                    <input type="number" step="0.01" class="form-control" id="sadd" placeholder="AdHocPayment" value="0" name="sadd" readonly>
-                    <label for="floatingName"><b>Sum Add-Member:</b></label>
-				  <div class="valid-feedback">
-                    Looks good!
-                  </div>
-                  </div>
-				  </div>
-				  
-				      <div class="col-md-3">
-                  <div class="form-floating">
-                    <input type="text" step="0.01" class="form-control" id="tother" placeholder="AdHocPayment" value="0" name="tother" readonly>
-                    <label for="floatingName"><b>Total OtherTransactions:</b></label>
-				  <div class="valid-feedback">
-                    Looks good!
-                  </div>
-                  </div>
-				  </div>
-				  
-				  <div class="col-md-3">
-                  <div class="form-floating">
-                    <input type="number" step="0.01" class="form-control" id="sother" placeholder="AdHocPayment" value="0" name="sother" readonly>
-                    <label for="floatingName"><b>Sum OtherTransactions:</b></label>
-				  <div class="valid-feedback">
-                    Looks good!
-                  </div>
-                  </div>
-				  </div>
-				  
-				      <div class="col-md-3">
-                  <div class="form-floating">
-                    <input type="text" step="0.01" class="form-control" id="ttfees" placeholder="AdHocPayment" value="0" name="ttfees" readonly>
-                    <label for="floatingName"><b>Total Transaction Fees:</b></label>
-				  <div class="valid-feedback">
-                    Looks good!
-                  </div>
-                  </div>
-				  </div>
-				  
-				  <div class="col-md-3">
-                  <div class="form-floating">
-                    <input type="number" step="0.01" class="form-control" id="stfees" placeholder="AdHocPayment" value="0" name="stfees" readonly>
-                    <label for="floatingName"><b>Sum Transaction Fees:</b></label>
-				  <div class="valid-feedback">
-                    Looks good!
-                  </div>
-                  </div>
-				  </div>
-				  
 
 				  
 				  
@@ -388,6 +198,106 @@ html.loading body {
               <h5 class="card-title">Fund Statement</h5>
 			  
 			  <form class="row g-3 needs-validation" id="fff" method="post" action="" target="" enctype="multipart/form-data" novalidate>
+
+        <div class="col-md-3">
+                  <div class="form-floating">
+                    <input type="number" step="0.01" class="form-control" id="NewBalance" placeholder="AdHocPayment" value="0" name="NewBalance" readonly>
+                    <label for="floatingName"><b>Sum NewBalance:</b></label>
+				  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                  </div>
+				  </div>
+
+          <div class="col-md-3">
+                  <div class="form-floating">
+                    <input type="number" step="0.01" class="form-control" id="Opening" placeholder="AdHocPayment" value="0" name="Opening" readonly>
+                    <label for="floatingName"><b>Sum Opening:</b></label>
+				  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                  </div>
+				  </div>
+
+          <div class="col-md-3">
+                  <div class="form-floating">
+                    <input type="number" step="0.01" class="form-control" id="TransferIn" placeholder="AdHocPayment" value="0" name="TransferIn" readonly>
+                    <label for="floatingName"><b>Sum TransferIn Fees:</b></label>
+				  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                  </div>
+				  </div>
+
+          <div class="col-md-3">
+                  <div class="form-floating">
+                    <input type="number" step="0.01" class="form-control" id="Regular" placeholder="AdHocPayment" value="0" name="Regular" readonly>
+                    <label for="floatingName"><b>Sum Regular :</b></label>
+				  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                  </div>
+				  </div>
+
+          <div class="col-md-3">
+                  <div class="form-floating">
+                    <input type="number" step="0.01" class="form-control" id="Adhoc" placeholder="AdHocPayment" value="0" name="Adhoc" readonly>
+                    <label for="floatingName"><b>Sum Adhoc:</b></label>
+				  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                  </div>
+				  </div>
+
+          <div class="col-md-3">
+                  <div class="form-floating">
+                    <input type="number" step="0.01" class="form-control" id="Transfee" placeholder="AdHocPayment" value="0" name="Transfee" readonly>
+                    <label for="floatingName"><b>Sum Transaction Fees:</b></label>
+				  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                  </div>
+				  </div>
+
+          <div class="col-md-3">
+                  <div class="form-floating">
+                    <input type="number" step="0.01" class="form-control" id="Monthly" placeholder="AdHocPayment" value="0" name="Monthly" readonly>
+                    <label for="floatingName"><b>Sum Monthly Fees:</b></label>
+				  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                  </div>
+				  </div>
+
+          <div class="col-md-3">
+                  <div class="form-floating">
+                    <input type="number" step="0.01" class="form-control" id="Admin" placeholder="AdHocPayment" value="0" name="Admin" readonly>
+                    <label for="floatingName"><b>Sum Admin Fees:</b></label>
+				  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                  </div>
+				  </div>
+
+          <div class="col-md-3">
+                  <div class="form-floating">
+                    <input type="number" step="0.01" class="form-control" id="Interest" placeholder="AdHocPayment" value="0" name="Interest" readonly>
+                    <label for="floatingName"><b>Sum Interest Fees:</b></label>
+				  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                  </div>
+				  </div>
+
+          <div class="col-md-3">
+                  <div class="form-floating">
+                    <input type="number" step="0.01" class="form-control" id="Additional" placeholder="AdHocPayment" value="0" name="Additional" readonly>
+                    <label for="floatingName"><b>Sum Additional Capital:</b></label>
+				  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                  </div>
+				  </div>
 			  
   	             	
 			
@@ -505,7 +415,7 @@ html.loading body {
 		
 
 <script>
-        $(document).ready(function(){
+$(document).ready(function(){
 
 
 $('#single').select2({
@@ -514,23 +424,6 @@ $('#single').select2({
     height: '100%',
 });
 
-$('#memberid').select2({
-    width: '100%',
-    allowClear: false,
-    height: '100%',
-});
-
-$('#fundsid').select2({
-    width: '100%',
-    allowClear: false,
-    height: '100%',
-});
-
-$('#sss').select2({
-    width: '100%',
-    allowClear: false,
-    height: '100%',
-});
 
 
 });
@@ -550,105 +443,52 @@ $('#single').change(function() {
 			success: function(dataResult){
 					var dataResult = JSON.parse(dataResult);
 					if(dataResult.statusCode==200){
+
+            var NewBalance = (dataResult.NewBalance);
+						$("#NewBalance").val("Null");
+						$("#NewBalance").val(NewBalance);
+
+            var Opening = (dataResult.Opening);
+						$("#Opening").val("Null");
+						$("#Opening").val(Opening);
+
+            var TransferIn = (dataResult.TransferIn);
+						$("#TransferIn").val("Null");
+						$("#TransferIn").val(TransferIn);
+
+            var Regular = (dataResult.Regular);
+						$("#Regular").val("Null");
+						$("#Regular").val(Regular);
+            
+            var Adhoc = (dataResult.Adhoc);
+						$("#Adhoc").val("Null");
+						$("#Adhoc").val(Adhoc);
+
+            var Transfee = (dataResult.Transfee);
+						$("#Transfee").val("Null");
+						$("#Transfee").val(Transfee);
+
+            var Monthly = (dataResult.Monthly);
+						$("#Monthly").val("Null");
+						$("#Monthly").val(Monthly);
+
+            var Admin = (dataResult.Admin);
+						$("#Admin").val("Null");
+						$("#Admin").val(Admin);
+
+            var Interest = (dataResult.Interest);
+						$("#Interest").val("Null");
+						$("#Interest").val(Interest);
+
+            var Additional = (dataResult.Additional);
+						$("#Additional").val("Additional");
+						$("#Additional").val(Additional);
+
+            var Other = (dataResult.Other);
+						$("#Other").val("Null");
+						$("#Other").val(Other);
 						
-						var totalreg = (dataResult.TREG);
-						$("#treg").val("");
-						$("#treg").val(totalreg);
-						
-						var sumreg = (dataResult.SREG);
-						$("#sreg").val("");
-						sumreg = parseFloat(sumreg).toFixed(2);
-						$("#sreg").val(sumreg);
-						
-						var tint = (dataResult.TINT);
-						$("#tint").val("Null");
-						$("#tint").val(tint);
-						
-						var sint = (dataResult.SINT);
-						$("#sint").val("Null");
-						sint = parseFloat(sint).toFixed(2);
-						$("#sint").val(sint);
-						//alert(sint);smonfee
-						
-						var tmonfee = (dataResult.tmonfee);
-						$("#tmonfee").val("Null");
-						$("#tmonfee").val(tmonfee);
-						
-						var smonfee = (dataResult.smonfee);
-						$("#smonfee").val("Null");
-						smonfee = parseFloat(smonfee).toFixed(2);
-						$("#smonfee").val(smonfee);
-						
-						
-						var tadmin = (dataResult.tadmin);
-						$("#tadmin").val("Null");
-						$("#tadmin").val(tadmin);
-						
-						var sadmin = (dataResult.sadmin);
-						$("#sadmin").val("Null");
-						sadmin = parseFloat(sadmin).toFixed(2);
-						$("#sadmin").val(sadmin);
-						
-						var tadd = (dataResult.tadd);
-						$("#tadd").val("Null");
-						$("#tadd").val(tadd);
-						
-						var sadd = (dataResult.sadd);
-						$("#sadd").val("Null");
-						sadd = parseFloat(sadd).toFixed(2);
-						$("#sadd").val(sadd);
-						
-						var tother = (dataResult.tother);
-						$("#tother").val("Null");
-						$("#tother").val(tother);
-						
-						var sother = (dataResult.sother);
-						$("#sother").val("Null");
-						sother = parseFloat(sother).toFixed(2);
-						$("#sother").val(sother);
-						
-						var ttfees = (dataResult.ttfees);
-						$("#ttfees").val("Null");
-						$("#ttfees").val(ttfees);
-						
-						var stfees = (dataResult.stfees);
-						$("#stfees").val("Null");
-						stfees = parseFloat(stfees).toFixed(2);
-						$("#stfees").val(stfees);
-						
-						
-						var running = (dataResult.running);
-						$("#trunning").val("");
-						running = parseFloat(running).toFixed(2);
-						$("#trunning").val(running);
-						
-						var approved = (dataResult.approved);
-						approved = parseFloat(approved).toFixed(2);
-					  $("#tapproved").val("");
-					   $("#tapproved").val(approved);
-					   
-					   var memberz = (dataResult.members);
-					   
-					   $("#tmembers").val(memberz);
-					   
-					   var TmemberID = (dataResult.tadhoc);
-					   $("#tadhco").val("");
-						TmemberID = parseFloat(TmemberID).toFixed(2);
-						$("#tadhco").val(TmemberID);
-						
-					   var TAmount = (dataResult.sadhoc);
-					  
-						TAmount = parseFloat(TAmount).toFixed(2);
-						 $("#sadhoc").val("0.00");
-						$("#sadhoc").val(TAmount);		
-                     //   location.reload();
-                       $("html").removeClass("loading");					 
-					}
-					else if(dataResult.statusCode==201){
-                      var error = (dataResult.error);
-					   alert(error);
-					  // $("html").removeClass("loading");
-					}
+					
 			}
 		});
 });</script>		
