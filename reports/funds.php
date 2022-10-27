@@ -419,46 +419,7 @@ $('#single').select2({
 						$("#NewBalance").val("Null");
 						$("#NewBalance").val(NewBalance);
 
-            var Opening = (dataResult.Opening);
-						$("#Opening").val("Null");
-						$("#Opening").val(Opening);
-
-            var TransferIn = (dataResult.TransferIn);
-						$("#TransferIn").val("Null");
-						$("#TransferIn").val(TransferIn);
-
-            var Regular = (dataResult.Regular);
-						$("#Regular").val("Null");
-						$("#Regular").val(Regular);
-            
-            var Adhoc = (dataResult.Adhoc);
-						$("#Adhoc").val("Null");
-						$("#Adhoc").val(Adhoc);
-
-            var Transfee = (dataResult.Transfee);
-						$("#Transfee").val("Null");
-						$("#Transfee").val(Transfee);
-
-            var Monthly = (dataResult.Monthly);
-						$("#Monthly").val("Null");
-						$("#Monthly").val(Monthly);
-
-            var Admin = (dataResult.Admin);
-						$("#Admin").val("Null");
-						$("#Admin").val(Admin);
-
-            var Interest = (dataResult.Interest);
-						$("#Interest").val("Null");
-						$("#Interest").val(Interest);
-
-            var Additional = (dataResult.Additional);
-						$("#Additional").val("Additional");
-						$("#Additional").val(Additional);
-
-            var Other = (dataResult.Other);
-						$("#Other").val("Null");
-						$("#Other").val(Other);
-						
+           
 					
 			}
     }
