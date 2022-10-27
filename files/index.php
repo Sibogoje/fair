@@ -95,14 +95,15 @@ include 'db_connect.php' ?>
 
 
                <form class="row g-3 needs-validation" id="upload_form" method="post"  enctype="multipart/form-data" novalidate>
+               
+               <div class="col-md-6 col-lg-12">
                <div class="form-floating">
-               <div class="col-md-6">
                 <div class="form-group">
                     <input type="file" class="inp" name="uploadingfile" id="uploadingfile">
                 </div>
                 </div></div>
-                
-                <div class="col-md-6">
+
+                <div class="col-md-6 col-lg-12">
 				<div class="form-floating">
 				  
 					 <select type="text" class="form-control" id="single"    placeholder="MemberID" name="MemberID"  required>
