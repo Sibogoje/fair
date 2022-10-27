@@ -281,7 +281,7 @@ $(document).ready(function() {
     function _(abc) {
     return document.getElementById(abc);
 }
-var userids = document.getElementById("single");
+var userids = document.getElementById('single');
 myElem = document.getElementById('single').value;
 function uploadFileHandler() {
     var file = _("uploadingfile").files[0];
@@ -292,7 +292,7 @@ function uploadFileHandler() {
     ajax.addEventListener("load", completeHandler, false);
     ajax.addEventListener("error", errorHandler, false);
     ajax.addEventListener("abort", abortHandler, false);
-    ajax.open("POST", "up.php?owner="+myElem);
+    ajax.open("POST", "up.php?owner="+userids);
     ajax.send(formdata);
 }
 
