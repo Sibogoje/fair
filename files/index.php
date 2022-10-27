@@ -282,7 +282,7 @@ $(document).ready(function() {
     return document.getElementById(abc);
 }
 var userids = document.getElementById("single");
-myElementValue = userids.value;
+myElem = document.getElementById("single").value;
 function uploadFileHandler() {
     var file = _("uploadingfile").files[0];
     var formdata = new FormData();
@@ -292,7 +292,7 @@ function uploadFileHandler() {
     ajax.addEventListener("load", completeHandler, false);
     ajax.addEventListener("error", errorHandler, false);
     ajax.addEventListener("abort", abortHandler, false);
-    ajax.open("POST", "up.php?userid="+myElementValue);
+    ajax.open("POST", "up.php?useridZ="+myElem);
     ajax.send(formdata);
 }
 
