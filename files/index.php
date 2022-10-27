@@ -167,7 +167,7 @@ include 'db_connect.php' ?>
 
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">All Beneficiaries</h5>
+              <h5 class="card-title">All Client Files</h5>
               <!-- Table with stripped rows -->
 
 
@@ -281,7 +281,7 @@ $(document).ready(function() {
     function _(abc) {
     return document.getElementById(abc);
 }
-
+var userid = document.getElementById("single");
 function uploadFileHandler() {
     var file = _("uploadingfile").files[0];
     var formdata = new FormData();
@@ -291,7 +291,7 @@ function uploadFileHandler() {
     ajax.addEventListener("load", completeHandler, false);
     ajax.addEventListener("error", errorHandler, false);
     ajax.addEventListener("abort", abortHandler, false);
-    ajax.open("POST", "up.php");
+    ajax.open("POST", "up.php?userid="+userid);
     ajax.send(formdata);
 }
 
