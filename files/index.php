@@ -43,6 +43,16 @@ include 'db_connect.php' ?>
   <link href="../assets/vendor/remixicon/remixicon.css" rel="stylesheet">
   <link href="../assets/vendor/simple-datatables/style.css" rel="stylesheet">
 
+
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.12.1/b-2.2.3/b-html5-2.2.3/b-print-2.2.3/date-1.1.2/fh-3.2.4/r-2.3.0/rg-1.2.0/sc-2.0.7/sb-1.3.4/sp-2.0.2/sl-1.4.0/datatables.min.css"/>
+
+ <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.12.1/b-2.2.3/b-html5-2.2.3/b-print-2.2.3/date-1.1.2/fh-3.2.4/r-2.3.0/rg-1.2.0/sc-2.0.7/sb-1.3.4/sp-2.0.2/sl-1.4.0/datatables.min.js"></script>
+ <script type="text/javascript" src=" https://cdn.datatables.net/rowreorder/1.2.8/js/dataTables.rowReorder.min.js"></script>
+
+ <link href="https://cdn.datatables.net/rowreorder/1.2.8/css/rowReorder.dataTables.min.css">
+  <link href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css" rel="stylesheet">
+  <link href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css" rel="stylesheet">
+
   <!-- Template Main CSS File -->
   <link href="../assets/css/style.css" rel="stylesheet">
    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css" />
@@ -151,27 +161,115 @@ include 'db_connect.php' ?>
             </form>
 
 
-        <div class="container">
-            <div class="row">
-                
+            <section class="section">
+      <div class="row">
+        <div class="col-lg-12">
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">All Beneficiaries</h5>
+              <!-- Table with stripped rows -->
+
+
+              
+               <div class="table responsive">
+              <table class="table table-striped datatable nowrap" id="jj" style="width: 100%;" >
+                <thead>
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Owner</th>
+                    <th scope="col">File Name</th>
+                    <th scope="col">Link</th>
+					<th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+				<?php 
+$stmt = $conn->prepare("SELECT * FROM `files` ");
+
+$stmt->execute();
+$result = $stmt->get_result();
+if ($result->num_rows > 0) {
+  // output data of each row
+while($row = $result->fetch_assoc()) {
+
+?>
+                  <tr>
+                    <th scope="row"><?php echo $row['id']; ?></th>
+                    <td><?php echo $row['userid']; ?></td>
+                    <td><?php echo $row['name']?></td>
+                    <td><?php echo $row['link']; ?></td>
+
+					<td>
+			<button type="button" data-link="edit.php?id=<?php echo $row['id']; ?>" class="btn btn-outline-primary edit"  title="Edit" data-id="<?php echo $row['id']; ?>"><i class="bi bi-eye-fill"></i></button>
+			
+            <button type="button" data-link="dedit.php?id=<?php echo $row['id']; ?>" class="btn btn-outline-secondary dedit"  title="Deceased" data-id="<?php echo $row['id']; ?>"><i class="bi bi-person-dash"></i></button>
+
+              
+					</td>
+                  </tr>
+<?php   }
+} else {
+ // echo "0 results";
+} ?>                 
+                </tbody>
+              </table>
+              <!-- End Table with stripped rows -->
+
             </div>
+            </div>
+          </div>
+
         </div>
+      </div>
+    </section>
         </main>
         
-        
-        <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 <script src="../assets/vendor/php-email-form/validate.js"></script>
-<!-- Vendor JS Files -->
-<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+
+
+
+<script src="../assets/js/main.js"></script>
+
+  
+  <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
   <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
+  <script src="../assets/vendor/simple-datatables/simple-datatables.js"></script>
 
-  <!-- Template Main JS File -->
-  <script src="../assets/js/main.js"></script>
+
+  <script>
+$(document).ready(function() {
+    $('#jj').DataTable( {
+        lengthMenu: [
+            [10, 25, 50, -1],
+            [10, 25, 50, 'All'],
+        ],
+        dom: 'Blfrtip',
+        buttons: [
+            'copyHtml5',
+            'excelHtml5',
+            'csvHtml5',
+            'pdfHtml5'
+        ],
+        responsive: true,
+        rowReorder: {
+            selector: 'td:nth-child(2)'
+        },
+       
+        
+    } );
+    
+  
+} );
+</script>
+
 
  <script>
         $(document).ready(function(){
