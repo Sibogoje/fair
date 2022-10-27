@@ -22,7 +22,7 @@ include 'db_connect.php' ?>
 	<!-- Select2 CSS --> 
 
     <script src=" https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script src='../jquery-3.2.1.min.js' type='text/javascript'></script>
+    
     <link href='../select2/dist/css/select2.min.css' rel='stylesheet' type='text/css'>
     <script src='../select2/dist/js/select2.min.js' type='text/javascript'></script>
 
