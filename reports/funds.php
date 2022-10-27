@@ -410,7 +410,7 @@ $('#single').select2({
 		$.ajax({
 			data: data,
 			type: "post",
-			url: "fundrepo.php",
+			url: "fundreport1.php",
 			success: function(dataResult){
 					var dataResult = JSON.parse(dataResult);
 					if(dataResult.statusCode==200){
