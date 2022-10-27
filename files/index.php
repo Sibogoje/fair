@@ -93,17 +93,15 @@ include 'db_connect.php' ?>
     </div><!-- End Page Title -->
 <!-- New beneficiary form-->
 
-<div class="text-center" >
-                  <button type="submit"  class="btn btn-warning add" id="xxx" data-link="" data-id="rr"  style="width: 100%;"><b>Upload New File</b></button>
-               </div>
+
                <form class="row g-3 needs-validation" id="upload_form" method="post"  enctype="multipart/form-data" novalidate>
                
                 <div class="form-group">
                     <input type="file" class="inp" name="uploadingfile" id="uploadingfile">
                 </div>
                 <div class="form-group">
-                    <input class="btn btn-primary" class="inp" type="button" value="Upload File" name="btnSubmit"
-                           onclick="uploadFileHandler()">
+                    <input class="btn btn-warning add" class="inp" type="button" value="Upload File" name="btnSubmit"
+                           onclick="uploadFileHandler()" style="width: 100%;" >
                 </div>
                 <div class="form-group">
                     <div class="progress" id="progressDiv">
