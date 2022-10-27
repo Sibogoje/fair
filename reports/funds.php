@@ -415,7 +415,7 @@ $('#single').select2({
 					var dataResult = JSON.parse(dataResult);
 					if(dataResult.statusCode==200){
 
-            var NewBalance = (dataResult.NewBalance);
+            var NewBalance = (dataResult.approved);
 						$("#NewBalance").val("Null");
 						$("#NewBalance").val(NewBalance);
 
