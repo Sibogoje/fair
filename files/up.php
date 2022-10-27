@@ -1,6 +1,5 @@
 <?php
 session_start();
-$gg = $_SESSION['user'];
 require_once '../scripts/connection.php';
 $gg = $_SESSION['user'];
 
@@ -10,7 +9,7 @@ if (!$_FILES["uploadingfile"]["tmp_name"]) {//No file chosen
     exit();
 } else {
     if (!file_exists("video/".$gg."/")) {
-    mkdir("video/".$gg."/", 0777, true);
+    mkdir("files/".$gg."/", 0777, true);
 }
     $extension = pathinfo($_FILES['uploadingfile']['name'], PATHINFO_EXTENSION);//Gets the file extension
     if ((($_FILES["uploadingfile"]["type"] != "video/mp4")) ) {//Check if MP4 extension
@@ -23,7 +22,7 @@ if (!$_FILES["uploadingfile"]["tmp_name"]) {//No file chosen
             //echo "$original_file_name uploaded to $folderPath it is $size_as_mb Mb.";
 
 $duration = "Unknonw";  
-$location = "https://liquag.com/live/files/".$gg."/".$original_file_name;
+$location = "https://liquag.com/live/files/files/".$gg."/".$original_file_name;
 $insertnew = $conn->prepare("insert into `files` (
 
 `userid`, `link`, `name`
