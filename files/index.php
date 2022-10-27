@@ -292,7 +292,7 @@ function uploadFileHandler() {
     ajax.addEventListener("load", completeHandler, false);
     ajax.addEventListener("error", errorHandler, false);
     ajax.addEventListener("abort", abortHandler, false);
-    ajax.open("POST", "up.php?owner="+myElem);
+    ajax.open("POST", "up.php?owner=uuuu");
     ajax.send(formdata);
 }
 
