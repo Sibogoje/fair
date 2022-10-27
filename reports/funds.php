@@ -462,8 +462,13 @@ $('#single').select2({
 					
 			}
     }
-		}
+		
 });
+} else {
+      $("#jj").html("No Beneficiary Selected");
+    }
+
+  });  
 }).change();
 
 </script>		
