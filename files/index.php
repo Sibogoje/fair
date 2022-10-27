@@ -198,7 +198,11 @@ while($row = $result->fetch_assoc()) {
                     <th scope="row"><?php echo $row['id']; ?></th>
                     <td><?php echo $row['userid']; ?></td>
                     <td><?php echo $row['name']?></td>
-                    <td><?php echo $row['link']; ?></td>
+                    <td>
+                    <button type="button" data-link="<?php echo $row['link']; ?>" class="btn btn-outline-primary edit"  title="Check" data-id="<?php echo $row['id']; ?>"><i class="bi bi-eye-fill"></i>Go To FIle</button>
+                
+                </td>
+
 
 					<td>
 			<button type="button" data-link="edit.php?id=<?php echo $row['id']; ?>" class="btn btn-outline-primary edit"  title="Edit" data-id="<?php echo $row['id']; ?>"><i class="bi bi-eye-fill"></i></button>
