@@ -180,7 +180,8 @@ include 'db_connect.php' ?>
     allowClear: false,
     height: '100%',
 });
-        </script>
+});
+</script>
        
         
     </body>
