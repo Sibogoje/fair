@@ -18,7 +18,7 @@ $ttfundmembers = $ttfundsrow['memberID'];
 	
 	$response2 = array(
 					'statusCode'=>200,
-					'approved'=>$ApprovedBenefit
+					'approved'=>$ttfundmembers
 					
 					
 					
