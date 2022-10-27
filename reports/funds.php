@@ -182,7 +182,7 @@ require_once '../scripts/connection.php';
 
           <div class="col-md-3">
                   <div class="form-floating">
-                    <input type="number" step="0.01" class="form-control" id="Opening" placeholder="AdHocPayment" value="0" name="Opening" readonly>
+                    <input type="text" step="0.01" class="form-control" id="Opening" placeholder="AdHocPayment" value="0" name="Opening" readonly>
                     <label for="floatingName"><b>Sum Opening:</b></label>
 				  <div class="valid-feedback">
                     Looks good!
@@ -192,7 +192,7 @@ require_once '../scripts/connection.php';
 
           <div class="col-md-3">
                   <div class="form-floating">
-                    <input type="number" step="0.01" class="form-control" id="TransferIn" placeholder="AdHocPayment" value="0" name="TransferIn" readonly>
+                    <input type="text" step="0.01" class="form-control" id="TransferIn" placeholder="AdHocPayment" value="0" name="TransferIn" readonly>
                     <label for="floatingName"><b>Sum TransferIn Fees:</b></label>
 				  <div class="valid-feedback">
                     Looks good!
@@ -202,7 +202,7 @@ require_once '../scripts/connection.php';
 
           <div class="col-md-3">
                   <div class="form-floating">
-                    <input type="number" step="0.01" class="form-control" id="Regular" placeholder="AdHocPayment" value="0" name="Regular" readonly>
+                    <input type="text" step="0.01" class="form-control" id="Regular" placeholder="AdHocPayment" value="0" name="Regular" readonly>
                     <label for="floatingName"><b>Sum Regular :</b></label>
 				  <div class="valid-feedback">
                     Looks good!
@@ -212,7 +212,7 @@ require_once '../scripts/connection.php';
 
           <div class="col-md-3">
                   <div class="form-floating">
-                    <input type="number" step="0.01" class="form-control" id="Adhoc" placeholder="AdHocPayment" value="0" name="Adhoc" readonly>
+                    <input type="text" step="0.01" class="form-control" id="Adhoc" placeholder="AdHocPayment" value="0" name="Adhoc" readonly>
                     <label for="floatingName"><b>Sum Adhoc:</b></label>
 				  <div class="valid-feedback">
                     Looks good!
@@ -222,7 +222,7 @@ require_once '../scripts/connection.php';
 
           <div class="col-md-3">
                   <div class="form-floating">
-                    <input type="number" step="0.01" class="form-control" id="Transfee" placeholder="AdHocPayment" value="0" name="Transfee" readonly>
+                    <input type="text" step="0.01" class="form-control" id="Transfee" placeholder="AdHocPayment" value="0" name="Transfee" readonly>
                     <label for="floatingName"><b>Sum Transaction Fees:</b></label>
 				  <div class="valid-feedback">
                     Looks good!
@@ -232,7 +232,7 @@ require_once '../scripts/connection.php';
 
           <div class="col-md-3">
                   <div class="form-floating">
-                    <input type="number" step="0.01" class="form-control" id="Monthly" placeholder="AdHocPayment" value="0" name="Monthly" readonly>
+                    <input type="text" step="0.01" class="form-control" id="Monthly" placeholder="AdHocPayment" value="0" name="Monthly" readonly>
                     <label for="floatingName"><b>Sum Monthly Fees:</b></label>
 				  <div class="valid-feedback">
                     Looks good!
@@ -242,7 +242,7 @@ require_once '../scripts/connection.php';
 
           <div class="col-md-3">
                   <div class="form-floating">
-                    <input type="number" step="0.01" class="form-control" id="Admin" placeholder="AdHocPayment" value="0" name="Admin" readonly>
+                    <input type="text" step="0.01" class="form-control" id="Admin" placeholder="AdHocPayment" value="0" name="Admin" readonly>
                     <label for="floatingName"><b>Sum Admin Fees:</b></label>
 				  <div class="valid-feedback">
                     Looks good!
@@ -252,7 +252,7 @@ require_once '../scripts/connection.php';
 
           <div class="col-md-3">
                   <div class="form-floating">
-                    <input type="number" step="0.01" class="form-control" id="Interest" placeholder="AdHocPayment" value="0" name="Interest" readonly>
+                    <input type="text" step="0.01" class="form-control" id="Interest" placeholder="AdHocPayment" value="0" name="Interest" readonly>
                     <label for="floatingName"><b>Sum Interest Fees:</b></label>
 				  <div class="valid-feedback">
                     Looks good!
@@ -262,13 +262,24 @@ require_once '../scripts/connection.php';
 
           <div class="col-md-3">
                   <div class="form-floating">
-                    <input type="number" step="0.01" class="form-control" id="Additional" placeholder="AdHocPayment" value="0" name="Additional" readonly>
+                    <input type="text" step="0.01" class="form-control" id="Additional" placeholder="AdHocPayment" value="0" name="Additional" readonly>
                     <label for="floatingName"><b>Sum Additional Capital:</b></label>
 				  <div class="valid-feedback">
                     Looks good!
                   </div>
                   </div>
 				  </div>
+
+          <div class="col-md-3">
+                  <div class="form-floating">
+                    <input type="text" step="0.01" class="form-control" id="Other" placeholder="AdHocPayment" value="0" name="Other" readonly>
+                    <label for="floatingName"><b>Sum Other:</b></label>
+				  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                  </div>
+				  </div>
+			  
 			  
   	             	
 			
@@ -422,6 +433,42 @@ $('#single').select2({
             var ttopeningrow = (dataResult.ttopeningrow);
 						$("#Opening").val("Null");
 						$("#Opening").val(ttopeningrow);
+
+            var ttinrow = (dataResult.ttinrow);
+						$("#TransferIn").val("Null");
+						$("#TransferIn").val(ttinrow);
+
+            var ttregularrow = (dataResult.ttregularrow);
+						$("#Regular").val("Null");
+						$("#Regular").val(ttregularrow);
+
+            var ttadhocgrow = (dataResult.ttadhocgrow);
+						$("#Adhoc").val("Null");
+						$("#Adhoc").val(ttadhocgrow);
+
+            var ttfeegrow = (dataResult.ttfeegrow);
+						$("#Transfee").val("Null");
+						$("#Transfee").val(ttfeegrow);
+
+            var ttmonthlyrow = (dataResult.ttmonthlyrow);
+						$("#Monthly").val("Null");
+						$("#Monthly").val(ttmonthlyrow);
+
+            var ttadminrow = (dataResult.ttadminrow);
+						$("#Admin").val("Null");
+						$("#Admin").val(ttadminrow);
+
+            var ttintrow = (dataResult.ttintrow);
+						$("#Interest").val("Null");
+						$("#Interest").val(ttintrow);
+
+            var ttaddrow = (dataResult.ttaddrow);
+						$("#Additional").val("Null");
+						$("#Additional").val(ttaddrow);
+
+            var ttotherrow = (dataResult.ttotherrow);
+						$("#Other").val("Null");
+						$("#Other").val(ttotherrow);
 
            
 					
