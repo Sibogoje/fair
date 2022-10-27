@@ -172,7 +172,7 @@ require_once '../scripts/connection.php';
 
         <div class="col-md-3">
                   <div class="form-floating">
-                    <input type="number" step="0.01" class="form-control" id="NewBalance" placeholder="AdHocPayment" value="0" name="NewBalance" readonly>
+                    <input type="text" step="0.01" class="form-control" id="NewBalance" placeholder="AdHocPayment" value="0" name="NewBalance" readonly>
                     <label for="floatingName"><b>Sum NewBalance:</b></label>
 				  <div class="valid-feedback">
                     Looks good!
