@@ -172,8 +172,8 @@ require_once '../scripts/connection.php';
 
         <div class="col-md-3">
                   <div class="form-floating">
-                    <input type="text" step="0.01" class="form-control" id="NewBalance" placeholder="AdHocPayment" value="0" name="NewBalance" readonly>
-                    <label for="floatingName"><b>Sum NewBalance:</b></label>
+                    <input type="text" step="0.01" class="form-control" id="Clients" placeholder="AdHocPayment" value="0" name="Clients" readonly>
+                    <label for="floatingName"><b>Total Members:</b></label>
 				  <div class="valid-feedback">
                     Looks good!
                   </div>
@@ -416,8 +416,8 @@ $('#single').select2({
 					if(dataResult.statusCode==200){
 
             var ttfundmembers = (dataResult.ttfundmembers);
-						$("#NewBalance").val("Null");
-						$("#NewBalance").val(ttfundmembers);
+						$("#Clients").val("Null");
+						$("#Clients").val(ttfundmembers);
 
            
 					
