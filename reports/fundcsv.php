@@ -8,17 +8,13 @@ require_once '../scripts/connection.php';
 	 
 	 if(count($_POST)>0){
 // Fetch records from database 
-$query = $conn->query("SELECT   
+$query = $conn->query("SELECT  
+ `memberID`, 
 `TransactionDate`,
   `TransactionTypeID`,
-  `memberID`,
-  `Details`,
-  `Credit`,
-  `StartingBalance`,
   `Amount`,
-  `NewBalance`,
-  `Comments`
-  FROM `tblmemberaccounts` WHERE `fundid` ='$ii' AND DATE(TransactionDate) BETWEEN '$d1'  AND '$d2'  ORDER BY TransactionDate DESC"); 
+  `NewBalance`
+  FROM `fundsums` WHERE `RetirementFundID` ='$ii' AND DATE(TransactionDate) BETWEEN '$d1'  AND '$d2'  ORDER BY TransactionDate DESC"); 
  
 if($query->num_rows > 0){ 
     $delimiter = ","; 
@@ -28,20 +24,14 @@ if($query->num_rows > 0){
     $f = fopen('php://memory', 'w'); 
       $tyes = "";
     // Set column headers 
-    $fields = array('TransactionDate', 'Details', 'Type', 'Comments', 'Prev balance', 'Amount', 'NewBalance'); 
+    $fields = array('memberID', 'TransactionDate', 'TransactionTypeID', 'Amount', 'NewBalance'); 
     fputcsv($f, $fields, $delimiter); 
      
     // Output each row of the data, format line as csv and write to file pointer 
     while($row = $query->fetch_assoc()){ 
       //  $status = ($row['status'] == 1)?'Active':'Inactive'; 
      
-							if ($row['Credit'] == "1"){
-								$tyes = "Credit";
-							}else {
-								$tyes = "Debit";
-								
-							}
-        $lineData = array($row['TransactionDate'], $row['Details'], $tyes, $row['Comments'], $row['StartingBalance'], $row['Amount'], $row['NewBalance']); 
+        $lineData = array($row['memberID'], $row['TransactionDate'], $row['TransactionTypeID'], $row['Amount'], $row['NewBalance']); 
         fputcsv($f, $lineData, $delimiter); 
     } 
 
