@@ -1,5 +1,6 @@
 <?php
 $useid = $_GET['owner'];
+echo $useid;
 session_start();
 require_once '../scripts/connection.php';
 $gg = $_SESSION['user'];
