@@ -2,7 +2,7 @@
 session_start();
 require_once '../scripts/connection.php';
 $gg = $_SESSION['user'];
-
+$useid = $_GET['userid'];
 
 if (!$_FILES["uploadingfile"]["tmp_name"]) {//No file chosen
     echo "ERROR: Please browse for a file before clicking the upload button.";
@@ -36,7 +36,7 @@ VALUES
 	?
   );");
 $insertnew->bind_param("sss", 
-$gg,
+$useid,
 $location,
 $original_file_name
 );

@@ -282,6 +282,7 @@ $(document).ready(function() {
     return document.getElementById(abc);
 }
 var userid = document.getElementById("single");
+myElementValue = userid.value;
 function uploadFileHandler() {
     var file = _("uploadingfile").files[0];
     var formdata = new FormData();
@@ -291,7 +292,7 @@ function uploadFileHandler() {
     ajax.addEventListener("load", completeHandler, false);
     ajax.addEventListener("error", errorHandler, false);
     ajax.addEventListener("abort", abortHandler, false);
-    ajax.open("POST", "up.php?userid="+userid);
+    ajax.open("POST", "up.php?userid="+myElementValue);
     ajax.send(formdata);
 }
 
