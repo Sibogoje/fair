@@ -401,10 +401,10 @@ $('#single').select2({
 </script>
 		
 <script>
-$('#single').change(function() {
-	
-    var jk2 = $('#single option:selected').val();
-
+	 $("#single").change(function(){
+		 $(this).find("option:selected").each(function(){
+         var annex = $(this).attr("value");
+      if(annex != "") {
   var data = $("#user_form").serialize();
   // $("html").addClass("loading");
 		$.ajax({
@@ -464,6 +464,8 @@ $('#single').change(function() {
     }
 		});
 });
+}).change();
+
 </script>		
 		
 	
