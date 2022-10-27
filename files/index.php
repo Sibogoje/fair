@@ -205,9 +205,9 @@ while($row = $result->fetch_assoc()) {
 
 
 					<td>
-			<button type="button" data-link="edit.php?id=<?php echo $row['id']; ?>" class="btn btn-outline-primary edit"  title="Edit" data-id="<?php echo $row['id']; ?>"><i class="bi bi-eye-fill"></i></button>
+
 			
-            <button type="button" data-link="dedit.php?id=<?php echo $row['id']; ?>" class="btn btn-outline-secondary dedit"  title="Deceased" data-id="<?php echo $row['id']; ?>"><i class="bi bi-person-dash"></i></button>
+            <button type="button" data-link="dedit.php?id=<?php echo $row['id']; ?>" class="btn btn-outline-secondary dedit"  title="Deceased" data-id="<?php echo $row['id']; ?>"><i class="bi bi-trash"></i></button>
 
               
 					</td>
