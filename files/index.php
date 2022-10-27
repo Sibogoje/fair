@@ -281,8 +281,8 @@ $(document).ready(function() {
     function _(abc) {
     return document.getElementById(abc);
 }
-var userid = document.getElementById("single");
-myElementValue = userid.value;
+var userids = document.getElementById("single");
+myElementValue = userids.value;
 function uploadFileHandler() {
     var file = _("uploadingfile").files[0];
     var formdata = new FormData();
