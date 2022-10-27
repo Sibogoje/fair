@@ -93,151 +93,33 @@ include 'db_connect.php' ?>
     </div><!-- End Page Title -->
 <!-- New beneficiary form-->
 
-
+<div class="text-center" >
+                  <button type="submit"  class="btn btn-warning add" id="xxx" data-link="" data-id="rr"  style="width: 100%;"><b>Upload New File</b></button>
+               </div>
+               <form class="row g-3 needs-validation" id="upload_form" method="post"  enctype="multipart/form-data" novalidate>
+               
+                <div class="form-group">
+                    <input type="file" class="inp" name="uploadingfile" id="uploadingfile">
+                </div>
+                <div class="form-group">
+                    <input class="btn btn-primary" class="inp" type="button" value="Upload File" name="btnSubmit"
+                           onclick="uploadFileHandler()">
+                </div>
+                <div class="form-group">
+                    <div class="progress" id="progressDiv">
+                        <progress id="progressBar" value="0" max="100" style="width:100%; height: 1.2rem;"></progress>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <h3 id="status"></h3>
+                    <p id="uploaded_progress"></p>
+                </div>
+            </form>
 
 
         <div class="container">
             <div class="row">
-                <div class="col-lg-8 mb-4">
-                     <?php
-                    $phpFileUploadErrors = array(
-                        0 => 'File upload successfully',
-                        1 => 'the upload file exceed the  upload_max_filesize directive in php.ini',
-                        2 => 'the upload file exceed the MAX_FILE_SIZE directive that was specified in the HTML form',
-                        3 => 'the upload file was only partially uploaded',
-                        4 => 'no file was uploaded',
-                        5 => 'missing a temporary folder',
-                        6 => 'failed to write file to disc',
-                        7 => 'a php extension stopped the file upload',
-                    );
-
-                    if (isset($_FILES['file'])) {
-
-                        $file_array = reArrayFiles($_FILES['file']);
-                        //pre_r($file_array);
-                        for ($i = 0; $i < count($file_array); $i++) {
-                            if ($file_array[$i]['error']) {
-                                ?><div class="alert alert-danger">
-                                <?php echo $file_array[$i]['name'] . ' - ' . $phpFileUploadErrors[$file_array[$i]['error']];
-                                ?></div><?php
-                            } else {
-                                $extensions = array('pdf', 'jpeg', 'jpg', 'png', 'gif', 'pptx', 'ppt', 'docx', 'doc', 'xlsx', 'sql', 'txt', 'xlsx', 'xls', 'xlsm', 'xlsb', 'xltm', 'xlt', 'xla', 'xlr');
-                                $file_ext = explode('.', $file_array[$i]['name']);
-                                $file_ext = end($file_ext);
-                                $file_size = $file_array[$i]['size'];
-                                $file_type = $file_array[$i]['type'];
-
-                                if (!in_array($file_ext, $extensions)) {
-                                    ?>
-                                    <div class="alert alert-danger">
-
-                                        <?php echo "{$file_array[$i]['name']} - invalid file extension" ?>
-
-                                    </div>
-
-                                    <?php
-                                } else {
-                                    if (move_uploaded_file($file_array[$i]['tmp_name'], "uploads/" . $file_array[$i]['name'])) {
-                                        $connect->query("INSERT INTO tbl_uploads(file,type,size) 
-                                            VALUES ('" . $file_array[$i]['name'] . "','$file_type','$file_size')");
-                                    }
-                                    ?>
-                                    <div class="alert alert-success">
-                                        <?php echo $file_array[$i]['name'] . ' - ' . $phpFileUploadErrors[$file_array[$i]['error']] ?>
-                                    </div>
-
-                                    <?php
-                                }
-                            }
-                        }
-                    }
-
-                    function reArrayFiles($file_post) {
-
-                        $file_ary = array();
-                        $file_count = count($file_post['name']);
-                        $file_keys = array_keys($file_post);
-
-                        for ($i = 0; $i < $file_count; $i++) {
-                            foreach ($file_keys as $key) {
-                                $file_ary[$i][$key] = $file_post[$key][$i];
-                            }
-                        }
-
-                        return $file_ary;
-                    }
-
-                    function pre_r($array) {
-                        echo '<pre>';
-                        print_r($array);
-                        echo '</pre>';
-                    }
-
-                    //end multi upload-->
-                    ?> 
-                    <!--for table!-->
-                    <?php
-                    $result = $connect->query("SELECT * FROM tbl_uploads") or die($connect->error);
-                    ?>
-                    
-                    <!-- Table with stripped rows -->
-              <div class="table-responsive">
-              <table class="table datatable" id="jj" width="100%" cellspacing="0">
-                <thead>
-                  <tr>
-                                <th>Owner</th>
-                                <th>FileName</th>
-                                <th>Type</th>
-                                <th>Date</th>
-                                <th>action</th>
-                            </tr>
-                </thead>
-                <tbody>
-				<?php 
-$stmt = $conn->prepare("SELECT * FROM tbl_uploads" );
-
-$stmt->execute();
-$result = $stmt->get_result();
-if ($result->num_rows > 0) {
-  // output data of each row
-while($row = $result->fetch_assoc()) {
-
-//$uid = $row['MemberNo'];
-?>
-
-                  <tr>
-                      <td><?php echo $row['file'] ?></td>
-                                <td><?php echo $row['file'] ?></td>
-                                <td><?php echo $row['type'] ?></td>
-                                <td><?php echo $row['size'] ?></td>
-                                <td>
-                                    <a href="uploads/<?php echo $row['file'] ?>" target="_blank"><i class="bi bi-download btn"></i></a>
-                                </td>
-                            </tr>
-<?php   }
-} else {
-  echo "0 results";
-} ?>                 
-                </tbody>
-              </table>
-              </div>
-              <!-- End Table with stripped rows -->
-                </div>
-                <!--for file upload form!-->
-                <div class="col-lg-4 md-2">
-
-
-
-                    <form id="form" action="" method="post" enctype="multipart/form-data" class="form-control">
-                        <div class="form-group">
-                             <input name="file[]" multiple="" class="form-control" type="file" required/>
-                        </div>
-                        <div class="form-group">
-                             <button id="confirm" class="btn btn-primary btn-sm" name="upload">Upload</button>
-                        </div>
-                    </form>
-                   
-                </div>
+                
             </div>
         </div>
         </main>
