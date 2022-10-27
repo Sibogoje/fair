@@ -416,7 +416,7 @@ $('#single').select2({
 					if(dataResult.statusCode==200){
 
             var ttfundmembers = (dataResult.ttfundmembers);
-						$("#NewBalance").val("Null");
+						$("#NewBalance").value("Null");
 						$("#NewBalance").value(ttfundmembers);
 
            
