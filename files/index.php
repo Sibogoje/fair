@@ -99,6 +99,39 @@ include 'db_connect.php' ?>
                 <div class="form-group">
                     <input type="file" class="inp" name="uploadingfile" id="uploadingfile">
                 </div>
+
+                <div class="col-md-12">
+				
+          <div class="form-floating">
+				  
+					 <select type="text" class="form-control" id="single"    placeholder="MemberID" name="MemberID"  required>
+					<option value="" selected></option>
+						<?php 
+						$stmt12 = $conn->prepare("SELECT * FROM `tblmembers` where `Terminated` = '0' ");
+						$stmt12->execute();
+						$result12 = $stmt12->get_result();
+						if ($result12->num_rows > 0) {
+						  // output data of each row
+						while($row12 = $result12->fetch_assoc()) {
+					
+					    	
+							
+
+						?>
+					<option value="<?php echo $row12['MemberNo']; ?>"><?php echo $row12['MemberNo']." ".$row12['MemberSurname']." ".$row12['MemberFirstname'] ; ?></option>
+						<?php   }
+						} else {
+						//  echo "0 results";
+						} ?> 
+					</select>
+                    
+				  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                  </div>
+				  </div>	
+
+
                 <div class="form-group">
                     <input class="btn btn-warning add" class="inp" type="button" value="Upload File" name="btnSubmit"
                            onclick="uploadFileHandler()" style="width: 100%;" >
