@@ -490,8 +490,10 @@ $('#single').change(function() {
 						
 					
 			}
+    }
 		});
-});</script>		
+});
+</script>		
 		
 	
 
