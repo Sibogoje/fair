@@ -175,9 +175,11 @@ include 'db_connect.php' ?>
 
  <script>
         $(document).ready(function(){
-    $('#single').select2();        
-
-        });
+            $('#single').select2({
+    width: '100%',
+    allowClear: false,
+    height: '100%',
+});
         </script>
        
         
