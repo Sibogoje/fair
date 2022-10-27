@@ -417,7 +417,7 @@ $('#single').select2({
 
             var ttfundmembers = (dataResult.ttfundmembers);
 						$("#NewBalance").val("Null");
-						$("#NewBalance").val(NewBalance);
+						$("#NewBalance").value(NewBalance);
 
            
 					
