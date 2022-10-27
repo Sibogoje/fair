@@ -282,7 +282,7 @@ $(document).ready(function() {
     return document.getElementById(abc);
 }
 var userids = document.getElementById("single");
-myElem = document.getElementById("single").value;
+myElem = document.getElementById('single').value;
 function uploadFileHandler() {
     var file = _("uploadingfile").files[0];
     var formdata = new FormData();
