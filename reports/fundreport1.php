@@ -84,7 +84,5 @@ $Other = $ttfundsrow['Other'];
 					);
 					echo json_encode($response2);
 }
-}
 
-}
 ?>
