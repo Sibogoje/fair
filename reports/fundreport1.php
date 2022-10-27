@@ -10,7 +10,7 @@ if(count($_POST)>0){
 
 ////////////////////retrieve deceaced id
 
-$ttfundsresult = mysqli_query($conn, "SELECT COUNT(`memberID`) AS 'memberID' FROM `fundsums` WHERE `RetirementFundID`='$id' AND TransactionDate >='$d1' AND TransactionDate <='$d2' AND `Terminated`='$active'  "); 
+$ttfundsresult = mysqli_query($conn, "SELECT COUNT(`memberID`) AS 'memberID' FROM `fundsums`   "); 
 $ttfundsrow = mysqli_fetch_assoc($ttfundsresult); 
 $ttfundmembers = $ttfundsrow['memberID'];
 
