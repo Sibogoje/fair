@@ -199,7 +199,7 @@ while($row = $result->fetch_assoc()) {
                     <td><?php echo $row['userid']; ?></td>
                     <td><?php echo $row['name']?></td>
                     <td>
-                    <button type="button" data-link="<?php echo $row['link']; ?>" class="btn btn-outline-primary edit"  title="Check" data-id="<?php echo $row['id']; ?>"><i class="bi bi-eye-fill"></i>Go To FIle</button>
+                    <button type="button" data-link="<?php echo $row['link']; ?>" class="btn btn-outline-primary goto"  title="Check" data-id="<?php echo $row['id']; ?>"><i class="bi bi-eye-fill"></i>Go To FIle</button>
                 
                 </td>
 
@@ -322,7 +322,14 @@ function errorHandler(event) {
 function abortHandler(event) {
     _("status").innerHTML = "Upload Aborted";//Switch status to aborted
 }
-</script>	      
+</script>
+
+<script>
+$(document).on("click",".goto",function(e){
+ // your code goes here
+  window.location.href = $(this).data('link');
+});
+</script>
     </body>
 </html>
 <?php
