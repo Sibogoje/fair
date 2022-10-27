@@ -14,11 +14,14 @@ $ttfundsresult = mysqli_query($conn, "SELECT COUNT(DISTINCT `memberID`) AS 'memb
 $ttfundsrow = mysqli_fetch_assoc($ttfundsresult); 
 $ttfundmembers = $ttfundsrow['memberID'];
 
-
+$ttopening = mysqli_query($conn, "SELECT SUM(`Amount`) AS 'Opening' FROM `fundsums` WHERE `RetirementFundID` = '$id' AND DATE(`TransactionDate`) BETWEEN '$d1'  AND '$d2' AND `TransactionTypeID` = '1'  "); 
+$ttopeningresult = mysqli_fetch_assoc($ttopening); 
+$ttopeningrow = $ttopeningresult['Opening'];
 	
 	$response2 = array(
 					'statusCode'=>200,
-					'ttfundmembers'=>$ttfundmembers
+					'ttfundmembers'=>$ttfundmembers,
+					'ttopeningrow'=>$ttopeningrow
 					
 					
 					

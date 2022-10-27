@@ -419,6 +419,10 @@ $('#single').select2({
 						$("#Clients").val("Null");
 						$("#Clients").val(ttfundmembers);
 
+            var $ttopeningrow = (dataResult.$ttopeningrow);
+						$("#Opening").val("Null");
+						$("#Opening").val($ttopeningrow);
+
            
 					
 			}
