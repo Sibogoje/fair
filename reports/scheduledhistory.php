@@ -78,7 +78,7 @@ $stmt12 = $conn->prepare("SELECT
 
 
 							$stmt14 = $conn->prepare("SELECT `MemberNo`, `MemberSurname`, `MemberFirstname` FROM `tblmembers` WHERE `MemberID` =? AND `FixedPaymentAmount` =? ");
-							$stmt14->bind_param("s", $dgdg,  $zer);
+							$stmt14->bind_param("ss", $dgdg,  $zer);
 							$stmt14->execute();
 							$result14 = $stmt14->get_result();
 							if ($result14->num_rows > 0) {
