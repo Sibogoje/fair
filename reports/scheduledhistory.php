@@ -76,14 +76,7 @@ $stmt12 = $conn->prepare("SELECT
 							$dgdg = $row12['memberID'];
 
 
-
-							$stmt14 = $conn->prepare("SELECT `MemberNo`, `MemberSurname`, `MemberFirstname` FROM `tblmembers` WHERE `MemberID` =? AND `FixedPaymentAmount` =? ");
-							$stmt14->bind_param("ss", $dgdg,  $zer);
-							$stmt14->execute();
-							$result14 = $stmt14->get_result();
-							if ($result14->num_rows > 0) {
-							while($row14 = $result14->fetch_assoc()) {
-
+						
 
 
 							$tyes = "";
@@ -123,12 +116,7 @@ $stmt12 = $conn->prepare("SELECT
 						 </div>
 						<?php
 						
-						} else {
-						  echo "0 results";
-
-
-
-						} 
+						
 ?>
   <script src="../assets/vendor/simple-datatables/simple-datatables.js"></script>
 
