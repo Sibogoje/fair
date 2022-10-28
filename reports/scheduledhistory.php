@@ -43,7 +43,7 @@ $stmt12 = $conn->prepare("SELECT * FROM ".$choose);
 						  // output data of each row
 						 ?>
 					
-                <tbody id="gruu">
+              
 				
           
 		   <?php
