@@ -42,7 +42,18 @@ $stmt12 = $conn->prepare("SELECT * FROM ".$choose);
 						
 						  // output data of each row
 						 ?>
-					
+					<thead>
+                  <tr>
+                       <th scope="col">Member ID</th>
+                    <th scope="col">TransactionDate</th>
+					<th scope="col">Full Name</th>
+                   
+					<th scope="col">Prev balance</th>
+					<th scope="col">Amount</th>
+					<th scope="col">NewBalance</th>
+                  </tr>
+                </thead>
+                <tbody id="gruu">
 				
           
 		   <?php
@@ -80,7 +91,7 @@ $stmt12 = $conn->prepare("SELECT * FROM ".$choose);
 					}
 
 						?>
-						
+						</tbody>
 						<?php
 
 } else {

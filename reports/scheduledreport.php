@@ -212,20 +212,9 @@ html.loading body {
               <!-- Table with stripped rows -->
               <div class="table-responsive">
               <table class="table table-striped datatable nowrap" id="free" style="width: 100%;" >
-			<thead>
-                  <tr>
-                       <th scope="col">Member ID</th>
-                    <th scope="col">TransactionDate</th>
-					<th scope="col">Full Name</th>
-                   
-					<th scope="col">Prev balance</th>
-					<th scope="col">Amount</th>
-					<th scope="col">NewBalance</th>
-                  </tr>
-                </thead>
-                <tbody id="gruu">
+			
 
-              </tbody>
+              
 						 </table>
 						 </div>
               <!-- End Table with stripped rows -->
