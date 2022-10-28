@@ -278,31 +278,7 @@ html.loading body {
     <script src="../assets/vendor/simple-datatables/simple-datatables.js"></script>
   
 	<!-- Select2 CSS --> 
-  <script>
-$(document).ready(function() {
-    $('#free').DataTable( {
-        lengthMenu: [
-            [10, 25, 50, -1],
-            [10, 25, 50, 'All'],
-        ],
-        dom: 'Blfrtip',
-        buttons: [
-            'copyHtml5',
-            'excelHtml5',
-            'csvHtml5',
-            'pdfHtml5'
-        ],
-        responsive: true,
-        rowReorder: {
-            selector: 'td:nth-child(2)'
-        },
-       
-        
-    } );
-    
   
-} );
-</script>
   <!-- Template Main JS File -->
   <script src="../assets/js/main.js"></script>
   <script>
