@@ -49,9 +49,7 @@ $stmt12 = $conn->prepare("SELECT * FROM ".$choose);
                        <th scope="col">Member ID</th>
                     <th scope="col">TransactionDate</th>
 					<th scope="col">Full Name</th>
-                    <th scope="col">Details</th>
-                    <th scope="col">Type</th>
-                    <th scope="col">Comments</th>
+                   
 					<th scope="col">Prev balance</th>
 					<th scope="col">Amount</th>
 					<th scope="col">NewBalance</th>
@@ -81,9 +79,7 @@ $stmt12 = $conn->prepare("SELECT * FROM ".$choose);
                     <th scope="row"><?php echo $row12['MemberNo']; ?></th>
                     <th scope="row"><?php echo $row12['TransactionDate']; ?></th>
 					<th scope="row"><?php echo $row12['MemberSurname']."".$row12['MemberFirstname']; ?></th>
-                    <td><?php echo $row12['Details']; ?></td>
-                    <td><?php echo $tyes; ?></td>
-                    <td><?php echo $row12['Comments']; ?></td>
+                    
                     <td><?php echo number_format($row12['StartingBalance'], 2); ?></td>
 					<td><?php echo  number_format($row12['Amount'], 2);  ?></td>
 					<td><?php echo number_format($row12['NewBalance'], 2); ?></td>
