@@ -374,7 +374,29 @@ alert("Please select fund to save report");
         success:function(response) {
           var resp = $.trim(response);
           $("#free").html(resp);
-          $("#free").ajax.reload();
+         
+
+
+          $('#free').DataTable( {
+        lengthMenu: [
+            [10, 25, 50, -1],
+            [10, 25, 50, 'All'],
+        ],
+        dom: 'Blfrtip',
+        buttons: [
+            'copyHtml5',
+            'excelHtml5',
+            'csvHtml5',
+            'pdfHtml5'
+        ],
+        responsive: true,
+        rowReorder: {
+            selector: 'td:nth-child(2)'
+        },
+       
+        
+    } );
+
         }
       });
     } else {
