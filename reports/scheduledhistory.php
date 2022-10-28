@@ -42,7 +42,7 @@ $stmt12 = $conn->prepare("SELECT * FROM ".$choose);
 						
 						  // output data of each row
 						 ?>
-						 <div class="table responsive">
+						 <div class="table-responsive">
               <table class="table table-striped datatable nowrap" id="free" style="width: 100%;" >
 			<thead>
                   <tr>
