@@ -14,25 +14,16 @@ $mntharray2 =  str_replace( array('[',']') , ''  , $mntharray1 );
 
 if (in_array("all", $mntharray)){
 
-   $choose = "`tblmemberaccounts` WHERE TransactionTypeID = '3' AND  DATE(TransactionDate) BETWEEN '$d1'  AND '$d2'  ORDER BY TransactionDate DESC, accountsID DESC";  
+   $choose = "`regularpays` WHERE TransactionTypeID = '3' AND  DATE(TransactionDate) BETWEEN '$d1'  AND '$d2'  ORDER BY TransactionDate DESC, accountsID DESC";  
 }else{
   
- $choose = "`tblmemberaccounts` WHERE TransactionTypeID = '3' AND  `memberID` IN ({$mntharray2}) AND DATE(TransactionDate) BETWEEN '$d1'  AND '$d2'  ORDER BY TransactionDate DESC, accountsID DESC";   
+ $choose = "`regularpays` WHERE TransactionTypeID = '3' AND  `memberID` IN ({$mntharray2}) AND DATE(TransactionDate) BETWEEN '$d1'  AND '$d2'  ORDER BY TransactionDate DESC, accountsID DESC";   
 }
 
 
 if(count($_POST)>0){
 // Fetch records from database 
-$query = $conn->query("SELECT   
-`TransactionDate`,
-  `TransactionTypeID`,
-  `memberID`,
-  `Details`,
-  `Credit`,
-  `StartingBalance`,
-  `Amount`,
-  `NewBalance`,
-  `Comments`
+$query = $conn->query("SELECT *
   FROM  ".$choose);
 
  
@@ -44,7 +35,7 @@ if($query->num_rows > 0){
     $f = fopen('php://memory', 'w'); 
       $tyes = "";
     // Set column headers 
-    $fields = array("MemberID", "TransactionDate", "Detail s", "Type s", "Comment s", 'Prev balance', 'Amoun t', 'NewBalanc e'); 
+    $fields = array("MemberNo", "TransactionDate", "MemberSurname", "MemberFirstname",  'Prev balance', 'Amoun t', 'NewBalanc e'); 
     fputcsv($f, $fields, $delimiter); 
      
     // Output each row of the data, format line as csv and write to file pointer 
@@ -57,7 +48,7 @@ if($query->num_rows > 0){
 								$tyes = "Debit";
 								
 							}
-        $lineData = array($row['memberID'],$row['TransactionDate'], $row['Details'], $tyes, $row['Comments'], $row['StartingBalance'], $row['Amount'], $row['NewBalance']); 
+        $lineData = array($row['MemberNo'],$row['TransactionDate'], $row['MemberSurname'],  $row['MemberFirstname'], $row['StartingBalance'], $row['Amount'], $row['NewBalance']); 
         fputcsv($f, $lineData, $delimiter); 
     } 
 
