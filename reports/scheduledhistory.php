@@ -5,7 +5,18 @@ $ii = $_POST['single'];
 	 $d1=$_POST['date1'];
 	 $d2=$_POST['date2'];
 
+	 $zer = 0;
 
+
+
+	 $stmt14 = $conn->prepare("SELECT MemberNo, MemberSurname, MemberFirstname FROM tblmembers WHERE MemberID =? AND FixedPaymentAmount = ? ");
+	 $stmt14->bind_param("s", $ii,  $zer);
+	 $stmt14->execute();
+	 $result14 = $stmt14->get_result();
+	 if ($result14->num_rows > 0) {
+	 while($row14 = $result14->fetch_assoc()) {
+
+	 
 foreach ($ii as $a){
 $mntharray[] = $a;
 }
@@ -69,12 +80,6 @@ $stmt12 = $conn->prepare("SELECT
 
 
 
-							$stmt14 = $conn->prepare("SELECT MemberNo, MemberSurname, MemberFirstname FROM tblmembers WHERE MemberID = ? ");
-							$stmt14->bind_param("s", $ii);
-							$stmt14->execute();
-							$result14 = $stmt14->get_result();
-							if ($result14->num_rows > 0) {
-							while($row14 = $result14->fetch_assoc()) {
 
 
 							$tyes = "";
