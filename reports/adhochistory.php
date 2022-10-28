@@ -110,7 +110,7 @@ $stmt12 = $conn->prepare("SELECT
 } else {
   header('location: ./');
 }
-
+?>
 
 
 
