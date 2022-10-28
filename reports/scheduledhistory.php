@@ -116,7 +116,13 @@ $stmt12 = $conn->prepare("SELECT * FROM ".$choose);
 }
 ?>
 
+<script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
+<script src="../assets/vendor/php-email-form/validate.js"></script>
+
+
+
+<script src="../assets/js/main.js"></script>
     
 <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
