@@ -372,7 +372,7 @@ alert("Please select fund to save report");
         type:'POST',
         success:function(response) {
           var resp = $.trim(response);
-          $("#free").html(resp);
+          $("#gruu").html(resp);
 
           datatable.ajax.reload();
 
