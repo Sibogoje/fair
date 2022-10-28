@@ -5,7 +5,7 @@ $rr = "0";
 $val = 0;
 $null = NULL;
 /////////////retrieve all records that are not terminated ///////////////////////////////////
-$stmt = $conn->prepare("SELECT `memberID`, `TransactionPercent`, `FixedPaymentAmount`, `balance` FROM `member_fees` WHERE `FixedPaymentAmount`>? ");
+$stmt = $conn->prepare("SELECT `MemberID`, `TransactionPercent`, `FixedPaymentAmount`, `balance` FROM `member_fees` WHERE `FixedPaymentAmount`>? ");
 $stmt->bind_param("s", $val);
 $stmt->execute();
 $result = $stmt->get_result();
