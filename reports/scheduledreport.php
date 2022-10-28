@@ -297,7 +297,7 @@ html.loading body {
     <script src="../assets/vendor/simple-datatables/simple-datatables.js"></script>
 <script>
 $(document).ready(function() {
-  $('#free').DataTable( {
+  datatable = $('#free').DataTable( {
         lengthMenu: [
             [10, 25, 50, -1],
             [10, 25, 50, 'All'],
@@ -320,28 +320,7 @@ $(document).ready(function() {
 } );
 </script>
     <script src=""></script>
-    <script src="">
 
-datatable =  $('#free').DataTable( {
-        lengthMenu: [
-            [10, 25, 50, -1],
-            [10, 25, 50, 'All'],
-        ],
-        dom: 'Blfrtip',
-        buttons: [
-            'copyHtml5',
-            'excelHtml5',
-            'csvHtml5',
-            'pdfHtml5'
-        ],
-        responsive: true,
-        rowReorder: {
-            selector: 'td:nth-child(2)'
-        },
-       
-        
-    } );
-    </script>
 
   
 	<!-- Select2 CSS --> 
