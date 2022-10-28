@@ -374,6 +374,7 @@ alert("Please select fund to save report");
         success:function(response) {
           var resp = $.trim(response);
           $("#free").html(resp);
+          $("#free").ajax.reload();
         }
       });
     } else {
