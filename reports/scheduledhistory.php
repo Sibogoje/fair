@@ -88,7 +88,7 @@ $stmt12 = $conn->prepare("SELECT
 							
 ?>							
 <tr>
-     <th scope="row"><?php echo $row14['MemberNo']; ?></th>
+                    <th scope="row"><?php echo $row14['MemberNo']; ?></th>
                     <th scope="row"><?php echo $row12['TransactionDate']; ?></th>
 					<th scope="row"><?php echo $row14['MemberSurname']." ".$row14['MemberFirstanme']; ?></th>
                     <td><?php echo $row12['Details']; ?></td>
@@ -103,7 +103,9 @@ $stmt12 = $conn->prepare("SELECT
                   </tr>
 				   
 <?php						
-						}	}
+						}	}else{
+							echo "No Results";
+						}
 					}
 
 						?>
