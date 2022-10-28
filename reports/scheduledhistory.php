@@ -78,7 +78,7 @@ $stmt12 = $conn->prepare("SELECT * FROM ".$choose);
 							
 ?>							
 <tr>
-                    <th scope="row"><?php echo $row12['memberID']; ?></th>
+                    <th scope="row"><?php echo $row12['MemberNo']; ?></th>
                     <th scope="row"><?php echo $row12['TransactionDate']; ?></th>
 					<th scope="row"><?php echo $row12['MemberSurname']."".$row12['MemberFirstname']; ?></th>
                     <td><?php echo $row12['Details']; ?></td>
