@@ -75,7 +75,7 @@ $stmt12 = $conn->prepare("SELECT
 
 							$dgdg = $row12['memberID'];
 
-
+echo $dgdg;
 							$stmt14 = $conn->prepare("SELECT `MemberNo`, `MemberSurname`, `MemberFirstname` FROM `tblmembers` WHERE `MemberID` =? ");
 							$stmt14->bind_param("ss", $dgdg);
 							$stmt14->execute();
