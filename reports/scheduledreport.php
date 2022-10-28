@@ -372,10 +372,10 @@ alert("Please select fund to save report");
         type:'POST',
         success:function(response) {
           var resp = $.trim(response);
-         // $("#free").html(resp);
+          $("#free").html(resp);
 
           datatable.clear().draw();
-   datatable.rows.add(resp); // Add new data
+  // datatable.rows.add(resp); // Add new data
    datatable.columns.adjust().draw(); // Redr
          
 
