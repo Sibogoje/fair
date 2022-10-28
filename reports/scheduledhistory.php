@@ -24,10 +24,10 @@ $name = array($mntharray2);
 if (in_array("all", $mntharray)){
  // echo $mntharray2;
   //console("HHHH");
-   $choose = "`regularpays` WHERE TransactionTypeID = '3' AND  DATE(TransactionDate) BETWEEN '$d1'  AND '$d2'  ORDER BY TransactionDate DESC, accountsID DESC";  
+   $choose = "`regularpays` WHERE DATE(TransactionDate) BETWEEN '$d1'  AND '$d2'  ORDER BY TransactionDate DESC, accountsID DESC";  
 }else{
   
- $choose = "`regularpays` WHERE TransactionTypeID = '3' AND  `memberID` IN ({$mntharray2}) AND DATE(TransactionDate) BETWEEN '$d1'  AND '$d2'  ORDER BY TransactionDate DESC, accountsID DESC";   
+ $choose = "`regularpays` WHERE  `memberID` IN ({$mntharray2}) AND DATE(TransactionDate) BETWEEN '$d1'  AND '$d2'  ORDER BY TransactionDate DESC, accountsID DESC";   
 }
 
 
@@ -35,17 +35,7 @@ if (in_array("all", $mntharray)){
 
 
 if(count($_POST)>0){
-$stmt12 = $conn->prepare("SELECT   
-`accountsID`,
-`TransactionDate`,
-  `TransactionTypeID`,
-  `memberID`,
-  `Details`,
-  `Credit`,
-  `StartingBalance`,
-  `Amount`,
-  `NewBalance`,
-  `Comments`  FROM ".$choose);
+$stmt12 = $conn->prepare("SELECT * FROM ".$choose);
 						$stmt12->execute();
 						$result12 = $stmt12->get_result();
 						if ($result12->num_rows > 0) {
