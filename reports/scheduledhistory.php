@@ -73,6 +73,15 @@ $stmt12 = $conn->prepare("SELECT
 		   <?php
 						while($row12 = $result12->fetch_assoc()) {
 
+							$stmt14 = $conn->prepare("SELECT MemberNo, MemberSurname, MemberFirstname FROM tblmembers WHERE MemberID IN ({$mntharray2}) AND FixedPaymentAmount > 0 ");
+							
+							$stmt14->execute();
+							$result14 = $stmt14->get_result();
+							if ($result14->num_rows > 0) {
+							while($row14 = $result14->fetch_assoc()) {
+
+								
+
 							$tyes = "";
 							if ($row12['Credit'] == "1"){
 								$tyes = "Cr";
@@ -86,7 +95,7 @@ $stmt12 = $conn->prepare("SELECT
 <tr>
                     <th scope="row"><?php echo $row12['memberID']; ?></th>
                     <th scope="row"><?php echo $row12['TransactionDate']; ?></th>
-					<th scope="row"><?php ?></th>
+					<th scope="row"><?php echo $row14['MemberNo']; ?></th>
                     <td><?php echo $row12['Details']; ?></td>
                     <td><?php echo $tyes; ?></td>
                     <td><?php echo $row12['Comments']; ?></td>
@@ -107,13 +116,14 @@ $stmt12 = $conn->prepare("SELECT
 						 </table>
 						 </div>
 						<?php
-						
-						} else {
-						  echo "0 results";
 
-
-
-						} 
+} else {
+	echo "NO Members found";
+ } 
+}
+} else {
+echo "NO Trans";
+} 
 ?>
   <script src="../assets/vendor/simple-datatables/simple-datatables.js"></script>
 
