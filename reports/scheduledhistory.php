@@ -73,11 +73,6 @@ $stmt12 = $conn->prepare("SELECT
 		   <?php
 						while($row12 = $result12->fetch_assoc()) {
 
-							$dgdg = $row12['memberID'];
-
-echo $dgdg;
-
-
 							$tyes = "";
 							if ($row12['Credit'] == "1"){
 								$tyes = "Cr";
