@@ -142,7 +142,7 @@ $uid = $row['MemberNo'];
               </div>
               <!-- End Table with stripped rows -->
   <div class="text-center">
-                  <button type="submit"  class="btn btn-warning regular" style="width: 100%;" name="process">Process All</button>
+                  <button type="submit" id="regslar"  class="btn btn-warning regular" style="width: 100%;" name="process">Process All</button>
                   
                 </div>
             </div>
@@ -218,6 +218,7 @@ $(document).ready(function() {
     $(function(){
         $(".regular").click(function(){
             var postid = "Process";
+            $("#regslar").attr("disabled", true);
 			var ff = "jj";
               $.ajax({
                 type:'POST',
@@ -229,14 +230,18 @@ $(document).ready(function() {
 						var succ = (dataResult.datas);
 						alert(succ);
 
-                        location.reload();						
+                        location.reload();	
+                        $("#regslar").attr("disabled", false);					
 					}
 					else if(dataResult.statusCode==201){
 						var error = (dataResult.datas);
 					   alert(error);
+             $("#regslar").attr("disabled", true);	
 					}else if(dataResult.statusCode==203){
 						var mid = (dataResult.datas);
 					   alert("Please Update Recent Transaction for = "+mid);
+             $("#regslar").attr("disabled", true);	
+            	
 					}
             
                 }
