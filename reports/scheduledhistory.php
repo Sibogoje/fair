@@ -73,7 +73,7 @@ $stmt12 = $conn->prepare("SELECT
 		   <?php
 						while($row12 = $result12->fetch_assoc()) {
 
-							$dgdg = $row12['memberID'];
+							//$dgdg = $row12['memberID'];
 
 
 						
