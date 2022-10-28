@@ -280,7 +280,7 @@ html.loading body {
 	<!-- Select2 CSS --> 
   <script>
 $(document).ready(function() {
-    $('#jj').DataTable( {
+    $('#free').DataTable( {
         lengthMenu: [
             [10, 25, 50, -1],
             [10, 25, 50, 'All'],
