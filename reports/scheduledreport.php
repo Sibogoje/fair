@@ -210,7 +210,8 @@ html.loading body {
             <div class="card-body" id="jj">
               <h5 class="card-title">Transaction History Table</h5>
               <!-- Table with stripped rows -->
-              
+              <div class="table-responsive">
+              <table class="table table-striped datatable nowrap" id="free" style="width: 100%;" >
 
              
               <!-- End Table with stripped rows -->
@@ -359,7 +360,7 @@ alert("Please select fund to save report");
         type:'POST',
         success:function(response) {
           var resp = $.trim(response);
-          $("#jj").html(resp);
+          $("#free").html(resp);
         }
       });
     } else {
