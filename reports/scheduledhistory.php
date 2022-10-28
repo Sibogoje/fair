@@ -24,10 +24,10 @@ $name = array($mntharray2);
 if (in_array("all", $mntharray)){
  // echo $mntharray2;
   //console("HHHH");
-   $choose = "`tblmemberaccounts` WHERE TransactionTypeID = '3' AND  DATE(TransactionDate) BETWEEN '$d1'  AND '$d2'  ORDER BY TransactionDate DESC, accountsID DESC";  
+   $choose = "`regularpays` WHERE TransactionTypeID = '3' AND  DATE(TransactionDate) BETWEEN '$d1'  AND '$d2'  ORDER BY TransactionDate DESC, accountsID DESC";  
 }else{
   
- $choose = "`tblmemberaccounts` WHERE TransactionTypeID = '3' AND  `memberID` IN ({$mntharray2}) AND DATE(TransactionDate) BETWEEN '$d1'  AND '$d2'  ORDER BY TransactionDate DESC, accountsID DESC";   
+ $choose = "`regularpays` WHERE TransactionTypeID = '3' AND  `memberID` IN ({$mntharray2}) AND DATE(TransactionDate) BETWEEN '$d1'  AND '$d2'  ORDER BY TransactionDate DESC, accountsID DESC";   
 }
 
 
@@ -73,12 +73,7 @@ $stmt12 = $conn->prepare("SELECT
 		   <?php
 						while($row12 = $result12->fetch_assoc()) {
 
-							$stmt14 = $conn->prepare("SELECT MemberNo, MemberSurname, MemberFirstname FROM tblmembers WHERE MemberID IN ($row12['memberID']) AND FixedPaymentAmount > 0 ");
 							
-							$stmt14->execute();
-							$result14 = $stmt14->get_result();
-							if ($result14->num_rows > 0) {
-							while($row14 = $result14->fetch_assoc()) {
 
 								
 
@@ -95,7 +90,7 @@ $stmt12 = $conn->prepare("SELECT
 <tr>
                     <th scope="row"><?php echo $row12['memberID']; ?></th>
                     <th scope="row"><?php echo $row12['TransactionDate']; ?></th>
-					<th scope="row"><?php echo $row14['MemberNo']; ?></th>
+					<th scope="row"><?php echo $row12['MemberSurname']."".$row12['MemberFirstname']; ?></th>
                     <td><?php echo $row12['Details']; ?></td>
                     <td><?php echo $tyes; ?></td>
                     <td><?php echo $row12['Comments']; ?></td>
@@ -120,10 +115,7 @@ $stmt12 = $conn->prepare("SELECT
 } else {
 	echo "NO Members found";
  } 
-}
-} else {
-echo "NO Trans";
-} 
+
 ?>
   <script src="../assets/vendor/simple-datatables/simple-datatables.js"></script>
 
