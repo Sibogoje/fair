@@ -58,7 +58,7 @@ $stmt12 = $conn->prepare("SELECT
                   <tr>
                        <th scope="col">Member ID</th>
                     <th scope="col">TransactionDate</th>
-					<th scope="col">Full Name</th>
+					
                     <th scope="col">Details</th>
                     <th scope="col">Type</th>
                     <th scope="col">Comments</th>
@@ -90,9 +90,9 @@ $stmt12 = $conn->prepare("SELECT
 							
 ?>							
 <tr>
-                    <th scope="row"><?php echo $row14['MemberNo']; ?></th>
+                    <th scope="row"><?php echo $row12['memberID']; ?></th>
                     <th scope="row"><?php echo $row12['TransactionDate']; ?></th>
-					<th scope="row"><?php echo $row14['MemberSurname']." ".$row14['MemberFirstanme']; ?></th>
+					
                     <td><?php echo $row12['Details']; ?></td>
                     <td><?php echo $tyes; ?></td>
                     <td><?php echo $row12['Comments']; ?></td>
