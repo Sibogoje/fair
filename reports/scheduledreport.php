@@ -374,7 +374,7 @@ alert("Please select fund to save report");
         type:'POST',
         success:function(response) {
           var resp = $.trim(response);
-          $("#gruu").html(resp);
+          $("#free").html(resp);
         }
       });
     } else {
