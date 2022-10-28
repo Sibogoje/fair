@@ -297,12 +297,51 @@ html.loading body {
     <script src="../assets/vendor/simple-datatables/simple-datatables.js"></script>
 <script>
 $(document).ready(function() {
-    
+  $('#free').DataTable( {
+        lengthMenu: [
+            [10, 25, 50, -1],
+            [10, 25, 50, 'All'],
+        ],
+        dom: 'Blfrtip',
+        buttons: [
+            'copyHtml5',
+            'excelHtml5',
+            'csvHtml5',
+            'pdfHtml5'
+        ],
+        responsive: true,
+        rowReorder: {
+            selector: 'td:nth-child(2)'
+        },
+       
+        
+    } ); 
   
 } );
 </script>
     <script src=""></script>
-    <script src=""></script>
+    <script src="">
+
+datatable =  $('#free').DataTable( {
+        lengthMenu: [
+            [10, 25, 50, -1],
+            [10, 25, 50, 'All'],
+        ],
+        dom: 'Blfrtip',
+        buttons: [
+            'copyHtml5',
+            'excelHtml5',
+            'csvHtml5',
+            'pdfHtml5'
+        ],
+        responsive: true,
+        rowReorder: {
+            selector: 'td:nth-child(2)'
+        },
+       
+        
+    } );
+    </script>
 
   
 	<!-- Select2 CSS --> 
@@ -355,28 +394,14 @@ alert("Please select fund to save report");
         success:function(response) {
           var resp = $.trim(response);
           $("#gruu").html(resp);
+
+          datatable.clear().draw();
+   datatable.rows.add(resp); // Add new data
+   datatable.columns.adjust().draw(); // Redr
          
 
 
-          $('#free').DataTable( {
-        lengthMenu: [
-            [10, 25, 50, -1],
-            [10, 25, 50, 'All'],
-        ],
-        dom: 'Blfrtip',
-        buttons: [
-            'copyHtml5',
-            'excelHtml5',
-            'csvHtml5',
-            'pdfHtml5'
-        ],
-        responsive: true,
-        rowReorder: {
-            selector: 'td:nth-child(2)'
-        },
-       
-        
-    } );
+
 
         }
       });
