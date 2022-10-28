@@ -9,12 +9,7 @@ $ii = $_POST['single'];
 
 
 
-	 $stmt14 = $conn->prepare("SELECT MemberNo, MemberSurname, MemberFirstname FROM tblmembers WHERE MemberID =? AND FixedPaymentAmount = ? ");
-	 $stmt14->bind_param("s", $ii,  $zer);
-	 $stmt14->execute();
-	 $result14 = $stmt14->get_result();
-	 if ($result14->num_rows > 0) {
-	 while($row14 = $result14->fetch_assoc()) {
+
 
 	 
 foreach ($ii as $a){
@@ -78,7 +73,12 @@ $stmt12 = $conn->prepare("SELECT
 		   <?php
 						while($row12 = $result12->fetch_assoc()) {
 
-
+							$stmt14 = $conn->prepare("SELECT MemberNo, MemberSurname, MemberFirstname FROM tblmembers WHERE MemberID =? AND FixedPaymentAmount = ? ");
+							$stmt14->bind_param("s", $row12['memberID'],  $zer);
+							$stmt14->execute();
+							$result14 = $stmt14->get_result();
+							if ($result14->num_rows > 0) {
+							while($row14 = $result14->fetch_assoc()) {
 
 
 
