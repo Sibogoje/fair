@@ -73,7 +73,7 @@ $stmt12 = $conn->prepare("SELECT
 		   <?php
 						while($row12 = $result12->fetch_assoc()) {
 
-							$stmt14 = $conn->prepare("SELECT MemberNo, MemberSurname, MemberFirstname FROM tblmembers WHERE MemberID IN ({$mntharray2}) AND FixedPaymentAmount > 0 ");
+							$stmt14 = $conn->prepare("SELECT MemberNo, MemberSurname, MemberFirstname FROM tblmembers WHERE MemberID IN ($row12['memberID']) AND FixedPaymentAmount > 0 ");
 							
 							$stmt14->execute();
 							$result14 = $stmt14->get_result();
