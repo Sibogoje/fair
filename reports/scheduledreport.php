@@ -374,10 +374,7 @@ alert("Please select fund to save report");
           var resp = $.trim(response);
           $("#free").html(resp);
 
-          datatable.clear().draw();
-  // datatable.rows.add(resp); // Add new data
-   datatable.columns.adjust().draw(); // Redr
-         
+          datatable.ajax.reload();.
 
 
 
