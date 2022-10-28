@@ -11,7 +11,7 @@ $stmt->execute();
 $result = $stmt->get_result();
 if ($result->num_rows > 0) {
 while($row = $result->fetch_assoc()) {
-$MemberNo = $row['memberID'];
+$MemberNo = $row['MemberID'];
 $update_date = date("Y-m-d");
 $FixedPaymentAmount = $row['FixedPaymentAmount'];
 $TransactionPercent = $row['TransactionPercent'];
