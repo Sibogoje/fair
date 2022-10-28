@@ -76,12 +76,6 @@ $stmt12 = $conn->prepare("SELECT
 							$dgdg = $row12['memberID'];
 
 echo $dgdg;
-							$stmt14 = $conn->prepare("SELECT `MemberNo`, `MemberSurname`, `MemberFirstname` FROM `tblmembers` WHERE `MemberID` =? ");
-							$stmt14->bind_param("ss", $dgdg);
-							$stmt14->execute();
-							$result14 = $stmt14->get_result();
-							if ($result14->num_rows > 0) {
-							while($row14 = $result14->fetch_assoc()) {
 
 
 							$tyes = "";
@@ -110,9 +104,7 @@ echo $dgdg;
                   </tr>
 				   
 <?php						
-						}	}else{
-							echo "No Results";
-						}
+						
 					}
 
 						?>
