@@ -37,17 +37,14 @@ if($query->num_rows > 0){
     // Set column headers 
     $fields = array("MemberNo", "TransactionDate", "MemberSurname", "MemberFirstname",  'Prev balance', 'Amoun t', 'NewBalanc e'); 
     fputcsv($f, $fields, $delimiter); 
-     
-    // Output each row of the data, format line as csv and write to file pointer 
+    
     while($row = $query->fetch_assoc()){ 
-      //  $status = ($row['status'] == 1)?'Active':'Inactive'; 
-     
+
 							if ($row['Credit'] == "1"){
 								$tyes = "Credit";
 							}else {
 								$tyes = "Debit";
-								
-							}
+								}
         $lineData = array($row['MemberNo'],$row['TransactionDate'], $row['MemberSurname'],  $row['MemberFirstname'], $row['StartingBalance'], $row['Amount'], $row['NewBalance']); 
         fputcsv($f, $lineData, $delimiter); 
     } 
