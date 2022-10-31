@@ -221,7 +221,6 @@ $Comments
 
 $insertnew->execute();
 
-*/
 
 echo "<script> alert('New Beneficiary Added');
 window.location.href='index.php';
@@ -734,6 +733,22 @@ window.location.href='index.php';
 <script>
  $(document).ready(function(){
     $('#single').select2({
+    width: '100%',
+    allowClear: false,
+    height: '100%',
+});
+
+$('#single2').select2({
+    width: '100%',
+    allowClear: false,
+    height: '100%',
+});
+$('#single3').select2({
+    width: '100%',
+    allowClear: false,
+    height: '100%',
+});
+$('#single4').select2({
     width: '100%',
     allowClear: false,
     height: '100%',
