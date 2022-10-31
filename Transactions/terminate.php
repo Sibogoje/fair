@@ -386,8 +386,8 @@ $(document).on("click",".dnew",function(e){
 					if(dataResult.statusCode==200){
 
                         var ttfundmembers = (dataResult.ttfundmembers);
-						$("#amnts").val("Null");
-						$("#amnts").val(ttfundmembers);
+						$("#newss").val("Null");
+						$("#newss").val(ttfundmembers);
 
                     }else{
 
