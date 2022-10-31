@@ -123,7 +123,7 @@ $stmt->close();
 
               <form class="row g-3 needs-validation" method="post" action="" enctype="multipart/form-data" novalidate>
 	<?php 
-$stmt = $conn->prepare("SELECT * FROM `tblnextofkin1` where `NextOfKinID`=?");
+$stmt = $conn->prepare("SELECT * FROM `tblnextofkin` where `NextOfKinID`=?");
 $stmt->bind_param("s", $ids);
 $stmt->execute();
 $result = $stmt->get_result();

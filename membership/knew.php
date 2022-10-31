@@ -175,7 +175,7 @@ $conn->close();
 					<option value="<?php echo $row12['postofficeID']; ?>"><?php echo $row12['PostOffice']; ?></option>
 						<?php   }
 						} else {
-						  echo "0 results";
+						  //echo "0 results";
 						} ?> 
 					</select>
                     <label for="floatingName">Select Kin PostOffice:</label>

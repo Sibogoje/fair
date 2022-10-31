@@ -258,7 +258,7 @@ $conn->close();
 					 <select type="text" class="form-control" id="ff" placeholder="StatementType" name="StatementType" required>
 					<option value=""></option>
 						<?php 
-						$stmt1 = $conn->prepare("SELECT * FROM `tblstatementtype1` ");
+						$stmt1 = $conn->prepare("SELECT * FROM `tblstatementtype` ");
 						$stmt1->execute();
 						$result1 = $stmt1->get_result();
 						if ($result1->num_rows > 0) {

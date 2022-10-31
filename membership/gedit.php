@@ -134,7 +134,7 @@ $stmt->close();
 
               <form class="row g-3 needs-validation" method="post" action="" enctype="multipart/form-data" novalidate>
 	<?php 
-$stmt = $conn->prepare("SELECT * FROM `tblguardians1` where `GuardianID`=?");
+$stmt = $conn->prepare("SELECT * FROM `tblguardians` where `GuardianID`=?");
 $stmt->bind_param("s", $ids);
 $stmt->execute();
 $result = $stmt->get_result();
@@ -266,7 +266,7 @@ while($row = $result->fetch_assoc()) {
 					 <select type="text" class="form-control" id="ff" placeholder="StatementType" name="StatementType" required>
 					<option value="<?php echo $row['StatementType']; ?>"><?php echo $row['StatementType']; ?></option>
 						<?php 
-						$stmt1 = $conn->prepare("SELECT * FROM `tblstatementtype1` ");
+						$stmt1 = $conn->prepare("SELECT * FROM `tblstatementtype` ");
 						$stmt1->execute();
 						$result1 = $stmt1->get_result();
 						if ($result1->num_rows > 0) {
