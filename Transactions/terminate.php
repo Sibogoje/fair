@@ -190,9 +190,10 @@ $conn->close();
 						  // output data of each row
 						while($row12 = $result12->fetch_assoc()) {?>
 
-                        <input type='text' value="<?php $row12['balance']?>" id="amnts" hidden>
+                      
 
 					<option value="<?php echo $row12['MemberID']; ?>"><?php echo $row12['MemberNo']." -".$row12['MemberSurname']. ", ".$row12['MemberFirstname']." Balance: ".$row12['balance'] ; ?></option>
+                    
 						<?php   }
 						} else {
 						 // echo "0 results";
