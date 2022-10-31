@@ -285,7 +285,7 @@ while($row = $result->fetch_assoc()) {
 						while($row122 = $result122->fetch_assoc()) {
 
 						?>
-					<option value="<?php echo $row122['MemberID']; ?>"><?php echo $row122['MemberSurname']."  ".$row122['MemberFirstname']."  ".$row122['MemberNo']; ?></option>
+					<option value="<?php echo $row122['MemberID']; ?>"><?php echo $row122['MemberNo']." ".$row122['MemberSurname']."  ".$row122['MemberFirstname']; ?></option>
 						<?php   }
 						} else {
 						  //echo "0 results";
@@ -311,7 +311,7 @@ while($row = $result->fetch_assoc()) {
 						while($row121 = $result121->fetch_assoc()) {
 
 						?>
-					<option value="<?php echo $row121['NextOfKinID']; ?>"><?php echo $row121['KinSurname']."  ".$row121['KinFirstNames']; ?></option>
+					<option value="<?php echo $row121['NextOfKinID']; ?>"><?php echo $row121['NextOfKinID']." ".$row121['KinSurname']."  ".$row121['KinFirstNames']; ?></option>
 						<?php   }
 						} else {
 						 // echo "0 results";
