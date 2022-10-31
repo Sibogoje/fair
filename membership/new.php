@@ -402,7 +402,7 @@ $id = $max + 1;
 				<label for="floatingName">Guardian:</label><br>
           <div class="form-floating">
 				  
-					 <select type="text" class="form-control" id="GuardianID"    placeholder="GuardianID" name="GuardianID"  required>
+					 <select type="text" class="form-control" id="GuardianID"    placeholder="GuardianID" name="GuardianID"  >
 					<option value="" selected></option>
 						<?php 
 						$stmt12 = $conn->prepare("SELECT DISTINCT `GuardianID`, `GuardianSurname`, `GuardianFirstNames` FROM `tblguardians` order by GuardianSurname");
@@ -438,7 +438,7 @@ $id = $max + 1;
 				<label for="floatingName">Next Of Kin:</label><br>
           <div class="form-floating">
 				  
-					 <select type="text" class="form-control" id="NextOfKinID"    placeholder="NextOfKinID" name="NextOfKinID"  required>
+					 <select type="text" class="form-control" id="NextOfKinID"    placeholder="NextOfKinID" name="NextOfKinID"  >
 					<option value="" selected></option>
 						<?php 
 						$stmt12 = $conn->prepare("SELECT DISTINCT `NextOfKinID`, `KinSurname`, `KinFirstNames` FROM `tblnextofkin` order by KinSurname");
@@ -569,7 +569,7 @@ $id = $max + 1;
 				  <div class="col-md-3">
                   <div class="form-floating">
                     
-					 <select type="text" class="form-control" id="ff" placeholder="Gender" name="RegularPaymentTypeID" required>
+					 <select type="text" class="form-control" id="ff" placeholder="Gender" name="RegularPaymentTypeID" >
 					<option value=""><option>
 					<option value="1">Regular discretionary payment</option>
 					<option value="2">Regular fixed payment</option>
@@ -607,7 +607,7 @@ $id = $max + 1;
 				<label for="floatingName">Bank ID:</label><br>
           <div class="form-floating">
 				  
-					 <select type="text" class="form-control" id="banks"    placeholder="bankID" name="bankID"  required>
+					 <select type="text" class="form-control" id="banks"    placeholder="bankID" name="bankID"  >
 					<option value="" selected></option>
 						<?php 
 						$stmt12 = $conn->prepare("SELECT DISTINCT `BankID`, `BankName`, `Branch` FROM `tblbanks` order by BankID");
@@ -642,7 +642,7 @@ $id = $max + 1;
           <div class="col-md-3">
                   <div class="form-floating">
                     
-					 <select type="text" class="form-control" id="ff" placeholder="Account Type" name="AccountTypeID" required>
+					 <select type="text" class="form-control" id="ff" placeholder="Account Type" name="AccountTypeID" >
 					<option value=""><option>
 					<option value="1">Cheque</option>
 					<option value="2">Savings</option>
@@ -658,7 +658,7 @@ $id = $max + 1;
 				  
 				   <div class="col-md-3">
                   <div class="form-floating">
-                    <input type="text" class="form-control" id="ff" placeholder="Account Holder Name" name="AccountHolderName" required>
+                    <input type="text" class="form-control" id="ff" placeholder="Account Holder Name" name="AccountHolderName" >
                     <label for="floatingName">Account Holder Name:</label>
 				  <div class="valid-feedback">
                     Looks good!
