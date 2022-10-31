@@ -371,8 +371,7 @@ $(document).on("click",".dnew",function(e){
 </script>
 	
 <script>
-    $(function(){
-        $("#single").click(function(){
+   	 $("#single").change(function(){
 
             var data = $("#user_form").serialize();
             $('#newss').val(ff);
@@ -396,7 +395,6 @@ $(document).on("click",".dnew",function(e){
                     }
 }
 });
-    });
     }).change();
 </script>
 
