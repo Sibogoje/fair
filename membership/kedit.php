@@ -264,11 +264,12 @@ while($row = $result->fetch_assoc()) {
 } else {
 ?> 
   <div class="text-center">
-                  <button type="button" class="btn btn-warning knew" data-link="knew.php" data-id="rr"  style="width: 100%;">New Next of Kin</button>
+                  <button type="button" class="btn btn-warning knew" data-link="knew.php" data-id="rr"  style="width: 100%;"><b>Add New Next of Kin</b></button>
                </div>
   </form><!-- End floating Labels Form -->
-
-
+<br>
+  <label><b>--OR--</b></label>
+<br>
   <form class="row g-3 needs-validation" method="post" action="" enctype="multipart/form-data" novalidate>
 
 <div class="col-md-6">
