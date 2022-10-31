@@ -738,22 +738,6 @@ window.location.href='index.php';
     height: '100%',
 });
 
-$('#single2').select2({
-    width: '100%',
-    allowClear: false,
-    height: '100%',
-});
-$('#single3').select2({
-    width: '100%',
-    allowClear: false,
-    height: '100%',
-});
-$('#single4').select2({
-    width: '100%',
-    allowClear: false,
-    height: '100%',
-});
-
 $('#banks').select2({
     width: '100%',
     allowClear: false,
