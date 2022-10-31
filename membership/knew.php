@@ -17,7 +17,7 @@ $KinEmail = $_POST['KinEmail'];
 
 
 
-$stmt = $conn->prepare("insert into `u747325399_fairlife`.`tblnextofkin1` (
+$stmt = $conn->prepare("insert into `tblnextofkin` (
   `KinSurname`,
   `KinFirstNames`,
   `KinPostalAddress`,

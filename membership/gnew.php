@@ -26,7 +26,7 @@ $StatementType = $_POST['StatementType'];
 $GuardianPhysicalAddress = $_POST['GuardianPhysicalAddress'];
 
 
-$stmt = $conn->prepare("INSERT INTO `u747325399_fairlife`.`tblguardians1` (
+$stmt = $conn->prepare("INSERT INTO `tblguardians` (
   `GuardianSurname`,
   `GuardianFirstNames`,
   `GuardianIDno`,

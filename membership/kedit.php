@@ -25,7 +25,7 @@ $KinTelHome = $_POST['KinTelHome'];
 $KinCell = $_POST['KinCell'];
 $KinEmail = $_POST['KinEmail'];
 
-$stmt = $conn->prepare("UPDATE `u747325399_fairlife`.`tblnextofkin1` SET
+$stmt = $conn->prepare("UPDATE ``tblnextofkin` SET
  `KinSurname`,
   `KinFirstNames`,
   `KinPostalAddress`,

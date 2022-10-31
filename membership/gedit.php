@@ -28,7 +28,7 @@ $GuardianEmail = $_POST['GuardianEmail'];
 $StatementType = $_POST['StatementType'];
 $GuardianPhysicalAddress = $_POST['GuardianPhysicalAddress'];
 
-$stmt = $conn->prepare("UPDATE `u747325399_fairlife`.`tblguardians1` SET
+$stmt = $conn->prepare("UPDATE `tblguardians` SET
   `GuardianSurname`=?,
   `GuardianFirstNames`=?,
   `GuardianIDno`=?,
