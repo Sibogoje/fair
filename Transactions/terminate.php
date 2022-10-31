@@ -244,7 +244,7 @@ $conn->close();
                 </thead>
                 <tbody>
 				<?php 
-$stmt = $conn->prepare("SELECT * FROM `tblmemberaccounts` where TransacatioTypeID = '11'  limit 10" );
+$stmt = $conn->prepare("SELECT * FROM `tblmemberaccounts` where TransacationTypeID = '11'  limit 10" );
 
 $stmt->execute();
 $result = $stmt->get_result();
