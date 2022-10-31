@@ -227,7 +227,7 @@ $conn->close();
 
           <div class="card col-lg-12" >
             <div class="card-body">
-              <h5 class="card-title">AdHoc Payments-Unprocessed</h5>
+              <h5 class="card-title">Recently Terminated</h5>
               <!-- Table with stripped rows -->
               <div class="table-responsive">
               <table class="table datatable" id="jj" width="100%" cellspacing="0">
@@ -235,17 +235,16 @@ $conn->close();
                   <tr>
                     <th scope="col">ID</th>
                     <th hidden scope="col">MemberID</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Amount</th>
-				          	<th scope="col">Comment</th>
+                    
+                    <th scope="col">Charged</th>
+				    <th scope="col">Balance</th>
+                    <th scope="col">Date</th>
 
-
-					<th scope="col">Action</th>
                   </tr>
                 </thead>
                 <tbody>
 				<?php 
-$stmt = $conn->prepare("SELECT * FROM `tbltempadhocpayments`" );
+$stmt = $conn->prepare("SELECT * FROM `tblmemberaccounts` where TransacatioTypeID = '11'  limit 10" );
 
 $stmt->execute();
 $result = $stmt->get_result();
@@ -257,23 +256,14 @@ while($row = $result->fetch_assoc()) {
 ?>
 
                   <tr>
-                    <th scope="row"><?php echo $row['adhocPaymentID']; ?></th>
+                    <th scope="row"><?php echo $row['memberID']; ?></th>
 
-                    <td hidden scope="row"><?php echo $row['MemberID']; ?> </td>
-                    <td scope="row"><?php echo $row['Name']; ?></td>
+                   
+                    <td scope="row"><?php echo $row['Amount']; ?></td>
 					
-					<td><?php echo $row['AdHocPayment']; ?></td>
-					<td><?php echo $row['Comments']; ?></td>
+					<td><?php echo $row['NewBalance']; ?></td>
+					<td><?php echo $row['TransactionDate']; ?></td>
 
-
-
-					<td class="no-wrap">
-			
-			 <button type="button" data-link="fees.php?id=<?php echo $row['adhocPaymentID']; ?>" class="btn btn-outline-warning fees" name="<?php echo $row['adhocPaymentID']; ?>" title="Process" data-id="<?php echo $row['adhocPaymentID']; ?>"><i class="bi bi-check-all"></i></button>
-			 
-			  <button type="button" data-link="fees.php?id=<?php echo $row['adhocPaymentID']; ?>" class="btn btn-outline-danger del" name="<?php echo $row['adhocPaymentID']; ?>" title="Delete" data-id="<?php echo $row['adhocPaymentID']; ?>"><i class="bi bi-trash"></i></button>
-			
-					</td>
                   </tr>
 <?php   }
 } else {
