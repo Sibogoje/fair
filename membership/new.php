@@ -484,7 +484,7 @@ $id = $max + 1;
 				<label for="floatingName">Post Office:</label><br>
           <div class="form-floating">
 				  
-					 <select type="text" class="form-control" id="single4"    placeholder="postofficeID" name="postofficeID"  required>
+					 <select type="text" class="form-control" id="postofficeID"    placeholder="postofficeID" name="postofficeID"  required>
 					<option value="" selected></option>
 						<?php 
 						$stmt12 = $conn->prepare("SELECT DISTINCT `postofficeID`, `PostOffice`, `PostCode` FROM `tblpostoffices` order by PostOffice");
@@ -739,6 +739,22 @@ window.location.href='index.php';
 });
 
 $('#banks').select2({
+    width: '100%',
+    allowClear: false,
+    height: '100%',
+});
+
+$('#GuardianID').select2({
+    width: '100%',
+    allowClear: false,
+    height: '100%',
+});
+$('#NextOfKinID').select2({
+    width: '100%',
+    allowClear: false,
+    height: '100%',
+});
+$('#postofficeID').select2({
     width: '100%',
     allowClear: false,
     height: '100%',
