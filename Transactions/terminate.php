@@ -375,7 +375,7 @@ $(document).on("click",".dnew",function(e){
         $(this).find("option:selected").each(function(){
         //alert("sELCTED");
             var data = $("#user_form").serialize();
-            $('#newss').val(ff);
+           // $('#newss').val(ff);
 
             $.ajax({
 			data: data,
