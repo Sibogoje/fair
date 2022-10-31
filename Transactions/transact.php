@@ -15,7 +15,7 @@ $ttfundmembers1 = ($TerminationFeePercent/100) * $balance;
 $ttfundmembers = $balance - $ttfundmembers1;
 $response2 = array(
     'statusCode'=>200,
-    'ttfundmembers'=>$ttfundmembers,
+    'ttfundmemberszz'=>$ttfundmembers,
  );
     echo json_encode($response2);
 }
