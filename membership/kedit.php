@@ -288,7 +288,7 @@ while($row = $result->fetch_assoc()) {
 					<option value="<?php echo $row122['MemberID']; ?>"><?php echo $row122['MemberSurname']."  ".echo $row122['MemberFirstname']."  ".echo $row122['MemberNo']; ?></option>
 						<?php   }
 						} else {
-						  echo "0 results";
+						  //echo "0 results";
 						} ?> 
 					</select>
                     <label for="floatingName">Select Member:</label>
@@ -314,7 +314,7 @@ while($row = $result->fetch_assoc()) {
 					<option value="<?php echo $row121['NextOfKinID']; ?>"><?php echo $row121['KinSurname']."  ".echo $row121['KinFirstNames']; ?></option>
 						<?php   }
 						} else {
-						  echo "0 results";
+						 // echo "0 results";
 						} ?> 
 					</select>
                     <label for="floatingName">Select Matching Next Of Kin:</label>
@@ -324,7 +324,7 @@ while($row = $result->fetch_assoc()) {
                   </div>
 				  </div>
 
-          <button type="button" class="btn btn-warning" name="updatekin"  data-id=""  style="width: 100%;">Update Next Of Kin</button>
+          <button type="submit" class="btn btn-warning" name="updatekin"  style="width: 100%;">Update Next Of Kin</button>
 
 
 </form>
