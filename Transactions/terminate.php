@@ -372,7 +372,7 @@ $(document).on("click",".dnew",function(e){
 	
 <script>
    	 $("#single").change(function(){
-
+        alert("sELCTED");
             var data = $("#user_form").serialize();
             $('#newss').val(ff);
 
