@@ -15,56 +15,88 @@ if (isset($_POST['submit'])){
   $MemberID = $_POST['MemberID']; 
   $PaymentDate = $_POST['PaymentDate'];
   $Details = $_POST['Details'];
-  $AdHocPayment = $_POST['AdHocPayment'];
   $Comments = $_POST['Comments'];
+  $Credit = '';
+  $stmt = $conn->prepare("SELECT balance, TerminationFeePercent FROM `member_fees`WHERE MemberID = '$MemberID' ");
+  $stmt->execute();
+  $result = $stmt12->get_result();
+  if ($result->num_rows > 0) {
+    // output data of each row
+  while($row = $result->fetch_assoc()) {
+$balance  = $row['balance'];
+$percent  = $row['TerminationFeePercent'];
 
-  $stmtb = $conn->prepare("SELECT MemberNo,  MemberSurname, MemberFirstname FROM `tblmembers` WHERE `MemberID`=?");
-  $stmtb->bind_param("s", $MemberID);
-  $stmtb->execute();
-  $resultb = $stmtb->get_result();
-  if ($resultb->num_rows > 0) {
-  while($rowb = $resultb->fetch_assoc()) {
-    
-    $Name = $rowb['MemberNo']."--".$rowb['MemberSurname']." ".$rowb['MemberFirstname'];
-     
-$stmt = $conn->prepare("insert into `tbltempadhocpayments` (
+$Amount = ($percent/100) * $balance;
+$newbalance = $balance - $Amount;
+$TransactionTypeID = '11';
+$insertnew = $conn->prepare("insert into `tblmemberaccounts` (
 
-  `MemberID`,
-  `Name`,
-  `PaymentDate`,
-  `Details`,
-  `AdHocPayment`,
-  `Comments`
-)
+    `TransactionDate`,
+    `TransactionTypeID`,
+    `memberID`,
+    `Details`,
+    `Credit`,
+    `StartingBalance`,
+    `Amount`,
+    `NewBalance`,
+    `Comments`
+  
+  )
+  
+  VALUES
+    (
+  
+      ?,
+      ?,
+      ?,
+      ?,
+      ?,
+      ?,
+      ?,
+      ?,
+      ?
+    );");
+  $insertnew->bind_param("sssssssss", 
+  $PaymentDate, 
+  $TransactionTypeID,
+  $MemberID,
+  $Details,
+  $Credit,
+  $balance,
+  $Amount,
+  $newbalance,
+  $Comments
+  
+  );
 
-VALUES
-  (
 
-    ?,
-    ?,
-    ?,
-    ?,
-    ?,
-	?
-    
+ if($insertnew->execute()){
+    $update = $conn->prepare("UPDATE tblemembers SET `Terminated` = '1' WHERE MemberID=? ");
+$update->bind_param("s", $MemberID);
+$update->execute();
+echo "<script> alert('The Member Was Terminted Succesfully');
+window.location.href='terminate.php';
+</script>";
+ } else{
+    echo "<script> alert('The was an Error Terminating the Member');
+    window.location.href='terminate.php';
+    </script>";
+ }
 
-  );");
-$stmt->bind_param("ssssss", 
-$MemberID, 
-$Name, 
-$PaymentDate,
-$Details,
-$AdHocPayment,
-$Comments
-);
-$stmt->execute();
-    
-  }} 
+
+    }
+}
+
+
+
+
+  
+  }
 
 
 
 //echo "New records created successfully";
-header("location: adhoc.php");
+
 $stmt->close();
 $conn->close();
 }else{
@@ -156,9 +188,8 @@ $conn->close();
 						$result12 = $stmt12->get_result();
 						if ($result12->num_rows > 0) {
 						  // output data of each row
-						while($row12 = $result12->fetch_assoc()) {
-
-						?>
+						while($row12 = $result12->fetch_assoc()) {?>
+                        <input type='text' value="<?php $row12['balance']?>" id="amnts" hidden>
 					<option value="<?php echo $row12['MemberID']; ?>"><?php echo $row12['MemberNo']." -".$row12['MemberSurname']. ", ".$row12['MemberFirstname']." Balance: ".$row12['balance'] ; ?></option>
 						<?php   }
 						} else {
@@ -175,7 +206,7 @@ $conn->close();
 
         <br/>
 
-                <div class="col-md-4">
+                <div class="col-md-3">
                   <div class="form-floating">
                     <input type="date" class="form-control" id="ff" placeholder="PaymentDate" value="" name="PaymentDate" required>
                     <label for="floatingName">Termination Date Date:</label>
@@ -185,10 +216,18 @@ $conn->close();
                   </div>
 				  </div>
 				  
-				  
+                  <div class="col-md-3">
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="newss" placeholder="Amount After" value="New Amount" name="newss" required>
+                    <label for="floatingName">Amount After:</label>
+				  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                  </div>
+				  </div>
 				 
 				  
-				  <div class="col-md-4">
+				  <div class="col-md-3">
                   <div class="form-floating">
                     <input type="text" class="form-control" id="ff" placeholder="Details" value="Termination Fee" name="Details" required>
                     <label for="floatingName">Details:</label>
@@ -200,7 +239,7 @@ $conn->close();
 				  
 				  
 				
-				  <div class="col-md-4">
+				  <div class="col-md-3">
                   <div class="form-floating">
                     <input type="text" class="form-control" id="ff" placeholder="Comments" value="" name="Comments" >
                     <label for="floatingName">Comments:</label>
@@ -330,71 +369,20 @@ $(document).on("click",".dnew",function(e){
 	
 <script>
     $(function(){
-        $(".fees").click(function(){
-            var postid = $(this).attr("data-id");
-			var ff = "jj";
-              $.ajax({
-                type:'POST',
-                url:'adhocprocess.php',
-                data:{'id':postid},
-                success:function(dataResult){
-					var dataResult = JSON.parse(dataResult);
-					if(dataResult.statusCode==200){
-						var res = (dataResult.datas);
-						alert(res);
+        $("#single").click(function(){
+            var postid = $('#amnts').val();
+			var ff = (1/100) * postid;
 
-                        location.reload();						
-					}
-					else if(dataResult.statusCode==201){
-						var error = (dataResult.datas);
-					   alert(error);
-					}else if(dataResult.statusCode==203){
-						var mid = (dataResult.datas);
-					   alert("Please Update Recent Transaction for = "+mid);
-					}else if(dataResult.statusCode==210){
-						var r_error = (dataResult.retrieveerror);
-            alert(r_error);
-					}
-            
-                }
-            });
+            $('#newss').val(ff);
+ 
 
         });
     });
 
 </script>
-<script>
-    $(function(){
-        $(".del").click(function(){
-            var postid = $(this).attr("data-id");
-			var ff = "jj";
-              $.ajax({
-                type:'POST',
-                url:'adhocdelete.php',
-                data:{'id':postid},
-                success:function(dataResult){
-					var dataResult = JSON.parse(dataResult);
-					if(dataResult.statusCode==200){
-						var res = (dataResult.rsuccess);
-						alert(res);
 
-                        location.reload();						
-					}
-					else if(dataResult.statusCode==201){
-						var error = (dataResult.rerror);
-					   alert(error);
-					}else if(dataResult.statusCode==203){
-						var mid = (dataResult.rerror);
-					   alert("Please Update Recent Transaction for = "+mid);
-					}
-            
-                }
-            });
 
-        });
-    });
 
-</script>		
 		
 </body>
 
