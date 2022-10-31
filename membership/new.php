@@ -11,7 +11,7 @@ if (isset($_POST['submit'])){
 	
 	
 	
-
+  $Terminated = 3;
 	
 	
 $MemberNo = $_POST['MemberNo']; 
@@ -77,11 +77,13 @@ $stmt = $conn->prepare("INSERT INTO `tblmembers` (
   `BankID`,
   `BankAccountNo`,
   `AccountTypeID`,
-  `AccountHolderName`
+  `AccountHolderName`,
+  `Terminated`
 
 )
 VALUES
   (
+    ?,
     ?,
     ?,
     ?,
@@ -109,7 +111,7 @@ VALUES
     ?
 
   );");
-$stmt->bind_param("sssssssssssssssssssssssss", 
+$stmt->bind_param("ssssssssssssssssssssssssss", 
 $MemberNo,
 $MemberSurname,
 $MemberFirstname,
@@ -134,92 +136,13 @@ $Comments,
 $BankID,
 $BankAccountNo,
 $AccountTypeID,
-$AccountHolderName
+$AccountHolderName,
+$Terminated
 
 
 );
 // set parameters and execute
 $stmt->execute();
-
-
-
-
-$TransactionTypeID = "1";
-$Details = "Opening Balance";
-$MemberID = $MemberNo;
-$Credit = 1;
-$prebalance = 0.00;
-$amount = $ApprovedBenefit;
-$newb = $ApprovedBenefit;
-$Comments = "";
-
-
-
-$insertnew = $conn->prepare("insert into `tblmemberaccounts` (
-
-  `TransactionDate`,
-  `TransactionTypeID`,
-  `memberID`,
-  `Details`,
-  `Credit`,
-  `StartingBalance`,
-  `Amount`,
-  `NewBalance`,
-  `Comments`
-
-)
-
-VALUES
-  (
-
-    ?,
-    ?,
-    ?,
-    ?,
-	?,
-	?,
-	?,
-	?,
-	?
-  );");
-$insertnew->bind_param("sssssssss", 
-$DateAccountOpened, 
-$TransactionTypeID,
-$MemberID,
-$Details,
-$Credit,
-$prebalance,
-$amount,
-$newb,
-$Comments
-);
-$insertnew->execute();
-
-
-$TransactionTypeID = "2";
-$Details = "Transfer In Fee";
-$MemberID = $MemberNo;
-$Credit = 0;
-$prebalance = $amount;
-$amount = $ApprovedBenefit * 0.01 ;
-$newb = $ApprovedBenefit - $amount;
-$Comments = "";
-
-
-$insertnew->bind_param("sssssssss", 
-$DateAccountOpened, 
-$TransactionTypeID,
-$MemberID,
-$Details,
-$Credit,
-$prebalance,
-$amount,
-$newb,
-$Comments
-
-);
-
-$insertnew->execute();
 
 
 echo "<script> alert('New Beneficiary Added');
