@@ -16,7 +16,7 @@ if (isset($_POST['updatekin'])){
   $kinno = $_POST['kinno'];
 
   $update = $conn->prepare("UPDATE tblmembers SET `NextOfKinID` = ? WHERE MemberID=? ");
-  $update->bind_param("ss", $kinno, $MemberID);
+  $update->bind_param("ss", $kinno,  $memno);
   $update->execute();
 
 }
@@ -270,6 +270,8 @@ while($row = $result->fetch_assoc()) {
 <br>
   <label><b>--OR--</b></label>
 <br>
+
+
   <form class="row g-3 needs-validation" method="post" action="" enctype="multipart/form-data" novalidate>
 
 <div class="col-md-6">
