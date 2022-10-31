@@ -388,7 +388,7 @@ $(document).on("click",".dnew",function(e){
                         var ttfundmembers = (dataResult.ttfundmemberszz);
 						$("#newss").val("Null");
 						$("#newss").val(ttfundmembers);
-                        alert(ttfundmembers);
+                      //  alert(ttfundmembers);
 
                     }else{
 
