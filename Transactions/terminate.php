@@ -85,6 +85,10 @@ window.location.href='terminate.php';
 
 
     }
+}else{
+    echo "<script> alert('Member Not Found');
+    window.location.href='terminate.php';
+    </script>"; 
 }
 
 
