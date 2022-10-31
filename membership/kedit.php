@@ -255,7 +255,7 @@ while($row = $result->fetch_assoc()) {
 } else {
 ?> 
   <div class="text-center">
-                  <button type="button" class="btn btn-primary knew" data-link="knew.php" data-id="rr"  style="width: 50%;">New Next of Kin</button>
+                  <button type="button" class="btn btn-warning knew" data-link="knew.php" data-id="rr"  style="width: 100%;">New Next of Kin</button>
                </div>
   <?php
 } ?> 
