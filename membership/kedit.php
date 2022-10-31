@@ -269,7 +269,64 @@ while($row = $result->fetch_assoc()) {
   </form><!-- End floating Labels Form -->
 
 
-  
+  <form class="row g-3 needs-validation" method="post" action="" enctype="multipart/form-data" novalidate>
+
+<div class="col-md-6">
+          <div class="form-floating">
+					 <select type="text" class="form-control"  name="memno" placeholder="KinPostOfficeID"  >
+					
+						<?php 
+						$stmt122 = $conn->prepare("SELECT * FROM `tblmembers` ");
+						$stmt122->execute();
+						$result122 = $stmt122->get_result();
+						if ($result122->num_rows > 0) {
+						  // output data of each row
+						while($row122 = $result122->fetch_assoc()) {
+
+						?>
+					<option value="<?php echo $row122['MemberID']; ?>"><?php echo $row122['MemberSurname']."  ".$row122['MemberFirstname']."  ".$row122['MemberNo']; ?></option>
+						<?php   }
+						} else {
+						  //echo "0 results";
+						} ?> 
+					</select>
+                    <label for="floatingName">Select Member:</label>
+				  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                  </div>
+				  </div>
+
+    <div class="col-md-6">
+          <div class="form-floating">
+					 <select type="text" class="form-control" name="kinno" placeholder="KinPostOfficeID"  >
+					
+						<?php 
+						$stmt121 = $conn->prepare("SELECT * FROM `tblnextofkin` ");
+						$stmt121->execute();
+						$result121 = $stmt121->get_result();
+						if ($result121->num_rows > 0) {
+						  // output data of each row
+						while($row121 = $result121->fetch_assoc()) {
+
+						?>
+					<option value="<?php echo $row121['NextOfKinID']; ?>"><?php echo $row121['KinSurname']."  ".$row121['KinFirstNames']; ?></option>
+						<?php   }
+						} else {
+						 // echo "0 results";
+						} ?> 
+					</select>
+                    <label for="floatingName">Select Matching Next Of Kin:</label>
+				  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                  </div>
+				  </div>
+
+          <button type="submit" class="btn btn-warning" name="updatekin"  style="width: 100%;">Update Next Of Kin</button>
+
+
+</form>
   
 
 
