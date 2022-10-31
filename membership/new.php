@@ -402,16 +402,16 @@ $id = $max + 1;
 				<label for="floatingName">Guardian:</label><br>
           <div class="form-floating">
 				  
-					 <select type="text" class="form-control" id="single2"    placeholder="GuardianID" name="GuardianID"  required>
+					 <select type="text" class="form-control" id="GuardianID"    placeholder="GuardianID" name="GuardianID"  required>
 					<option value="" selected></option>
 						<?php 
-						$stmt12 = $conn->prepare("SELECT DISTINCT `GuardianID`, `GuardianSurname`, `GuardianFirstname` FROM `tblguardians` order by GuardianSurname");
+						$stmt12 = $conn->prepare("SELECT DISTINCT `GuardianID`, `GuardianSurname`, `GuardianFirstNames` FROM `tblguardians` order by GuardianSurname");
 						$stmt12->execute();
 						$result12 = $stmt12->get_result();
 						if ($result12->num_rows > 0) {
 						  // output data of each row
 						while($row12 = $result12->fetch_assoc()) { ?>
-					<option value="<?php echo $row12['GuardianID']; ?>"><?php echo $row12['GuardianID']."- ".$row12['GuardianSurname']."  ".$row12['GuardianFirstname'] ; ?></option>
+					<option value="<?php echo $row12['GuardianID']; ?>"><?php echo $row12['GuardianID']."- ".$row12['GuardianSurname']."  ".$row12['GuardianFirstNames'] ; ?></option>
 						<?php   }
 						} else {
 						  //echo "0 results";
@@ -438,7 +438,7 @@ $id = $max + 1;
 				<label for="floatingName">Next Of Kin:</label><br>
           <div class="form-floating">
 				  
-					 <select type="text" class="form-control" id="single3"    placeholder="NextOfKinID" name="NextOfKinID"  required>
+					 <select type="text" class="form-control" id="NextOfKinID"    placeholder="NextOfKinID" name="NextOfKinID"  required>
 					<option value="" selected></option>
 						<?php 
 						$stmt12 = $conn->prepare("SELECT DISTINCT `NextOfKinID`, `KinSurname`, `KinFirstNames` FROM `tblnextofkin` order by KinSurname");
