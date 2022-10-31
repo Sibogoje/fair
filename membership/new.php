@@ -141,7 +141,7 @@ $AccountHolderName
 // set parameters and execute
 $stmt->execute();
 
-/*
+
 
 
 $TransactionTypeID = "1";
@@ -399,10 +399,26 @@ $id = $max + 1;
                   </div>
 				  </div>
 				  
-				  <div class="col-md-3">
-                  <div class="form-floating">
-                    <input type="text" class="form-control" id="ff" placeholder="GuardianID" name="GuardianID" >
-                    <label for="floatingName">Guardian ID:</label>
+          <div class="col-md-3">
+				<label for="floatingName">Guardian:</label><br>
+          <div class="form-floating">
+				  
+					 <select type="text" class="form-control" id="single2"    placeholder="GuardianID" name="GuardianID"  required>
+					<option value="" selected></option>
+						<?php 
+						$stmt12 = $conn->prepare("SELECT DISTINCT `GuardianID`, `GuardianSurname`, `GuardianFirstname` FROM `tblguardians` order by GuardianSurname");
+						$stmt12->execute();
+						$result12 = $stmt12->get_result();
+						if ($result12->num_rows > 0) {
+						  // output data of each row
+						while($row12 = $result12->fetch_assoc()) { ?>
+					<option value="<?php echo $row12['GuardianID']; ?>"><?php echo $row12['GuardianID']."- ".$row12['GuardianSurname']."  ".$row12['GuardianFirstname'] ; ?></option>
+						<?php   }
+						} else {
+						  //echo "0 results";
+						} ?> 
+					</select>
+                     
 				  <div class="valid-feedback">
                     Looks good!
                   </div>
@@ -419,10 +435,26 @@ $id = $max + 1;
                   </div>
 				  </div>
 				  
-				  <div class="col-md-3">
-                  <div class="form-floating">
-                    <input type="text" class="form-control" id="ff" placeholder="Next Of Kin ID" name="NextOfKinID" >
-                    <label for="floatingName">Next Of Kin ID:</label>
+          <div class="col-md-3">
+				<label for="floatingName">Next Of Kin:</label><br>
+          <div class="form-floating">
+				  
+					 <select type="text" class="form-control" id="single3"    placeholder="NextOfKinID" name="NextOfKinID"  required>
+					<option value="" selected></option>
+						<?php 
+						$stmt12 = $conn->prepare("SELECT DISTINCT `NextOfKinID`, `KinSurname`, `KinFirstNames` FROM `tblnextofkin` order by KinSurname");
+						$stmt12->execute();
+						$result12 = $stmt12->get_result();
+						if ($result12->num_rows > 0) {
+						  // output data of each row
+						while($row12 = $result12->fetch_assoc()) { ?>
+					<option value="<?php echo $row12['NextOfKinID']; ?>"><?php echo $row12['NextOfKinID']."- ".$row12['KinSurname']."  ".$row12['KinFirstNames'] ; ?></option>
+						<?php   }
+						} else {
+						  //echo "0 results";
+						} ?> 
+					</select>
+                     
 				  <div class="valid-feedback">
                     Looks good!
                   </div>
@@ -449,10 +481,26 @@ $id = $max + 1;
                   </div>
 				  </div>
 				  
-				  <div class="col-md-3">
-                  <div class="form-floating">
-                    <input type="text" class="form-control" id="ff" placeholder="Member Post Office ID" name="MemberPostOfficeID" >
-                    <label for="floatingName">Member Post Office ID:</label>
+          <div class="col-md-3">
+				<label for="floatingName">Post Office:</label><br>
+          <div class="form-floating">
+				  
+					 <select type="text" class="form-control" id="single4"    placeholder="postofficeID" name="postofficeID"  required>
+					<option value="" selected></option>
+						<?php 
+						$stmt12 = $conn->prepare("SELECT DISTINCT `postofficeID`, `PostOffice`, `PostCode` FROM `tblpostoffices` order by PostOffice");
+						$stmt12->execute();
+						$result12 = $stmt12->get_result();
+						if ($result12->num_rows > 0) {
+						  // output data of each row
+						while($row12 = $result12->fetch_assoc()) { ?>
+					<option value="<?php echo $row12['postofficeID']; ?>"><?php echo $row12['postofficeID']."- ".$row12['PostOffice']."  ".$row12['PostCode'] ; ?></option>
+						<?php   }
+						} else {
+						  //echo "0 results";
+						} ?> 
+					</select>
+                     
 				  <div class="valid-feedback">
                     Looks good!
                   </div>
