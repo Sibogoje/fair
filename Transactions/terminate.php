@@ -174,7 +174,7 @@ $conn->close();
             <div class="card-body">
               <h5 class="card-title">New Termination</h5>
 			  
-			  <form class="row g-3 needs-validation" method="post" action="" enctype="multipart/form-data" novalidate>
+			  <form class="row g-3 needs-validation" id="user_form" method="post" action="" enctype="multipart/form-data" novalidate>
 
   	             <div class="col-md-12">
 				
@@ -373,13 +373,31 @@ $(document).on("click",".dnew",function(e){
 <script>
     $(function(){
         $("#single").click(function(){
-            var postid = $('#amnts').val();
-			var ff = (1/100) * postid;
 
+            var data = $("#user_form").serialize();
             $('#newss').val(ff);
+
+            $.ajax({
+			data: data,
+			type: "post",
+			url: "transact.php",
+			success: function(dataResult){
+					var dataResult = JSON.parse(dataResult);
+					if(dataResult.statusCode==200){
+
+                        var ttfundmembers = (dataResult.ttfundmembers);
+						$("#amnts").val("Null");
+						$("#amnts").val(ttfundmembers);
+
+                    }else{
+
+                        alert("Data Could not be retrieved");
+
+                    }
  
 
         });
+    });
     });
 
 </script>
