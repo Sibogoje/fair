@@ -248,7 +248,7 @@ while($row = $result->fetch_assoc()) {
       
                 
                 <div class="text-center">
-                  <button type="submit"  class="btn btn-primary" style="width: 80%;" name="submit">Update Next of Kin Info</button>
+                  <button type="submit"  class="btn btn-warning" style="width: 100%;" name="submit">Update Next of Kin Info</button>
                   
                 </div>
 								<?php   }

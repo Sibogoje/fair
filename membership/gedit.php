@@ -302,14 +302,14 @@ while($row = $result->fetch_assoc()) {
       
                 
                 <div class="text-center">
-                  <button type="submit"  class="btn btn-primary" style="width: 80%;" name="submit">Update Guardian Info</button>
+                  <button type="submit"  class="btn btn-warning" style="width: 100%;" name="submit">Update Guardian Info</button>
                   
                 </div>
 								<?php   }
 } else {
 ?> 
   <div class="text-center">
-                  <button type="button" class="btn btn-primary dnew" data-link="gnew.php" data-id="rr"  style="width: 50%;">New Guardian Member</button>
+                  <button type="button" class="btn btn-warning dnew" data-link="gnew.php" data-id="rr"  style="width: 100%;">New Guardian Member</button>
                </div>
   <?php
 } ?> 
