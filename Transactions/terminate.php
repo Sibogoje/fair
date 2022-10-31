@@ -160,7 +160,7 @@ $conn->close();
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Ad Hoc Payment</h1>
+      <h1>Member Termination</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="index.php">Termination</a></li>
