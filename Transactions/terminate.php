@@ -193,7 +193,7 @@ $conn->close();
                       
 
 					<option value="<?php echo $row12['MemberID']; ?>"><?php echo $row12['MemberNo']." -".$row12['MemberSurname']. ", ".$row12['MemberFirstname']." Balance: ".$row12['balance'] ; ?></option>
-                    <input type='text' value="<?php $row12['balance']?>" id="amnts" hidden>
+                   
 						<?php   }
 						} else {
 						 // echo "0 results";
