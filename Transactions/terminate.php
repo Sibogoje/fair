@@ -19,7 +19,7 @@ if (isset($_POST['submit'])){
   $Credit = '';
   $stmt = $conn->prepare("SELECT balance, TerminationFeePercent FROM `member_fees`WHERE MemberID = '$MemberID' ");
   $stmt->execute();
-  $result = $stmt12->get_result();
+  $result = $stmt->get_result();
   if ($result->num_rows > 0) {
     // output data of each row
   while($row = $result->fetch_assoc()) {
