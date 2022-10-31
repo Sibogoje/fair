@@ -319,10 +319,7 @@ while($row = $result->fetch_assoc()) {
               </table>
               </div>
               <!-- End Table with stripped rows -->
-  <div class="text-center">
-                  <button type="submit"  class="btn btn-warning" style="width: 100%;" name="process">Process All</button>
-                  
-                </div>
+
             </div>
           </div>
 
