@@ -233,7 +233,7 @@ $conn->close();
               <table class="table datatable" id="jj" width="100%" cellspacing="0">
                 <thead>
                   <tr>
-                    <th scope="col">ID</th>
+                    
                     <th hidden scope="col">MemberID</th>
                     
                     <th scope="col">Charged</th>
