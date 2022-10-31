@@ -542,7 +542,7 @@ $id = $max + 1;
 				  
 				  <div class="col-md-3">
                   <div class="form-floating">
-                    <input type="date" class="form-control" id="ff" placeholder="Date Account Opened" name="DateAccountOpened" required>
+                    <input type="date" class="form-control" id="ff" placeholder="Date Account Opened" name="DateAccountOpened" >
                     <label for="floatingName">Date Account Opened:</label>
 				  <div class="valid-feedback">
                     Looks good!
@@ -552,7 +552,7 @@ $id = $max + 1;
 				  
 				  <div class="col-md-3">
                   <div class="form-floating">
-					 <select type="text" class="form-control" id="ff" placeholder="Regular Payment Frequency" name="RegularPaymentFrequencyID" required>
+					 <select type="text" class="form-control" id="ff" placeholder="Regular Payment Frequency" name="RegularPaymentFrequencyID" >
 					<option value=""><option>
 					<option value="1">Monthly</option>
 					<option value="2">Quarterly</option>
