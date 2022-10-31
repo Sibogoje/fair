@@ -164,7 +164,7 @@ while($row = $result->fetch_assoc()) {
 
 				  <div class="col-md-3">
                   <div class="form-floating">
-                    <input type="text" class="form-control" id="ff" placeholder="Kin Postal Address" value="<?php echo $row['KinPostalAddress']; ?>" name="KinPostalAddress" required>
+                    <input type="text" class="form-control" id="ff" placeholder="Kin Postal Address" value="<?php echo $row['KinPostalAddress']; ?>" name="KinPostalAddress" >
                     <label for="floatingName">KinPostalAddress:</label>
 				  <div class="valid-feedback">
                     Looks good!
@@ -177,7 +177,7 @@ while($row = $result->fetch_assoc()) {
 				  
 				  	  	  <div class="col-md-3">
                   <div class="form-floating">
-					 <select type="text" class="form-control" id="ff" placeholder="KinPostOfficeID" name="KinPostOfficeID" required>
+					 <select type="text" class="form-control" id="ff" placeholder="KinPostOfficeID" name="KinPostOfficeID" >
 					<option value="<?php echo $row['KinPostOfficeID'];?>" selected><?php echo $row['KinPostOfficeID']; ?></option>
 						<?php 
 						$stmt12 = $conn->prepare("SELECT * FROM `tblpostoffices` ");
@@ -236,7 +236,7 @@ while($row = $result->fetch_assoc()) {
 				  </div>
 				  <div class="col-md-3">
                   <div class="form-floating">
-                    <input type="text" class="form-control" id="ff" placeholder="Kin Email" value="<?php echo $row['KinEmail']; ?>" name="KinEmail" required>
+                    <input type="text" class="form-control" id="ff" placeholder="Kin Email" value="<?php echo $row['KinEmail']; ?>" name="KinEmail" >
                     <label for="floatingName">Kin Email:</label>
 				  <div class="valid-feedback">
                     Looks good!

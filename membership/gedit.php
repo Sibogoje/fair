@@ -196,7 +196,7 @@ while($row = $result->fetch_assoc()) {
 				  
 				  	  <div class="col-md-3">
                   <div class="form-floating">
-					 <select type="text" class="form-control" id="ff" placeholder="GuardianPostOfficeID" name="GuardianPostOfficeID" required>
+					 <select type="text" class="form-control" id="ff" placeholder="GuardianPostOfficeID" name="GuardianPostOfficeID" >
 					<option value="<?php echo $row['GuardianPostOfficeID'];?>" selected><?php echo $row['GuardianPostOfficeID']; ?></option>
 						<?php 
 						$stmt12 = $conn->prepare("SELECT * FROM `tblpostoffices` ");
@@ -242,7 +242,7 @@ while($row = $result->fetch_assoc()) {
 				  </div>
 				  <div class="col-md-3">
                   <div class="form-floating">
-                    <input type="text" class="form-control" id="ff" placeholder="Guardian Cell" value="<?php echo $row['GuardianCell']; ?>" name="GuardianCell" required>
+                    <input type="text" class="form-control" id="ff" placeholder="Guardian Cell" value="<?php echo $row['GuardianCell']; ?>" name="GuardianCell" >
                     <label for="floatingName">Guardian Cell:</label>
 				  <div class="valid-feedback">
                     Looks good!
@@ -252,7 +252,7 @@ while($row = $result->fetch_assoc()) {
 				  
 				  <div class="col-md-3">
                   <div class="form-floating">
-                    <input type="text" class="form-control" id="ff" placeholder="Guardian Email" value="<?php echo $row['GuardianEmail']; ?>" name="GuardianEmail" required>
+                    <input type="text" class="form-control" id="ff" placeholder="Guardian Email" value="<?php echo $row['GuardianEmail']; ?>" name="GuardianEmail" >
                     <label for="floatingName">Guardian Email:</label>
 				  <div class="valid-feedback">
                     Looks good!
@@ -263,7 +263,7 @@ while($row = $result->fetch_assoc()) {
 				  
 				  <div class="col-md-3">
                   <div class="form-floating">
-					 <select type="text" class="form-control" id="ff" placeholder="StatementType" name="StatementType" required>
+					 <select type="text" class="form-control" id="ff" placeholder="StatementType" name="StatementType" >
 					<option value="<?php echo $row['StatementType']; ?>"><?php echo $row['StatementType']; ?></option>
 						<?php 
 						$stmt1 = $conn->prepare("SELECT * FROM `tblstatementtype` ");
@@ -290,7 +290,7 @@ while($row = $result->fetch_assoc()) {
 				  
 				  <div class="col-md-3">
                   <div class="form-floating">
-                    <input type="text" class="form-control" id="ff" placeholder="GuardianPhysicalAddress" value="<?php echo $row['GuardianPhysicalAddress']; ?>" name="GuardianPhysicalAddress" required>
+                    <input type="text" class="form-control" id="ff" placeholder="GuardianPhysicalAddress" value="<?php echo $row['GuardianPhysicalAddress']; ?>" name="GuardianPhysicalAddress" >
                     <label for="floatingName">Physical Address:</label>
 				  <div class="valid-feedback">
                     Looks good!

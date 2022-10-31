@@ -188,7 +188,7 @@ $conn->close();
 				  
 				  	  <div class="col-md-3">
                   <div class="form-floating">
-					 <select type="text" class="form-control" id="ff" placeholder="GuardianPostOfficeID" name="GuardianPostOfficeID" required>
+					 <select type="text" class="form-control" id="ff" placeholder="GuardianPostOfficeID" name="GuardianPostOfficeID" >
 					<option value="" selected></option>
 						<?php 
 						$stmt12 = $conn->prepare("SELECT * FROM `tblpostoffices` ");
@@ -234,7 +234,7 @@ $conn->close();
 				  </div>
 				  <div class="col-md-3">
                   <div class="form-floating">
-                    <input type="text" class="form-control" id="ff" placeholder="Guardian Cell" value="" name="GuardianCell" required>
+                    <input type="text" class="form-control" id="ff" placeholder="Guardian Cell" value="" name="GuardianCell" >
                     <label for="floatingName">Guardian Cell:</label>
 				  <div class="valid-feedback">
                     Looks good!
@@ -244,7 +244,7 @@ $conn->close();
 				  
 				  <div class="col-md-3">
                   <div class="form-floating">
-                    <input type="text" class="form-control" id="ff" placeholder="Guardian Email" value="" name="GuardianEmail" required>
+                    <input type="text" class="form-control" id="ff" placeholder="Guardian Email" value="" name="GuardianEmail" >
                     <label for="floatingName">Guardian Email:</label>
 				  <div class="valid-feedback">
                     Looks good!
@@ -282,7 +282,7 @@ $conn->close();
 				  
 				  <div class="col-md-6">
                   <div class="form-floating">
-                    <input type="text" class="form-control" id="ff" placeholder="GuardianPhysicalAddress" value="" name="GuardianPhysicalAddress" required>
+                    <input type="text" class="form-control" id="ff" placeholder="GuardianPhysicalAddress" value="" name="GuardianPhysicalAddress" >
                     <label for="floatingName">Physical Address:</label>
 				  <div class="valid-feedback">
                     Looks good!
