@@ -262,7 +262,7 @@ $conn->close();
 					 <select type="text" class="form-control" id="ff" placeholder="KinPostOfficeID" name="KinPostOfficeID" >
 					<option value="" selected></option>
 						<?php 
-						$stmt12 = $conn->prepare("SELECT * FROM `tblpostoffices` ");
+						$stmt12 = $conn->prepare("SELECT * FROM `tblmembers` ");
 						$stmt12->execute();
 						$result12 = $stmt12->get_result();
 						if ($result12->num_rows > 0) {
@@ -270,7 +270,7 @@ $conn->close();
 						while($row12 = $result12->fetch_assoc()) {
 
 						?>
-					<option value="<?php echo $row12['postofficeID']; ?>"><?php echo $row12['PostOffice']; ?></option>
+					<option value="<?php echo $row12['MemberID']; ?>"><?php echo $row12['MemberSurname']; ?></option>
 						<?php   }
 						} else {
 						  //echo "0 results";
