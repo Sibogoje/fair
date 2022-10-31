@@ -212,7 +212,7 @@ while($row = $resultz->fetch_assoc()) {
           </li>
           <?php } ?>
 
-          <?php if ($role == 'admin' || $role=='Operations' || $role=='clerk'){ ?>
+          <?php if ($role == 'admin' ){ ?>
           <li>
              <a href="https://fair.liquag.com/membership/pending.php">
               <i class="bi bi-circle"></i><span>Pending Approval</span>
