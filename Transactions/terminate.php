@@ -221,7 +221,7 @@ $conn->close();
 				  
                   <div class="col-md-3">
                   <div class="form-floating">
-                    <input type="text" class="form-control" id="newss" placeholder="Amount After" value="New Amount" name="newss" required>
+                    <input type="text" class="form-control" id="newss" placeholder="Amount After" name="newss" required>
                     <label for="floatingName">Amount After:</label>
 				  <div class="valid-feedback">
                     Looks good!
