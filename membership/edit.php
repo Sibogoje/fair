@@ -45,7 +45,7 @@ $AccountHolderName = $_POST['AccountHolderName'];
 $terminated = $_POST['terminated'];
 
 
-$stmt = $conn->prepare("UPDATE `u747325399_fairlife`.`tblmembers1` SET
+$stmt = $conn->prepare("UPDATE `tblmembers` SET
   `MemberSurname`=?,
   `MemberFirstname`=?,
   `MemberIDnumber`=?,
@@ -216,7 +216,7 @@ $stmt->close();
               <!-- Floating Labels Form -->
               <form class="row g-3 needs-validation" method="post" action="" enctype="multipart/form-data" novalidate>
 	<?php 
-$stmt = $conn->prepare("SELECT * FROM `tblmembers1` where `MemberNo`=?");
+$stmt = $conn->prepare("SELECT * FROM `tblmembers` where `MemberNo`=?");
 $stmt->bind_param("s", $ids);
 $stmt->execute();
 $result = $stmt->get_result();
@@ -522,7 +522,7 @@ while($row = $result->fetch_assoc()) {
 				
 				<?php   }
 } else {
-  echo "0 results";
+ // echo "0 results";
 } ?> 
               </form><!-- End floating Labels Form -->
 
