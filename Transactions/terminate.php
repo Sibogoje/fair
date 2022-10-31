@@ -71,7 +71,7 @@ $insertnew = $conn->prepare("insert into `tblmemberaccounts` (
 
 
  if($insertnew->execute()){
-    $update = $conn->prepare("UPDATE tblemembers SET `Terminated` = '1' WHERE MemberID=? ");
+    $update = $conn->prepare("UPDATE tblmembers SET `Terminated` = '1' WHERE MemberID=? ");
 $update->bind_param("s", $MemberID);
 $update->execute();
 echo "<script> alert('The Member Was Terminted Succesfully');
