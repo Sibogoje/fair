@@ -217,7 +217,7 @@ $conn->close();
 				  
 
                 <div class="text-center">
-                  <button type="submit"  class="btn btn-primary" style="width: 80%;" name="submit">Add Guardian Info</button>
+                  <button type="submit"  class="btn btn-warning" style="width: 100%;" name="submit">Add Next OF KIN Info</button>
                   
                 </div>
 
