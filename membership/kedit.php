@@ -10,16 +10,7 @@ require_once '../scripts/connection.php';
 $ids = $_GET['id'];
 
 ////////insert new 
-if (isset($_POST['updatekin'])){
 
-  $memno = $_POST['memno']; 
-  $kinno = $_POST['kinno'];
-
-  $update = $conn->prepare("UPDATE tblmembers SET `NextOfKinID` = ? WHERE MemberID=? ");
-  $update->bind_param("ss", $kinno, $MemberID);
-  $update->execute();
-
-}
 
 if (isset($_POST['submit'])){
 	
