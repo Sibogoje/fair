@@ -175,7 +175,7 @@ $conn->close();
 
         <br/>
 
-                <div class="col-md-3">
+                <div class="col-md-4">
                   <div class="form-floating">
                     <input type="date" class="form-control" id="ff" placeholder="PaymentDate" value="" name="PaymentDate" required>
                     <label for="floatingName">Termination Date Date:</label>
@@ -188,7 +188,7 @@ $conn->close();
 				  
 				 
 				  
-				  <div class="col-md-3">
+				  <div class="col-md-4">
                   <div class="form-floating">
                     <input type="text" class="form-control" id="ff" placeholder="Details" value="Termination Fee" name="Details" required>
                     <label for="floatingName">Details:</label>
@@ -200,7 +200,7 @@ $conn->close();
 				  
 				  
 				
-				  <div class="col-md-3">
+				  <div class="col-md-4">
                   <div class="form-floating">
                     <input type="text" class="form-control" id="ff" placeholder="Comments" value="" name="Comments" >
                     <label for="floatingName">Comments:</label>
