@@ -11,7 +11,16 @@ $ids = $_GET['id'];
 
 ////////insert new 
 
+if (isset($_POST['updatekin'])){
 
+  $memno = $_POST['memno']; 
+  $kinno = $_POST['kinno'];
+
+  $update = $conn->prepare("UPDATE tblmembers SET `GuardianID` = ? WHERE MemberID=? ");
+  $update->bind_param("ss", $kinno,  $memno);
+  $update->execute();
+
+}
 if (isset($_POST['submit'])){
 	
 
@@ -311,9 +320,78 @@ while($row = $result->fetch_assoc()) {
   <div class="text-center">
                   <button type="button" class="btn btn-warning dnew" data-link="gnew.php" data-id="rr"  style="width: 100%;">New Guardian Member</button>
                </div>
+
+               </form><!-- End floating Labels Form -->
+
+               <br>
+  <label><b>--OR--</b></label>
+<br>
+
+
+  <form class="row g-3 needs-validation" method="post" action="" enctype="multipart/form-data" novalidate>
+
+<div class="col-md-6">
+          <div class="form-floating">
+					 <select type="text" class="form-control"  name="memno" placeholder="KinPostOfficeID"  >
+					
+						<?php 
+						$stmt122 = $conn->prepare("SELECT * FROM `tblmembers` ");
+						$stmt122->execute();
+						$result122 = $stmt122->get_result();
+						if ($result122->num_rows > 0) {
+						  // output data of each row
+						while($row122 = $result122->fetch_assoc()) {
+
+						?>
+					<option value="<?php echo $row122['MemberID']; ?>"><?php echo $row122['MemberNo']." ".$row122['MemberSurname']."  ".$row122['MemberFirstname']; ?></option>
+						<?php   }
+						} else {
+						  //echo "0 results";
+						} ?> 
+					</select>
+                    <label for="floatingName">Select Member:</label>
+				  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                  </div>
+				  </div>
+
+    <div class="col-md-6">
+          <div class="form-floating">
+					 <select type="text" class="form-control" name="kinno" placeholder="KinPostOfficeID"  >
+					
+						<?php 
+						$stmt121 = $conn->prepare("SELECT * FROM `tblguardians` ");
+						$stmt121->execute();
+						$result121 = $stmt121->get_result();
+						if ($result121->num_rows > 0) {
+						  // output data of each row
+						while($row121 = $result121->fetch_assoc()) {
+
+						?>
+					<option value="<?php echo $row121['GuardianID']; ?>"><?php echo $row121['GuardianID']." ".$row121['GuardianSurname']."  ".$row121['GuardianFirstNames']; ?></option>
+						<?php   }
+						} else {
+						 // echo "0 results";
+						} ?> 
+					</select>
+                    <label for="floatingName">Select Matching Guardian:</label>
+				  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                  </div>
+				  </div>
+
+          <button type="submit" class="btn btn-warning" name="updatekin"  style="width: 100%;">Update Next Of Kin</button>
+
+
+</form>
+  
+
+
   <?php
 } ?> 
-              </form><!-- End floating Labels Form -->
+              
 
             </div>
           </div>
