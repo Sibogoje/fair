@@ -223,60 +223,60 @@ $conn->close();
                 </div>
 
 
-
-
-
+<br>
+                <label>OR</label>
+<br>
                
 
-<div class="col-md-6">
-          <div class="form-floating">
-					 <select type="text" class="form-control"  name="memno" placeholder="KinPostOfficeID"  >
-					
+                <div class="col-md-6">
+                  <div class="form-floating">
+					 <select type="text" class="form-control" id="ff" placeholder="KinPostOfficeID" name="KinPostOfficeID" >
+					<option value="" selected></option>
 						<?php 
-						$stmt122 = $conn->prepare("SELECT * FROM `tblmembers` ");
-						$stmt122->execute();
-						$result122 = $stmt122->get_result();
-						if ($result122->num_rows > 0) {
+						$stmt12 = $conn->prepare("SELECT * FROM `tblpostoffices` ");
+						$stmt12->execute();
+						$result12 = $stmt12->get_result();
+						if ($result12->num_rows > 0) {
 						  // output data of each row
-						while($row122 = $result122->fetch_assoc()) {
+						while($row12 = $result12->fetch_assoc()) {
 
 						?>
-					<option value="<?php echo $row122['MemberID']; ?>"><?php echo $row122['MemberSurname']."  ".echo $row122['MemberFirstname']."  ".echo $row122['MemberNo']; ?></option>
+					<option value="<?php echo $row12['postofficeID']; ?>"><?php echo $row12['PostOffice']; ?></option>
 						<?php   }
 						} else {
 						  //echo "0 results";
 						} ?> 
 					</select>
-                    <label for="floatingName">Select Member:</label>
+                    <label for="floatingName">Select Kin PostOffice:</label>
 				  <div class="valid-feedback">
                     Looks good!
                   </div>
                   </div>
 				  </div>
 
-<label>OR</label>
 
 
-    <div class="col-md-6">
-          <div class="form-floating">
-					 <select type="text" class="form-control" name="kinno" placeholder="KinPostOfficeID"  >
-					
+
+<div class="col-md-6">
+                  <div class="form-floating">
+					 <select type="text" class="form-control" id="ff" placeholder="KinPostOfficeID" name="KinPostOfficeID" >
+					<option value="" selected></option>
 						<?php 
-						$stmt121 = $conn->prepare("SELECT * FROM `tblnextofkin` ");
-						$stmt121->execute();
-						$result121 = $stmt121->get_result();
-						if ($result121->num_rows > 0) {
+						$stmt12 = $conn->prepare("SELECT * FROM `tblpostoffices` ");
+						$stmt12->execute();
+						$result12 = $stmt12->get_result();
+						if ($result12->num_rows > 0) {
 						  // output data of each row
-						while($row121 = $result121->fetch_assoc()) {
+						while($row12 = $result12->fetch_assoc()) {
 
 						?>
-					<option value="<?php echo $row121['NextOfKinID']; ?>"><?php echo $row121['KinSurname']."  ".echo $row121['KinFirstNames']; ?></option>
+					<option value="<?php echo $row12['postofficeID']; ?>"><?php echo $row12['PostOffice']; ?></option>
 						<?php   }
 						} else {
-						 // echo "0 results";
+						  //echo "0 results";
 						} ?> 
 					</select>
-                    <label for="floatingName">Select Matching Next Of Kin:</label>
+                    <label for="floatingName">Select Kin PostOffice:</label>
 				  <div class="valid-feedback">
                     Looks good!
                   </div>
