@@ -368,7 +368,7 @@ $(document).on("click",".dnew",function(e){
     $('#single').select2();        
 
         });
-        </script>
+</script>
 	
 <script>
     $(function(){
@@ -394,12 +394,10 @@ $(document).on("click",".dnew",function(e){
                         alert("Data Could not be retrieved");
 
                     }
- 
-
-        }
+}
+});
     });
     }).change();
-
 </script>
 
 
