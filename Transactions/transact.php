@@ -6,7 +6,7 @@ if(count($_POST)>0){
 
 ////////////////////retrieve termination amount
 
-$ttfundsresult = mysqli_query($conn, "SELECT SELECT MemberNo,  balance, TerminationFeePercent FROM `member_fees` WHERE MemberID = '$id'  "); 
+$ttfundsresult = mysqli_query($conn, "SELECT MemberNo,  balance, TerminationFeePercent FROM `member_fees` WHERE MemberID = '$id'  "); 
 $ttfundsrow = mysqli_fetch_assoc($ttfundsresult); 
 $balance = $ttfundsrow['balance'];
 $TerminationFeePercent = $ttfundsrow['TerminationFeePercent'];
