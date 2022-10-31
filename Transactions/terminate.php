@@ -373,7 +373,7 @@ $(document).on("click",".dnew",function(e){
 <script>
    	 $("#single").change(function(){
         $(this).find("option:selected").each(function(){
-        alert("sELCTED");
+        //alert("sELCTED");
             var data = $("#user_form").serialize();
             $('#newss').val(ff);
 
