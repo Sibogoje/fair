@@ -398,7 +398,7 @@ $(document).on("click",".dnew",function(e){
 
         });
     });
-    };
+    }).change();
 
 </script>
 
