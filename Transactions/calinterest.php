@@ -12,7 +12,7 @@ $ttfundsrow = mysqli_fetch_assoc($ttfundsresult);
 $ttfunds = $ttfundsrow['SS'];
 
 
-          $stmt1 = $conn->prepare("SELECT `memberID`, `NewBalance` FROM `balances` ");
+$stmt1 = $conn->prepare("SELECT `memberID`, `NewBalance` FROM `balances` ");
 				
 				$stmt1->execute();
 				$result1 = $stmt1->get_result();
@@ -22,7 +22,8 @@ $ttfunds = $ttfundsrow['SS'];
 					$ruuning_balance = $row1['NewBalance'];
 					
 					$fraction = ($ruuning_balance / $ttfunds);
-					$interest = $fraction *  $amount;
+					$franc = $fraction * 100;
+					$interest = $franc *  $amount;
 					
 					$Newbalance = $ruuning_balance + $interest;
 
@@ -40,7 +41,7 @@ $ttfunds = $ttfundsrow['SS'];
 					$Comments = "";
 					$latest = 0;
 					
-					$insertnew = $conn->prepare("insert into `tblmemberaccounts` (
+$insertnew = $conn->prepare("insert into `tblmemberaccounts` (
 
   `TransactionDate`,
   `TransactionTypeID`,
@@ -82,17 +83,13 @@ $Comments
 $insertnew->execute();
 ////////////////////insert into Interest Table					
 }
-
-
-							
-				$response = array(
+$response = array(
 					'statusCode'=>200,
 					'success'=>"Member No"
-					);		
+					);	
+					echo json_encode($response);	
 
-
-
-				}else{
+}else{
 					$response = array(
 						'statusCode'=>202,
 						'error'=>"No Members Found"
