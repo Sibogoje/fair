@@ -65,7 +65,28 @@ while($row = $result->fetch_assoc()) {
 
 
     if ($insertnew->execute()) { 
-        
+  ////////////////////////////////////////////////////////////////////////////      
+  if( $prebalance > 20000){
+
+    $updaterunning = $conn->prepare("UPDATE `tblmembers` SET `Terminated`=? WHERE `MemberID`=? ");
+    $updaterunning->bind_param("ss", $terminated,  $MemberID);
+    
+    if ($updaterunning->execute()) { 
+        $response = array(
+            'statusCode'=>200,
+            'datas'=>"Member Approved Succesfully"
+            );
+            echo json_encode($response);
+     } else {
+        $response = array(
+            'statusCode'=>212,
+            'datas'=>"Member Could not be Approved, Operation Reversed"
+            );
+            echo json_encode($response);
+     }
+
+  }else{
+
 
 
         $TransactionTypeID = "2";
@@ -120,7 +141,8 @@ while($row = $result->fetch_assoc()) {
                 echo json_encode($response);
             
          }
-
+        }
+////////////////////////////////////////////////////////////////
      } else {
         $response = array(
             'statusCode'=>211,
