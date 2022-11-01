@@ -227,7 +227,7 @@ $conn->close();
 
             </div>
           </div>
-
+          <?php if ($role != 'admin' ){ ?> 
 
           <div class="card col-lg-12" >
             <div class="card-body">
@@ -292,7 +292,7 @@ while($row = $result->fetch_assoc()) {
             </div>
           </div>
 
-
+<?php } ?>
 <!-- end of new beneficiary form -->
 
   
