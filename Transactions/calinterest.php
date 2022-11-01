@@ -79,66 +79,19 @@ $Newbalance,
 $Comments
 
 );
-
+$insertnew->execute();
 ////////////////////insert into Interest Table					
-if ($insertnew->execute()) {
+}
 
 
-	$vers = 1;
-	$updateinterests = $conn->prepare("insert into `tblinterestreceived` (
-
-		`InterestSourceID`,
-		`InterestStartDate`,
-		`InterestDate`,
-		`InterestAmount`,
-		`AllocationDate`,
-		`Allocated`
-	  
-	  )
-	  
-	  VALUES
-		(
-	  
-		  ?,
-		  ?,
-		  ?,
-		  ?,
-		  ?,
-		  ?
-		);");
-	  $updateinterests->bind_param("ssssss", 
-	  $sourceid, 
-	  $dates,
-	  $dates,
-	  $amount,
-	  $dates,
-	  $vers
-	  
-	  );
-
-	$updateinterests->execute();
+							
+				$response = array(
+					'statusCode'=>200,
+					'success'=>"Member No"
+					);		
 
 
 
-
-$response = array(
-		'statusCode'=>200,
-		'success'=>"Member No"
-		);
-
- }else{
-
-	$response = array(
-		'statusCode'=>201,
-		'error'=>"No Interest Allocated"
-		);
-	echo json_encode($response);
-
-
-
-}					
-					
-				}
 				}else{
 					$response = array(
 						'statusCode'=>202,
