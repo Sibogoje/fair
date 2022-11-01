@@ -55,7 +55,7 @@ $notification = $balancerow['value_sum'];
             </li>
 <div style="overflow-y: scroll; height:400px; margin: 10px;">
 <?php
-$stmt = $conn->prepare("SELECT Newbalance, memberID FROM `balances`  where `balances`.`NewBalance`<'5000.00' ");
+$stmt = $conn->prepare("SELECT balance, MemberNO FROM `balances`  where `member_fees`.`balance`<'5000.00' ");
 
 $stmt->execute();
 $resultz = $stmt->get_result();
@@ -68,8 +68,8 @@ while($row = $resultz->fetch_assoc()) {
             <li class="notification-item" style="overflow: auto;">
               <i class="bi bi-exclamation-circle text-danger"></i>
               <div>
-                <h4><?php echo $row['memberNO']; ?> </h4>
-                <p style="color: red; font-weight: bold;"><?php echo "E ". $row['NewBalance'] ?></p>
+                <h4><?php echo $row['MemberNO']; ?> </h4>
+                <p style="color: red; font-weight: bold;"><?php echo "E ". $row['balance'] ?></p>
                 
               </div>
             </li>
