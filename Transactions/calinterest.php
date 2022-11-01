@@ -83,33 +83,8 @@ $Comments
 ////////////////////insert into Interest Table					
 if ($insertnew->execute()) {
 
-$response = array(
-		'statusCode'=>200,
-		'success'=>"Member No - "
-		);
 
- }else{
-
-	$response = array(
-		'statusCode'=>201,
-		'error'=>"No Interest Allocated"
-		);
-	echo json_encode($response);
-
-
-
-}					
-					
-				}
-				}else{
-					$response = array(
-						'statusCode'=>201,
-						'error'=>"No Members Found"
-						);
-					echo json_encode($response);
-				}			
-
-$vers = 1;
+	$vers = 1;
 	$updateinterests = $conn->prepare("insert into `tblinterestreceived` (
 
 		`InterestSourceID`,
@@ -142,6 +117,37 @@ $vers = 1;
 	  );
 
 	$updateinterests->execute();
+
+
+
+
+$response = array(
+		'statusCode'=>200,
+		'success'=>"Member No"
+		);
+
+ }else{
+
+	$response = array(
+		'statusCode'=>201,
+		'error'=>"No Interest Allocated"
+		);
+	echo json_encode($response);
+
+
+
+}					
+					
+				}
+				}else{
+					$response = array(
+						'statusCode'=>202,
+						'error'=>"No Members Found"
+						);
+					echo json_encode($response);
+				}			
+
+
 
 
 }
