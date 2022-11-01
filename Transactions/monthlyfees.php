@@ -143,7 +143,7 @@ $conn->close();
                   </div>
 				  </div>
 				    <div class="text-center">
-                  <button type="button"  class="btn btn-warning monthly" style="width: 100%;" name="process">Apply Monthly Fees <b>[Make sure Interest has been allocated]</b></button>
+                  <button type="button" id="mon"  class="btn btn-warning monthly" style="width: 100%;" name="process">Apply Monthly Fees <b>[Make sure Interest has been allocated]</b></button>
                   
                 </div>
 				  </form>
