@@ -68,7 +68,7 @@ while($row = $resultz->fetch_assoc()) {
             <li class="notification-item" style="overflow: auto;">
               <i class="bi bi-exclamation-circle text-danger"></i>
               <div>
-                <h4><?php echo $row['memberID']; ?> </h4>
+                <h4><?php echo $row['memberNO']; ?> </h4>
                 <p style="color: red; font-weight: bold;"><?php echo "E ". $row['NewBalance'] ?></p>
                 
               </div>
