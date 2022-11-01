@@ -280,7 +280,7 @@ while($row = $result->fetch_assoc()) {
                   </tr>
 <?php   }
 } else {
-  echo "0 results";
+ // echo "0 results";
 } ?>                 
                 </tbody>
               </table>
