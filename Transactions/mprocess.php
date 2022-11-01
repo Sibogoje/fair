@@ -30,9 +30,13 @@ while($row = $result->fetch_assoc()) {
     }else {
         $days = 30;
     }
+
+	$perc = $AdminPercent/100;
 	
+
+
 	$ruuning_balance = $balance;
-	$amount = (($AdminPercent * $ruuning_balance)/365)*$days;
+	$amount = (($perc * $ruuning_balance)/365)*$days;
 	$afterminusadmin = $ruuning_balance - $amount;
 
 
