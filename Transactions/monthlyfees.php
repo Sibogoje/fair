@@ -294,6 +294,7 @@ $(document).on("click",".dnew",function(e){
     $(function(){
         $(".monthly").click(function(){
             var postid = $("#dates").val();
+            $("#mon").attr("disabled", true);
             if (postid !=""){
 			var ff = "jj";
               $.ajax({
@@ -306,13 +307,14 @@ $(document).on("click",".dnew",function(e){
 						var succ = (dataResult.datas);
 						alert(succ);
 
-                        location.reload();						
+                        location.reload();	
+                        $("#mon").attr("disabled", false);					
 					}
 					else if(dataResult.statusCode==201){
-						var error = (dataResult.datas);
+						var error = (dataResult.error);
 					   alert(error);
 					}else if(dataResult.statusCode==203){
-						var mid = (dataResult.datas);
+						var mid = (dataResult.error2);
 					   alert("Please Update Recent Transaction for = "+mid);
 					}
             

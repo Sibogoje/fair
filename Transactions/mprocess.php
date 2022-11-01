@@ -140,8 +140,8 @@ $response = array(
 }else{
 	
 	$response = array(
-					'statusCode'=>201,
-					'error'=>"Error: Contact Administrator"
+					'statusCode'=>203,
+					'error2'=>"Error: Contact Administrator"
 					);
 				echo json_encode($response);
 }
