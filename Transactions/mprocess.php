@@ -130,7 +130,7 @@ $response = array(
 
 $response = array(
 					'statusCode'=>201,
-					'datas'=>"Error: There was an error in retrieving Data"
+					'error'=>"Error: There was an error in retrieving Data"
 					);
 				echo json_encode($response);
 
@@ -141,7 +141,7 @@ $response = array(
 	
 	$response = array(
 					'statusCode'=>201,
-					'datas'=>"Error: Contact Administrator"
+					'error'=>"Error: Contact Administrator"
 					);
 				echo json_encode($response);
 }
