@@ -15,7 +15,7 @@ if ($result->num_rows > 0) {
 while($row = $result->fetch_assoc()) {
 	$update_date = date("Y-m-d");
     $PaymentDate = $update_date;	
-	$MemberNo = $row['MemberNo'];
+	$MemberNo = $row['MemberID'];
 	$balance = $row['balance'];
 	$AdminPercent = $row['AdminPercent'];
 	$FixedMonthlyFee = $row['FixedMonthlyFee'];
