@@ -21,9 +21,11 @@ $stmt1 = $conn->prepare("SELECT `memberID`, `NewBalance` FROM `balances` ");
 					$MemberNO = $row1['memberID'];
 					$ruuning_balance = $row1['NewBalance'];
 					
-					$fraction = ($ruuning_balance / $ttfunds);
-					$franc = $fraction * 100;
-					$interest = $franc *  $amount;
+					$fraction = ($ruuning_balance * 100) / $ttfunds;
+					//$franc = $fraction * 100;
+					$interest = ($fraction /100 ) *  $amount;
+
+
 					
 					$Newbalance = $ruuning_balance + $interest;
 
@@ -85,7 +87,7 @@ $insertnew->execute();
 }
 $response = array(
 					'statusCode'=>200,
-					'dones'=>"Member No"
+					'dones'=>"Interest Allocated"
 					);	
 					echo json_encode($response);	
 
