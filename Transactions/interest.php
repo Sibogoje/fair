@@ -140,7 +140,7 @@ require_once '../scripts/connection.php';
 				  
 
                 <div class="text-center">
-                  <button type="button"  class="btn btn-warning interest" style="width: 100%;" name="submit">Apply Interest<b>[Apply Interest before any Deductions]</b></button>
+                  <button type="button" id="intrs"  class="btn btn-warning interest" style="width: 100%;" name="submit">Apply Interest<b>[Apply Interest before any Deductions]</b></button>
                   
                 </div>
           <div class="card col-lg-12" >
@@ -294,6 +294,8 @@ $("#single").select2({
 		
 <script>	
    $(".interest").click(function(){
+    $("#intrs").attr("disabled", true);
+   
   var data = $("#interestform").serialize();
 		$.ajax({
 			data: data,
@@ -303,10 +305,11 @@ $("#single").select2({
 					var dataResult = JSON.parse(dataResult);
 					if(dataResult.statusCode==200){
 						var success1 = (dataResult.success);
-						//alert(success);
-                //location.reload();	
+            alert(success);
+           // $("#intrs").attr("disabled", false);
+                location.reload();	
                 //console.log(success1);	
-                $(".logs").html(success1);    				
+               // $(".logs").html(success1);    				
 					}
 					else if(dataResult.statusCode==201){
                       var error = (dataResult.error);
