@@ -55,7 +55,7 @@ $notification = $balancerow['value_sum'];
             </li>
 <div style="overflow-y: scroll; height:400px; margin: 10px;">
 <?php
-$stmt = $conn->prepare("SELECT balance, MemberNO FROM `balances`  where `member_fees`.`balance`<'5000.00' ");
+$stmt = $conn->prepare("SELECT balance, MemberNO FROM `member_fees`  where `member_fees`.`balance`<'5000.00' ");
 
 $stmt->execute();
 $resultz = $stmt->get_result();
