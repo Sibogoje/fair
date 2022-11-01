@@ -304,8 +304,8 @@ $("#single").select2({
 			success: function(dataResult){
 					var dataResult = JSON.parse(dataResult);
 					if(dataResult.statusCode==200){
-						var success1 = (dataResult.success);
-            alert(success);
+						var success1 = (dataResult.dones);
+            alert(success1);
            // $("#intrs").attr("disabled", false);
                 location.reload();	
                 //console.log(success1);	

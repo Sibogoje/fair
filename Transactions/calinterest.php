@@ -85,7 +85,7 @@ $insertnew->execute();
 }
 $response = array(
 					'statusCode'=>200,
-					'success'=>"Member No"
+					'dones'=>"Member No"
 					);	
 					echo json_encode($response);	
 
