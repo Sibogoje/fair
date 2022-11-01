@@ -227,7 +227,7 @@ $conn->close();
 
             </div>
           </div>
-          <?php if ($role != 'admin' ){ ?> 
+          <?php if ($role == 'admin' ){ ?> 
 
           <div class="card col-lg-12" >
             <div class="card-body">
