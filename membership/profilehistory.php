@@ -48,7 +48,7 @@ $stmt12 = $conn->prepare("SELECT * from profile where MemberNo = '$ii' ");
                     <th scope="col" style="vertical-align: top;">Terminated</th>
 					<td scope="col"><? echo $row12['Terminated']; ?></td>
 					 <th scope="col" style="vertical-align: top;">Balance</th>
-					<td scope="col"><? echo $row12['balance']; ?></td>
+					<td scope="col"><?  ?></td>
 					</tr>
 					
 				<tr style="text-align: center; background: grey; color: white;">
@@ -100,7 +100,7 @@ $stmt12 = $conn->prepare("SELECT * from profile where MemberNo = '$ii' ");
                     <th scope="col" style="vertical-align: top;">Employer Contact Person</th>
 					<td scope="col"><? echo $row12['EmployerContactPerson']; ?></td>
 					<th scope="col" style="vertical-align: top;">Contact</th>
-					<td scope="col"><? echo $row12['EmployerTel']; ?></td>
+					<td scope="col"><? echo $row12['EmployerCell']; ?></td>
 					</tr>
 					
 					
@@ -114,7 +114,7 @@ $stmt12 = $conn->prepare("SELECT * from profile where MemberNo = '$ii' ");
                     <th scope="col" style="vertical-align: top;">Fund Contact Person</th>
 					<td scope="col"><? echo $row12['FundContact']; ?></td>
 					<th scope="col" style="vertical-align: top;">Contact</th>
-					<td scope="col"><? echo $row12['FundTelNo']; ?></td>
+					<td scope="col"><? echo $row12['FundCellNo']; ?></td>
 					</tr>
 					
 					
