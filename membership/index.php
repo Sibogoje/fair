@@ -86,8 +86,7 @@ tr td {
               <!-- Table with stripped rows -->
 
 
-              
-               <div class="table responsive">
+  <div class="table responsive">
               <table class="table table-striped datatable nowrap" id="jj" style="width: 100%;" >
                 <thead>
                   <tr>
