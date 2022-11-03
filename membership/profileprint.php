@@ -119,7 +119,7 @@ td {
 
 <body>
     
-<?
+<?php
 if(count($_POST)>0){
 $stmt12 = $conn->prepare("SELECT * from profile where MemberNo = '$ii' ");
 						$stmt12->execute();
@@ -224,7 +224,7 @@ $stmt12 = $conn->prepare("SELECT * from profile where MemberNo = '$ii' ");
                    
                   <tr>
                     <th scope="col" style="vertical-align: top;">Fund Name</th>
-                    <td scope="col" ><? echo $row12['FundName']; ?></td>
+                    <td scope="col" ><?php echo $row12['FundName']; ?></td>
                     <th scope="col" style="vertical-align: top;">Fund Contact Person</th>
 					<td scope="col"><?php echo $row12['FundContact']; ?></td>
 					<th scope="col" style="vertical-align: top;">Contact</th>
