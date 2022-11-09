@@ -151,7 +151,7 @@ require_once '../scripts/connection.php';
 
 	
 				     <div class="text-center">
-                  <button type="submit"  class="btn btn-warning add" id="" data-link="" data-id="rr"  style="width: 100%;"><b>Download Fund Statement</b></button>
+                  <button type="submit"  class="btn btn-warning add" id="" data-link="" data-id="rr"  style="width: 100%;"><b>Download Beneficiary Statement</b></button>
                </div>
 			   
 				  
@@ -169,7 +169,7 @@ require_once '../scripts/connection.php';
           <div class="col-md-3">
                   <div class="form-floating">
                     <input type="text" step="0.01" class="form-control" id="Opening" placeholder="AdHocPayment" value="0" name="Opening" readonly>
-                    <label for="floatingName"><b>Sum Opening:</b></label>
+                    <label for="floatingName"><b>Opening Amount:</b></label>
 				  <div class="valid-feedback">
                     Looks good!
                   </div>
@@ -179,7 +179,7 @@ require_once '../scripts/connection.php';
           <div class="col-md-3">
                   <div class="form-floating">
                     <input type="text" step="0.01" class="form-control" id="TransferIn" placeholder="AdHocPayment" value="0" name="TransferIn" readonly>
-                    <label for="floatingName"><b>Sum TransferIn Fees:</b></label>
+                    <label for="floatingName"><b>TransferIn Fees:</b></label>
 				  <div class="valid-feedback">
                     Looks good!
                   </div>
@@ -189,7 +189,7 @@ require_once '../scripts/connection.php';
           <div class="col-md-3">
                   <div class="form-floating">
                     <input type="text" step="0.01" class="form-control" id="Regular" placeholder="AdHocPayment" value="0" name="Regular" readonly>
-                    <label for="floatingName"><b>Sum Regular :</b></label>
+                    <label for="floatingName"><b>Total Regular :</b></label>
 				  <div class="valid-feedback">
                     Looks good!
                   </div>
@@ -199,7 +199,7 @@ require_once '../scripts/connection.php';
           <div class="col-md-3">
                   <div class="form-floating">
                     <input type="text" step="0.01" class="form-control" id="Adhoc" placeholder="AdHocPayment" value="0" name="Adhoc" readonly>
-                    <label for="floatingName"><b>Sum Adhoc:</b></label>
+                    <label for="floatingName"><b>Total Adhoc:</b></label>
 				  <div class="valid-feedback">
                     Looks good!
                   </div>
@@ -209,7 +209,7 @@ require_once '../scripts/connection.php';
           <div class="col-md-3">
                   <div class="form-floating">
                     <input type="text" step="0.01" class="form-control" id="Transfee" placeholder="AdHocPayment" value="0" name="Transfee" readonly>
-                    <label for="floatingName"><b>Sum Transaction Fees:</b></label>
+                    <label for="floatingName"><b>Total Transaction Fees:</b></label>
 				  <div class="valid-feedback">
                     Looks good!
                   </div>
@@ -219,7 +219,7 @@ require_once '../scripts/connection.php';
           <div class="col-md-3">
                   <div class="form-floating">
                     <input type="text" step="0.01" class="form-control" id="Monthly" placeholder="AdHocPayment" value="0" name="Monthly" readonly>
-                    <label for="floatingName"><b>Sum Monthly Fees:</b></label>
+                    <label for="floatingName"><b>Total Monthly Fees:</b></label>
 				  <div class="valid-feedback">
                     Looks good!
                   </div>
@@ -229,7 +229,7 @@ require_once '../scripts/connection.php';
           <div class="col-md-3">
                   <div class="form-floating">
                     <input type="text" step="0.01" class="form-control" id="Admin" placeholder="AdHocPayment" value="0" name="Admin" readonly>
-                    <label for="floatingName"><b>Sum Admin Fees:</b></label>
+                    <label for="floatingName"><b>Total Admin Fees:</b></label>
 				  <div class="valid-feedback">
                     Looks good!
                   </div>
@@ -239,7 +239,7 @@ require_once '../scripts/connection.php';
           <div class="col-md-3">
                   <div class="form-floating">
                     <input type="text" step="0.01" class="form-control" id="Interest" placeholder="AdHocPayment" value="0" name="Interest" readonly>
-                    <label for="floatingName"><b>Sum Interest Fees:</b></label>
+                    <label for="floatingName"><b>Total Interest Fees:</b></label>
 				  <div class="valid-feedback">
                     Looks good!
                   </div>
@@ -249,7 +249,7 @@ require_once '../scripts/connection.php';
           <div class="col-md-3">
                   <div class="form-floating">
                     <input type="text" step="0.01" class="form-control" id="Additional" placeholder="AdHocPayment" value="0" name="Additional" readonly>
-                    <label for="floatingName"><b>Sum Additional Capital:</b></label>
+                    <label for="floatingName"><b>Total Additional Capital:</b></label>
 				  <div class="valid-feedback">
                     Looks good!
                   </div>
@@ -259,7 +259,7 @@ require_once '../scripts/connection.php';
           <div class="col-md-3">
                   <div class="form-floating">
                     <input type="text" step="0.01" class="form-control" id="Other" placeholder="AdHocPayment" value="0" name="Other" readonly>
-                    <label for="floatingName"><b>Sum Other:</b></label>
+                    <label for="floatingName"><b>Total Other:</b></label>
 				  <div class="valid-feedback">
                     Looks good!
                   </div>
@@ -270,7 +270,7 @@ require_once '../scripts/connection.php';
   	             	
 			
 			     <div class="text-center">
-                  <button type="submit" name="ggg" class="btn btn-success direct" id=""  style="width: 100%;"><b>Fund Statement</b></button>
+                  <button type="submit" name="ggg" class="btn btn-success direct" id=""  style="width: 100%;"><b>Beneficiary Statement</b></button>
                </div>
 				  
 				  
