@@ -69,8 +69,11 @@ justify-content: center;
 
 }
 .table {
-	font-family:'Arial';
-  
+width: 100%;
+font-family:'Arial';
+  display: flex;
+align-items: left;
+justify-content: left; 
  
 
   
