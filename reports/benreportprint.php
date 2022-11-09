@@ -171,12 +171,12 @@ if(count($_POST)>0){
                    
                     </tr>
                     <tr>
-                    <th  >FullName</th>
-                    <td  ><?php echo $membername; ?></td>
-                    <th  >MemberNo</th>
-					<td  ><?php echo $memberno; ?></td>
-					<th  >Balance</th>
-					<td  ><?php echo $runbalance; ?></td>
+                    <th >FullName</th>
+                    <td ><?php echo $membername; ?></td>
+                    <th >MemberNo</th>
+					<td ><?php echo $memberno; ?></td>
+					<th >Balance</th>
+					<td ><?php echo $runbalance; ?></td>
 					</tr>
 										
 				<tr style="text-align: center; background: black; color: white;">
