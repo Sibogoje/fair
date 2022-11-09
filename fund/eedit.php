@@ -25,7 +25,7 @@ $EmployerCell = $_POST['EmployerCell'];
 $EmployerID = $_POST['EmployerID'];
 
 
-$stmt = $conn->prepare("INSERT INTO `tblemployers` (
+$stmt = $conn->prepare("REPLACE INTO `tblemployers` (
   `employerID`,
  `FundID`,
   `EmployerName`,
