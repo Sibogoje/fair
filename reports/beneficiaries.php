@@ -113,14 +113,14 @@ require_once '../scripts/connection.php';
 					 <select type="text" class="form-control" id="single"    placeholder="MemberID" name="MemberID"  required>
 					<option value="" selected></option>
 						<?php 
-						$stmt12 = $conn->prepare("SELECT DISTINCT `memberID`, `MemberFirstname`, `MemberSurname` FROM `tblmembers` ");
+						$stmt12 = $conn->prepare("SELECT DISTINCT `MemberID`, `MemberFirstname`, `MemberSurname` FROM `tblmembers` ");
 						$stmt12->execute();
 						$result12 = $stmt12->get_result();
 						if ($result12->num_rows > 0) {
 						  // output data of each row
 						while($row12 = $result12->fetch_assoc()) {
 						?>
-					<option value="<?php echo $row12['memberID']; ?>"><?php echo $row12['MemberFirstname']." "$row12['MemberSurname']; ?></option>
+					<option value="<?php echo $row12['MemberID']; ?>"><?php echo $row12['MemberFirstname']." "$row12['MemberSurname']; ?></option>
 						<?php   }
 						} else {
 						 // echo "0 results";
