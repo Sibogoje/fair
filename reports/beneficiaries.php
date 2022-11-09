@@ -144,7 +144,7 @@ require_once '../scripts/connection.php';
                </div>
                <div class="col-md-6">
                <div class="text-center">
-                  <button type="submit" formaction="benreportprint.php" target="_blank"  class="btn btn-warning add" id="" data-link="" data-id="rr"  style="width: 100%;"><b>Download Beneficiary Report PDF</b></button>
+                  <button type="submit" formaction="benreportprint.php" formtarget="_blank"  class="btn btn-warning add" id="" data-link="" data-id="rr"  style="width: 100%;"><b>Download Beneficiary Report PDF</b></button>
                </div>
                </div>
 			   

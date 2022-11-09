@@ -165,14 +165,6 @@ if(count($_POST)>0){
 <?php
    
     
-$ttfundsresult = mysqli_query($conn, "SELECT COUNT(DISTINCT `memberID`) AS 'memberID' FROM `tblmemberaccounts` WHERE `memberID` = '$ii' AND DATE(`TransactionDate`) BETWEEN '$d1'  AND '$d2' AND `TransactionTypeID` = '1'  "); 
-$ttfundsrow = mysqli_fetch_assoc($ttfundsresult); 
-$ttfundmembers = $ttfundsrow['memberID'];
-
-$ttfundsresult = mysqli_query($conn, "SELECT COUNT(DISTINCT `memberID`) AS 'memberID' FROM `tblmemberaccounts` WHERE `memberID` = '$ii' AND DATE(`TransactionDate`) BETWEEN '$d1'  AND '$d2' AND `TransactionTypeID` = '11'  "); 
-$ttfundsrow = mysqli_fetch_assoc($ttfundsresult); 
-$ClientsExit = $ClientsExit['memberID'];
-
 $ttopening = mysqli_query($conn, "SELECT SUM(`Amount`) AS 'Opening' FROM `tblmemberaccounts` WHERE `memberID` = '$ii' AND DATE(`TransactionDate`) BETWEEN '$d1'  AND '$d2' AND `TransactionTypeID` = '1'  "); 
 $ttopeningresult = mysqli_fetch_assoc($ttopening); 
 $ttopeningrow = $ttopeningresult['Opening'];
@@ -212,10 +204,57 @@ $ttaddrow = $ttaddresult['Opening'];
 $ttother = mysqli_query($conn, "SELECT SUM(`Amount`) AS 'Opening' FROM `tblmemberaccounts` WHERE `memberID` = '$ii' AND DATE(`TransactionDate`) BETWEEN '$d1'  AND '$d2' AND `TransactionTypeID` = '10'  "); 
 $ttotherresult = mysqli_fetch_assoc($ttother); 
 $ttotherrow = $ttotherresult['Opening'];
-
-
-
 ?>
+
+
+<table>
+
+
+<tr>    
+<td>Opening Amount</td>
+<td><?php echo $ttopeningrow; ?></td>
+</tr>
+<tr>    
+<td>Transfer In Fee</td>
+<td><?php echo $ttinrow; ?></td>
+</tr>
+<tr>    
+<td>Total Regular Payments</td>
+<td><?php echo $$ttregularrow; ?></td>
+</tr>
+<tr>    
+<td>Total Adhoc Payments</td>
+<td><?php echo $ttadhocgrow; ?></td>
+</tr>
+<tr>    
+<td>Total Transaction Fees</td>
+<td><?php echo $ttfeegrow; ?></td>
+</tr>
+
+<tr>    
+<td>Total Fixed Monthly Fess</td>
+<td><?php echo $ttmonthlyrow; ?></td>
+</tr>
+<tr>    
+<td>Total Admin Fees</td>
+<td><?php echo $ttadminrow; ?></td>
+</tr>
+<tr>    
+<td>Total Interest Allocated</td>
+<td><?php echo $ttintrow; ?></td>
+</tr>
+<tr>    
+<td>Additonal Capital</td>
+<td><?php echo $ttaddrow; ?></td>
+</tr>
+<tr>    
+<td>Other Transactions</td>
+<td><?php echo $ttotherrow; ?></td>
+</tr>
+
+</table>
+
+
   <script src="../assets/vendor/simple-datatables/simple-datatables.js"></script>
 
 <?php						
