@@ -23,7 +23,7 @@ require_once '../scripts/connection.php';
   <meta content="" name="description">
   <meta content="" name="keywords">
 <script src='../jquery-3.2.1.min.js' type='text/javascript'></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
         <link href='../select2/dist/css/select2.min.css' rel='stylesheet' type='text/css'>
 
   <!-- Favicons -->
@@ -193,6 +193,8 @@ html.loading body {
               <!-- End Table with stripped rows -->
 
             </div>
+            <div id="editor"></div>
+<button id="cmd">generate PDF</button>
 
 
           
@@ -322,7 +324,22 @@ alert("Please select fund to save report");
 });</script>	
 
 	
+<script>
+  var doc = new jsPDF();
+var specialElementHandlers = {
+    '#editor': function (element, renderer) {
+        return true;
+    }
+};
 
+$('#cmd').click(function () {
+    doc.fromHTML($('#jj').html(), 15, 15, {
+        'width': 170,
+            'elementHandlers': specialElementHandlers
+    });
+    doc.save('sample-file.pdf');
+});
+</script>
 		
 </body>
 
