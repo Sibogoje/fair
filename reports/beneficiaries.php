@@ -120,7 +120,7 @@ require_once '../scripts/connection.php';
 						  // output data of each row
 						while($row12 = $result12->fetch_assoc()) {
 						?>
-					<option value="<?php echo $row12['MemberID']; ?>"><?php echo $row12['MemberNo']."  ".$row12['MemberFirstname']."  ".$row12['MemberSurname']; ?></option>
+					<option value="<?php echo $row12['MemberID']; ?>"><?php echo "<b>".$row12['MemberNo']."</b>  ".$row12['MemberFirstname']."  ".$row12['MemberSurname']; ?></option>
 						<?php   }
 						} else {
 						 // echo "0 results";
