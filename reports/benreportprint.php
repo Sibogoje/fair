@@ -23,35 +23,12 @@ $d2=$_POST['date2'];
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <style>
-footer {
-  font-size: 14px;
-  color: black;
-  text-align: center;
-}
 
 @page {
   size: A4;
   margin: 11mm 17mm 17mm 17mm;
  
 }
-
-@media print {
-table {
-width: 100%;
-font-family:'Arial';
-  display: flex;
-align-items: left;
-justify-content: left; 
-} 
-td {
-    display: flex;
-align-items: right;
-justify-content: right;
-  
-}
-
-  
-}  
 
 footer {
     position: fixed;
@@ -70,7 +47,7 @@ justify-content: center;
     width: 210mm;
     height: 297mm;
   }
-}
+
 
 
 
@@ -92,11 +69,10 @@ align-items: center;
 justify-content: center;
 
   }        
-  .table {
+table {
 width: 100%;
 font-family:'Arial';
-align-items: left;
-justify-content: left; 
+text-align: left;
  }
 }
 
@@ -107,10 +83,8 @@ align-items: center;
 justify-content: center;
 }
 td {
-    display: flex;
-align-items: right;
-justify-content: right;
-  
+text-align: right;
+width: 100%;  
 }
 
 
