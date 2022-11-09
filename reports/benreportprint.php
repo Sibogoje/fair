@@ -82,9 +82,13 @@ align-items: center;
 justify-content: center;
 }
 td {
-
+    display: flex;
+align-items: right;
+justify-content: right;
   
 }
+
+
 
 .hed {
     
@@ -126,6 +130,7 @@ $member = mysqli_query($conn, "SELECT * FROM tblmembers WHERE MemberID = '$ii'")
 $memberrow = mysqli_fetch_array($member);
 $membername = $memberrow['MemberFirstname'] . " " . $memberrow['MemberSurname'];
 $approvedbenefit = $memberrow['ApprovedBenefit'];
+$memberno = $memberrow['MemberNo'];
 
 
 $balance = mysqli_query($conn, "SELECT NewBalance FROM balances WHERE memberID = '$ii'");
@@ -150,7 +155,7 @@ if(count($_POST)>0){
                     <th scope="col" style="vertical-align: top;">Full Name</th>
                     <td scope="col"><?php echo $membername; ?></td>
                     <th scope="col" style="vertical-align: top;">MemberNo</th>
-					<td scope="col"><?php echo $ii; ?></td>
+					<td scope="col"><?php echo $memberno; ?></td>
 					<th scope="col" style="vertical-align: top;">balance</th>
 					<td scope="col"><?php echo $runbalance; ?></td>
 					</tr>
@@ -207,48 +212,47 @@ $ttotherrow = $ttotherresult['Opening'];
 ?>
 
 
-<table>
-
+<table class="table">
 
 <tr>    
-<td>Opening Amount</td>
+<th>Opening Amount</th>
 <td><?php echo $ttopeningrow; ?></td>
 </tr>
 <tr>    
-<td>Transfer In Fee</td>
+<th>Transfer In Fee</th>
 <td><?php echo $ttinrow; ?></td>
 </tr>
 <tr>    
-<td>Total Regular Payments</td>
+<th>Total Regular Payments</th>
 <td><?php echo $$ttregularrow; ?></td>
 </tr>
 <tr>    
-<td>Total Adhoc Payments</td>
+<th>Total Adhoc Payments</th>
 <td><?php echo $ttadhocgrow; ?></td>
 </tr>
 <tr>    
-<td>Total Transaction Fees</td>
+<th>Total Transaction Fees</th>
 <td><?php echo $ttfeegrow; ?></td>
 </tr>
 
 <tr>    
-<td>Total Fixed Monthly Fess</td>
+<th>Total Fixed Monthly Fess</th>
 <td><?php echo $ttmonthlyrow; ?></td>
 </tr>
 <tr>    
-<td>Total Admin Fees</td>
+<th>Total Admin Fees</th>
 <td><?php echo $ttadminrow; ?></td>
 </tr>
 <tr>    
-<td>Total Interest Allocated</td>
+<th>Total Interest Allocated</th>
 <td><?php echo $ttintrow; ?></td>
 </tr>
 <tr>    
-<td>Additonal Capital</td>
+<th>Additonal Capital</th>
 <td><?php echo $ttaddrow; ?></td>
 </tr>
 <tr>    
-<td>Other Transactions</td>
+<th>Other Transactions</th>
 <td><?php echo $ttotherrow; ?></td>
 </tr>
 
