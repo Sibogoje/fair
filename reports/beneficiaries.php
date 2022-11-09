@@ -85,7 +85,7 @@ require_once '../scripts/connection.php';
 		
               
 
-			  <form class="row g-3 needs-validation" id="user_form" method="post" action=""  enctype="multipart/form-data" novalidate>
+			  <form class="row g-3 needs-validation" id="user_form" method="post" action="beneficiarycsv.php"  enctype="multipart/form-data" novalidate>
 			  
 			   <div class="col-md-6">
                   <div class="form-floating">
