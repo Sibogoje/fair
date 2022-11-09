@@ -70,7 +70,7 @@ require_once '../scripts/connection.php';
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Funds Reports</h1>
+      <h1>Beneficiary Reports</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="../dash.php">Dashboard</a></li>
@@ -85,7 +85,7 @@ require_once '../scripts/connection.php';
 		
               
 
-			  <form class="row g-3 needs-validation" id="user_form" method="post" action="fundcsv.php"  enctype="multipart/form-data" novalidate>
+			  <form class="row g-3 needs-validation" id="user_form" method="post" action=""  enctype="multipart/form-data" novalidate>
 			  
 			   <div class="col-md-6">
                   <div class="form-floating">
@@ -383,7 +383,7 @@ require_once '../scripts/connection.php';
 			   if(annex != "") {
 				  // alert(sss);
       $.ajax({
-        url:"fundhistory.php",
+        url:"benhistory.php",
         data:{c_id:annex, from:from, to:to},
         type:'POST',
         success:function(response) {
