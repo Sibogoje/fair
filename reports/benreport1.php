@@ -5,204 +5,77 @@ if(count($_POST)>0){
 	 $id=$_POST['MemberID'];
 	 $d1=$_POST['date1'];
 	 $d2=$_POST['date2'];
-	 $active = 0;
-	 $DDD=$_POST['date1'];
-	 $DDDD=$_POST['date2'];
+
 
 ////////////////////retrieve deceaced id
-$stmt = $conn->prepare("SELECT `MemberNo` ,  `ApprovedBenefit` , `balance` FROM `tblmembers` WHERE `MemberNo`=? ");
-$stmt->bind_param("s", $id);
-$stmt->execute();
-$result = $stmt->get_result();
-$totalapproved = 0;
-$totalrunning = 0;
+$ttfundsresult = mysqli_query($conn, "SELECT COUNT(DISTINCT `memberID`) AS 'memberID' FROM `tblmemberaccounts` WHERE `RetirementFundID` = '$id' AND DATE(`TransactionDate`) BETWEEN '$d1'  AND '$d2' AND `TransactionTypeID` = '1'  "); 
+$ttfundsrow = mysqli_fetch_assoc($ttfundsresult); 
+$ttfundmembers = $ttfundsrow['memberID'];
 
-if ($result->num_rows > 0) {
-while($row = $result->fetch_assoc()) {
-$ApprovedBenefit = $row['ApprovedBenefit'];	
-$ruuning_balance = $row['balance'];
-$MemberNo =  $id;
+$ttfundsresult = mysqli_query($conn, "SELECT COUNT(DISTINCT `memberID`) AS 'memberID' FROM `tblmemberaccounts` WHERE `RetirementFundID` = '$id' AND DATE(`TransactionDate`) BETWEEN '$d1'  AND '$d2' AND `TransactionTypeID` = '11'  "); 
+$ttfundsrow = mysqli_fetch_assoc($ttfundsresult); 
+$ClientsExit = $ClientsExit['memberID'];
 
+$ttopening = mysqli_query($conn, "SELECT SUM(`Amount`) AS 'Opening' FROM `tblmemberaccounts` WHERE `RetirementFundID` = '$id' AND DATE(`TransactionDate`) BETWEEN '$d1'  AND '$d2' AND `TransactionTypeID` = '1'  "); 
+$ttopeningresult = mysqli_fetch_assoc($ttopening); 
+$ttopeningrow = $ttopeningresult['Opening'];
 
-$stmtq = $conn->prepare("
-SELECT SUM(AMOUNT), COUNT(MEMBERID) FROM `adhocpayments` WHERE MEMBERID='$id' AND DATE(TRANSDATE) BETWEEN '$d1'  AND '$d2'
-");
-$stmtq->execute();
-$resultq = $stmtq->get_result();
-if ($resultq->num_rows > 0) {
-while($rowq = $resultq->fetch_assoc()) {
-$tadhoc = $rowq['COUNT(MEMBERID)'];	
-$sadhoc = $rowq['SUM(AMOUNT)'];
+$ttin = mysqli_query($conn, "SELECT SUM(`Amount`) AS 'Opening' FROM `tblmemberaccounts` WHERE `RetirementFundID` = '$id' AND DATE(`TransactionDate`) BETWEEN '$d1'  AND '$d2' AND `TransactionTypeID` = '2'  "); 
+$ttinresult = mysqli_fetch_assoc($ttin); 
+$ttinrow = $ttinresult['Opening'];
 
+$ttregular = mysqli_query($conn, "SELECT SUM(`Amount`) AS 'Opening' FROM `tblmemberaccounts` WHERE `RetirementFundID` = '$id' AND DATE(`TransactionDate`) BETWEEN '$d1'  AND '$d2' AND `TransactionTypeID` = '3'  "); 
+$ttregularresult = mysqli_fetch_assoc($ttregular); 
+$ttregularrow = $ttregularresult['Opening'];
 
+$ttadhoc = mysqli_query($conn, "SELECT SUM(`Amount`) AS 'Opening' FROM `tblmemberaccounts` WHERE `RetirementFundID` = '$id' AND DATE(`TransactionDate`) BETWEEN '$d1'  AND '$d2' AND `TransactionTypeID` = '4'  "); 
+$ttadhocresult = mysqli_fetch_assoc($ttadhoc); 
+$ttadhocgrow = $ttadhocresult['Opening'];
 
-$d1s = date("d-m-Y", strtotime($DDD));	
-$d2s = date("d-m-Y", strtotime($DDDD));	
-$stmtr = $conn->prepare("
-SELECT SUM(AMOUNT), COUNT(MEMBERID) FROM `regularpayments` WHERE MEMBERID='$id' AND DATE(TRANSDATE) BETWEEN $d1  AND $d2
-");
-$stmtr->execute();
-$resultr = $stmtr->get_result();
-if ($resultr->num_rows > 0) {
-while($rowr = $resultr->fetch_assoc()) {
-	$TREGS = $rowr['COUNT(MEMBERID)'];	
-	$SREGS = $rowr['SUM(AMOUNT)'];
+$ttfee = mysqli_query($conn, "SELECT SUM(`Amount`) AS 'Opening' FROM `tblmemberaccounts` WHERE `RetirementFundID` = '$id' AND DATE(`TransactionDate`) BETWEEN '$d1'  AND '$d2' AND `TransactionTypeID` = '5'  "); 
+$ttfeeresult = mysqli_fetch_assoc($ttfee); 
+$ttfeegrow = $ttfeeresult['Opening'];
+
+$ttmonthly = mysqli_query($conn, "SELECT SUM(`Amount`) AS 'Opening' FROM `tblmemberaccounts` WHERE `RetirementFundID` = '$id' AND DATE(`TransactionDate`) BETWEEN '$d1'  AND '$d2' AND `TransactionTypeID` = '6'  "); 
+$ttmonthlyresult = mysqli_fetch_assoc($ttmonthly); 
+$ttmonthlyrow = $ttmonthlyresult['Opening'];
+
+$ttadmin = mysqli_query($conn, "SELECT SUM(`Amount`) AS 'Opening' FROM `tblmemberaccounts` WHERE `RetirementFundID` = '$id' AND DATE(`TransactionDate`) BETWEEN '$d1'  AND '$d2' AND `TransactionTypeID` = '7'  "); 
+$ttadminresult = mysqli_fetch_assoc($ttadmin); 
+$ttadminrow = $ttadminresult['Opening'];
+
+$ttint = mysqli_query($conn, "SELECT SUM(`Amount`) AS 'Opening' FROM `tblmemberaccounts` WHERE `RetirementFundID` = '$id' AND DATE(`TransactionDate`) BETWEEN '$d1'  AND '$d2' AND `TransactionTypeID` = '8'  "); 
+$ttintresult = mysqli_fetch_assoc($ttint); 
+$ttintrow = $ttintresult['Opening'];
+
+$ttadd = mysqli_query($conn, "SELECT SUM(`Amount`) AS 'Opening' FROM `tblmemberaccounts` WHERE `RetirementFundID` = '$id' AND DATE(`TransactionDate`) BETWEEN '$d1'  AND '$d2' AND `TransactionTypeID` = '9'  "); 
+$ttaddresult = mysqli_fetch_assoc($ttadd); 
+$ttaddrow = $ttaddresult['Opening'];
+
+$ttother = mysqli_query($conn, "SELECT SUM(`Amount`) AS 'Opening' FROM `tblmemberaccounts` WHERE `RetirementFundID` = '$id' AND DATE(`TransactionDate`) BETWEEN '$d1'  AND '$d2' AND `TransactionTypeID` = '10'  "); 
+$ttotherresult = mysqli_fetch_assoc($ttother); 
+$ttotherrow = $ttotherresult['Opening'];
+	
+$response2 = array(
+	'statusCode'=>200,
+	'ttfundmembers'=>$ttfundmembers,
+	'ttopeningrow'=>$ttopeningrow,
+	'ttotherrow'=>$ttotherrow,
+	'ttaddrow'=>$ttaddrow,
+	'ttintrow'=>$ttintrow,
+	'ttadminrow'=>$ttadminrow,
+	'ttfeegrow'=>$ttfeegrow,
+	'ttadhocgrow'=>$ttadhocgrow,
+	'ttregularrow'=>$ttregularrow,
+	'ttinrow'=>$ttinrow,
+	'ttmonthlyrow'=>$ttmonthlyrow,
+	'ClientsExit'=>$ClientsExit
+
 	
 	
 	
-$d1s = date("d-m-Y", strtotime($DDD));	
-$d2s = date("d-m-Y", strtotime($DDDD));	
-$stmti = $conn->prepare("
-SELECT SUM(AMOUNT) AS FF, COUNT(MEMBERID) AS DD FROM interestallocated WHERE MEMBERID='$id' AND DATE(TRANSDATE) BETWEEN '$d1' AND '$d2'
-");
-$stmti->execute();
-$resulti = $stmti->get_result();
-if ($resulti->num_rows > 0) {
-while($rowi = $resulti->fetch_assoc()) {
-	$TINTl = $rowi['DD'];	
-	$SINTl = $rowi['FF'];
-	
-
-
-$d1s = date("d-m-Y", strtotime($DDD));	
-$d2s = date("d-m-Y", strtotime($DDDD));	
-$stmtf = $conn->prepare("
-SELECT SUM(AMOUNT) AS FF, COUNT(MEMBERID) AS DD FROM fixedmonthlyfees WHERE MEMBERID='$id' AND DATE(TRANSDATE) BETWEEN '$d1' AND '$d2'
-");
-$stmtf->execute();
-$resultf = $stmtf->get_result();
-if ($resultf->num_rows > 0) {
-while($rowf = $resultf->fetch_assoc()) {
-	$tmonfee = $rowf['DD'];	
-	$smonfee = $rowf['FF'];
-	
-$d1s = date("d-m-Y", strtotime($DDD));	
-$d2s = date("d-m-Y", strtotime($DDDD));	
-$stmtf = $conn->prepare("
-SELECT SUM(AMOUNT) AS FF, COUNT(MEMBERID) AS DD FROM adminfees WHERE MEMBERID='$id' AND DATE(TRANSDATE) BETWEEN '$d1' AND '$d2'
-");
-$stmtf->execute();
-$resultf = $stmtf->get_result();
-if ($resultf->num_rows > 0) {
-while($rowf = $resultf->fetch_assoc()) {
-	$tadmin = $rowf['DD'];	
-	$sadmin = $rowf['FF'];
-
-$d1s = date("d-m-Y", strtotime($DDD));	
-$d2s = date("d-m-Y", strtotime($DDDD));	
-
-
-$stmta = $conn->prepare("
-SELECT SUM(AMOUNT) AS FF, COUNT(MEMBERID) AS DD FROM additionalmember WHERE FUNDID='$id' AND DATE(TRANSDATE) BETWEEN '$d1' AND '$d2'
-");
-$stmta->execute();
-$resulta = $stmta->get_result();
-if ($resulta->num_rows > 0) {
-while($rowa = $resulta->fetch_assoc()) {
-	$tadd = $rowa['DD'];	
-	$sadd = $rowa['FF'];	
-	
-	
-$d1s = date("d-m-Y", strtotime($DDD));	
-$d2s = date("d-m-Y", strtotime($DDDD));	
-$stmttt = $conn->prepare("
-SELECT SUM(AMOUNT) AS FF, COUNT(MEMBERID) AS DD FROM transactionfees WHERE MEMBERID='$id' AND DATE(TRANSDATE) BETWEEN '$d1' AND '$d2'
-");
-$stmttt->execute();
-$resulttt = $stmttt->get_result();
-if ($resulttt->num_rows > 0) {
-while($rowtt = $resulttt->fetch_assoc()) {
-	$ttfees = $rowtt['DD'];	
-	$stfees = $rowtt['FF'];
-	
-	
-$d1s = date("d-m-Y", strtotime($DDD));	
-$d2s = date("d-m-Y", strtotime($DDDD));	
-$stmttto = $conn->prepare("
-SELECT SUM(AMOUNT) AS FF, COUNT(MEMBERID) AS DD FROM othertransactions WHERE MEMBERID='$id' AND DATE(TRANSDATE) BETWEEN '$d1' AND '$d2'
-");
-$stmttto->execute();
-$resulttto = $stmttto->get_result();
-if ($resulttto->num_rows > 0) {
-while($rowtto = $resulttto->fetch_assoc()) {
-	$tother = $rowtto['DD'];	
-	$sother = $rowtto['FF'];
-	
-	$response2 = array(
-					'statusCode'=>200,
-					'approved'=>$ApprovedBenefit,
-					'running'=>$ruuning_balance,
-					'members'=>$MemberNo,
-					'tadhoc'=>$tadhoc,
-					'sadhoc'=>$sadhoc,
-					'TREG'=>$TREGS,
-					'SREG'=>$SREGS,
-					'TINT'=>$TINTl,
-					'SINT'=>$SINTl,
-					'tmonfee'=>$tmonfee,
-					'smonfee'=>$smonfee,
-					'tadmin'=>$tadmin,
-					'sadmin'=>$sadmin,
-					'tadd'=>$tadd,
-					'sadd'=>$sadd,
-					'ttfees'=>$ttfees,
-					'stfees'=>$stfees,
-					'tother'=>$tother,
-					'sother'=>$sother
-					
-					);
-					echo json_encode($response2);
-}
+	);
+	echo json_encode($response2);
 }
 
-}
-}
-
-}
-}
-
-}
-}
-
-}
-}
-
-											
-}
-}
-
-
-											
-}
-}
-
-
-}
-}				
-				
-				
-				
-}				
-}else{
-	
-	$response2 = array(
-					'statusCode'=>201,
-					'error'=>"No Deceased Record found for ID ".$id
-					);
-				echo json_encode($response2);
-}
-
-
-
-
-
-
-
-
-
-
-
-
-}
-	
-	?>
+?>
