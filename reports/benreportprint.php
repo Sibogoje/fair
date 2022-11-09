@@ -36,9 +36,24 @@ footer {
 }
 
 @media print {
-    
+.table {
+width: 100%;
+font-family:'Arial';
+  display: flex;
+align-items: left;
+justify-content: left; 
+ 
+td {
+    display: flex;
+align-items: right;
+justify-content: right;
+  
+}
 
-  footer {
+  
+}  
+
+footer {
     position: fixed;
     bottom: 0;
     display: flex;
@@ -56,6 +71,9 @@ justify-content: center;
     height: 297mm;
   }
 }
+
+
+
 
 @media print {
 @page {
