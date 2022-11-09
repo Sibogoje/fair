@@ -84,6 +84,14 @@ justify-content: center;
            padding-top: 72px;
            padding-bottom: 79px ;
          }
+.footer {
+    position: fixed;
+    bottom: 0;
+    display: flex;
+align-items: center;
+justify-content: center;
+
+  }        
 
 }
 .table {
