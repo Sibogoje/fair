@@ -95,7 +95,6 @@ justify-content: center;
   .table {
 width: 100%;
 font-family:'Arial';
-  display: flex;
 align-items: left;
 justify-content: left; 
  }
@@ -238,7 +237,7 @@ $ttotherrow = $ttotherresult['Opening'];
 ?>
 
 
-<table class="table">
+<table class="table" width="100%">
 
 <tr>    
 <th>Opening Amount</th>
