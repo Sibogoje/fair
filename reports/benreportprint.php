@@ -74,6 +74,18 @@ width: 100%;
 font-family:'Arial';
 text-align: left;
  }
+
+tr {
+width: 100%;  
+}
+th {
+width: 100%;  
+}
+td {
+text-align: right;
+width: 100%;  
+}
+
 }
 
 #bottom {
@@ -87,6 +99,9 @@ text-align: right;
 width: 100%;  
 }
 tr {
+width: 100%;  
+}
+th {
 width: 100%;  
 }
 
