@@ -202,7 +202,7 @@ while($row = $result->fetch_assoc()) {
 				  
 				  <div class="col-md-3">
                   <div class="form-floating">
-                    <input type="text" class="form-control" id="ff" placeholder="EmployerAddress" value="<?php echo $row['EmployerAddress']; ?>" name="EmployerAddress" required>
+                    <input type="text" class="form-control" id="ff" placeholder="EmployerAddress" value="<?php echo $row['EmployerAddress']; ?>" name="EmployerAddress" >
                     <label for="floatingName">Employer Address:</label>
 				  <div class="valid-feedback">
                     Looks good!
@@ -249,7 +249,7 @@ while($row = $result->fetch_assoc()) {
 				  
 				  				  <div class="col-md-3">
                   <div class="form-floating">
-                    <input type="text" class="form-control" id="ff" placeholder="EmployerPostalAddress" value="<?php echo $row['EmployerPostalAddress']; ?>" name="EmployerPostalAddress" required>
+                    <input type="text" class="form-control" id="ff" placeholder="EmployerPostalAddress" value="<?php echo $row['EmployerPostalAddress']; ?>" name="EmployerPostalAddress" >
                     <label for="floatingName">Employer PostalAddress:</label>
 				  <div class="valid-feedback">
                     Looks good!
@@ -280,7 +280,7 @@ while($row = $result->fetch_assoc()) {
 				  				  
 				  <div class="col-md-3">
                   <div class="form-floating">
-                    <input type="text" class="form-control" id="ff" placeholder="EmployerEmail" value="<?php echo $row['EmployerEmail']; ?>" name="EmployerEmail" required>
+                    <input type="text" class="form-control" id="ff" placeholder="EmployerEmail" value="<?php echo $row['EmployerEmail']; ?>" name="EmployerEmail" >
                     <label for="floatingName">EmployerEmail:</label>
 				  <div class="valid-feedback">
                     Looks good!
