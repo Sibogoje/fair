@@ -59,42 +59,6 @@ require_once '../scripts/connection.php';
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
 <style>
-th {
-
-  vertical-align: top;
-}
-html {
-    -webkit-transition: background-color 1s;
-    transition: background-color 1s;
-}
-html, body {
-    /* For the loading indicator to be vertically centered ensure */
-    /* the html and body elements take up the full viewport */
-    min-height: 100%;
-}
-.loading {
-    /* Replace #333 with the background-color of your choice */
-    /* Replace loading.gif with the loading image of your choice */
-    background: rgba(0,0,0,0.8) url('progress.gif') no-repeat 50% 10%;
-	margin: auto;
-	position: fixed;
-
-    /* Ensures that the transition only runs in one direction */
-    -webkit-transition: background-color 0;
-    transition: background-color 0.7;
-}
-body {
-    -webkit-transition: opacity 1s ease-in;
-    transition: opacity 1s ease-in;
-}
-html.loading body {
-    /* Make the contents of the body opaque during loading */
-    opacity: 0.5;
-
-    /* Ensures that the transition only runs in one direction */
-    -webkit-transition: opacity 0.5;
-    transition: opacity 0.5;
-}
 </style>
 
   <script src="https://cdn.ckeditor.com/4.18.0/standard-all/ckeditor.js"></script>
@@ -228,35 +192,7 @@ html.loading body {
 
   <!-- Template Main JS File -->
   <script src="../assets/js/main.js"></script>
-  <script>
-$('#xxx').click(function() {
-    var jk2 = $('#single option:selected').val();
-    var from = $('#date1').val(); 
-		var to = $('#date2').val();
-if (from!=""){
-  //var dataz = $("#user_form").serialize();
-		$.ajax({
-			data    : $("#user_form").serialize(),
-			type: "POST",
-			url: "beneficiarycsv.php",
-			success: function(dataResult){
-					var dataResult = JSON.parse(dataResult);
-					if(dataResult.statusCode==200){
-					//	var rsuccess = (dataResult.rsuccess);
-	                       alert(rsuccess);  			
-                    // location.reload();						
-					}
-					else if(dataResult.statusCode==201){
-                     // var rerror = (dataResult.rerror);
-					//   alert(rerror);
-					}
-			}
-});}else{
-alert("Please select fund to save report");
-}
-});</script>
-
-
+ 
 <Script>
 
 	 $("#single").change(function(){
@@ -284,47 +220,7 @@ alert("Please select fund to save report");
 
 </script>
 		
-
-
-<script>
-        $(document).ready(function(){
-$("html").removeClass("loading");	
-
-$('#single').select2({
-    width: '100%',
-    allowClear: false,
-    height: '100%',
-});
-
-
-});
-</script>
-
-<script>
-$('#addreport').click(function() {
-    var jk2 = $('#single option:selected').val();
-if (jk2!=""){
-  var data = $("#user_form").serialize();
-		$.ajax({
-			data: data,
-			type: "post",
-			url: "addreport.php",
-			success: function(dataResult){
-					var dataResult = JSON.parse(dataResult);
-					if(dataResult.statusCode==200){
-						var rsuccess = (dataResult.rsuccess);
-	                       alert(rsuccess);  			
-                     location.reload();						
-					}
-					else if(dataResult.statusCode==201){
-                      var rerror = (dataResult.rerror);
-					   alert(rerror);
-					}
-			}
-});}else{
-alert("Please select fund to save report");
-}
-});</script>	
+	
 
 	
 <script>
