@@ -69,7 +69,7 @@ $EmployerCell
 $stmt->execute();
 
 echo "New records created successfully";
-header("location: tblemployers.php");
+header("location: employers.php");
 
 $stmt->close();
 $conn->close();
