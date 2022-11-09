@@ -36,13 +36,13 @@ footer {
 }
 
 @media print {
-.table {
+table {
 width: 100%;
 font-family:'Arial';
   display: flex;
 align-items: left;
 justify-content: left; 
- 
+} 
 td {
     display: flex;
 align-items: right;
