@@ -137,10 +137,15 @@ require_once '../scripts/connection.php';
 
 
         <br/>
-        <div class="col-12">
-          <button class="btn btn-primary" type="submit" name="submit" id="submit">Submit</button>
-				     <div class="text-center">
+               <div class="col-md-6">
+               <div class="text-center">
                   <button type="submit"  class="btn btn-warning add" id="" data-link="" data-id="rr"  style="width: 100%;"><b>Download Beneficiary Statement</b></button>
+               </div>
+               </div>
+               <div class="col-md-6">
+               <div class="text-center">
+                  <button type="submit"  class="btn btn-warning add" id="" data-link="" data-id="rr"  style="width: 100%;"><b>Download Beneficiary Report PDF</b></button>
+               </div>
                </div>
 			   
 				  
