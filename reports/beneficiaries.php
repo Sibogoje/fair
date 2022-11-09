@@ -426,7 +426,7 @@ $('#single').select2({
 		$.ajax({
 			data: data,
 			type: "post",
-			url: "benreport1.php",
+			url: "benereport.php",
 			success: function(dataResult){
 					var dataResult = JSON.parse(dataResult);
 					if(dataResult.statusCode==200){
