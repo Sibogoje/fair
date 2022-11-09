@@ -113,14 +113,14 @@ require_once '../scripts/connection.php';
 					 <select type="text" class="form-control" id="single"    placeholder="MemberID" name="MemberID"  required>
 					<option value="" selected></option>
 						<?php 
-						$stmt12 = $conn->prepare("SELECT DISTINCT `MemberID`, `MemberFirstname`, `MemberSurname` FROM `tblmembers` ");
+						$stmt12 = $conn->prepare("SELECT DISTINCT `MemberID`, `MemberNo`, `MemberFirstname`, `MemberSurname` FROM `tblmembers` ");
 						$stmt12->execute();
 						$result12 = $stmt12->get_result();
 						if ($result12->num_rows > 0) {
 						  // output data of each row
 						while($row12 = $result12->fetch_assoc()) {
 						?>
-					<option value="<?php echo $row12['MemberID']; ?>"><?php echo $row12['MemberFirstname']."  ".$row12['MemberSurname']; ?></option>
+					<option value="<?php echo $row12['MemberID']; ?>"><?php echo $row12['MemberNo']."  ".$row12['MemberFirstname']."  ".$row12['MemberSurname']; ?></option>
 						<?php   }
 						} else {
 						 // echo "0 results";
@@ -165,25 +165,6 @@ require_once '../scripts/connection.php';
 			  
 			  <form class="row g-3 needs-validation" id="fff" method="post" action="" target="" enctype="multipart/form-data" novalidate>
 
-        <div class="col-md-3">
-                  <div class="form-floating">
-                    <input type="text" step="0.01" class="form-control" id="Clients" placeholder="AdHocPayment" value="0" name="Clients" readonly>
-                    <label for="floatingName"><b>New Members:</b></label>
-				  <div class="valid-feedback">
-                    Looks good!
-                  </div>
-                  </div>
-				  </div>
-
-          <div class="col-md-3">
-                  <div class="form-floating">
-                    <input type="text" step="0.01" class="form-control" id="ClientsExit" placeholder="AdHocPayment" value="0" name="ClientsExit" readonly>
-                    <label for="floatingName"><b>Terminated:</b></label>
-				  <div class="valid-feedback">
-                    Looks good!
-                  </div>
-                  </div>
-				  </div>
 
           <div class="col-md-3">
                   <div class="form-floating">
