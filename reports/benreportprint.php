@@ -179,7 +179,7 @@ if(count($_POST)>0){
 					</tr>
 										
 				<tr style="text-align: center; background: black; color: white;">
-                    <th >Beneficiary Report Summary</th>
+                    <th width="100%">Beneficiary Report Summary</th>
                    
                     </tr>	
 					</thead>
