@@ -26,7 +26,7 @@ $EmployerID = $_POST['EmployerID'];
 
 
 $stmt = $conn->prepare("INSERT INTO `tblemployers` (
-  `employeriID`,
+  `employerID`,
  `FundID`,
   `EmployerName`,
   `EmployerAddress`,
