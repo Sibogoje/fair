@@ -85,7 +85,7 @@ require_once '../scripts/connection.php';
 		
               
 
-			  <form class="row g-3 needs-validation" id="user_form" method="post" action="beneficiarycsv.php"  enctype="multipart/form-data" novalidate>
+			  <form class="row g-3 needs-validation" id="user_form" method="post" action=""  enctype="multipart/form-data" novalidate>
 			  
 			   <div class="col-md-6">
                   <div class="form-floating">
@@ -139,12 +139,12 @@ require_once '../scripts/connection.php';
         <br/>
                <div class="col-md-6">
                <div class="text-center">
-                  <button type="submit"  class="btn btn-warning add" id="" data-link="" data-id="rr"  style="width: 100%;"><b>Download Beneficiary Statement CSV</b></button>
+                  <button type="submit" formaction="beneficiarycsv.php"  class="btn btn-warning add" id="" data-link="" data-id="rr"  style="width: 100%;"><b>Download Beneficiary Statement CSV</b></button>
                </div>
                </div>
                <div class="col-md-6">
                <div class="text-center">
-                  <button type="submit"  class="btn btn-warning add" id="" data-link="" data-id="rr"  style="width: 100%;"><b>Download Beneficiary Report PDF</b></button>
+                  <button type="submit" formaction="benreportprint.php"  class="btn btn-warning add" id="" data-link="" data-id="rr"  style="width: 100%;"><b>Download Beneficiary Report PDF</b></button>
                </div>
                </div>
 			   
