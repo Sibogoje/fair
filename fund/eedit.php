@@ -24,7 +24,7 @@ $EmployerTel = $_POST['EmployerTel'];
 $EmployerCell = $_POST['EmployerCell'];
 
 
-$stmt = $conn->prepare("INSERT INTO `u747325399_fairlife`.`tblemployers1` (
+$stmt = $conn->prepare("INSERT INTO `tblemployers` (
  `FundID`,
   `EmployerName`,
   `EmployerAddress`,
