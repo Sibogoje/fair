@@ -170,11 +170,11 @@ if(count($_POST)>0){
                    
                     </tr>
                     <tr>
-                    <th colspan="1">Full Name</th>
+                    <th  colspan="1">FullName</th>
                     <td  colspan="1"><?php echo $membername; ?></td>
                     <th  colspan="1">MemberNo</th>
 					<td  colspan="1"><?php echo $memberno; ?></td>
-					<th colspan="1">balance</th>
+					<th colspan="1">Balance</th>
 					<td colspan="1"><?php echo $runbalance; ?></td>
 					</tr>
 										
