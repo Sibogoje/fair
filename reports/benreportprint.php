@@ -236,17 +236,17 @@ $ttotherrow = $ttotherresult['Opening'];
 <th>Opening Amount</th>
 <td><?php echo $ttopeningrow; ?></td>
 </tr>
-<hr>
+<tr><hr></tr>
 <tr>    
 <th>Transfer In Fee</th>
 <td><?php echo $ttinrow; ?></td>
 </tr>
-<hr>
+<tr><hr></tr>
 <tr>    
 <th>Total Regular Payments</th>
 <td><?php echo $$ttregularrow; ?></td>
 </tr>
-<hr>
+<tr><hr></tr>
 <tr>    
 <th>Total Adhoc Payments</th>
 <td><?php echo $ttadhocgrow; ?></td>
@@ -256,23 +256,27 @@ $ttotherrow = $ttotherresult['Opening'];
 <th>Total Transaction Fees</th>
 <td><?php echo $ttfeegrow; ?></td>
 </tr>
-
+<tr><hr></tr>
 <tr>    
 <th>Total Fixed Monthly Fess</th>
 <td><?php echo $ttmonthlyrow; ?></td>
 </tr>
+<tr><hr></tr>
 <tr>    
 <th>Total Admin Fees</th>
 <td><?php echo $ttadminrow; ?></td>
 </tr>
+<tr><hr></tr>
 <tr>    
 <th>Total Interest Allocated</th>
 <td><?php echo $ttintrow; ?></td>
 </tr>
+<tr><hr></tr>
 <tr>    
 <th>Additonal Capital</th>
 <td><?php echo $ttaddrow; ?></td>
 </tr>
+<tr><hr></tr>
 <tr>    
 <th>Other Transactions</th>
 <td><?php echo $ttotherrow; ?></td>
