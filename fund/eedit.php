@@ -65,7 +65,7 @@ $EmployerCell
 $stmt->execute();
 
 echo "New records created successfully";
-header("location: employer.php");
+header("location: employers.php");
 
 $stmt->close();
 $conn->close();
