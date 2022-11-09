@@ -249,7 +249,7 @@ require_once '../scripts/connection.php';
           <div class="col-md-3">
                   <div class="form-floating">
                     <input type="text" step="0.01" class="form-control" id="Additional" placeholder="AdHocPayment" value="0" name="Additional" readonly>
-                    <label for="floatingName"><b>Total Additional Capital:</b></label>
+                    <label for="floatingName"><b>Total Add. Capital:</b></label>
 				  <div class="valid-feedback">
                     Looks good!
                   </div>
