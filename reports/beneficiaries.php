@@ -139,7 +139,7 @@ require_once '../scripts/connection.php';
         <br/>
                <div class="col-md-6">
                <div class="text-center">
-                  <button type="submit"  class="btn btn-warning add" id="" data-link="" data-id="rr"  style="width: 100%;"><b>Download Beneficiary Statement</b></button>
+                  <button type="submit"  class="btn btn-warning add" id="" data-link="" data-id="rr"  style="width: 100%;"><b>Download Beneficiary Statement CSV</b></button>
                </div>
                </div>
                <div class="col-md-6">
