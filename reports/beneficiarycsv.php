@@ -18,7 +18,7 @@ $query = $conn->query("SELECT
   `Amount`,
   `NewBalance`,
   `Comments`
-  FROM `tblMemberAccounts2` WHERE `memberID` ='$ii' AND DATE(TransactionDate) BETWEEN '$d1'  AND '$d2'  ORDER BY TransactionDate DESC"); 
+  FROM `tblmemberaccounts` WHERE `memberID` ='$ii' AND DATE(TransactionDate) BETWEEN '$d1'  AND '$d2'  ORDER BY TransactionDate DESC"); 
  
 if($query->num_rows > 0){ 
     $delimiter = ","; 
