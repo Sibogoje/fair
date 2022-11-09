@@ -161,7 +161,7 @@ if(count($_POST)>0){
 
 ?>
 		<table class="table datatable"  id="free">
-			<thead>
+		
                   <tr>
                     <th scope="col" colspan="6"><img src="header.PNG" width="100%"></th>
                    
@@ -171,19 +171,19 @@ if(count($_POST)>0){
                    
                     </tr>
                     <tr>
-                    <td  colspan="1">FullName</td>
-                    <td  colspan="1"><?php echo $membername; ?></td>
-                    <th  colspan="1">MemberNo</th>
-					<td  colspan="1"><?php echo $memberno; ?></td>
-					<th colspan="1">Balance</th>
-					<td colspan="1"><?php echo $runbalance; ?></td>
+                    <th  >FullName</th>
+                    <td  ><?php echo $membername; ?></td>
+                    <th  >MemberNo</th>
+					<td  ><?php echo $memberno; ?></td>
+					<th  >Balance</th>
+					<td  ><?php echo $runbalance; ?></td>
 					</tr>
 										
 				<tr style="text-align: center; background: black; color: white;">
                     <th width="100%" colspan="6">Beneficiary Report Summary</th>
                    
                     </tr>	
-					</thead>
+			
 					</table>
 					
 <?php
