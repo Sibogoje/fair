@@ -22,9 +22,11 @@ $EmployerContactPerson = $_POST['EmployerContactPerson'];
 $EmployerEmail = $_POST['EmployerEmail'];
 $EmployerTel = $_POST['EmployerTel'];
 $EmployerCell = $_POST['EmployerCell'];
+$EmployerID = $_POST['EmployerID'];
 
 
 $stmt = $conn->prepare("INSERT INTO `tblemployers` (
+  `employeriID`,
  `FundID`,
   `EmployerName`,
   `EmployerAddress`,
@@ -45,12 +47,14 @@ VALUES
     ?,
     ?,
     ?,
+    ?,
 	?,
 	?
     
 
   );");
-$stmt->bind_param("sssssssss", 
+$stmt->bind_param("ssssssssss", 
+$EmployerID,
 $FundID,
 $EmployerName,
 $EmployerAddress,
@@ -65,7 +69,7 @@ $EmployerCell
 $stmt->execute();
 
 echo "New records created successfully";
-header("location: employers.php");
+header("location: tblemployers.php");
 
 $stmt->close();
 $conn->close();
