@@ -278,7 +278,9 @@ $ttotherrow = $ttotherresult['Opening'];
 </tr>
 
 </table>
-
+<div class="footer">
+<img src="footer.PNG" width="100%">  
+</div>
 
   <script src="../assets/vendor/simple-datatables/simple-datatables.js"></script>
 
