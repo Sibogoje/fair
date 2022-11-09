@@ -23,8 +23,11 @@ require_once '../scripts/connection.php';
   <meta content="" name="description">
   <meta content="" name="keywords">
 <script src='../jquery-3.2.1.min.js' type='text/javascript'></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-        <link href='../select2/dist/css/select2.min.css' rel='stylesheet' type='text/css'>
+
+
+        
+
+<link href='../select2/dist/css/select2.min.css' rel='stylesheet' type='text/css'>
 
   <!-- Favicons -->
   <link href="https://fair.liquag.com/logo.png" rel="icon">
@@ -340,7 +343,7 @@ $('#cmd').click(function () {
     doc.save('sample-file.pdf');
 });
 </script>
-		
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>	
 </body>
 
 </html>
