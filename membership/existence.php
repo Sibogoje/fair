@@ -220,26 +220,7 @@ require_once '../scripts/connection.php';
 
 </script>
 		
-	
 
-	
-<script>
-  var doc = new jsPDF();
-var specialElementHandlers = {
-    '#editor': function (element, renderer) {
-        return true;
-    }
-};
-
-$('#cmd').click(function () {
-    doc.fromHTML($('#jj').html(), 15, 15, {
-        'width': 170,
-            'elementHandlers': specialElementHandlers
-    });
-    doc.save('sample-file.pdf');
-});
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>	
 </body>
 
 </html>
