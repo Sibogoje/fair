@@ -92,18 +92,15 @@ align-items: center;
 justify-content: center;
 
   }        
-
-}
-.table {
+  .table {
 width: 100%;
 font-family:'Arial';
   display: flex;
 align-items: left;
 justify-content: left; 
- 
-
-  
+ }
 }
+
 #bottom {
    
  display: flex;
