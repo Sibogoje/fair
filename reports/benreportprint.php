@@ -86,6 +86,10 @@ td {
 text-align: right;
 width: 100%;  
 }
+tr {
+width: 100%;  
+}
+
 
 
 
