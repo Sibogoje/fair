@@ -192,8 +192,14 @@ require_once '../scripts/connection.php';
 
   <!-- Template Main JS File -->
   <script src="../assets/js/main.js"></script>
- 
-<Script>
+ <script>
+  $('#single').select2({
+    width: '100%',
+    allowClear: false,
+    height: '100%',
+});
+ </script>
+<script>
 
 	 $("#single").change(function(){
 		 
