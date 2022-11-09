@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <?php
 require_once '../scripts/connection.php';
 
@@ -17,7 +17,7 @@ $KinEmail = $_POST['KinEmail'];
 
 
 
-$stmt = $conn->prepare("insert into `u747325399_fairlife`.`tblnextofkin1` (
+$stmt = $conn->prepare("insert into `tblnextofkin` (
   `KinSurname`,
   `KinFirstNames`,
   `KinPostalAddress`,
@@ -64,20 +64,21 @@ $conn->close();
 
 
 ?>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>New Member</title>
+  <title>New kIN</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
   <!-- Favicons -->
   <link href="https://fair.liquag.com/" rel="icon">
   <link href="https://fair.liquag.com/" rel="apple-touch-icon">
-
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -94,7 +95,7 @@ $conn->close();
   <!-- Template Main CSS File -->
   <link href="../assets/css/style.css" rel="stylesheet">
   
-  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
 
   <!-- =======================================================
   * Template Name: NiceAdmin - v2.2.2
@@ -150,7 +151,7 @@ $conn->close();
 				  
 				  <div class="col-md-3">
                   <div class="form-floating">
-                    <input type="text" class="form-control" id="ff" placeholder="Kin Postal Address" value="" name="KinPostalAddress" required>
+                    <input type="text" class="form-control" id="ff" placeholder="Kin Postal Address" value="" name="KinPostalAddress" >
                     <label for="floatingName">Kin Postal Address:</label>
 				  <div class="valid-feedback">
                     Looks good!
@@ -161,7 +162,7 @@ $conn->close();
 				  
 				  	  <div class="col-md-3">
                   <div class="form-floating">
-					 <select type="text" class="form-control" id="ff" placeholder="KinPostOfficeID" name="KinPostOfficeID" required>
+					 <select type="text" class="form-control" id="ff" placeholder="KinPostOfficeID" name="KinPostOfficeID" >
 					<option value="" selected></option>
 						<?php 
 						$stmt12 = $conn->prepare("SELECT * FROM `tblpostoffices` ");
@@ -175,7 +176,7 @@ $conn->close();
 					<option value="<?php echo $row12['postofficeID']; ?>"><?php echo $row12['PostOffice']; ?></option>
 						<?php   }
 						} else {
-						  echo "0 results";
+						  //echo "0 results";
 						} ?> 
 					</select>
                     <label for="floatingName">Select Kin PostOffice:</label>
@@ -207,7 +208,7 @@ $conn->close();
 				  </div>
 				  <div class="col-md-3">
                   <div class="form-floating">
-                    <input type="text" class="form-control" id="ff" placeholder="Kin Email" value="" name="KinEmail" required>
+                    <input type="text" class="form-control" id="ff" placeholder="Kin Email" value="" name="KinEmail" >
                     <label for="floatingName">Kin Email:</label>
 				  <div class="valid-feedback">
                     Looks good!
@@ -217,7 +218,7 @@ $conn->close();
 				  
 
                 <div class="text-center">
-                  <button type="submit"  class="btn btn-primary" style="width: 80%;" name="submit">Add Guardian Info</button>
+                  <button type="submit"  class="btn btn-warning" style="width: 100%;" name="submit">Add Next OF KIN Info</button>
                   
                 </div>
 
@@ -246,26 +247,16 @@ $conn->close();
   </footer><!-- End Footer -->
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-  <!-- Vendor JS Files -->
-  <script src="../assets/vendor/apexcharts/apexcharts.min.js"></script>
   <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="../assets/vendor/chart.js/chart.min.js"></script>
-  <script src="../assets/vendor/echarts/echarts.min.js"></script>
-  <script src="../assets/vendor/quill/quill.min.js"></script>
-  <script src="../assets/vendor/simple-datatables/simple-datatables.js"></script>
-  <script src="../assets/vendor/tinymce/tinymce.min.js"></script>
+
   <script src="../assets/vendor/php-email-form/validate.js"></script>
+  <!-- Vendor JS Files -->
+
 
   <!-- Template Main JS File -->
   <script src="../assets/js/main.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>  
-<script>
-$(document).on("click",".dnew",function(e){
- // your code goes here
-  window.location.href = $(this).data('link');
-});
-</script>
+ 
+
 </body>
 
 </html>

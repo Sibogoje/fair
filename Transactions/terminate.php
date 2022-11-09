@@ -12,47 +12,95 @@ require_once '../scripts/connection.php';
 
 if (isset($_POST['submit'])){
 	
-	
-$MemberID = $_POST['MemberID']; 
-$PaymentDate = $_POST['PaymentDate'];
-$Details = $_POST['Details'];
-$AdHocPayment = $_POST['Amount'];
-$Comments = $_POST['Comments'];
+  $MemberID = $_POST['MemberID']; 
+  $PaymentDate = $_POST['PaymentDate'];
+  $Details = $_POST['Details'];
+  $Comments = $_POST['Comments'];
+  $Credit = '';
+  $stmt = $conn->prepare("SELECT balance, TerminationFeePercent FROM `member_fees`WHERE MemberID = '$MemberID' ");
+  $stmt->execute();
+  $result = $stmt->get_result();
+  if ($result->num_rows > 0) {
+    // output data of each row
+  while($row = $result->fetch_assoc()) {
+$balance  = $row['balance'];
+$percent  = $row['TerminationFeePercent'];
+
+$Amount = ($percent/100) * $balance;
+$newbalance = $balance - $Amount;
+$TransactionTypeID = '11';
+$insertnew = $conn->prepare("insert into `tblmemberaccounts` (
+
+    `TransactionDate`,
+    `TransactionTypeID`,
+    `memberID`,
+    `Details`,
+    `Credit`,
+    `StartingBalance`,
+    `Amount`,
+    `NewBalance`,
+    `Comments`
+  
+  )
+  
+  VALUES
+    (
+  
+      ?,
+      ?,
+      ?,
+      ?,
+      ?,
+      ?,
+      ?,
+      ?,
+      ?
+    );");
+  $insertnew->bind_param("sssssssss", 
+  $PaymentDate, 
+  $TransactionTypeID,
+  $MemberID,
+  $Details,
+  $Credit,
+  $balance,
+  $Amount,
+  $newbalance,
+  $Comments
+  
+  );
+
+
+ if($insertnew->execute()){
+    $update = $conn->prepare("UPDATE tblmembers SET `Terminated` = '1' WHERE MemberID=? ");
+$update->bind_param("s", $MemberID);
+$update->execute();
+echo "<script> alert('The Member Was Terminted Succesfully');
+window.location.href='terminate.php';
+</script>";
+ } else{
+    echo "<script> alert('The was an Error Terminating the Member');
+    window.location.href='terminate.php';
+    </script>";
+ }
+
+
+    }
+}else{
+    echo "<script> alert('Member Not Found');
+    window.location.href='terminate.php';
+    </script>"; 
+}
 
 
 
 
-$stmt = $conn->prepare("insert into `tbltempcapital` (
+  
+  
 
-  `MemberID`,
-  `PaymentDate`,
-  `Details`,
-  `Amount`,
-  `Comments`
-)
 
-VALUES
-  (
-
-    ?,
-    ?,
-    ?,
-    ?,
-	?
-    
-
-  );");
-$stmt->bind_param("sssss", 
-$MemberID, 
-$PaymentDate,
-$Details,
-$AdHocPayment,
-$Comments
-);
-$stmt->execute();
 
 //echo "New records created successfully";
-header("location: additionalcapital.php");
+
 $stmt->close();
 $conn->close();
 }else{
@@ -67,16 +115,11 @@ $conn->close();
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Additional Capital</title>
+  <title>Member Termination</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 	<!-- Select2 CSS --> 
-<script src='jquery-3.2.1.min.js' type='text/javascript'></script>
-
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.12.1/b-2.2.3/b-html5-2.2.3/b-print-2.2.3/date-1.1.2/fh-3.2.4/r-2.3.0/rg-1.2.0/sc-2.0.7/sb-1.3.4/sp-2.0.2/sl-1.4.0/datatables.min.css"/>
-
-<script type="text/javascript" src="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.12.1/b-2.2.3/b-html5-2.2.3/b-print-2.2.3/date-1.1.2/fh-3.2.4/r-2.3.0/rg-1.2.0/sc-2.0.7/sb-1.3.4/sp-2.0.2/sl-1.4.0/datatables.min.js"></script>
 
         <script src='select2/dist/js/select2.min.js' type='text/javascript'></script>
 
@@ -104,9 +147,6 @@ $conn->close();
    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css" />
 
 
- <link href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css" rel="stylesheet">
- <link href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css" rel="stylesheet">
-
   <!-- =======================================================
   * Template Name: NiceAdmin - v2.2.2
   * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
@@ -124,11 +164,11 @@ $conn->close();
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Additional Capital</h1>
+      <h1>Member Termination</h1>
       <nav>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.php">Ad Hoc Payment</a></li>
-          <li class="breadcrumb-item active">Additional Capital Payments</li>
+          <li class="breadcrumb-item"><a href="index.php">Termination</a></li>
+          <li class="breadcrumb-item active">Member Termination</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -136,9 +176,9 @@ $conn->close();
 
 <div class="card col-lg-12" style="">
             <div class="card-body">
-              <h5 class="card-title">Additional Capital Payments</h5>
+              <h5 class="card-title">New Termination</h5>
 			  
-			  <form class="row g-3 needs-validation" method="post" action="" enctype="multipart/form-data" novalidate>
+			  <form class="row g-3 needs-validation" id="user_form" method="post" action="" enctype="multipart/form-data" novalidate>
 
   	             <div class="col-md-12">
 				
@@ -147,18 +187,20 @@ $conn->close();
 					 <select type="text" class="form-control" id="single"   placeholder="MemberID" name="MemberID"  required>
 					<option value="" selected></option>
 						<?php 
-						$stmt12 = $conn->prepare("SELECT * FROM `tblmembers` WHERE `Terminated`='0'");
+						$stmt12 = $conn->prepare("SELECT MemberNo, MemberID, MemberSurname, MemberFirstname, balance, TerminationFeePercent FROM `member_fees` ");
 						$stmt12->execute();
 						$result12 = $stmt12->get_result();
 						if ($result12->num_rows > 0) {
 						  // output data of each row
-						while($row12 = $result12->fetch_assoc()) {
+						while($row12 = $result12->fetch_assoc()) {?>
 
-						?>
-					<option value="<?php echo $row12['MemberID']; ?>"><?php echo $row12['MemberNo']." -".$row12['MemberSurname']. ", ".$row12['MemberFirstname'] ; ?></option>
+                      
+
+					<option value="<?php echo $row12['MemberID']; ?>"><?php echo $row12['MemberNo']." -".$row12['MemberSurname']. ", ".$row12['MemberFirstname']." Balance: ".$row12['balance'] ; ?></option>
+                   
 						<?php   }
 						} else {
-						//  echo "0 results";
+						 // echo "0 results";
 						} ?> 
 					</select>
                     
@@ -174,27 +216,27 @@ $conn->close();
                 <div class="col-md-3">
                   <div class="form-floating">
                     <input type="date" class="form-control" id="ff" placeholder="PaymentDate" value="" name="PaymentDate" required>
-                    <label for="floatingName">Payment Date:</label>
+                    <label for="floatingName">Termination Date Date:</label>
 				  <div class="valid-feedback">
                     Looks good!
                   </div>
                   </div>
 				  </div>
 				  
-				  
-				  <div class="col-md-3">
+                  <div class="col-md-3">
                   <div class="form-floating">
-                    <input type="number" step="0.01" class="form-control" id="ff" placeholder="AdHocPayment" value="0.00" name="Amount" required>
-                    <label for="floatingName">Amount:</label>
+                    <input type="number" step="0.01" class="form-control" id="newss" placeholder="Amount After" name="newss" required>
+                    <label for="floatingName">Amount After:</label>
 				  <div class="valid-feedback">
                     Looks good!
                   </div>
                   </div>
 				  </div>
+				 
 				  
 				  <div class="col-md-3">
                   <div class="form-floating">
-                    <input type="text" class="form-control" id="ff" placeholder="Details" value="Additional Capital" name="Details" required>
+                    <input type="text" class="form-control" id="ff" placeholder="Details" value="Termination Fee" name="Details" required>
                     <label for="floatingName">Details:</label>
 				  <div class="valid-feedback">
                     Looks good!
@@ -217,7 +259,7 @@ $conn->close();
 				  
 
                 <div class="text-center">
-                  <button type="submit"  class="btn btn-warning" style="width: 100%;" name="submit">Save Capital Intoruduction Data</button>
+                  <button type="submit"  class="btn btn-warning" style="width: 100%;" name="submit"><b>Terminate Selected Member</b></button>
                   
                 </div>
 
@@ -227,29 +269,28 @@ $conn->close();
 
             </div>
           </div>
-          <?php if ($role == 'admin' ){ ?> 
+
 
           <div class="card col-lg-12" >
             <div class="card-body">
-              <h5 class="card-title">Additional Capital-Unprocessed</h5>
+              <h5 class="card-title">Recently Terminated</h5>
               <!-- Table with stripped rows -->
+              <div class="table-responsive">
               <table class="table datatable" id="jj" width="100%" cellspacing="0">
                 <thead>
                   <tr>
-                    <th scope="col">ID</th>
+                    
+                    <th hidden scope="col">MemberID</th>
+                    
+                    <th scope="col">Charged</th>
+				    <th scope="col">Balance</th>
+                    <th scope="col">Date</th>
 
-                    <th scope="col">MemberID</th>
-                     <th scope="col">Date</th>
-                    <th scope="col">Amount</th>
-					<th scope="col">Comment</th>
-
-
-					<th scope="col">Action</th>
                   </tr>
                 </thead>
                 <tbody>
 				<?php 
-$stmt = $conn->prepare("SELECT * FROM `tbltempcapital`" );
+$stmt = $conn->prepare("SELECT * FROM `tblmemberaccounts` where TransactionTypeID = '11'  limit 10" );
 
 $stmt->execute();
 $result = $stmt->get_result();
@@ -261,38 +302,28 @@ while($row = $result->fetch_assoc()) {
 ?>
 
                   <tr>
-                    <th scope="row"><?php echo $row['CapitalID']; ?></th>
+                    <th scope="row"><?php echo $row['memberID']; ?></th>
 
-                    <td><?php echo $row['MemberID']; ?></td>
-                    <td><?php echo $row['PaymentDate']; ?></td>
+                   
+                    <td scope="row"><?php echo $row['Amount']; ?></td>
 					
-					<td><?php echo $row['Amount']; ?></td>
-					<td><?php echo $row['Comments']; ?></td>
+					<td><?php echo $row['NewBalance']; ?></td>
+					<td><?php echo $row['TransactionDate']; ?></td>
 
-
-
-					<td class="no-wrap">
-			
-			 <button type="button" data-link="fees.php?id=<?php echo $row['CapitalID']; ?>" class="btn btn-outline-warning fees" name="<?php echo $row['CapitalID']; ?>" title="Process" data-id="<?php echo $row['CapitalID']; ?>"><i class="bi bi-receipt"></i></button>
-			 <button type="button" data-link="fees.php?id=<?php echo $row['CapitalID']; ?>" class="btn btn-outline-danger del" name="<?php echo $row['CapitalID']; ?>" title="Delete" data-id="<?php echo $row['CapitalID']; ?>"><i class="bi bi-trash"></i></button>
-			
-					</td>
                   </tr>
 <?php   }
 } else {
- // echo "0 results";
+
 } ?>                 
                 </tbody>
               </table>
+              </div>
               <!-- End Table with stripped rows -->
-  <div class="text-center">
-       
-                  
-                </div>
+
             </div>
           </div>
 
-<?php } ?>
+
 <!-- end of new beneficiary form -->
 
   
@@ -314,44 +345,15 @@ while($row = $result->fetch_assoc()) {
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
+  <!-- Vendor JS Files -->
+  <script src="../assets/vendor/apexcharts/apexcharts.min.js"></script>
   <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-<script src="../assets/vendor/php-email-form/validate.js"></script>
-<!-- Vendor JS Files -->
-<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
-  <script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
-  <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
+  <script src="../assets/vendor/chart.js/chart.min.js"></script>
+  <script src="../assets/vendor/echarts/echarts.min.js"></script>
+  <script src="../assets/vendor/quill/quill.min.js"></script>
   <script src="../assets/vendor/simple-datatables/simple-datatables.js"></script>
-
-<!-- Template Main JS File -->
-<script src="../assets/js/main.js"></script>
-
-<script>
-$(document).ready(function() {
-  $('#jj').DataTable( {
-      lengthMenu: [
-          [10, 25, 50, -1],
-          [10, 25, 50, 'All'],
-      ],
-      dom: 'Blfrtip',
-      buttons: [
-          'copyHtml5',
-          'excelHtml5',
-          'csvHtml5',
-          'pdfHtml5'
-      ],
-      responsive: true,
-     
-      
-  } );
-  
-
-} );
-</script>
-
+  <script src="../assets/vendor/tinymce/tinymce.min.js"></script>
+  <script src="../assets/vendor/php-email-form/validate.js"></script>
 
   <!-- Template Main JS File -->
   <script src="../assets/js/main.js"></script>
@@ -367,74 +369,41 @@ $(document).on("click",".dnew",function(e){
     $('#single').select2();        
 
         });
-        </script>
+</script>
 	
 <script>
-    $(function(){
-        $(".fees").click(function(){
-            var postid = $(this).attr("data-id");
-			var ff = "jj";
-              $.ajax({
-                type:'POST',
-                url:'capitalprocess.php',
-                data:{'id':postid},
-                success:function(dataResult){
+   	 $("#single").change(function(){
+        $(this).find("option:selected").each(function(){
+        //alert("sELCTED");
+            var data = $("#user_form").serialize();
+           // $('#newss').val(ff);
+
+            $.ajax({
+			data: data,
+			type: "post",
+			url: "transact.php",
+			success: function(dataResult){
 					var dataResult = JSON.parse(dataResult);
 					if(dataResult.statusCode==200){
-						var res = (dataResult.datas);
-						alert(res);
 
-                        location.reload();						
-					}
-					else if(dataResult.statusCode==201){
-						var error = (dataResult.datas);
-					   alert(error);
-					}else if(dataResult.statusCode==203){
-						var mid = (dataResult.datas);
-					   alert("Please Update Recent Transaction for = "+mid);
-					}
-            
-                }
-            });
+                        var ttfundmembers = (dataResult.ttfundmemberszz);
+						$("#newss").val("Null");
+						$("#newss").val(ttfundmembers);
+                      //  alert(ttfundmembers);
 
-        });
-    });
+                    }else{
 
+                        alert("Data Could not be retrieved");
+
+                    }
+}
+});
+}); 
+    }).change();
 </script>
 
-<script>
-    $(function(){
-        $(".del").click(function(){
-            var postid = $(this).attr("data-id");
-			var ff = "jj";
-              $.ajax({
-                type:'POST',
-                url:'capitaldelete.php',
-                data:{'id':postid},
-                success:function(dataResult){
-					var dataResult = JSON.parse(dataResult);
-					if(dataResult.statusCode==200){
-						var res = (dataResult.rsuccess);
-						alert(res);
 
-                        location.reload();						
-					}
-					else if(dataResult.statusCode==201){
-						var error = (dataResult.rerror);
-					   alert(error);
-					}else if(dataResult.statusCode==203){
-						var mid = (dataResult.datas);
-					   alert("Please Update Recent Transaction for = "+mid);
-					}
-            
-                }
-            });
 
-        });
-    });
-
-</script>
-		
 		
 </body>
 

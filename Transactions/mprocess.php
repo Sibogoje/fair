@@ -8,15 +8,17 @@ $val = 0.00;
 $records = 0;
 $term = 0;
 /////////////retrieve all records that are not terminated ///////////////////////////////////
-$stmt = $conn->prepare("SELECT `MemberNo`, `balance`  FROM `tblmembers1` WHERE `Terminated`=? ");
-$stmt->bind_param("s", $term);
+$stmt = $conn->prepare("SELECT `MemberID`, `balance`, `AdminPercent`, `FixedMonthlyFee`  FROM `member_fees` ");
 $stmt->execute();
 $result = $stmt->get_result();
 if ($result->num_rows > 0) {
 while($row = $result->fetch_assoc()) {
 	$update_date = date("Y-m-d");
     $PaymentDate = $update_date;	
-	$MemberNo = $row['MemberNo'];
+	$MemberNo = $row['MemberID'];
+	$balance = $row['balance'];
+	$AdminPercent = $row['AdminPercent'];
+	$FixedMonthlyFee = $row['FixedMonthlyFee'];
 	
 
 	$rr2 = strtotime($r1);
@@ -28,16 +30,20 @@ while($row = $result->fetch_assoc()) {
     }else {
         $days = 30;
     }
+
+	$perc = $AdminPercent/100;
 	
-	$ruuning_balance = $row['balance'];
-	$amount = ((0.015 * $ruuning_balance)/365)*$days;
+
+
+	$ruuning_balance = $balance;
+	$amount = (($perc * $ruuning_balance)/365)*$days;
 	$afterminusadmin = $ruuning_balance - $amount;
 
 
 	
 	//$date_balance_updated = $row['date_balance_updated'];
-	$ruuning_balance = $row['balance'];
-		$TransactionTypeID = 7;
+
+	$TransactionTypeID = 7;
 	$TransactionTypeID2 = 6;
 	$Credit = 0;
 	$Details = "Admin Fees";
@@ -49,7 +55,7 @@ while($row = $result->fetch_assoc()) {
 	
 ////////update latest in accounts
 
-$insertnew = $conn->prepare("insert into `u747325399_fairlife`.`tblMemberAccounts1` (
+$insertnew = $conn->prepare("insert into `tblmemberaccounts` (
 
   `TransactionDate`,
   `TransactionTypeID`,
@@ -89,7 +95,7 @@ $Comments
 );
 $insertnew->execute();
 
-	$amount2 = 10;
+	$amount2 = $FixedMonthlyFee;
 	$finalbalance = $afterminusadmin - $amount2;
 $insertnew->bind_param("sssssssss", 
 $PaymentDate, 
@@ -124,7 +130,7 @@ $response = array(
 
 $response = array(
 					'statusCode'=>201,
-					'datas'=>"Error: There was an error in retrieving Data"
+					'error'=>"Error: There was an error in retrieving Data"
 					);
 				echo json_encode($response);
 
@@ -134,8 +140,8 @@ $response = array(
 }else{
 	
 	$response = array(
-					'statusCode'=>201,
-					'datas'=>"Error: Contact Administrator"
+					'statusCode'=>203,
+					'error2'=>"Error: Contact Administrator"
 					);
 				echo json_encode($response);
 }

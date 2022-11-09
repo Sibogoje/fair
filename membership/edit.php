@@ -45,7 +45,7 @@ $AccountHolderName = $_POST['AccountHolderName'];
 $terminated = $_POST['terminated'];
 
 
-$stmt = $conn->prepare("UPDATE `u747325399_fairlife`.`tblmembers1` SET
+$stmt = $conn->prepare("UPDATE `tblmembers` SET
   `MemberSurname`=?,
   `MemberFirstname`=?,
   `MemberIDnumber`=?,
@@ -216,7 +216,7 @@ $stmt->close();
               <!-- Floating Labels Form -->
               <form class="row g-3 needs-validation" method="post" action="" enctype="multipart/form-data" novalidate>
 	<?php 
-$stmt = $conn->prepare("SELECT * FROM `tblmembers1` where `MemberNo`=?");
+$stmt = $conn->prepare("SELECT * FROM `tblmembers` where `MemberNo`=?");
 $stmt->bind_param("s", $ids);
 $stmt->execute();
 $result = $stmt->get_result();
@@ -300,7 +300,7 @@ while($row = $result->fetch_assoc()) {
 				  
 				  <div class="col-md-3">
                   <div class="form-floating">
-                    <input type="text" class="form-control" id="ff" placeholder="GuardianID" name="GuardianID" value="<?php echo $row['GuardianID']; ?>" required>
+                    <input type="text" class="form-control" id="ff" placeholder="GuardianID" name="GuardianID" value="<?php echo $row['GuardianID']; ?>" >
                     <label for="floatingName">Guardian ID:</label>
 				  <div class="valid-feedback">
                     Looks good!
@@ -310,7 +310,7 @@ while($row = $result->fetch_assoc()) {
 				  
 				  <div class="col-md-3">
                   <div class="form-floating">
-                    <input type="text" class="form-control" id="ff" placeholder="Relationship Guardian" name="RelationshipGuardian" value="<?php echo $row['RelationshipGuardian']; ?>" required>
+                    <input type="text" class="form-control" id="ff" placeholder="Relationship Guardian" name="RelationshipGuardian" value="<?php echo $row['RelationshipGuardian']; ?>" >
                     <label for="floatingName">Relationship Guardian:</label>
 				  <div class="valid-feedback">
                     Looks good!
@@ -320,7 +320,7 @@ while($row = $result->fetch_assoc()) {
 				  
 				  <div class="col-md-3">
                   <div class="form-floating">
-                    <input type="text" class="form-control" id="ff" placeholder="Next Of Kin ID" name="NextOfKinID" value="<?php echo $row['NextOfKinID']; ?>" required>
+                    <input type="text" class="form-control" id="ff" placeholder="Next Of Kin ID" name="NextOfKinID" value="<?php echo $row['NextOfKinID']; ?>" >
                     <label for="floatingName">Next Of Kin ID:</label>
 				  <div class="valid-feedback">
                     Looks good!
@@ -330,7 +330,7 @@ while($row = $result->fetch_assoc()) {
 				  
 				   <div class="col-md-3">
                   <div class="form-floating">
-                    <input type="text" class="form-control" id="ff" placeholder="Relationship Next Of Kin" name="RelationshipNextOfKin"  value="<?php echo $row['RelationshipNextOfKin']; ?>" required>
+                    <input type="text" class="form-control" id="ff" placeholder="Relationship Next Of Kin" name="RelationshipNextOfKin"  value="<?php echo $row['RelationshipNextOfKin']; ?>" >
                     <label for="floatingName">Relationship Next Of Kin:</label>
 				  <div class="valid-feedback">
                     Looks good!
@@ -340,7 +340,7 @@ while($row = $result->fetch_assoc()) {
 				  
 				   <div class="col-md-3">
                   <div class="form-floating">
-                    <input type="text" class="form-control" id="ff" placeholder="Member Postal Address" name="MemberPostalAddress" value="<?php echo $row['MemberPostalAddress']; ?>" required>
+                    <input type="text" class="form-control" id="ff" placeholder="Member Postal Address" name="MemberPostalAddress" value="<?php echo $row['MemberPostalAddress']; ?>" >
                     <label for="floatingName">Member Postal Address:</label>
 				  <div class="valid-feedback">
                     Looks good!
@@ -350,7 +350,7 @@ while($row = $result->fetch_assoc()) {
 				  
 				  <div class="col-md-3">
                   <div class="form-floating">
-                    <input type="text" class="form-control" id="ff" placeholder="Member Post Office ID" name="MemberPostOfficeID" value="<?php echo $row['MemberPostOfficeID']; ?>" required>
+                    <input type="text" class="form-control" id="ff" placeholder="Member Post Office ID" name="MemberPostOfficeID" value="<?php echo $row['MemberPostOfficeID']; ?>" >
                     <label for="floatingName">Member Post Office ID:</label>
 				  <div class="valid-feedback">
                     Looks good!
@@ -404,7 +404,7 @@ while($row = $result->fetch_assoc()) {
 				  
 				  <div class="col-md-3">
                   <div class="form-floating">
-					 <select type="text" class="form-control" id="ff" placeholder="Regular Payment Frequency" name="RegularPaymentFrequencyID" required>
+					 <select type="text" class="form-control" id="ff" placeholder="Regular Payment Frequency" name="RegularPaymentFrequencyID" >
 					<option value="<?php echo $row['RegularPaymentFrequencyID']; ?>" selected><?php echo $row['RegularPaymentFrequencyID']; ?><option>
 					<option value="1">Monthly</option>
 					<option value="2">Quarterly</option>
@@ -421,7 +421,7 @@ while($row = $result->fetch_assoc()) {
 				  <div class="col-md-3">
                   <div class="form-floating">
                     
-					 <select type="text" class="form-control" id="ff" placeholder="Gender" name="RegularPaymentTypeID"  required>
+					 <select type="text" class="form-control" id="ff" placeholder="Gender" name="RegularPaymentTypeID"  >
 					<option value="<?php echo $row['RegularPaymentTypeID']; ?>" selected><?php echo $row['RegularPaymentTypeID']; ?><option>
 					<option value="1">Regular discretionary payment</option>
 					<option value="2">Regular fixed payment</option>
@@ -437,7 +437,7 @@ while($row = $result->fetch_assoc()) {
 				  
 				  <div class="col-md-3">
                   <div class="form-floating">
-                    <input type="text" class="form-control" id="ff" placeholder="Fixed Payment Amount" name="FixedPaymentAmount" value="<?php echo $row['FixedPaymentAmount']; ?>" required>
+                    <input type="text" class="form-control" id="ff" placeholder="Fixed Payment Amount" name="FixedPaymentAmount" value="<?php echo $row['FixedPaymentAmount']; ?>" >
                     <label for="floatingName">Fixed Payment Amount:</label>
 				  <div class="valid-feedback">
                     Looks good!
@@ -447,7 +447,7 @@ while($row = $result->fetch_assoc()) {
 				  
 				   <div class="col-md-3">
                   <div class="form-floating">
-                    <input type="text" class="form-control" id="ff" placeholder="Max Payment Amount" name="MaxPaymentAmount" value="<?php echo $row['MaxPaymentAmount']; ?>" required>
+                    <input type="text" class="form-control" id="ff" placeholder="Max Payment Amount" name="MaxPaymentAmount" value="<?php echo $row['MaxPaymentAmount']; ?>" >
                     <label for="floatingName">Max Payment Amount:</label>
 				  <div class="valid-feedback">
                     Looks good!
@@ -457,7 +457,7 @@ while($row = $result->fetch_assoc()) {
 				  
 				   <div class="col-md-3">
                   <div class="form-floating">
-                    <input type="text" class="form-control" id="ff" placeholder="Bank ID" name="BankID" value="<?php echo $row['BankID']; ?>" required>
+                    <input type="text" class="form-control" id="ff" placeholder="Bank ID" name="BankID" value="<?php echo $row['BankID']; ?>" >
                     <label for="floatingName">Bank ID:</label>
 				  <div class="valid-feedback">
                     Looks good!
@@ -467,7 +467,7 @@ while($row = $result->fetch_assoc()) {
 				  
 				  <div class="col-md-3">
                   <div class="form-floating">
-                    <input type="text" class="form-control" id="ff" placeholder="Bank AccountNo" name="BankAccountNo" value="<?php echo $row['BankAccountNo']; ?>" required>
+                    <input type="text" class="form-control" id="ff" placeholder="Bank AccountNo" name="BankAccountNo" value="<?php echo $row['BankAccountNo']; ?>" >
                     <label for="floatingName">Bank AccountNo:</label>
 				  <div class="valid-feedback">
                     Looks good!
@@ -477,7 +477,7 @@ while($row = $result->fetch_assoc()) {
 				  
 				  <div class="col-md-3">
                   <div class="form-floating">
-                    <input type="text" class="form-control" id="ff" placeholder="Account TypeID" name="AccountTypeID" value="<?php echo $row['AccountTypeID']; ?>" required>
+                    <input type="text" class="form-control" id="ff" placeholder="Account TypeID" name="AccountTypeID" value="<?php echo $row['AccountTypeID']; ?>" >
                     <label for="floatingName">Account TypeID:</label>
 				  <div class="valid-feedback">
                     Looks good!
@@ -488,7 +488,7 @@ while($row = $result->fetch_assoc()) {
 				  
 				  <div class="col-md-3">
                   <div class="form-floating">
-                    <input type="text" class="form-control" id="ff" placeholder="Account Holder Name" name="AccountHolderName" value="<?php echo $row['AccountHolderName']; ?>" required>
+                    <input type="text" class="form-control" id="ff" placeholder="Account Holder Name" name="AccountHolderName" value="<?php echo $row['AccountHolderName']; ?>" >
                     <label for="floatingName">Account Holder Name:</label>
 				  <div class="valid-feedback">
                     Looks good!
@@ -522,7 +522,7 @@ while($row = $result->fetch_assoc()) {
 				
 				<?php   }
 } else {
-  echo "0 results";
+ // echo "0 results";
 } ?> 
               </form><!-- End floating Labels Form -->
 

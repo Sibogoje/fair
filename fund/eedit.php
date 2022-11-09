@@ -138,7 +138,7 @@ $conn->close();
               <form class="row g-3 needs-validation" method="post" action="" enctype="multipart/form-data" novalidate>	
 
 	<?php 
-$stmt = $conn->prepare("SELECT * FROM `tblemployers1` where `employerID`=?");
+$stmt = $conn->prepare("SELECT * FROM `tblemployers` where `employerID`=?");
 $stmt->bind_param("s", $idz);
 $stmt->execute();
 $result = $stmt->get_result();
@@ -177,7 +177,7 @@ while($row = $result->fetch_assoc()) {
 					 <select type="text" class="form-control" id="ff" placeholder="FundID" name="FundID" >
 					<option value="<?php echo $row['FundID']; ?>" selected><?php echo $row12['FundID']; ?></option>
 						<?php 
-						$stmt12 = $conn->prepare("SELECT * FROM `tblretirementfunds1` ");
+						$stmt12 = $conn->prepare("SELECT * FROM `tblretirementfunds` ");
 						$stmt12->execute();
 						$result12 = $stmt12->get_result();
 						if ($result12->num_rows > 0) {

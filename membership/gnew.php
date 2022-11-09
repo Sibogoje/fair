@@ -26,7 +26,7 @@ $StatementType = $_POST['StatementType'];
 $GuardianPhysicalAddress = $_POST['GuardianPhysicalAddress'];
 
 
-$stmt = $conn->prepare("INSERT INTO `u747325399_fairlife`.`tblguardians1` (
+$stmt = $conn->prepare("INSERT INTO `tblguardians` (
   `GuardianSurname`,
   `GuardianFirstNames`,
   `GuardianIDno`,
@@ -188,7 +188,7 @@ $conn->close();
 				  
 				  	  <div class="col-md-3">
                   <div class="form-floating">
-					 <select type="text" class="form-control" id="ff" placeholder="GuardianPostOfficeID" name="GuardianPostOfficeID" required>
+					 <select type="text" class="form-control" id="ff" placeholder="GuardianPostOfficeID" name="GuardianPostOfficeID" >
 					<option value="" selected></option>
 						<?php 
 						$stmt12 = $conn->prepare("SELECT * FROM `tblpostoffices` ");
@@ -234,7 +234,7 @@ $conn->close();
 				  </div>
 				  <div class="col-md-3">
                   <div class="form-floating">
-                    <input type="text" class="form-control" id="ff" placeholder="Guardian Cell" value="" name="GuardianCell" required>
+                    <input type="text" class="form-control" id="ff" placeholder="Guardian Cell" value="" name="GuardianCell" >
                     <label for="floatingName">Guardian Cell:</label>
 				  <div class="valid-feedback">
                     Looks good!
@@ -244,7 +244,7 @@ $conn->close();
 				  
 				  <div class="col-md-3">
                   <div class="form-floating">
-                    <input type="text" class="form-control" id="ff" placeholder="Guardian Email" value="" name="GuardianEmail" required>
+                    <input type="text" class="form-control" id="ff" placeholder="Guardian Email" value="" name="GuardianEmail" >
                     <label for="floatingName">Guardian Email:</label>
 				  <div class="valid-feedback">
                     Looks good!
@@ -258,7 +258,7 @@ $conn->close();
 					 <select type="text" class="form-control" id="ff" placeholder="StatementType" name="StatementType" required>
 					<option value=""></option>
 						<?php 
-						$stmt1 = $conn->prepare("SELECT * FROM `tblstatementtype1` ");
+						$stmt1 = $conn->prepare("SELECT * FROM `tblstatementtype` ");
 						$stmt1->execute();
 						$result1 = $stmt1->get_result();
 						if ($result1->num_rows > 0) {
@@ -282,7 +282,7 @@ $conn->close();
 				  
 				  <div class="col-md-6">
                   <div class="form-floating">
-                    <input type="text" class="form-control" id="ff" placeholder="GuardianPhysicalAddress" value="" name="GuardianPhysicalAddress" required>
+                    <input type="text" class="form-control" id="ff" placeholder="GuardianPhysicalAddress" value="" name="GuardianPhysicalAddress" >
                     <label for="floatingName">Physical Address:</label>
 				  <div class="valid-feedback">
                     Looks good!
@@ -294,7 +294,7 @@ $conn->close();
       
                 
                 <div class="text-center">
-                  <button type="submit"  class="btn btn-primary" style="width: 80%;" name="submit">Add Guardian Info</button>
+                  <button type="submit"  class="btn btn-warning" style="width: 100%;" name="submit">Add Guardian Info</button>
                   
                 </div>
 

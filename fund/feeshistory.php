@@ -10,7 +10,7 @@ if(count($_POST)>0){
  
  $sum = 0;   
     
-$stmt12 = $conn->prepare("SELECT SUM(`Amount`) AS `TT` from `tblmemberaccounts` where  DATE(TransactionDate) BETWEEN '$from'  AND '$to' AND Details = 'Transfer In Fee'  ");
+$stmt12 = $conn->prepare("SELECT SUM(`Amount`) AS `TT` from `tblmemberaccounts` where  DATE(TransactionDate) BETWEEN '$from'  AND '$to' AND TransactionTypeID = '2'  ");
 						$stmt12->execute();
 						$result12 = $stmt12->get_result();
 						if ($result12->num_rows > 0) {
@@ -44,7 +44,7 @@ echo "0 results";	}
 
 
 
-$stmt12 = $conn->prepare("SELECT SUM(`Amount`) AS `TT2` from `tblmemberaccounts` where DATE(TransactionDate) BETWEEN '$from'  AND '$to' AND Details LIKE '%Transaction Fee%'  ");
+$stmt12 = $conn->prepare("SELECT SUM(`Amount`) AS `TT2` from `tblmemberaccounts` where DATE(TransactionDate) BETWEEN '$from'  AND '$to' AND TransactionTypeID = '5'  ");
 						$stmt12->execute();
 						$result12 = $stmt12->get_result();
 						if ($result12->num_rows > 0) {
@@ -74,7 +74,7 @@ echo "0 results";	}
 
 
 
-$stmt12 = $conn->prepare("SELECT SUM(`Amount`) AS `TT3` from `tblmemberaccounts` where  DATE(TransactionDate) BETWEEN '$from'  AND '$to' AND Details LIKE '% Monthly Fee%'  ");
+$stmt12 = $conn->prepare("SELECT SUM(`Amount`) AS `TT3` from `tblmemberaccounts` where  DATE(TransactionDate) BETWEEN '$from'  AND '$to' AND TransactionTypeID = '6'  ");
 						$stmt12->execute();
 						$result12 = $stmt12->get_result();
 						if ($result12->num_rows > 0) {
@@ -100,7 +100,7 @@ $stmt12 = $conn->prepare("SELECT SUM(`Amount`) AS `TT3` from `tblmemberaccounts`
 echo "0 results";	}
 
 
-$stmt12 = $conn->prepare("SELECT SUM(`Amount`) AS `TT4` from `tblmemberaccounts` where  DATE(TransactionDate) BETWEEN '$from'  AND '$to' AND Details LIKE '%Admin%'  ");
+$stmt12 = $conn->prepare("SELECT SUM(`Amount`) AS `TT4` from `tblmemberaccounts` where  DATE(TransactionDate) BETWEEN '$from'  AND '$to' AND TransactionTypeID = '7'  ");
 						$stmt12->execute();
 						$result12 = $stmt12->get_result();
 						if ($result12->num_rows > 0) {

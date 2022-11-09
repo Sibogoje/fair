@@ -10,9 +10,13 @@ if(count($_POST)>0){
 
 ////////////////////retrieve deceaced id
 
-$ttfundsresult = mysqli_query($conn, "SELECT COUNT(DISTINCT `memberID`) AS 'memberID' FROM `fundsums` WHERE `RetirementFundID` = '$id' AND DATE(`TransactionDate`) BETWEEN '$d1'  AND '$d2'  "); 
+$ttfundsresult = mysqli_query($conn, "SELECT COUNT(DISTINCT `memberID`) AS 'memberID' FROM `fundsums` WHERE `RetirementFundID` = '$id' AND DATE(`TransactionDate`) BETWEEN '$d1'  AND '$d2' AND `TransactionTypeID` = '1'  "); 
 $ttfundsrow = mysqli_fetch_assoc($ttfundsresult); 
 $ttfundmembers = $ttfundsrow['memberID'];
+
+$ttfundsresult = mysqli_query($conn, "SELECT COUNT(DISTINCT `memberID`) AS 'memberID' FROM `fundsums` WHERE `RetirementFundID` = '$id' AND DATE(`TransactionDate`) BETWEEN '$d1'  AND '$d2' AND `TransactionTypeID` = '11'  "); 
+$ttfundsrow = mysqli_fetch_assoc($ttfundsresult); 
+$ClientsExit = $ClientsExit['memberID'];
 
 $ttopening = mysqli_query($conn, "SELECT SUM(`Amount`) AS 'Opening' FROM `fundsums` WHERE `RetirementFundID` = '$id' AND DATE(`TransactionDate`) BETWEEN '$d1'  AND '$d2' AND `TransactionTypeID` = '1'  "); 
 $ttopeningresult = mysqli_fetch_assoc($ttopening); 
@@ -53,6 +57,8 @@ $ttaddrow = $ttaddresult['Opening'];
 $ttother = mysqli_query($conn, "SELECT SUM(`Amount`) AS 'Opening' FROM `fundsums` WHERE `RetirementFundID` = '$id' AND DATE(`TransactionDate`) BETWEEN '$d1'  AND '$d2' AND `TransactionTypeID` = '10'  "); 
 $ttotherresult = mysqli_fetch_assoc($ttother); 
 $ttotherrow = $ttotherresult['Opening'];
+
+
 	
 	$response2 = array(
 					'statusCode'=>200,
@@ -66,7 +72,8 @@ $ttotherrow = $ttotherresult['Opening'];
 					'ttadhocgrow'=>$ttadhocgrow,
 					'ttregularrow'=>$ttregularrow,
 					'ttinrow'=>$ttinrow,
-					'ttmonthlyrow'=>$ttmonthlyrow
+					'ttmonthlyrow'=>$ttmonthlyrow,
+					'ClientsExit'=>$ClientsExit
 
 					
 					

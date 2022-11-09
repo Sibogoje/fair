@@ -11,7 +11,7 @@ if (isset($_POST['submit'])){
 	
 	
 	
-
+  $Terminated = 3;
 	
 	
 $MemberNo = $_POST['MemberNo']; 
@@ -77,11 +77,13 @@ $stmt = $conn->prepare("INSERT INTO `tblmembers` (
   `BankID`,
   `BankAccountNo`,
   `AccountTypeID`,
-  `AccountHolderName`
+  `AccountHolderName`,
+  `Terminated`
 
 )
 VALUES
   (
+    ?,
     ?,
     ?,
     ?,
@@ -109,7 +111,7 @@ VALUES
     ?
 
   );");
-$stmt->bind_param("sssssssssssssssssssssssss", 
+$stmt->bind_param("ssssssssssssssssssssssssss", 
 $MemberNo,
 $MemberSurname,
 $MemberFirstname,
@@ -134,94 +136,14 @@ $Comments,
 $BankID,
 $BankAccountNo,
 $AccountTypeID,
-$AccountHolderName
+$AccountHolderName,
+$Terminated
 
 
 );
 // set parameters and execute
 $stmt->execute();
 
-/*
-
-
-$TransactionTypeID = "1";
-$Details = "Opening Balance";
-$MemberID = $MemberNo;
-$Credit = 1;
-$prebalance = 0.00;
-$amount = $ApprovedBenefit;
-$newb = $ApprovedBenefit;
-$Comments = "";
-
-
-
-$insertnew = $conn->prepare("insert into `tblmemberaccounts` (
-
-  `TransactionDate`,
-  `TransactionTypeID`,
-  `memberID`,
-  `Details`,
-  `Credit`,
-  `StartingBalance`,
-  `Amount`,
-  `NewBalance`,
-  `Comments`
-
-)
-
-VALUES
-  (
-
-    ?,
-    ?,
-    ?,
-    ?,
-	?,
-	?,
-	?,
-	?,
-	?
-  );");
-$insertnew->bind_param("sssssssss", 
-$DateAccountOpened, 
-$TransactionTypeID,
-$MemberID,
-$Details,
-$Credit,
-$prebalance,
-$amount,
-$newb,
-$Comments
-);
-$insertnew->execute();
-
-
-$TransactionTypeID = "2";
-$Details = "Transfer In Fee";
-$MemberID = $MemberNo;
-$Credit = 0;
-$prebalance = $amount;
-$amount = $ApprovedBenefit * 0.01 ;
-$newb = $ApprovedBenefit - $amount;
-$Comments = "";
-
-
-$insertnew->bind_param("sssssssss", 
-$DateAccountOpened, 
-$TransactionTypeID,
-$MemberID,
-$Details,
-$Credit,
-$prebalance,
-$amount,
-$newb,
-$Comments
-
-);
-
-$insertnew->execute();
-
-*/
 
 echo "<script> alert('New Beneficiary Added');
 window.location.href='index.php';
@@ -399,10 +321,26 @@ $id = $max + 1;
                   </div>
 				  </div>
 				  
-				  <div class="col-md-3">
-                  <div class="form-floating">
-                    <input type="text" class="form-control" id="ff" placeholder="GuardianID" name="GuardianID" >
-                    <label for="floatingName">Guardian ID:</label>
+          <div class="col-md-3">
+				<label for="floatingName">Guardian:</label><br>
+          <div class="form-floating">
+				  
+					 <select type="text" class="form-control" id="GuardianID"    placeholder="GuardianID" name="GuardianID"  >
+					<option value="" selected></option>
+						<?php 
+						$stmt12 = $conn->prepare("SELECT DISTINCT `GuardianID`, `GuardianSurname`, `GuardianFirstNames` FROM `tblguardians` order by GuardianSurname");
+						$stmt12->execute();
+						$result12 = $stmt12->get_result();
+						if ($result12->num_rows > 0) {
+						  // output data of each row
+						while($row12 = $result12->fetch_assoc()) { ?>
+					<option value="<?php echo $row12['GuardianID']; ?>"><?php echo $row12['GuardianID']."- ".$row12['GuardianSurname']."  ".$row12['GuardianFirstNames'] ; ?></option>
+						<?php   }
+						} else {
+						  //echo "0 results";
+						} ?> 
+					</select>
+                     
 				  <div class="valid-feedback">
                     Looks good!
                   </div>
@@ -419,10 +357,26 @@ $id = $max + 1;
                   </div>
 				  </div>
 				  
-				  <div class="col-md-3">
-                  <div class="form-floating">
-                    <input type="text" class="form-control" id="ff" placeholder="Next Of Kin ID" name="NextOfKinID" >
-                    <label for="floatingName">Next Of Kin ID:</label>
+          <div class="col-md-3">
+				<label for="floatingName">Next Of Kin:</label><br>
+          <div class="form-floating">
+				  
+					 <select type="text" class="form-control" id="NextOfKinID"    placeholder="NextOfKinID" name="NextOfKinID"  >
+					<option value="" selected></option>
+						<?php 
+						$stmt12 = $conn->prepare("SELECT DISTINCT `NextOfKinID`, `KinSurname`, `KinFirstNames` FROM `tblnextofkin` order by KinSurname");
+						$stmt12->execute();
+						$result12 = $stmt12->get_result();
+						if ($result12->num_rows > 0) {
+						  // output data of each row
+						while($row12 = $result12->fetch_assoc()) { ?>
+					<option value="<?php echo $row12['NextOfKinID']; ?>"><?php echo $row12['NextOfKinID']."- ".$row12['KinSurname']."  ".$row12['KinFirstNames'] ; ?></option>
+						<?php   }
+						} else {
+						  //echo "0 results";
+						} ?> 
+					</select>
+                     
 				  <div class="valid-feedback">
                     Looks good!
                   </div>
@@ -449,10 +403,26 @@ $id = $max + 1;
                   </div>
 				  </div>
 				  
-				  <div class="col-md-3">
-                  <div class="form-floating">
-                    <input type="text" class="form-control" id="ff" placeholder="Member Post Office ID" name="MemberPostOfficeID" >
-                    <label for="floatingName">Member Post Office ID:</label>
+          <div class="col-md-3">
+				<label for="floatingName">Post Office:</label><br>
+          <div class="form-floating">
+				  
+					 <select type="text" class="form-control" id="postofficeID"    placeholder="postofficeID" name="postofficeID"  required>
+					<option value="" selected></option>
+						<?php 
+						$stmt12 = $conn->prepare("SELECT DISTINCT `postofficeID`, `PostOffice`, `PostCode` FROM `tblpostoffices` order by PostOffice");
+						$stmt12->execute();
+						$result12 = $stmt12->get_result();
+						if ($result12->num_rows > 0) {
+						  // output data of each row
+						while($row12 = $result12->fetch_assoc()) { ?>
+					<option value="<?php echo $row12['postofficeID']; ?>"><?php echo $row12['postofficeID']."- ".$row12['PostOffice']."  ".$row12['PostCode'] ; ?></option>
+						<?php   }
+						} else {
+						  //echo "0 results";
+						} ?> 
+					</select>
+                     
 				  <div class="valid-feedback">
                     Looks good!
                   </div>
@@ -495,7 +465,7 @@ $id = $max + 1;
 				  
 				  <div class="col-md-3">
                   <div class="form-floating">
-                    <input type="date" class="form-control" id="ff" placeholder="Date Account Opened" name="DateAccountOpened" required>
+                    <input type="date" class="form-control" id="ff" placeholder="Date Account Opened" name="DateAccountOpened" >
                     <label for="floatingName">Date Account Opened:</label>
 				  <div class="valid-feedback">
                     Looks good!
@@ -505,7 +475,7 @@ $id = $max + 1;
 				  
 				  <div class="col-md-3">
                   <div class="form-floating">
-					 <select type="text" class="form-control" id="ff" placeholder="Regular Payment Frequency" name="RegularPaymentFrequencyID" required>
+					 <select type="text" class="form-control" id="ff" placeholder="Regular Payment Frequency" name="RegularPaymentFrequencyID" >
 					<option value=""><option>
 					<option value="1">Monthly</option>
 					<option value="2">Quarterly</option>
@@ -522,7 +492,7 @@ $id = $max + 1;
 				  <div class="col-md-3">
                   <div class="form-floating">
                     
-					 <select type="text" class="form-control" id="ff" placeholder="Gender" name="RegularPaymentTypeID" required>
+					 <select type="text" class="form-control" id="ff" placeholder="Gender" name="RegularPaymentTypeID" >
 					<option value=""><option>
 					<option value="1">Regular discretionary payment</option>
 					<option value="2">Regular fixed payment</option>
@@ -560,7 +530,7 @@ $id = $max + 1;
 				<label for="floatingName">Bank ID:</label><br>
           <div class="form-floating">
 				  
-					 <select type="text" class="form-control" id="banks"    placeholder="bankID" name="bankID"  required>
+					 <select type="text" class="form-control" id="banks"    placeholder="bankID" name="bankID"  >
 					<option value="" selected></option>
 						<?php 
 						$stmt12 = $conn->prepare("SELECT DISTINCT `BankID`, `BankName`, `Branch` FROM `tblbanks` order by BankID");
@@ -595,7 +565,7 @@ $id = $max + 1;
           <div class="col-md-3">
                   <div class="form-floating">
                     
-					 <select type="text" class="form-control" id="ff" placeholder="Account Type" name="AccountTypeID" required>
+					 <select type="text" class="form-control" id="ff" placeholder="Account Type" name="AccountTypeID" >
 					<option value=""><option>
 					<option value="1">Cheque</option>
 					<option value="2">Savings</option>
@@ -611,7 +581,7 @@ $id = $max + 1;
 				  
 				   <div class="col-md-3">
                   <div class="form-floating">
-                    <input type="text" class="form-control" id="ff" placeholder="Account Holder Name" name="AccountHolderName" required>
+                    <input type="text" class="form-control" id="ff" placeholder="Account Holder Name" name="AccountHolderName" >
                     <label for="floatingName">Account Holder Name:</label>
 				  <div class="valid-feedback">
                     Looks good!
@@ -692,6 +662,22 @@ window.location.href='index.php';
 });
 
 $('#banks').select2({
+    width: '100%',
+    allowClear: false,
+    height: '100%',
+});
+
+$('#GuardianID').select2({
+    width: '100%',
+    allowClear: false,
+    height: '100%',
+});
+$('#NextOfKinID').select2({
+    width: '100%',
+    allowClear: false,
+    height: '100%',
+});
+$('#postofficeID').select2({
     width: '100%',
     allowClear: false,
     height: '100%',

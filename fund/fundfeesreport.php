@@ -19,7 +19,7 @@ require_once '../scripts/connection.php';
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Fund Reports</title>
+  <title>FEES REPORT</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 <script src='../jquery-3.2.1.min.js' type='text/javascript'></script>
@@ -101,7 +101,7 @@ html.loading body {
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Beneficiary Report</h1>
+      <h1>FEES REPORT</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="../dash.php">Dashboard</a></li>
@@ -112,7 +112,7 @@ html.loading body {
 <!-- New beneficiary form-->
 <div class="card col-lg-12" style="">
             <div class="card-body">
-              <h5 class="card-title">Choose Beneficiary</h5>
+              <h5 class="card-title">SELECT DATES</h5>
 			  
 			  <form class="row g-3 needs-validation" id="user_form" method="post" action="feesprint.php" target="_blank"  enctype="multipart/form-data" novalidate>
 			  

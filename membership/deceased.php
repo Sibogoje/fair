@@ -7,131 +7,6 @@ $gg = $_SESSION['user'];
 require_once '../scripts/connection.php';
 
 ////////insert new 
-if (isset($_POST['submit'])){
-	
-$MemberNo = $_POST['MemberNo']; 
-$MemberSurname = $_POST['MemberSurname'];
-$MemberFirstname = $_POST['MemberFirstname'];
-$MemberIDnumber = $_POST['MemberIDnumber'];
-$DeceasedID = $_POST['DeceasedID'];
-$RelationshipDeceased = $_POST['RelationshipDeceased'];
-$GuardianID = $_POST['GuardianID'];
-$RelationshipGuardian = $_POST['RelationshipGuardian'];
-$NextOfKinID = $_POST['NextOfKinID'];
-$RelationshipNextOfKin = $_POST['RelationshipNextOfKin'];
-$MemberPostalAddress = $_POST['MemberPostalAddress'];
-$MemberPostOfficeID = $_POST['MemberPostOfficeID'];
-$Gender = $_POST['Gender'];
-$DateOfBirth = $_POST['DateOfBirth'];
-$ApprovedBenefit = $_POST['ApprovedBenefit'];
-$DateAccountOpened = $_POST['DateAccountOpened'];
-$RegularPaymentFrequencyID = $_POST['RegularPaymentFrequencyID'];
-$RegularPaymentTypeID = $_POST['RegularPaymentTypeID'];
-$FixedPaymentAmount = $_POST['FixedPaymentAmount'];
-$MaxPaymentAmount = $_POST['MaxPaymentAmount'];
-$Comments = $_POST['Comments'];
-$BankID = $_POST['BankID'];
-$BankAccountNo = $_POST['BankAccountNo'];
-$AccountTypeID = $_POST['AccountTypeID'];
-$AccountHolderName = $_POST['AccountHolderName'];
-
-$stmt = $conn->prepare("INSERT INTO `u747325399_fairlife`.`tblmembers1` (
-  `MemberNo`,
-  `MemberSurname`,
-  `MemberFirstname`,
-  `MemberIDnumber`,
-  `DeceasedID`,
-  `RelationshipDeceased`,
-  `GuardianID`,
-  `RelationshipGuardian`,
-  `NextOfKinID`,
-  `RelationshipNextOfKin`,
-  `MemberPostalAddress`,
-  `MemberPostOfficeID`,
-  `Gender`,
-  `DateOfBirth`,
-  `ApprovedBenefit`,
-  `DateAccountOpened`,
-  `RegularPaymentFrequencyID`,
-  `RegularPaymentTypeID`,
-  `FixedPaymentAmount`,
-  `MaxPaymentAmount`,
-  `Comments`,
-  `BankID`,
-  `BankAccountNo`,
-  `AccountTypeID`,
-  `AccountHolderName`
-
-)
-VALUES
-  (
-    ?,
-    ?,
-    ?,
-    ?,
-    ?,
-    ?,
-    ?,
-    ?,
-    ?,
-    ?,
-    ?,
-    ?,
-    ?,
-    ?,
-    ?,
-    ?,
-    ?,
-    ?,
-    ?,
-    ?,
-    ?,
-    ?,
-    ?,
-    ?,
-    ?
-
-  );");
-$stmt->bind_param("sssssssssssssssssssssssss", 
-$MemberNo,
-$MemberSurname,
-$MemberFirstname,
-$MemberIDnumber,
-$DeceasedID,
-$RelationshipDeceased,
-$GuardianID,
-$RelationshipGuardian,
-$NextOfKinID,
-$RelationshipNextOfKin,
-$MemberPostalAddress,
-$MemberPostOfficeID,
-$Gender,
-$DateOfBirth,
-$ApprovedBenefit,
-$DateAccountOpened,
-$RegularPaymentFrequencyID,
-$RegularPaymentTypeID,
-$FixedPaymentAmount,
-$MaxPaymentAmount,
-$Comments,
-$BankID,
-$BankAccountNo,
-$AccountTypeID,
-$AccountHolderName
-);
-// set parameters and execute
-$stmt->execute();
-
-echo "New records created successfully";
-
-$stmt->close();
-$conn->close();
-}else{
-
-}
-
-
-
 
 ?>
 <html lang="en">
@@ -140,7 +15,7 @@ $conn->close();
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>New Member</title>
+  <title>Deceased Profiles</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 

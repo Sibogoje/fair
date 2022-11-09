@@ -173,7 +173,17 @@ require_once '../scripts/connection.php';
         <div class="col-md-3">
                   <div class="form-floating">
                     <input type="text" step="0.01" class="form-control" id="Clients" placeholder="AdHocPayment" value="0" name="Clients" readonly>
-                    <label for="floatingName"><b>Total Members:</b></label>
+                    <label for="floatingName"><b>New Members:</b></label>
+				  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                  </div>
+				  </div>
+
+          <div class="col-md-3">
+                  <div class="form-floating">
+                    <input type="text" step="0.01" class="form-control" id="ClientsExit" placeholder="AdHocPayment" value="0" name="ClientsExit" readonly>
+                    <label for="floatingName"><b>Terminated:</b></label>
 				  <div class="valid-feedback">
                     Looks good!
                   </div>
@@ -429,6 +439,11 @@ $('#single').select2({
             var ttfundmembers = (dataResult.ttfundmembers);
 						$("#Clients").val("Null");
 						$("#Clients").val(ttfundmembers);
+
+            var ClientsExit = (dataResult.ClientsExit);
+						$("#ClientsExit").val("Null");
+						$("#ClientsExit").val(ClientsExit);
+
 
             var ttopeningrow = (dataResult.ttopeningrow);
 						$("#Opening").val("Null");

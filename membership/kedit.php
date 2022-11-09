@@ -10,7 +10,16 @@ require_once '../scripts/connection.php';
 $ids = $_GET['id'];
 
 ////////insert new 
+if (isset($_POST['updatekin'])){
 
+  $memno = $_POST['memno']; 
+  $kinno = $_POST['kinno'];
+
+  $update = $conn->prepare("UPDATE tblmembers SET `NextOfKinID` = ? WHERE MemberID=? ");
+  $update->bind_param("ss", $kinno,  $memno);
+  $update->execute();
+
+}
 
 if (isset($_POST['submit'])){
 	
@@ -25,7 +34,7 @@ $KinTelHome = $_POST['KinTelHome'];
 $KinCell = $_POST['KinCell'];
 $KinEmail = $_POST['KinEmail'];
 
-$stmt = $conn->prepare("UPDATE `u747325399_fairlife`.`tblnextofkin1` SET
+$stmt = $conn->prepare("UPDATE ``tblnextofkin` SET
  `KinSurname`,
   `KinFirstNames`,
   `KinPostalAddress`,
@@ -123,7 +132,7 @@ $stmt->close();
 
               <form class="row g-3 needs-validation" method="post" action="" enctype="multipart/form-data" novalidate>
 	<?php 
-$stmt = $conn->prepare("SELECT * FROM `tblnextofkin1` where `NextOfKinID`=?");
+$stmt = $conn->prepare("SELECT * FROM `tblnextofkin` where `NextOfKinID`=?");
 $stmt->bind_param("s", $ids);
 $stmt->execute();
 $result = $stmt->get_result();
@@ -164,7 +173,7 @@ while($row = $result->fetch_assoc()) {
 
 				  <div class="col-md-3">
                   <div class="form-floating">
-                    <input type="text" class="form-control" id="ff" placeholder="Kin Postal Address" value="<?php echo $row['KinPostalAddress']; ?>" name="KinPostalAddress" required>
+                    <input type="text" class="form-control" id="ff" placeholder="Kin Postal Address" value="<?php echo $row['KinPostalAddress']; ?>" name="KinPostalAddress" >
                     <label for="floatingName">KinPostalAddress:</label>
 				  <div class="valid-feedback">
                     Looks good!
@@ -177,7 +186,7 @@ while($row = $result->fetch_assoc()) {
 				  
 				  	  	  <div class="col-md-3">
                   <div class="form-floating">
-					 <select type="text" class="form-control" id="ff" placeholder="KinPostOfficeID" name="KinPostOfficeID" required>
+					 <select type="text" class="form-control" id="ff" placeholder="KinPostOfficeID" name="KinPostOfficeID" >
 					<option value="<?php echo $row['KinPostOfficeID'];?>" selected><?php echo $row['KinPostOfficeID']; ?></option>
 						<?php 
 						$stmt12 = $conn->prepare("SELECT * FROM `tblpostoffices` ");
@@ -236,7 +245,7 @@ while($row = $result->fetch_assoc()) {
 				  </div>
 				  <div class="col-md-3">
                   <div class="form-floating">
-                    <input type="text" class="form-control" id="ff" placeholder="Kin Email" value="<?php echo $row['KinEmail']; ?>" name="KinEmail" required>
+                    <input type="text" class="form-control" id="ff" placeholder="Kin Email" value="<?php echo $row['KinEmail']; ?>" name="KinEmail" >
                     <label for="floatingName">Kin Email:</label>
 				  <div class="valid-feedback">
                     Looks good!
@@ -248,18 +257,89 @@ while($row = $result->fetch_assoc()) {
       
                 
                 <div class="text-center">
-                  <button type="submit"  class="btn btn-primary" style="width: 80%;" name="submit">Update Next of Kin Info</button>
+                  <button type="submit"  class="btn btn-warning" style="width: 100%;" name="submit">Update Next of Kin Info</button>
                   
                 </div>
 								<?php   }
 } else {
 ?> 
   <div class="text-center">
-                  <button type="button" class="btn btn-primary knew" data-link="knew.php" data-id="rr"  style="width: 50%;">New Next of Kin</button>
+                  <button type="button" class="btn btn-warning knew" data-link="knew.php" data-id="rr"  style="width: 100%;"><b>Add New Next of Kin</b></button>
                </div>
+  </form><!-- End floating Labels Form -->
+<br>
+  <label><b>--OR--</b></label>
+<br>
+
+
+  <form class="row g-3 needs-validation" method="post" action="" enctype="multipart/form-data" novalidate>
+
+<div class="col-md-6">
+          <div class="form-floating">
+					 <select type="text" class="form-control"  name="memno" placeholder="KinPostOfficeID"  >
+					
+						<?php 
+						$stmt122 = $conn->prepare("SELECT * FROM `tblmembers` ");
+						$stmt122->execute();
+						$result122 = $stmt122->get_result();
+						if ($result122->num_rows > 0) {
+						  // output data of each row
+						while($row122 = $result122->fetch_assoc()) {
+
+						?>
+					<option value="<?php echo $row122['MemberID']; ?>"><?php echo $row122['MemberNo']." ".$row122['MemberSurname']."  ".$row122['MemberFirstname']; ?></option>
+						<?php   }
+						} else {
+						  //echo "0 results";
+						} ?> 
+					</select>
+                    <label for="floatingName">Select Member:</label>
+				  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                  </div>
+				  </div>
+
+    <div class="col-md-6">
+          <div class="form-floating">
+					 <select type="text" class="form-control" name="kinno" placeholder="KinPostOfficeID"  >
+					
+						<?php 
+						$stmt121 = $conn->prepare("SELECT * FROM `tblnextofkin` ");
+						$stmt121->execute();
+						$result121 = $stmt121->get_result();
+						if ($result121->num_rows > 0) {
+						  // output data of each row
+						while($row121 = $result121->fetch_assoc()) {
+
+						?>
+					<option value="<?php echo $row121['NextOfKinID']; ?>"><?php echo $row121['NextOfKinID']." ".$row121['KinSurname']."  ".$row121['KinFirstNames']; ?></option>
+						<?php   }
+						} else {
+						 // echo "0 results";
+						} ?> 
+					</select>
+                    <label for="floatingName">Select Matching Next Of Kin:</label>
+				  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                  </div>
+				  </div>
+
+          <button type="submit" class="btn btn-warning" name="updatekin"  style="width: 100%;">Update Next Of Kin</button>
+
+
+</form>
+  
+
+
+
+
+
+
   <?php
 } ?> 
-              </form><!-- End floating Labels Form -->
+            
 
             </div>
           </div>

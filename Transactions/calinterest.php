@@ -12,7 +12,7 @@ $ttfundsrow = mysqli_fetch_assoc($ttfundsresult);
 $ttfunds = $ttfundsrow['SS'];
 
 
-          $stmt1 = $conn->prepare("SELECT `memberID`, `NewBalance` FROM `balances` ");
+$stmt1 = $conn->prepare("SELECT `memberID`, `NewBalance` FROM `balances` ");
 				
 				$stmt1->execute();
 				$result1 = $stmt1->get_result();
@@ -21,8 +21,11 @@ $ttfunds = $ttfundsrow['SS'];
 					$MemberNO = $row1['memberID'];
 					$ruuning_balance = $row1['NewBalance'];
 					
-					$fraction = ($ruuning_balance / $ttfunds);
-					$interest = $fraction *  $amount;
+					$fraction = ($ruuning_balance * 100) / $ttfunds;
+					//$franc = $fraction * 100;
+					$interest = ($fraction /100 ) *  $amount;
+
+
 					
 					$Newbalance = $ruuning_balance + $interest;
 
@@ -40,7 +43,7 @@ $ttfunds = $ttfundsrow['SS'];
 					$Comments = "";
 					$latest = 0;
 					
-					$insertnew = $conn->prepare("insert into `tblmemberaccounts` (
+$insertnew = $conn->prepare("insert into `tblmemberaccounts` (
 
   `TransactionDate`,
   `TransactionTypeID`,
@@ -79,69 +82,24 @@ $Newbalance,
 $Comments
 
 );
-
+$insertnew->execute();
 ////////////////////insert into Interest Table					
-if ($insertnew->execute()) {
-
+}
 $response = array(
-		'statusCode'=>200,
-		'success'=>"Member No - "
-		);
+					'statusCode'=>200,
+					'dones'=>"Interest Allocated"
+					);	
+					echo json_encode($response);	
 
- }else{
-
-	$response = array(
-		'statusCode'=>201,
-		'error'=>"No Interest Allocated"
-		);
-	echo json_encode($response);
-
-
-
-}					
-					
-				}
-				}else{
+}else{
 					$response = array(
-						'statusCode'=>201,
+						'statusCode'=>202,
 						'error'=>"No Members Found"
 						);
 					echo json_encode($response);
 				}			
 
-$vers = 1;
-	$updateinterests = $conn->prepare("insert into `tblinterestreceived` (
 
-		`InterestSourceID`,
-		`InterestStartDate`,
-		`InterestDate`,
-		`InterestAmount`,
-		`AllocationDate`,
-		`Allocated`
-	  
-	  )
-	  
-	  VALUES
-		(
-	  
-		  ?,
-		  ?,
-		  ?,
-		  ?,
-		  ?,
-		  ?
-		);");
-	  $updateinterests->bind_param("ssssss", 
-	  $sourceid, 
-	  $dates,
-	  $dates,
-	  $amount,
-	  $dates,
-	  $vers
-	  
-	  );
-
-	$updateinterests->execute();
 
 
 }

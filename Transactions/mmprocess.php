@@ -4,22 +4,25 @@ if(count($_POST)>0){
 $rr = $_POST['id'];
 /////////////retrieve adhoc record for corresponding adhoc id ///////////////////////////////////
 
-$stmtb = $conn->prepare("SELECT * FROM `qrybalance`");
+$stmtb = $conn->prepare("SELECT * FROM `member_fees`");
 //$stmtb->bind_param("s", $MemberID);
 $stmtb->execute();
 $resultb = $stmtb->get_result();
 if ($resultb->num_rows > 0) {
 while($rowb = $resultb->fetch_assoc()) {
 	//$prebalance = $rowb['NewBalance'];
-	
-	$prebalance = $rowb['NewBalance'];
-	$newb = $prebalance - 10;
-	$memberID = $rowb['memberID'];
+	$monthlyfee = $rowb['FixedMonthlyFee'];
+	$prebalance = $rowb['balance'];
+	$adminpercent = $rowb['AdminPercent'];
+	$newb1 = $prebalance - $adminpercent;
+	//$newb = $newb1  - $monthlyfee;
+	$MemberID = $rowb['MemberID'];
 	$pdate = date("d-m-Y");	
 	
-	
-	
-$insertnew = $conn->prepare("insert into `u747325399_fairlife`.`tblMemberAccounts1` (
+	$Details = "Admin Fees";
+	$TransactionTypeID = 7;	
+	$Credit = 0;
+$insertnew = $conn->prepare("insert into `tblmemberaccounts` (
 
   `TransactionDate`,
   `TransactionTypeID`,
@@ -53,7 +56,7 @@ $MemberID,
 $Details,
 $Credit,
 $prebalance,
-$AdHocPayment,
+$Amount,
 $newb,
 $Comments,
 
