@@ -170,16 +170,16 @@ if(count($_POST)>0){
                    
                     </tr>
                     <tr>
-                    <th >Full Name</th>
-                    <td ><?php echo $membername; ?></td>
-                    <th >MemberNo</th>
-					<td ><?php echo $memberno; ?></td>
-					<th >balance</th>
-					<td ><?php echo $runbalance; ?></td>
+                    <th colspan="1">Full Name</th>
+                    <td  colspan="1"><?php echo $membername; ?></td>
+                    <th  colspan="1">MemberNo</th>
+					<td  colspan="1"><?php echo $memberno; ?></td>
+					<th colspan="1">balance</th>
+					<td colspan="1"><?php echo $runbalance; ?></td>
 					</tr>
 										
 				<tr style="text-align: center; background: black; color: white;">
-                    <th width="100%">Beneficiary Report Summary</th>
+                    <th width="100%" colspan="6">Beneficiary Report Summary</th>
                    
                     </tr>	
 					</thead>
