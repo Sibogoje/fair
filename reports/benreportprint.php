@@ -231,7 +231,7 @@ $ttotherrow = $ttotherresult['Opening'];
 ?>
 
 
-<table class="table" width="100%">
+<table class="table" width="100%" style="border: 1px solid black;">
 
 <tr>    
 <th>Opening Amount</th>
