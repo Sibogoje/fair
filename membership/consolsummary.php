@@ -224,31 +224,7 @@ html.loading body {
   <!-- Template Main JS File -->
   <script src="../assets/js/main.js"></script>
 
-  <script>
-$('#all').click(function() {
-    var jk2 = $('#single option:selected').val();
-    //var from = $('#date1').val(); 
-	//	var to = $('#date2').val();
 
-  //var dataz = $("#user_form").serialize();
-		$.ajax({
-			data    : $("#user_form").serialize(),
-			type: "POST",
-			url: "consolcsv.php",
-			success: function(dataResult){
-					var dataResult = JSON.parse(dataResult);
-					if(dataResult.statusCode==200){
-					//	var rsuccess = (dataResult.rsuccess);
-	                       alert(rsuccess);  			
-                    // location.reload();						
-					}
-					else if(dataResult.statusCode==201){
-                     // var rerror = (dataResult.rerror);
-					//   alert(rerror);
-					}
-			}
-});
-});</script>
 
 
   <script>
