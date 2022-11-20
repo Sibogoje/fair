@@ -119,6 +119,25 @@ html.loading body {
               <h5 class="card-title">Choose Fund</h5>
 			  
 			  <form class="row g-3 needs-validation" id="user_form" method="post" action="" target="_blank"  enctype="multipart/form-data" novalidate>
+
+        <div class="col-md-6">
+				 <div class="form-floating">
+          <input type="date" class="form-control" id="from" placeholder="" name="from" required>
+          <label for="from">From</label>
+          <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                    </div>
+                  </div>
+          <div class="col-md-6">
+				 <div class="form-floating">
+          <input type="date" class="form-control" id="to" placeholder="" name="to" required>
+          <label for="to">To</label>
+          <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                    </div>
+                  </div>
 			 
 
   	             <div class="col-md-12">
