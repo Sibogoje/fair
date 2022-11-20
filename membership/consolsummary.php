@@ -278,7 +278,8 @@ alert("Please select fund to save report");
 <Script>
 
 	 $("#single").change(function(){
-		 
+		     var from = $('#from').val(); 
+	var to = $('#to').val();
 
         $(this).find("option:selected").each(function(){
             var annex = $(this).attr("value");
@@ -286,7 +287,7 @@ alert("Please select fund to save report");
 				  // alert(sss);
       $.ajax({
         url:"consolhistory.php",
-        data    : $("#user_form").serialize(),
+        data:{c_id:annex, from:from, to:to},
         type:'POST',
         success:function(response) {
           var resp = $.trim(response);
