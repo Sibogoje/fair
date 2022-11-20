@@ -286,7 +286,7 @@ alert("Please select fund to save report");
 				  // alert(sss);
       $.ajax({
         url:"consolhistory.php",
-        data:{c_id:annex},
+        data    : $("#user_form").serialize(),
         type:'POST',
         success:function(response) {
           var resp = $.trim(response);

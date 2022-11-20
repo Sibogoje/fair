@@ -140,7 +140,7 @@ echo "0 results";	}
  
      
 $stmt12 = $conn->prepare("SELECT SUM(`Amount`) AS `TT3` from `tblmemberaccounts` where  TransactionTypeID IN ('3', '4') 
-AND (`TransactionDate`  BETWEEN '$d1' AND '$d2')AND memberID = '$ii' ");
+AND (`TransactionDate` BETWEEN '$d1' AND '$d2') AND memberID = '$ii' ");
 						$stmt12->execute();
 						$result12 = $stmt12->get_result();
 						if ($result12->num_rows > 0) {
