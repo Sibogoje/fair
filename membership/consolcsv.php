@@ -34,7 +34,7 @@ if($query->num_rows > 0){
     $f = fopen('php://memory', 'w'); 
       $tyes = "";
     // Set column headers 
-    $fields = array("Member ID", "Full name", "Gender", "D O B", "Acc Opened", "Amount Appr.", "Income", "Expenses", "Payments", "Other Transactions",  "Balance"); 
+    $fields = array("Member NO", "Full name", "Gender", "D O B", "Acc Opened", "Amount Appr.", "Income", "Expenses", "Payments", "Other Transactions",  "Balance"); 
     fputcsv($f, $fields, $delimiter); 
      
     // Output each row of the data, format line as csv and write to file pointer 
