@@ -65,12 +65,9 @@ $stmt = $conn->prepare("SELECT * from tblmembers  ");
 					               $balance  = $row12['NewBalance']; 
 
 									 }}
-										
-		
-						    }
-						    
-						}
-						$stmt12 = $conn->prepare("SELECT SUM(`Amount`) AS `TT3` from `tblmemberaccounts` where  TransactionTypeID = '8' AND memberID = '$ii' ");
+
+
+                                     $stmt12 = $conn->prepare("SELECT SUM(`Amount`) AS `TT3` from `tblmemberaccounts` where  TransactionTypeID = '8' AND memberID = '$ii' ");
 						$stmt12->execute();
 						$result12 = $stmt12->get_result();
 						if ($result12->num_rows > 0) {
@@ -88,40 +85,36 @@ $stmt = $conn->prepare("SELECT * from tblmembers  ");
 						        
 						        $expenses = number_format($row12['TT3'], 2);
 						    }}
-						    
-						    
-						    $stmt12 = $conn->prepare("SELECT SUM(`Amount`) AS `TT3` from `tblmemberaccounts` where  TransactionTypeID IN ('3', '4') AND memberID = '$ii' ");
-						$stmt12->execute();
-						$result12 = $stmt12->get_result();
-						if ($result12->num_rows > 0) {
-						    while($row12 = $result12->fetch_assoc()) {
-						        
-						        $payments = number_format($row12['TT3'], 2);
-						    }}
-						    
-						    $stmt12 = $conn->prepare("SELECT SUM(`Amount`) AS `TT3` from `tblmemberaccounts` where  TransactionTypeID = '10' AND memberID = '$ii' ");
-						$stmt12->execute();
-						$result12 = $stmt12->get_result();
-						if ($result12->num_rows > 0) {
-						    while($row12 = $result12->fetch_assoc()) {
-						        
-						        $other  = number_format($row12['TT3'], 2);
-						    }}
+
+
+                            $stmt12 = $conn->prepare("SELECT SUM(`Amount`) AS `TT3` from `tblmemberaccounts` where  TransactionTypeID IN ('3', '4') AND memberID = '$ii' ");
+                            $stmt12->execute();
+                            $result12 = $stmt12->get_result();
+                            if ($result12->num_rows > 0) {
+                                while($row12 = $result12->fetch_assoc()) {
+                                    
+                                    $payments = number_format($row12['TT3'], 2);
+                                }}
+                                
+                                $stmt12 = $conn->prepare("SELECT SUM(`Amount`) AS `TT3` from `tblmemberaccounts` where  TransactionTypeID = '10' AND memberID = '$ii' ");
+                            $stmt12->execute();
+                            $result12 = $stmt12->get_result();
+                            if ($result12->num_rows > 0) {
+                                while($row12 = $result12->fetch_assoc()) {
+                                    
+                                    $other  = number_format($row12['TT3'], 2);
+                                }}
 
 
 
 
 
 
-
-
-								
-							
-        $lineData = array($memberno,$name, $national, $dob, $accountopen,  $approved, $income, $expenses, $payments, $other,  $balance ); 
-        fputcsv($f, $lineData, $delimiter); 
-    
-
-
+										
+                                $lineData = array($memberno,$name, $national, $dob, $accountopen,  $approved, $income, $expenses, $payments, $other,  $balance ); 
+                                fputcsv($f, $lineData, $delimiter); 
+						    }
+                            
     // Move back to beginning of file 
     fseek($f, 0); 
      
@@ -133,7 +126,9 @@ $stmt = $conn->prepare("SELECT * from tblmembers  ");
     fpassthru($f); 
    
  
-exit; 
+
+}
+exit;
 }
 ?>
 
