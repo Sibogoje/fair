@@ -35,8 +35,8 @@ $stmt = $conn->prepare("SELECT * from tblmembers where MemberID = '$ii' ");
                     <td scope="col"><?php echo $rowz['F_ID']; ?></td>
                     <th scope="col" style="vertical-align: top;">MemberNo</th>
 					<td scope="col"><?php echo $row['MemberNo']; ?></td>
-					<th scope="col" style="vertical-align: top;">National ID</th>
-					<td scope="col"><?php echo $row['MemberIDnumber']; ?></td>
+					<th scope="col" style="vertical-align: top;">Gender</th>
+					<td scope="col"><?php echo $row['Gender']; ?></td>
 					</tr>
 					
 					
