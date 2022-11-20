@@ -43,7 +43,7 @@ if(count($_POST)>0){
 $ii = $row['MemberID'];
 
 
-$stmt = $conn->prepare("SELECT * from tblmembers  ");
+$stmt = $conn->prepare("SELECT * from tblmembers where `Terminated` = '0' ");
 						$stmt->execute();
 						$result = $stmt->get_result();
 						if ($result->num_rows > 0) {
@@ -57,7 +57,7 @@ $stmt = $conn->prepare("SELECT * from tblmembers  ");
 						      $accountopen = $row['DateAccountOpened'];
 						      $approved  = number_format($row['ApprovedBenefit'], 2);
 							 
-							  $stmt12 = $conn->prepare("SELECT `NewBalance` from `balances` where  `memberID` = '$ii' ");
+							  $stmt12 = $conn->prepare("SELECT `NewBalance` from `balances` where  `memberID` = '$memberid' ");
 								 $stmt12->execute();
 								 $result12 = $stmt12->get_result();
 								 if ($result12->num_rows > 0) {
@@ -106,20 +106,7 @@ $stmt = $conn->prepare("SELECT * from tblmembers  ");
                                     $other  = number_format($row12['TT3'], 2);
                                 }}
 
-                                $stmt12 = $conn->prepare("SELECT NewBalance  from `balances` where   memberID = '$memberid' ");
-                                $stmt12->execute();
-                                $result12 = $stmt12->get_result();
-                                if ($result12->num_rows > 0) {
-                                    while($row12 = $result12->fetch_assoc()) {
-                                        
-                                        $balance = number_format($row12['NewBalance'], 2);
-                                    }}
-
-
-
-
-
-
+                               
 										
                                 $lineData = array($memberno,$name, $national, $dob, $accountopen,  $approved, $income, $expenses, $payments, $other,  $balance ); 
                                 fputcsv($f, $lineData, $delimiter); 
