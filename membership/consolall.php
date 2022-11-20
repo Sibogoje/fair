@@ -2,8 +2,8 @@
 <?php
 require_once '../scripts/connection.php';
 $ff = $_POST['single'];
-	// $d1=$_POST['date1'];
-	// $d2=$_POST['date2'];
+	 $d1=$_POST['from'];
+	 $d2=$_POST['to'];
 
 
 
@@ -69,7 +69,7 @@ $stmt = $conn->prepare("SELECT * from tblmembers where `Terminated` = '0' ");
 
 
                                      $stmt12 = $conn->prepare("SELECT SUM(`Amount`) AS `TT3` from `tblmemberaccounts` where  TransactionTypeID = '8' AND (`TransactionDate` 
-                                     BETWEEN '2022-08-31' AND '2022-09-30')  AND memberID = '$memberid' ");
+                                     BETWEEN '$d1' AND '$d2')  AND memberID = '$memberid' ");
 						$stmt12->execute();
 						$result12 = $stmt12->get_result();
 						if ($result12->num_rows > 0) {
@@ -80,7 +80,7 @@ $stmt = $conn->prepare("SELECT * from tblmembers where `Terminated` = '0' ");
 						    }}
 						    
 						    $stmt12 = $conn->prepare("SELECT SUM(`Amount`) AS `TT3` from `tblmemberaccounts` where  TransactionTypeID IN ('2','5', '6','7' ) AND (`TransactionDate` 
-                            BETWEEN '2022-08-31' AND '2022-09-30') AND memberID = '$memberid' ");
+                            BETWEEN '$d1' AND '$d2') AND memberID = '$memberid' ");
 						$stmt12->execute();
 						$result12 = $stmt12->get_result();
 						if ($result12->num_rows > 0) {
@@ -91,7 +91,7 @@ $stmt = $conn->prepare("SELECT * from tblmembers where `Terminated` = '0' ");
 
 
                             $stmt12 = $conn->prepare("SELECT SUM(`Amount`) AS `TT3` from `tblmemberaccounts` where  TransactionTypeID IN ('3', '4') AND (`TransactionDate` 
-                            BETWEEN '2022-08-31' AND '2022-09-30') AND memberID = '$memberid' ");
+                            BETWEEN '$d1' AND '$d2') AND memberID = '$memberid' ");
                             $stmt12->execute();
                             $result12 = $stmt12->get_result();
                             if ($result12->num_rows > 0) {
@@ -101,7 +101,7 @@ $stmt = $conn->prepare("SELECT * from tblmembers where `Terminated` = '0' ");
                                 }}
                                 
                                 $stmt12 = $conn->prepare("SELECT SUM(`Amount`) AS `TT3` from `tblmemberaccounts` where  TransactionTypeID = '10' AND (`TransactionDate` 
-                                BETWEEN '2022-08-31' AND '2022-09-30') AND memberID = '$memberid' ");
+                                BETWEEN '$d1' AND '$d2') AND memberID = '$memberid' ");
                             $stmt12->execute();
                             $result12 = $stmt12->get_result();
                             if ($result12->num_rows > 0) {

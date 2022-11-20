@@ -2,8 +2,8 @@
 <?php
 require_once '../scripts/connection.php';
 $ff = $_POST['single'];
-	// $d1=$_POST['date1'];
-	// $d2=$_POST['date2'];
+	 $d1=$_POST['from'];
+	 $d2=$_POST['to'];
 
 
 
