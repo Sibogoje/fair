@@ -135,7 +135,7 @@ $activerow = mysqli_fetch_assoc($activeresult);
 $active = $activerow['ttactive'];
 
 
-$terminatedresult = mysqli_query($conn, 'SELECT COUNT(`MemberNo`) FROM tblmembers where `Terminated` = "1"'); 
+$terminatedresult = mysqli_query($conn, "SELECT COUNT(`MemberNo`) as 'ttterminated' FROM tblmembers where `Terminated` = '1' "); 
 $terminatedrow = mysqli_fetch_assoc($terminatedresult); 
 $terminated = $terminatedrow['ttterminated'];
 ?>
