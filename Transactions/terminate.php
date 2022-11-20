@@ -28,7 +28,7 @@ $percent  = $row['TerminationFeePercent'];
 
 $Amount = ($percent/100) * $balance;
 $newbalance = $balance - $Amount;
-$TransactionTypeID = '11';
+$TransactionTypeID = '12';
 $insertnew = $conn->prepare("insert into `tblmemberaccounts` (
 
     `TransactionDate`,
@@ -65,6 +65,24 @@ $insertnew = $conn->prepare("insert into `tblmemberaccounts` (
   $balance,
   $Amount,
   $newbalance,
+  $Comments
+  
+  );
+
+  $insertnew->execute();
+  $TransactionTypeID = '11';
+  $finalbalance = 0.00;
+  $Detailsfinal = 'Final Transaction';
+  
+  $insertnew->bind_param("sssssssss", 
+  $PaymentDate, 
+  $TransactionTypeID,
+  $MemberID,
+  $Detailsfinal,
+  $Credit,
+  $balance,
+ $newbalance,
+  $finalbalance,
   $Comments
   
   );
