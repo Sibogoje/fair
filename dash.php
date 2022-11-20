@@ -130,7 +130,7 @@ $ttfunds = $ttfundsrow['ttfunds'];
                 </div>
 <?php
 
-$activeresult = mysqli_query($conn, 'SELECT ttactive FROM mbrs_active'); 
+$activeresult = mysqli_query($conn, "SELECT COUNT(`MemberNo`) FROM tblmembers where `Terminated` = 0"); 
 $activerow = mysqli_fetch_assoc($activeresult); 
 $active = $activerow['ttactive'];
 
