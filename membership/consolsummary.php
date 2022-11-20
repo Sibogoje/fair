@@ -118,7 +118,7 @@ html.loading body {
             <div class="card-body">
               <h5 class="card-title">Choose Fund</h5>
 			  
-			  <form class="row g-3 needs-validation" id="user_form" method="post" action="consolcsv.php" target="_blank"  enctype="multipart/form-data" novalidate>
+			  <form class="row g-3 needs-validation" id="user_form" method="post" action="" target="_blank"  enctype="multipart/form-data" novalidate>
 			 
 
   	             <div class="col-md-12">
@@ -158,7 +158,7 @@ html.loading body {
 
         <br/>
   <div class="text-center">
-                  <button type="submit" class="btn btn-warning"  id="" data-id="rr"  style="width: 100%;">Export To CSV</button>
+                  <button type="submit" class="btn btn-warning" formaction="consolcsv.php"  id="" data-id="rr"  style="width: 100%;">Export To CSV</button>
                </div>
                <div class="text-center">
                   <button type="submit" class="btn btn-warning" formaction="consolall.php"  id="" data-id="rr"  style="width: 100%;">Export All To CSV</button>
