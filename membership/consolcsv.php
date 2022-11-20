@@ -34,7 +34,7 @@ if($query->num_rows > 0){
     $f = fopen('php://memory', 'w'); 
       $tyes = "";
     // Set column headers 
-    $fields = array("Member ID", "Full name", "National ID", "D O B", "Acc Opened", "Amount Appr.", "Income", "Expenses", "Payments", "Other Transactions",  "Balance"); 
+    $fields = array("Member ID", "Full name", "Gender", "D O B", "Acc Opened", "Amount Appr.", "Income", "Expenses", "Payments", "Other Transactions",  "Balance"); 
     fputcsv($f, $fields, $delimiter); 
      
     // Output each row of the data, format line as csv and write to file pointer 
@@ -51,7 +51,7 @@ $stmt = $conn->prepare("SELECT * from tblmembers where MemberID = '$ii' ");
 						        
 						      $name =  $row['MemberFirstname']." ".$row['MemberSurname']; 
 						      $memberno = $row['MemberNo'];
-						      $national = $row['MemberIDnumber'];
+						      $national = $row['Gender'];
 						      $dob = $row['DateOfBirth'];
 						      $accountopen = $row['DateAccountOpened'];
 						      $approved  = number_format($row['ApprovedBenefit'], 2);
