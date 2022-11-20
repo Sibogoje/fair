@@ -160,6 +160,9 @@ html.loading body {
   <div class="text-center">
                   <button type="submit" class="btn btn-warning"  id="" data-id="rr"  style="width: 100%;">Export To CSV</button>
                </div>
+               <div class="text-center">
+                  <button type="submit" class="btn btn-warning" formaction="consolall.php"  id="" data-id="rr"  style="width: 100%;">Export All To CSV</button>
+               </div>
 				  
 				  
               </form><!-- End floating Labels Form -->
@@ -220,6 +223,34 @@ html.loading body {
 
   <!-- Template Main JS File -->
   <script src="../assets/js/main.js"></script>
+
+  <script>
+$('#all').click(function() {
+    var jk2 = $('#single option:selected').val();
+    //var from = $('#date1').val(); 
+	//	var to = $('#date2').val();
+
+  //var dataz = $("#user_form").serialize();
+		$.ajax({
+			data    : $("#user_form").serialize(),
+			type: "POST",
+			url: "consolcsv.php",
+			success: function(dataResult){
+					var dataResult = JSON.parse(dataResult);
+					if(dataResult.statusCode==200){
+					//	var rsuccess = (dataResult.rsuccess);
+	                       alert(rsuccess);  			
+                    // location.reload();						
+					}
+					else if(dataResult.statusCode==201){
+                     // var rerror = (dataResult.rerror);
+					//   alert(rerror);
+					}
+			}
+});
+});</script>
+
+
   <script>
 $('#xxx').click(function() {
     var jk2 = $('#single option:selected').val();
