@@ -42,7 +42,7 @@ VALUES
     
 
   );");
-$stmt->bind_param("sssssssssss", 
+$stmt->bind_param("ssssssss", 
 $KinSurname,
 $KinFirstNames,
 $KinPostalAddress,
