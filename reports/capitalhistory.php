@@ -49,7 +49,7 @@ $stmt12 = $conn->prepare("SELECT
 		<table class="table datatable"  id="free">
 			<thead>
                   <tr>
-                       <th scope="col">Member ID</th>
+                    <th scope="col">Member ID</th>
                     <th scope="col">TransactionDate</th>
                     <th scope="col">Details</th>
                     <th scope="col">Type</th>

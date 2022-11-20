@@ -173,7 +173,7 @@ html.loading body {
 
 	
 				     <div class="text-center" >
-                  <button type="submit"  class="btn btn-warning add" id="xxx" data-link="" data-id="rr"  style="width: 100%;"><b>Download Transaction History as CSV</b></button>
+                  <button type="submit"  class="btn btn-warning add" id="xxx" data-link="" data-id="rr"  style="width: 100%;"><b>Download Fees report as CSV</b></button>
                </div>
 			   
 				  
