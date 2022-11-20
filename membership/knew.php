@@ -56,7 +56,7 @@ $stmt->execute();
 
 echo "New records created successfully";
 header("Location: index.php");
-}
+
 $stmt->close();
 $conn->close();
 }else{
