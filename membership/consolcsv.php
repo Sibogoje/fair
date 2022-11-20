@@ -117,7 +117,7 @@ $stmt = $conn->prepare("SELECT * from tblmembers where MemberID = '$ii' ");
 
 								
 							
-        $lineData = array($ii,$name, $national, $dob, $accountopen,  $approved, $income, $expenses, $payments, $other,  $balance ); 
+        $lineData = array($memberno,$name, $national, $dob, $accountopen,  $approved, $income, $expenses, $payments, $other,  $balance ); 
         fputcsv($f, $lineData, $delimiter); 
     } 
 
