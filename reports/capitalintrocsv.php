@@ -50,6 +50,12 @@ if($query->num_rows > 0){
     // Output each row of the data, format line as csv and write to file pointer 
     while($row = $query->fetch_assoc()){ 
       //  $status = ($row['status'] == 1)?'Active':'Inactive'; 
+      $statement->bind_param("s", $row['memberID']);
+							$statement->execute();
+							$result = $statement->get_result();
+							$rowB = $result->fetch_assoc();
+							$statement->close();
+							//$memberID = $rowB['MemberNo'];
      
 							if ($row['Credit'] == "1"){
 								$tyes = "Credit";
@@ -57,7 +63,7 @@ if($query->num_rows > 0){
 								$tyes = "Debit";
 								
 							}
-        $lineData = array($row['memberID'],$row['TransactionDate'], $row['Details'], $tyes, $row['Comments'], $row['StartingBalance'], $row['Amount'], $row['NewBalance']); 
+        $lineData = array($rowB['MemberNo'],$row['TransactionDate'], $row['Details'], $tyes, $row['Comments'], $row['StartingBalance'], $row['Amount'], $row['NewBalance']); 
         fputcsv($f, $lineData, $delimiter); 
     } 
 
