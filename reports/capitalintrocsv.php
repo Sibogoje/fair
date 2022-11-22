@@ -50,6 +50,7 @@ if($query->num_rows > 0){
     // Output each row of the data, format line as csv and write to file pointer 
     while($row = $query->fetch_assoc()){ 
       //  $status = ($row['status'] == 1)?'Active':'Inactive'; 
+      $statement = $conn->prepare("SELECT MemberNo FROM `tblmembers` WHERE `memberID` = ?");
       $statement->bind_param("s", $row['memberID']);
 							$statement->execute();
 							$result = $statement->get_result();
