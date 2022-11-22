@@ -64,6 +64,14 @@ $stmt12 = $conn->prepare("SELECT
           
 		   <?php
 						while($row12 = $result12->fetch_assoc()) {
+							$statement = $conn->prepare("SELECT MemberNo FROM `tblmembers` WHERE `memberID` = ?");
+							$statement->bind_param("s", $row12['memberID']);
+							$statement->execute();
+							$result = $statement->get_result();
+							$row = $result->fetch_assoc();
+							$statement->close();
+							$memberID = $row['MemberNo'];
+						
 							$tyes = "";
 							if ($row12['Credit'] == "1"){
 								$tyes = "Cr";
@@ -75,7 +83,7 @@ $stmt12 = $conn->prepare("SELECT
 							
 ?>							
 <tr>
-     <th scope="row"><?php echo $row12['memberID']; ?></th>
+     <th scope="row"><?php echo $memberID; ?></th>
                     <th scope="row"><?php echo $row12['TransactionDate']; ?></th>
                     <td><?php echo $row12['Details']; ?></td>
                     <td><?php echo $tyes; ?></td>
