@@ -10,7 +10,7 @@ $TransactionDate = date("Y-m-d");
 $TransactionTypeID = 10;
 $Details = "Reversal";
 
-$stmt = $conn->prepare("SELECT `StartingBalance`, `NewBalance` FROM `balances` where `M_ID`='$member' ");
+$stmt = $conn->prepare("SELECT `StartingBalance`, `NewBalance` FROM `balances` where `memberID`='$member' ");
 //$stmt->bind_param("ssss", $id, $d1, $d2, $active);
 $stmt->execute();
 $result = $stmt->get_result();
