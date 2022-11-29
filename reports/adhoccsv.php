@@ -68,7 +68,7 @@ if($query->num_rows > 0){
 								$tyes = "Debit";
 								
 							}
-        $lineData = array($member3 ,$row['TransactionDate'], $row['Details'], $tyes, $row['Comments'], $row['StartingBalance'], $row['Amount'], $row['NewBalance']); 
+        $lineData = array($row['memberID'],$row['TransactionDate'], $row['Details'], $tyes, $row['Comments'], $row['StartingBalance'], $row['Amount'], $row['NewBalance']); 
         fputcsv($f, $lineData, $delimiter); 
     } 
 
