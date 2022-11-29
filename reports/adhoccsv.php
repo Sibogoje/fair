@@ -50,6 +50,14 @@ if($query->num_rows > 0){
     // Output each row of the data, format line as csv and write to file pointer 
     while($row = $query->fetch_assoc()){ 
       //  $status = ($row['status'] == 1)?'Active':'Inactive'; 
+
+      $member = "SELECT MemberNo FROM `tblmembers` WHERE `memberID` = '".$row['memberID']."' ";
+      $member1 = $conn->query($member);
+      $member2 = $member1->fetch_assoc();
+      $member3 = $member2['MemberNo'];
+     // $member4 = $member2['FirstName'];
+     // $member5 = $member2['LastName'];
+    //  $member6 = $member2['MemberNumber'];
      
 							if ($row['Credit'] == "1"){
 								$tyes = "Credit";
@@ -57,7 +65,7 @@ if($query->num_rows > 0){
 								$tyes = "Debit";
 								
 							}
-        $lineData = array($row['memberID'],$row['TransactionDate'], $row['Details'], $tyes, $row['Comments'], $row['StartingBalance'], $row['Amount'], $row['NewBalance']); 
+        $lineData = array($member3 ,$row['TransactionDate'], $row['Details'], $tyes, $row['Comments'], $row['StartingBalance'], $row['Amount'], $row['NewBalance']); 
         fputcsv($f, $lineData, $delimiter); 
     } 
 
