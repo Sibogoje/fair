@@ -51,13 +51,16 @@ if($query->num_rows > 0){
     while($row = $query->fetch_assoc()){ 
       //  $status = ($row['status'] == 1)?'Active':'Inactive'; 
 
-      $member = "SELECT MemberNo FROM `tblmembers` WHERE `memberID` = '".$row['memberID']."' ";
-      $member1 = $conn->query($member);
-      $member2 = $member1->fetch_assoc();
-      $member3 = $member2['MemberNo'];
-     // $member4 = $member2['FirstName'];
-     // $member5 = $member2['LastName'];
-    //  $member6 = $member2['MemberNumber'];
+      $stmt12 = $conn->prepare("SELECT MemberNo FROM tblmembers WHERE MemberID = ? ");
+      $stmt12->bind_param("s", $row['memberID']);
+						$stmt12->execute();
+						$result12 = $stmt12->get_result();
+						if ($result12->num_rows > 0) {
+						    while($row12 = $result12->fetch_assoc()) {
+						        
+                  $member3  = $row12['MemberNo'];
+						    }}
+
      
 							if ($row['Credit'] == "1"){
 								$tyes = "Credit";
