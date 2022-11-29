@@ -422,7 +422,7 @@ while($row = $resultz->fetch_assoc()) {
             </a>
           </li>
           <?php } ?>
-<?php if ($role == 'admin'){ ?>		  
+<?php if ($role == 'admin' || $role=='Operations'){ ?>		  
            <li>
             <a href="https://fair.liquag.com/reports/adhocreport.php">
               <i class="bi bi-circle"></i><span>Adhoc Report</span>
