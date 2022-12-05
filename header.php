@@ -333,7 +333,7 @@ while($row = $resultz->fetch_assoc()) {
             </a>
           </li>
 <?php } ?>
-<?php if ($role == 'admin' ){ ?>          
+<?php if ($role == 'admin' || $role == 'Operations' ){ ?>          
 		   <li>
             <a href="https://fair.liquag.com/Transactions/terminate.php">
               <i class="bi bi-circle"></i><span>Terminate Member</span>
