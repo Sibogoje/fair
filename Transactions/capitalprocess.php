@@ -15,7 +15,7 @@ $PaymentDate = $row['PaymentDate'];
 $Details = $row['Details'];
 $AdHocPayment = $row['Amount'];
 $Comments = $row['Comments'];
-$pdate = date("d-m-Y");	
+$pdate = date("Y-m-d");	
 $TransactionTypeID = 9;
 $Credit = 1;
 
@@ -70,13 +70,13 @@ $Comments
 
 );
 $insertnew->execute();
-
+$Credit = 0;
 $TransactionTypeID = 5;
 $AdHocPayment1 = ($AdHocPayment * 0.01);
 $newbb = $newb - $AdHocPayment1;
 $Details = "Additional Capital Fee";
 $insertnew->bind_param("sssssssss", 
-$PaymentDate, 
+$pdate, 
 $TransactionTypeID,
 $MemberID,
 $Details,
